@@ -4,7 +4,7 @@
    une seule couleur d'accent. Changez --accent pour tout reteinter.
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root{
   /* · palette · */
@@ -17,15 +17,15 @@
   --rule:#e3dfd6;
 
   /* · accent unique · */
-  --accent:#d6371f;          /* rouge vermillon */
+  --accent:#0e6b60;          /* vert pétrole */
   --gold:var(--accent);
   /* les rubriques partagent l'accent (différenciées par le mot, pas la couleur) */
-  --philo:#d6371f;
-  --psycho:#d6371f;
-  --religion:#d6371f;
+  --philo:#0e6b60;
+  --psycho:#0e6b60;
+  --religion:#0e6b60;
 
   /* · polices · */
-  --display:"Hanken Grotesk",system-ui,sans-serif;
+  --display:"Fraunces",Georgia,serif;
   --body:"Newsreader",Georgia,serif;
 
   --measure:40rem;
@@ -63,7 +63,7 @@ a:hover{text-decoration:underline;text-underline-offset:3px;}
 .brand .name{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.01em;}
 .brand:hover{text-decoration:none;}
 .site-nav{display:flex;gap:1.3rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:1rem;}
-.site-nav a{color:var(--ink-soft);letter-spacing:.005em;}
+.site-nav a{color:var(--ink-soft);letter-spacing:.005em;white-space:nowrap;flex:0 0 auto;}
 .site-nav a:hover{color:var(--accent);text-decoration:none;}
 .site-nav a[data-r]:hover{color:var(--accent);}
 
@@ -198,3 +198,10 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
   .site-nav::-webkit-scrollbar{display:none;}
   .reading{padding:0 1.4rem;}
 }
+
+/* ----- en-têtes illustrés ----- */
+.article-head .band{margin:0 0 1.15rem;height:50px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 60%,transparent);mask-image:linear-gradient(90deg,#000 0,#000 60%,transparent);}
+.article-head .band .band-svg{height:50px;width:100%;display:block;}
+.emblem-rule{display:flex;align-items:center;gap:1rem;margin-top:1.3rem;}
+.emblem-rule .ln{height:1px;background:var(--rule);flex:1;}
+.emblem-rule .emblem{flex:0 0 auto;}
