@@ -166,3 +166,38 @@ a:hover{text-decoration:underline;text-underline-offset:3px;}
   .verse{font-size:1.25rem;}
   .site-nav{font-size:1.05rem;gap:1rem;}
 }
+
+/* ===================================================================
+   REFONTE STRUCTURELLE — en-tête collant, filtre, footer enrichi
+   =================================================================== */
+.site-header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,237,223,.9);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+
+/* barre de filtre des essais */
+.filterbar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.4rem auto 2.4rem;}
+.filter-pill{
+  font-family:"Cormorant Garamond",serif;font-size:1.12rem;letter-spacing:.02em;
+  color:var(--ink-soft);background:transparent;border:1px solid var(--rule);
+  border-radius:2rem;padding:.4rem 1.2rem;cursor:pointer;transition:all .18s;
+}
+.filter-pill:hover{color:var(--ink);border-color:var(--ink-faint);}
+.filter-pill.active{color:var(--paper);background:var(--ink);border-color:var(--ink);}
+.filter-pill.active[data-f="philo"]{background:var(--philo);border-color:var(--philo);}
+.filter-pill.active[data-f="psycho"]{background:var(--psycho);border-color:var(--psycho);}
+.filter-pill.active[data-f="religion"]{background:var(--religion);border-color:var(--religion);}
+
+/* carte masquée par le filtre */
+.entry.hidden{display:none;}
+
+/* footer enrichi */
+.site-footer .foot-nav{
+  display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;
+  margin:1.1rem 0 .7rem;font-family:"Cormorant Garamond",serif;font-size:1.12rem;
+}
+.site-footer .foot-nav a{color:var(--ink-soft);}
+.site-footer .foot-nav a:hover{color:var(--religion);text-decoration:none;}
+.site-footer a{color:var(--ink-soft);}
+.site-footer .copy{font-size:.95rem;color:var(--ink-faint);margin-top:.5rem;}

@@ -3,115 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Majmaʿ — philosophie · psychologie · religion</title>
-<meta name="description" content="Une revue d'idées au confluent de la philosophie, de la psychologie et de la religion.">
+<title>Majmaʿ — revue d’idées : philosophie, psychologie, religion</title>
+<meta name="description" content="Une revue d’essais au croisement de la philosophie, de la psychologie et de la religion, où les textes anciens se relisent à neuf.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div id="progress"></div>
 
-<!-- EN-TÊTE (identique sur toutes les pages) -->
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html">
-      <span class="mark">مجمع</span>
-      <span class="name">Majmaʿ</span>
-    </a>
+    <a class="brand" href="index.html"><span class="mark">مجمع</span><span class="name">Majmaʿ</span></a>
     <nav class="site-nav">
       <a href="index.html">Accueil</a>
-      <a href="#rubriques" data-r="philo">Philosophie</a>
-      <a href="#rubriques" data-r="psycho">Psychologie</a>
-      <a href="#rubriques" data-r="religion">Religion</a>
-      <a href="#apropos">À propos</a>
+      <a href="index.html#philosophie" data-r="philo">Philosophie</a>
+      <a href="index.html#psychologie" data-r="psycho">Psychologie</a>
+      <a href="index.html#religion" data-r="religion">Religion</a>
+      <a href="index.html#apropos">À propos</a>
     </nav>
   </div>
 </header>
 
-<!-- HÉRO -->
 <section class="hero">
   <p class="ar">مَجْمَعَ الْبَحْرَيْنِ</p>
   <h1>Le confluent des idées</h1>
-  <p class="lede">Une revue où la philosophie, la psychologie et la religion se lisent ensemble — et où les textes anciens se relisent à neuf.</p>
+  <p class="lede">Une revue d’essais au croisement de la philosophie, de la psychologie et de la religion — où les textes anciens se relisent à neuf.</p>
   <div class="orn">⁕ ⁕ ⁕</div>
 </section>
 
-<!-- RUBRIQUES -->
-<div class="wrap">
-  <h2 class="section-title" id="rubriques">Les rubriques</h2>
-  <p class="section-sub">Trois entrées vers une même question : comment l'esprit humain cherche le sens.</p>
-  <div class="rubriques">
-    <a class="rub" href="#articles" style="--c:var(--philo);">
-      <span class="ar">فلسفة</span>
-      <span class="label">Philosophie</span>
-      <p>Les grandes questions sur l'être, la connaissance et le bien — d'hier à aujourd'hui.</p>
-    </a>
-    <a class="rub" href="#articles" style="--c:var(--psycho);">
-      <span class="ar">نفس</span>
-      <span class="label">Psychologie</span>
-      <p>L'âme et ses profondeurs : Jung, l'inconscient, l'ombre, le chemin vers soi.</p>
-    </a>
-    <a class="rub" href="#articles" style="--c:var(--religion);">
-      <span class="ar">دين</span>
-      <span class="label">Religion</span>
-      <p>Relectures du Coran et des textes sacrés, dans le sillage des penseurs du renouveau.</p>
-    </a>
+<section class="wrap" id="essais">
+  <h2 class="section-title">Les essais</h2>
+  <p class="section-sub">Filtrez par rubrique, ou parcourez l’ensemble.</p>
+
+  <div class="filterbar" role="tablist" aria-label="Filtrer par rubrique">
+    <button class="filter-pill active" data-f="all">Tous</button>
+    <button class="filter-pill" data-f="philo">Philosophie</button>
+    <button class="filter-pill" data-f="psycho">Psychologie</button>
+    <button class="filter-pill" data-f="religion">Religion</button>
   </div>
-</div>
 
-<!-- ARTICLES -->
-<div class="wrap">
-  <h2 class="section-title" id="articles">Derniers articles</h2>
-  <p class="section-sub">Le commencement d'une bibliothèque.</p>
-  <div class="articles">
+  <div class="articles" id="grid">
 
-    <a class="entry" href="le-confluent-des-deux-mers.html">
-      <span class="tag" data-r="religion">Psychologie · Religion</span>
-      <h3>Le Confluent des deux mers</h3>
-      <p class="dek">Jung avait lu le Coran. Dans l'histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi. Lecture croisée d'un récit et d'une carte de l'âme.</p>
-      <span class="meta">Essai · ~12 min</span>
-    </a>
-
-    <a class="entry" href="shahrour-le-livre-et-le-coran.html">
-      <span class="tag" data-r="religion">Religion</span>
-      <h3>Shahrour : le Livre et le Coran</h3>
-      <p class="dek">Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? Introduction à la méthode de Muhammad Shahrour et à sa relecture des mots-clés.</p>
-      <span class="meta">Introduction · ~10 min</span>
-    </a>
-
-    <a class="entry" href="ombre-et-nafs.html">
-      <span class="tag" data-r="psycho">Psychologie · Religion</span>
-      <h3>L’ombre et le nafs</h3>
-      <p class="dek">L’ombre de Jung et les trois stations du nafs coranique — ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.</p>
-      <span class="meta">Essai · ~11 min</span>
-    </a>
-
-    <a class="entry" href="averroes-la-raison.html">
+    <a class="entry" data-rubriques="philo religion" href="averroes-la-raison.html">
       <span class="tag" data-r="philo">Philosophie · Religion</span>
       <h3>Averroès et le droit de la raison</h3>
       <p class="dek">« La vérité ne contredit pas la vérité. » Comment Ibn Rushd a fondé, au XIIᵉ siècle, le droit de lire l’Écriture avec la raison — la source dont Shahrour et les réformistes sont les héritiers.</p>
       <span class="meta">Essai · ~12 min</span>
     </a>
 
+    <a class="entry" data-rubriques="psycho religion" href="ombre-et-nafs.html">
+      <span class="tag" data-r="psycho">Psychologie · Religion</span>
+      <h3>L’ombre et le nafs</h3>
+      <p class="dek">L’ombre de Jung et les trois stations du nafs coranique — ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.</p>
+      <span class="meta">Essai · ~11 min</span>
+    </a>
+
+    <a class="entry" data-rubriques="religion" href="shahrour-le-livre-et-le-coran.html">
+      <span class="tag" data-r="religion">Religion</span>
+      <h3>Shahrour : le Livre et le Coran</h3>
+      <p class="dek">Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? Introduction à la méthode de Muhammad Shahrour et à sa relecture des mots-clés.</p>
+      <span class="meta">Introduction · ~10 min</span>
+    </a>
+
+    <a class="entry" data-rubriques="psycho religion" href="le-confluent-des-deux-mers.html">
+      <span class="tag" data-r="religion">Psychologie · Religion</span>
+      <h3>Le Confluent des deux mers</h3>
+      <p class="dek">Jung avait lu le Coran. Dans l’histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi. Lecture croisée d’un récit et d’une carte de l’âme.</p>
+      <span class="meta">Essai · ~12 min</span>
+    </a>
+
   </div>
-</div>
+</section>
 
-<!-- À PROPOS -->
-<div class="reading" id="apropos">
+<section class="reading" id="apropos">
   <h2 class="section-title">À propos</h2>
-  <p style="text-align:justify;hyphens:auto;">Ce site rassemble des lectures personnelles, à la croisée de la philosophie, de la psychologie des profondeurs et d'une approche du texte coranique attentive à ses sens cachés. Il s'inscrit dans l'esprit des penseurs du renouveau — au premier rang desquels <em>Muhammad Shahrour</em> — pour qui relire les mots, c'est rouvrir le sens.</p>
-  <p style="text-align:justify;hyphens:auto;text-indent:1.4rem;">Les idées proposées ici sont des interprétations parmi d'autres, offertes à la réflexion et non comme des vérités closes. On y avance par questions plutôt que par sentences. Chaque lecteur reste libre de sa route.</p>
-</div>
+  <p style="text-align:justify;hyphens:auto;">Majmaʿ rassemble des lectures personnelles, à la croisée de la philosophie, de la psychologie des profondeurs et d’une approche du texte coranique attentive à ses sens cachés. Elle s’inscrit dans l’esprit des penseurs du renouveau — d’Averroès, qui posa le droit de la raison, à <em>Muhammad Shahrour</em>, qui en fit une méthode — pour qui relire les mots, c’est rouvrir le sens.</p>
+  <p style="text-align:justify;hyphens:auto;text-indent:1.4rem;">Les idées proposées ici sont des interprétations parmi d’autres, offertes à la réflexion et non comme des vérités closes. On y avance par questions plutôt que par sentences. Chaque lecteur reste libre de sa route.</p>
+</section>
 
-<!-- PIED DE PAGE (identique sur toutes les pages) -->
 <footer class="site-footer">
   <div class="mark">مجمع</div>
-  <p>Majmaʿ — le lieu où les mers se rejoignent. Une revue d'idées en construction.</p>
+  <nav class="foot-nav">
+    <a href="index.html#essais">Les essais</a>
+    <a href="index.html#philosophie">Philosophie</a>
+    <a href="index.html#psychologie">Psychologie</a>
+    <a href="index.html#religion">Religion</a>
+    <a href="index.html#apropos">À propos</a>
+  </nav>
+  <p>Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
+  <p class="copy">© 2026 Majmaʿ — le lieu où les mers se rejoignent.</p>
 </footer>
 
 <script>
-  const bar=document.getElementById('progress');
-  const update=()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';};
-  document.addEventListener('scroll',update,{passive:true});update();
+  // barre de progression
+  var bar=document.getElementById('progress');
+  function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});upd();
+
+  // filtre par rubrique
+  var pills=[].slice.call(document.querySelectorAll('.filter-pill'));
+  var slugMap={philosophie:'philo',psychologie:'psycho',religion:'religion',essais:'all',articles:'all'};
+
+  function applyFilter(f){
+    [].slice.call(document.querySelectorAll('#grid .entry')).forEach(function(card){
+      var r=(card.getAttribute('data-rubriques')||'').split(' ');
+      card.classList.toggle('hidden', f!=='all' && r.indexOf(f)===-1);
+    });
+    pills.forEach(function(p){p.classList.toggle('active', p.getAttribute('data-f')===f);});
+  }
+
+  function fromHash(){
+    var h=(location.hash||'').replace('#','');
+    if(h==='apropos'){var a=document.getElementById('apropos');if(a)a.scrollIntoView({behavior:'smooth'});return;}
+    if(slugMap.hasOwnProperty(h)){
+      applyFilter(slugMap[h]);
+      var e=document.getElementById('essais');if(e)e.scrollIntoView({behavior:'smooth'});
+    }else{
+      applyFilter('all');
+    }
+  }
+
+  pills.forEach(function(p){
+    p.addEventListener('click',function(){
+      var f=p.getAttribute('data-f');
+      applyFilter(f);
+      var slug='essais';
+      for(var k in slugMap){if(slugMap[k]===f && k!=='articles'){slug=k;break;}}
+      history.replaceState(null,'','#'+slug);
+    });
+  });
+
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
 </script>
 </body>
 </html>
