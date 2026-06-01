@@ -1,29 +1,34 @@
 /* =========================================================
-   MAJMAʿ — feuille de style partagée
-   Un seul fichier gouverne l'apparence de tout le site.
-   Changez les variables ci-dessous pour tout reteinter.
+   MAJMAʿ · feuille de style partagée
+   Direction « Grille savante » : blanc, grotesque + serif,
+   une seule couleur d'accent. Changez --accent pour tout reteinter.
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root{
-  /* — palette de base — */
-  --paper:#f4eddf;
-  --paper-deep:#ece2cf;
-  --card:#f9f4e9;
-  --ink:#2a2520;
-  --ink-soft:#4f463b;
-  --ink-faint:#7d7263;
-  --gold:#9a7b3f;
-  --rule:#cdbfa4;
+  /* · palette · */
+  --paper:#f5f4ef;
+  --paper-deep:#ece9e1;
+  --card:#fcfbf8;
+  --ink:#15110c;
+  --ink-soft:#574f45;
+  --ink-faint:#8a8276;
+  --rule:#e3dfd6;
 
-  /* — couleurs des rubriques — */
-  --philo:#46577d;     /* Philosophie — lapis sourd */
-  --psycho:#a8603a;    /* Psychologie — terre cuite  */
-  --religion:#3f6b4a;  /* Religion — vert de Khidr   */
-  --accent:var(--religion); /* accent par défaut, redéfini par page */
+  /* · accent unique · */
+  --accent:#d6371f;          /* rouge vermillon */
+  --gold:var(--accent);
+  /* les rubriques partagent l'accent (différenciées par le mot, pas la couleur) */
+  --philo:#d6371f;
+  --psycho:#d6371f;
+  --religion:#d6371f;
 
-  --measure:40rem;     /* largeur de lecture confortable */
+  /* · polices · */
+  --display:"Hanken Grotesk",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+
+  --measure:40rem;
   --measure-wide:64rem;
 }
 
@@ -33,171 +38,163 @@ body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:"Spectral",Georgia,serif;
-  font-size:1.15rem;
-  line-height:1.72;
+  font-family:var(--body);
+  font-size:1.18rem;
+  line-height:1.66;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-}
-/* grain de papier */
-body::before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
 }
 img{max-width:100%;display:block;}
 a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline;text-underline-offset:3px;}
 
-/* barre de progression de lecture */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .12s linear;}
 
 /* ---------------- EN-TÊTE / NAVIGATION ---------------- */
 .site-header{
-  position:relative;z-index:5;border-bottom:1px solid var(--rule);
-  background:linear-gradient(180deg,rgba(255,255,255,.25),transparent);
+  position:relative;z-index:40;border-bottom:1px solid var(--rule);background:var(--paper);
 }
 .site-header .bar{
   max-width:var(--measure-wide);margin:0 auto;padding:1.1rem 1.6rem;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
 }
-.brand{display:flex;align-items:baseline;gap:.7rem;text-decoration:none;color:var(--ink);}
-.brand .mark{font-family:"Amiri",serif;font-size:1.6rem;color:var(--religion);line-height:1;}
-.brand .name{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.5rem;letter-spacing:.02em;}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;color:var(--ink);}
+.brand .mark{font-family:"Amiri",serif;font-size:1.55rem;color:var(--accent);line-height:1;}
+.brand .name{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.01em;}
 .brand:hover{text-decoration:none;}
-.site-nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-family:"Cormorant Garamond",serif;font-size:1.15rem;}
-.site-nav a{color:var(--ink-soft);letter-spacing:.02em;}
+.site-nav{display:flex;gap:1.3rem;flex-wrap:wrap;font-family:var(--display);font-weight:500;font-size:1rem;}
+.site-nav a{color:var(--ink-soft);letter-spacing:.005em;}
 .site-nav a:hover{color:var(--accent);text-decoration:none;}
-.site-nav a[data-r="philo"]:hover{color:var(--philo);}
-.site-nav a[data-r="psycho"]:hover{color:var(--psycho);}
-.site-nav a[data-r="religion"]:hover{color:var(--religion);}
+.site-nav a[data-r]:hover{color:var(--accent);}
 
 /* ---------------- CONTENEURS ---------------- */
 .wrap{position:relative;z-index:1;max-width:var(--measure-wide);margin:0 auto;padding:0 1.6rem;}
-.reading{position:relative;z-index:1;max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
+.reading{position:relative;z-index:1;max-width:var(--measure);margin:0 auto;padding:0 1.7rem;}
 
 /* ---------------- HÉRO (accueil) ---------------- */
-.hero{text-align:center;padding:5rem 1.6rem 3.5rem;position:relative;}
-.hero .ar{font-family:"Amiri",serif;font-size:2rem;color:var(--religion);direction:rtl;margin:0 0 1.2rem;}
-.hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:3rem;line-height:1.05;margin:0 0 1rem;}
-.hero .lede{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.45rem;color:var(--ink-soft);max-width:34rem;margin:0 auto;}
-.hero .orn{color:var(--gold);letter-spacing:.5em;margin:1.8rem 0 0;}
+.hero{text-align:center;padding:4.5rem 1.6rem 3rem;position:relative;}
+.hero .ar{font-family:"Amiri",serif;font-size:2rem;color:var(--accent);direction:rtl;margin:0 0 1.1rem;}
+.hero h1{font-family:var(--display);font-weight:800;font-size:3.3rem;line-height:.98;letter-spacing:-.025em;margin:0 0 1rem;}
+.hero .lede{font-family:var(--body);font-style:italic;font-size:1.4rem;color:var(--ink-soft);max-width:34rem;margin:0 auto;}
+.hero .orn{display:block;width:46px;height:3px;background:var(--accent);margin:1.8rem auto 0;}
 
 /* ---------------- RUBRIQUES (cartes) ---------------- */
-.section-title{
-  font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.9rem;text-align:center;
-  margin:3.5rem 0 .3rem;
-}
-.section-sub{text-align:center;color:var(--ink-faint);font-style:italic;font-family:"Cormorant Garamond",serif;font-size:1.15rem;margin-bottom:2rem;}
+.section-title{font-family:var(--display);font-weight:800;font-size:1.7rem;letter-spacing:-.01em;text-align:center;margin:3.5rem 0 .3rem;}
+.section-sub{text-align:center;color:var(--ink-faint);font-style:italic;font-family:var(--body);font-size:1.12rem;margin-bottom:2rem;}
 
 .rubriques{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:2rem 0 1rem;}
 .rub{
-  display:block;padding:1.8rem 1.5rem;border:1px solid var(--rule);background:var(--card);
-  border-top:3px solid var(--c);text-decoration:none;color:var(--ink);transition:transform .18s,box-shadow .18s;
+  display:block;padding:1.7rem 1.4rem;border:1px solid var(--rule);background:var(--card);
+  border-top:3px solid var(--accent);text-decoration:none;color:var(--ink);transition:transform .18s,box-shadow .18s;
 }
-.rub:hover{transform:translateY(-3px);box-shadow:0 10px 24px -16px rgba(40,30,20,.5);text-decoration:none;}
-.rub .label{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:600;color:var(--c);}
-.rub .ar{font-family:"Amiri",serif;color:var(--ink-faint);font-size:1.1rem;float:right;}
-.rub p{margin:.5rem 0 0;color:var(--ink-soft);font-size:1.02rem;line-height:1.6;}
+.rub:hover{transform:translateY(-3px);box-shadow:0 12px 26px -18px rgba(20,15,10,.4);text-decoration:none;}
+.rub .label{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--ink);}
+.rub .ar{font-family:"Amiri",serif;color:var(--accent);font-size:1.1rem;float:right;}
+.rub p{margin:.5rem 0 0;color:var(--ink-soft);font-size:1.02rem;line-height:1.55;}
 
 /* ---------------- LISTE D'ARTICLES ---------------- */
 .articles{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1.4rem;margin:1.5rem 0 3rem;}
 .entry{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--rule);padding:1.5rem 1.4rem;text-decoration:none;color:var(--ink);transition:transform .18s,box-shadow .18s;}
-.entry:hover{transform:translateY(-3px);box-shadow:0 12px 26px -18px rgba(40,30,20,.55);text-decoration:none;}
-.tag{display:inline-block;font-family:"Cormorant Garamond",serif;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--accent));border:1px solid currentColor;padding:.1rem .55rem;border-radius:2px;margin-bottom:.8rem;align-self:flex-start;}
-.tag[data-r="philo"]{--c:var(--philo);}
-.tag[data-r="psycho"]{--c:var(--psycho);}
-.tag[data-r="religion"]{--c:var(--religion);}
-.entry h3{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.5rem;line-height:1.15;margin:0 0 .5rem;}
-.entry .dek{color:var(--ink-soft);font-size:1.02rem;line-height:1.55;margin:0 0 1rem;flex:1;}
-.entry .meta{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--ink-faint);font-size:1rem;}
+.entry:hover{transform:translateY(-3px);box-shadow:0 14px 28px -20px rgba(20,15,10,.45);text-decoration:none;}
+.tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);padding:.22rem .6rem;border-radius:2px;margin-bottom:.9rem;align-self:flex-start;}
+.tag[data-r]{background:var(--accent);}
+.entry h3{font-family:var(--display);font-weight:700;font-size:1.4rem;line-height:1.12;letter-spacing:-.01em;margin:0 0 .5rem;}
+.entry .dek{color:var(--ink-soft);font-size:1.02rem;line-height:1.5;margin:0 0 1rem;flex:1;}
+.entry .meta{font-family:var(--body);font-style:italic;color:var(--ink-faint);font-size:1rem;}
 
 /* ---------------- PAGE D'ARTICLE ---------------- */
-.article-head{text-align:center;padding:4rem 1.6rem 1rem;}
-.article-head .kicker{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
-.article-head h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:2.7rem;line-height:1.08;margin:.7rem auto .6rem;max-width:30rem;}
-.article-head .sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.4rem;color:var(--ink-soft);max-width:32rem;margin:0 auto;}
-.article-head .byline{font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:1.4rem;}
-.article-head .rule{color:var(--gold);letter-spacing:.5em;margin-top:1.4rem;}
+.article-head{text-align:left;padding:3.2rem 1.7rem 1rem;max-width:var(--measure);margin:0 auto;}
+.article-head .kicker{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+.article-head h1{font-family:var(--display);font-weight:800;font-size:2.7rem;line-height:1.0;letter-spacing:-.025em;margin:.5rem 0 .5rem;}
+.article-head .sub{font-family:var(--body);font-style:italic;font-size:1.35rem;color:var(--ink-soft);margin:0;}
+.article-head .byline{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:1.3rem;}
+.article-head .rule{font-size:0;line-height:0;margin-top:1.2rem;}
+.article-head .rule::before{content:"";display:block;width:46px;height:3px;background:var(--accent);}
 
-.prose{padding:1.5rem 0 2rem;}
-.prose p{margin:0 0 1.2rem;text-align:justify;hyphens:auto;}
-.prose p + p{text-indent:1.4rem;}
-.prose h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.9rem;color:var(--accent);margin:2.6rem 0 1rem;text-align:center;}
-.prose h2 + p{text-indent:0;}
+.prose{padding-top:1.4rem;padding-bottom:2rem;}
+.prose p{margin:0 0 1.15rem;text-align:left;hyphens:manual;overflow-wrap:break-word;}
 .prose .lead{text-indent:0;}
 .prose .lead::first-letter{
-  font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--accent);
-  float:left;font-size:4rem;line-height:.72;padding:.36rem .12rem 0 0;margin-right:.04em;
+  font-family:var(--body);font-weight:600;color:var(--accent);
+  float:left;font-size:3.8rem;line-height:.72;padding:.34rem .12rem 0 0;margin-right:.04em;
 }
-.prose strong{font-weight:600;color:var(--accent);}
+.prose h2{
+  font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.01em;color:var(--ink);
+  margin:2.7rem 0 1.1rem;text-align:left;display:inline-block;
+  border-bottom:2px solid var(--accent);padding-bottom:.25rem;
+}
+.prose strong{font-weight:700;color:var(--accent);}
 .prose em{font-style:italic;}
 
 .ar-inline{font-family:"Amiri",serif;font-size:1.15em;direction:rtl;unicode-bidi:isolate;}
-.verse{font-family:"Amiri",serif;direction:rtl;text-align:center;font-size:1.45rem;line-height:2;color:var(--accent);margin:1.8rem auto;padding:.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);max-width:30rem;}
-.verse .ref{display:block;direction:ltr;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.95rem;color:var(--ink-faint);margin-top:.5rem;}
-.pull{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.55rem;line-height:1.4;color:var(--ink-soft);text-align:center;margin:2.2rem auto;max-width:30rem;}
-.divider{text-align:center;color:var(--gold);margin:2.6rem 0;}
-.divider::after{content:"❦";}
+.verse{font-family:"Amiri",serif;direction:rtl;text-align:center;font-size:1.5rem;line-height:2;color:var(--ink);margin:1.8rem auto;padding:.8rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);max-width:30rem;}
+.verse .ref{display:block;direction:ltr;font-family:var(--body);font-style:italic;font-size:.95rem;color:var(--ink-faint);margin-top:.5rem;}
+.pull{font-family:var(--body);font-style:italic;font-size:1.5rem;line-height:1.38;color:var(--ink);border-left:3px solid var(--accent);padding-left:1.1rem;margin:2.2rem 0;max-width:32rem;text-align:left;}
+.divider{text-align:center;color:var(--accent);margin:2.6rem 0;letter-spacing:.4em;}
+.divider::after{content:"◆";font-size:.9rem;}
 
-.note{background:var(--paper-deep);border-left:3px solid var(--accent);padding:1.1rem 1.3rem;margin:2rem 0;font-size:1.02rem;}
-.note .label{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--accent);display:block;margin-bottom:.3rem;letter-spacing:.02em;}
+.note{background:var(--paper-deep);border-left:3px solid var(--accent);padding:1.1rem 1.3rem;margin:2rem 0;font-size:1.02rem;line-height:1.55;}
+.note .label{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.4rem;}
 
-.further{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:1.5rem;font-size:1rem;color:var(--ink-soft);}
-.further h3{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--accent);font-size:1.25rem;margin:0 0 .6rem;}
+.further{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:1.4rem;font-size:1rem;color:var(--ink-soft);}
+.further h3{font-family:var(--display);font-weight:700;color:var(--ink);font-size:1.1rem;letter-spacing:.02em;margin:0 0 .6rem;}
 .further ul{margin:0;padding-left:1.1rem;}
 .further li{margin:.3rem 0;}
 
-.backlink{display:inline-block;margin:1rem 0 0;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--ink-faint);}
+.backlink{display:inline-block;margin:1rem 0 0;font-family:var(--body);font-style:italic;color:var(--ink-faint);}
 
 /* ---------------- PIED DE PAGE ---------------- */
 .site-footer{position:relative;z-index:1;border-top:1px solid var(--rule);margin-top:4rem;padding:3rem 1.6rem 4rem;text-align:center;color:var(--ink-faint);}
-.site-footer .mark{font-family:"Amiri",serif;font-size:1.5rem;color:var(--religion);}
-.site-footer p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;max-width:28rem;margin:.6rem auto 0;}
+.site-footer .mark{font-family:"Amiri",serif;font-size:1.5rem;color:var(--accent);}
+.site-footer p{font-family:var(--body);font-size:1.02rem;max-width:28rem;margin:.6rem auto 0;}
+.site-footer .foot-nav{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;margin:1.1rem 0 .7rem;font-family:var(--display);font-weight:500;font-size:1rem;}
+.site-footer .foot-nav a{color:var(--ink-soft);}
+.site-footer .foot-nav a:hover{color:var(--accent);text-decoration:none;}
+.site-footer a{color:var(--ink-soft);}
+.site-footer .copy{font-size:.92rem;color:var(--ink-faint);margin-top:.5rem;}
+
+/* ---------------- FILTRE DES ESSAIS ---------------- */
+.filterbar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.4rem auto 2.4rem;}
+.filter-pill{
+  font-family:var(--display);font-weight:500;font-size:.98rem;letter-spacing:.01em;
+  color:var(--ink-soft);background:transparent;border:1px solid var(--rule);
+  border-radius:2rem;padding:.4rem 1.15rem;cursor:pointer;transition:all .18s;
+}
+.filter-pill:hover{color:var(--ink);border-color:var(--ink-faint);}
+.filter-pill.active{color:#fff;background:var(--accent);border-color:var(--accent);}
+.filter-pill.active[data-f]{background:var(--accent);border-color:var(--accent);}
+.entry.hidden{display:none;}
+
+/* ---------------- SCHÉMAS / FIGURES ---------------- */
+figure.diagram{margin:2.4rem auto;max-width:33rem;}
+figure.diagram svg{width:100%;height:auto;display:block;}
+figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.02rem;color:var(--ink-faint);text-align:center;margin-top:.7rem;line-height:1.4;}
+.diagram svg text{font-family:var(--display);font-weight:500;}
+.diagram .d-ar{font-family:"Amiri",serif;}
+.diagram .d-ink{fill:var(--ink);}
+.diagram .d-soft{fill:var(--ink-soft);}
+.diagram .d-gold{fill:var(--gold);}
+.diagram .d-accent{fill:var(--accent);}
+.diagram .s-accent{stroke:var(--accent);}
+.diagram .s-ink{stroke:var(--ink);}
+.diagram .s-rule{stroke:var(--rule);}
+.diagram .s-gold{stroke:var(--gold);}
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width:720px){
   .rubriques{grid-template-columns:1fr;}
 }
 @media (max-width:560px){
-  body{font-size:1.08rem;}
-  .hero h1{font-size:2.3rem;}
+  body{font-size:1.1rem;}
+  .hero h1{font-size:2.4rem;}
+  .hero .lede{font-size:1.22rem;}
+  .article-head{padding:2rem 1.4rem .6rem;}
   .article-head h1{font-size:2.05rem;}
-  .verse{font-size:1.25rem;}
-  .site-nav{font-size:1.05rem;gap:1rem;}
+  .verse{font-size:1.3rem;}
+  .site-header .bar{flex-direction:column;align-items:flex-start;gap:.5rem;padding:.75rem 1.2rem;}
+  .brand .name{font-size:1.25rem;}
+  .brand .mark{font-size:1.35rem;}
+  .site-nav{width:100%;flex-wrap:nowrap;overflow-x:auto;gap:1.15rem;font-size:.98rem;scrollbar-width:none;}
+  .site-nav::-webkit-scrollbar{display:none;}
+  .reading{padding:0 1.4rem;}
 }
-
-/* ===================================================================
-   REFONTE STRUCTURELLE — en-tête collant, filtre, footer enrichi
-   =================================================================== */
-.site-header{
-  position:sticky;top:0;z-index:40;
-  background:rgba(244,237,223,.9);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-}
-
-/* barre de filtre des essais */
-.filterbar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.4rem auto 2.4rem;}
-.filter-pill{
-  font-family:"Cormorant Garamond",serif;font-size:1.12rem;letter-spacing:.02em;
-  color:var(--ink-soft);background:transparent;border:1px solid var(--rule);
-  border-radius:2rem;padding:.4rem 1.2rem;cursor:pointer;transition:all .18s;
-}
-.filter-pill:hover{color:var(--ink);border-color:var(--ink-faint);}
-.filter-pill.active{color:var(--paper);background:var(--ink);border-color:var(--ink);}
-.filter-pill.active[data-f="philo"]{background:var(--philo);border-color:var(--philo);}
-.filter-pill.active[data-f="psycho"]{background:var(--psycho);border-color:var(--psycho);}
-.filter-pill.active[data-f="religion"]{background:var(--religion);border-color:var(--religion);}
-
-/* carte masquée par le filtre */
-.entry.hidden{display:none;}
-
-/* footer enrichi */
-.site-footer .foot-nav{
-  display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;
-  margin:1.1rem 0 .7rem;font-family:"Cormorant Garamond",serif;font-size:1.12rem;
-}
-.site-footer .foot-nav a{color:var(--ink-soft);}
-.site-footer .foot-nav a:hover{color:var(--religion);text-decoration:none;}
-.site-footer a{color:var(--ink-soft);}
-.site-footer .copy{font-size:.95rem;color:var(--ink-faint);margin-top:.5rem;}

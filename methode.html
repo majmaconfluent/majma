@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Méthode · Majmaʿ</title>
+<meta name="description" content="Comment lire, ici : la raison plutôt que l'imitation, le doute fécond, et la liberté de conscience. Le manifeste de la revue.">
+<link rel="stylesheet" href="styles.css">
+<style>:root{--accent:var(--religion);}</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="mark">مجمع</span><span class="name">Majmaʿ</span></a>
+    <nav class="site-nav">
+      <a href="index.html#philosophie" data-r="philo">Philosophie</a>
+      <a href="index.html#psychologie" data-r="psycho">Psychologie</a>
+      <a href="index.html#religion" data-r="religion">Religion</a>
+      <a href="index.html#apropos">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <header class="article-head">
+    <span class="kicker">La revue</span>
+    <h1>Méthode</h1>
+    <p class="sub">Comment on lit, ici : la raison, le doute, la liberté de conscience.</p>
+    <p class="byline">Manifeste · lecture ~7 min</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="reading prose">
+    <p class="lead">Une revue d'idées doit dire d'où elle parle. Celle-ci ne prétend pas détenir des vérités closes ; elle propose des lectures, et tient pour acquis qu'une idée se respecte d'autant mieux qu'on la met à l'épreuve. Voici les quelques principes qui gouvernent tout ce qui est écrit ici.</p>
+
+    <h2>Lire, plutôt que suivre</h2>
+    <p>Entre un texte et nous, il y a toujours une lecture. La nier, c'est confondre sa propre interprétation avec la parole elle-même. Ici, on assume l'écart : relire, c'est rouvrir le sens, non le trahir. Cela vaut pour le Coran comme pour Jung ou Averroès. Le but n'est pas de dicter une conclusion, mais de tendre les outils qui permettent à chacun de penser par lui-même.</p>
+
+    <h2>La foi raisonnée contre l'imitation aveugle</h2>
+    <p>La tradition a un mot pour la croyance reçue sans examen : le <em>taqlīd</em>, l'imitation. À l'opposé, une foi qui se choisit après avoir pesé. Le texte lui-même encourage ce tri :</p>
+    <p class="verse">الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ<span class="ref">« ceux qui écoutent la parole et suivent ce qu'elle a de meilleur » · Coran 39, 18</span></p>
+    <p>Et il pose une limite que cette revue prend au sérieux : <span class="ar-inline">لَا إِكْرَاهَ فِي الدِّينِ</span>, « nulle contrainte en religion » (2, 256). Adhérer ne se commande pas. C'est pourquoi on peut tenir que le Créateur a tout bien fait sans pour autant suivre à la lettre tel ou tel précepte : la conviction intérieure n'a de valeur que libre.</p>
+
+    <h2>Le doute fécond</h2>
+    <p>On oppose souvent le doute à la foi. C'est une erreur ancienne. Al-Ghazālī, au sommet de son savoir, a tout suspendu pour ne garder que ce qui résistait, et c'est ainsi qu'il a rebâti. Descartes, des siècles plus tard, fera le même geste. Le doute n'est pas l'ennemi de la conviction : il en est le tamis. Une certitude qui n'a jamais été interrogée n'est pas une certitude, c'est une habitude.</p>
+    <p class="pull">Une foi qui a traversé l'objection<br>tient mieux qu'une foi protégée.</p>
+
+    <h2>Des interprétations, pas des verdicts</h2>
+    <p>Chaque essai publié ici est une lecture parmi d'autres, offerte à la réflexion. On y avance par questions plutôt que par sentences. Lorsqu'une thèse est contestée, on le dit ; lorsqu'une preuve est faible, on ne la donne pas pour forte. Le lecteur reste libre de sa route, et c'est la condition pour que la rencontre des idées, le <em>majmaʿ</em>, ait lieu.</p>
+
+    <div class="note">
+      <span class="label">Ce que la revue ne fait pas</span>
+      Pas de prosélytisme : on n'enrôle personne. Pas de preuves fragiles : ni l'argument naïf du « grand horloger », ni la recherche de la science moderne cachée dans les versets. Pas d'attaque des personnes : on discute des idées. Et pas de dissimulation : les objections les plus dures sont accueillies, puis examinées loyalement.
+    </div>
+
+    <p>Le reste suit de là. Pour les termes, voyez le <a href="glossaire.html">glossaire</a> ; pour les idées, les <a href="index.html#essais">essais</a>. La porte est ouverte, mais c'est à chacun d'avancer.</p>
+
+    <a class="backlink" href="index.html">← Retour à l'accueil</a>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="mark">مجمع</div>
+  <nav class="foot-nav">
+    <a href="index.html#essais">Les essais</a>
+    <a href="index.html#philosophie">Philosophie</a>
+    <a href="index.html#psychologie">Psychologie</a>
+    <a href="index.html#religion">Religion</a>
+    <a href="index.html#apropos">À propos</a>
+    <a href="methode.html">Méthode</a>
+    <a href="glossaire.html">Glossaire</a>
+  </nav>
+  <p>Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
+  <p class="copy">© 2026 Majmaʿ · revue d’idées.</p>
+</footer>
+
+<script>
+  var bar=document.getElementById('progress');
+  function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});upd();
+</script>
+</body>
+</html>
