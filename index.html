@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majmaʿ — philosophie · psychologie · religion</title>
+<meta name="description" content="Une revue d'idées au confluent de la philosophie, de la psychologie et de la religion.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- EN-TÊTE (identique sur toutes les pages) -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <span class="mark">مجمع</span>
+      <span class="name">Majmaʿ</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <a href="#rubriques" data-r="philo">Philosophie</a>
+      <a href="#rubriques" data-r="psycho">Psychologie</a>
+      <a href="#rubriques" data-r="religion">Religion</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HÉRO -->
+<section class="hero">
+  <p class="ar">مَجْمَعَ الْبَحْرَيْنِ</p>
+  <h1>Le confluent des idées</h1>
+  <p class="lede">Une revue où la philosophie, la psychologie et la religion se lisent ensemble — et où les textes anciens se relisent à neuf.</p>
+  <div class="orn">⁕ ⁕ ⁕</div>
+</section>
+
+<!-- RUBRIQUES -->
+<div class="wrap">
+  <h2 class="section-title" id="rubriques">Les rubriques</h2>
+  <p class="section-sub">Trois entrées vers une même question : comment l'esprit humain cherche le sens.</p>
+  <div class="rubriques">
+    <a class="rub" href="#articles" style="--c:var(--philo);">
+      <span class="ar">فلسفة</span>
+      <span class="label">Philosophie</span>
+      <p>Les grandes questions sur l'être, la connaissance et le bien — d'hier à aujourd'hui.</p>
+    </a>
+    <a class="rub" href="#articles" style="--c:var(--psycho);">
+      <span class="ar">نفس</span>
+      <span class="label">Psychologie</span>
+      <p>L'âme et ses profondeurs : Jung, l'inconscient, l'ombre, le chemin vers soi.</p>
+    </a>
+    <a class="rub" href="#articles" style="--c:var(--religion);">
+      <span class="ar">دين</span>
+      <span class="label">Religion</span>
+      <p>Relectures du Coran et des textes sacrés, dans le sillage des penseurs du renouveau.</p>
+    </a>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div class="wrap">
+  <h2 class="section-title" id="articles">Derniers articles</h2>
+  <p class="section-sub">Le commencement d'une bibliothèque.</p>
+  <div class="articles">
+
+    <a class="entry" href="le-confluent-des-deux-mers.html">
+      <span class="tag" data-r="religion">Religion · Psychologie</span>
+      <h3>Le Confluent des deux mers</h3>
+      <p class="dek">Jung avait lu le Coran. Dans l'histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi. Lecture croisée d'un récit et d'une carte de l'âme.</p>
+      <span class="meta">Essai · ~12 min</span>
+    </a>
+
+    <a class="entry" href="shahrour-le-livre-et-le-coran.html">
+      <span class="tag" data-r="religion">Religion</span>
+      <h3>Shahrour : le Livre et le Coran</h3>
+      <p class="dek">Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? Introduction à la méthode de Muhammad Shahrour et à sa relecture des mots-clés.</p>
+      <span class="meta">Introduction · ~10 min</span>
+    </a>
+
+    <span class="entry" style="opacity:.6;cursor:default;">
+      <span class="tag" data-r="philo">À venir</span>
+      <h3>Votre prochain article</h3>
+      <p class="dek">Copiez le modèle, écrivez, ajoutez une carte ici. Le guide explique chaque étape.</p>
+      <span class="meta">Brouillon</span>
+    </span>
+
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<div class="reading" id="apropos">
+  <h2 class="section-title">À propos</h2>
+  <p style="text-align:justify;hyphens:auto;">Ce site rassemble des lectures personnelles, à la croisée de la philosophie, de la psychologie des profondeurs et d'une approche du texte coranique attentive à ses sens cachés. Il s'inscrit dans l'esprit des penseurs du renouveau — au premier rang desquels <em>Muhammad Shahrour</em> — pour qui relire les mots, c'est rouvrir le sens.</p>
+  <p style="text-align:justify;hyphens:auto;text-indent:1.4rem;">Les idées proposées ici sont des interprétations parmi d'autres, offertes à la réflexion et non comme des vérités closes. On y avance par questions plutôt que par sentences. Chaque lecteur reste libre de sa route.</p>
+</div>
+
+<!-- PIED DE PAGE (identique sur toutes les pages) -->
+<footer class="site-footer">
+  <div class="mark">مجمع</div>
+  <p>Majmaʿ — le lieu où les mers se rejoignent. Une revue d'idées en construction.</p>
+</footer>
+
+<script>
+  const bar=document.getElementById('progress');
+  const update=()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';};
+  document.addEventListener('scroll',update,{passive:true});update();
+</script>
+</body>
+</html>

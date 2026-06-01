@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 1) TITRE DE L'ONGLET : « Titre de l'article — Majmaʿ » -->
+<title>Titre de l'article — Majmaʿ</title>
+<!-- 2) RÉSUMÉ (pour Google et les partages) -->
+<meta name="description" content="Une phrase qui résume l'article.">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- 3) COULEUR D'ACCENT selon la rubrique :
+        Philosophie  -> var(--philo)
+        Psychologie  -> var(--psycho)
+        Religion     -> var(--religion)   -->
+<style>:root{--accent:var(--philo);}</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- EN-TÊTE : ne pas modifier (identique partout) -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="mark">مجمع</span><span class="name">Majmaʿ</span></a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#rubriques" data-r="philo">Philosophie</a>
+      <a href="index.html#rubriques" data-r="psycho">Psychologie</a>
+      <a href="index.html#rubriques" data-r="religion">Religion</a>
+      <a href="index.html#apropos">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <header class="article-head">
+    <!-- 4) RUBRIQUE affichée -->
+    <span class="kicker">Philosophie</span>
+    <!-- 5) TITRE -->
+    <h1>Le titre de votre article</h1>
+    <!-- 6) SOUS-TITRE (facultatif) -->
+    <p class="sub">Un sous-titre qui éclaire le titre</p>
+    <p class="byline">Essai · lecture ~8 min</p>
+    <div class="rule">✦</div>
+  </header>
+
+  <div class="reading prose">
+
+    <!-- 7) PREMIER PARAGRAPHE : garder la classe "lead" (lettrine automatique) -->
+    <p class="lead">Votre premier paragraphe. La première lettre se transformera automatiquement en lettrine ornée. Écrivez ici l'entrée en matière.</p>
+
+    <p>Un paragraphe normal. Pour mettre en valeur un mot : <strong>en gras coloré</strong> ou <em>en italique</em>.</p>
+
+    <!-- SOUS-TITRE DE SECTION -->
+    <h2>Un intertitre</h2>
+    <p>Le texte de la section…</p>
+
+    <!-- CITATION DÉTACHÉE -->
+    <p class="pull">Une phrase forte,<br>mise en exergue.</p>
+
+    <!-- VERSET ARABE (facultatif) : remplacez le texte et la référence -->
+    <p class="verse">النص العربي هنا<span class="ref">« Traduction » — Coran 00, 0</span></p>
+
+    <!-- MOT ARABE DANS LE TEXTE : <span class="ar-inline">كلمة</span> -->
+
+    <!-- ENCADRÉ / MISE EN GARDE (facultatif) -->
+    <div class="note">
+      <span class="label">À noter</span>
+      Un encadré pour une nuance, une précision ou une mise en garde.
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- POUR ALLER PLUS LOIN (facultatif) -->
+    <div class="further">
+      <h3>Pour aller plus loin</h3>
+      <ul>
+        <li>Référence 1.</li>
+        <li>Référence 2.</li>
+      </ul>
+    </div>
+
+    <a class="backlink" href="index.html">← Retour à l'accueil</a>
+  </div>
+</article>
+
+<!-- PIED DE PAGE : ne pas modifier -->
+<footer class="site-footer">
+  <div class="mark">مجمع</div>
+  <p>Majmaʿ — le lieu où les mers se rejoignent.</p>
+</footer>
+
+<script>
+  const bar=document.getElementById('progress');
+  const update=()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';};
+  document.addEventListener('scroll',update,{passive:true});update();
+</script>
+</body>
+</html>
