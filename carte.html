@@ -118,19 +118,21 @@
 (function(){
   "use strict";
   var THREADS={
-    lire:{name:"Les textes",color:"#0e6b60",cen:[430,300]},
-    ame:{name:"L’âme",color:"#9c6b34",cen:[-430,300]},
-    sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-430]}
+    lire:{name:"Les textes",color:"#0e6b60",cen:[250,175]},
+    ame:{name:"L’âme",color:"#9c6b34",cen:[-250,175]},
+    sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-250]}
   };
   var NODES=[
     {id:"averroes-la-raison",t:"Averroès, la raison",g:"lire"},
     {id:"la-lecture-symbolique",t:"La lecture symbolique",g:"lire"},
     {id:"la-rhetorique-semitique",t:"La rhétorique sémitique",g:"lire"},
     {id:"shahrour-le-livre-et-le-coran",t:"Shahrour : le Livre et le Coran",g:"lire"},
+    {id:"les-mots-et-le-monde",t:"Les mots et le monde",g:"lire"},
     {id:"freud-et-jung",t:"Freud et Jung",g:"ame"},
     {id:"le-confluent-des-deux-mers",t:"Le confluent des deux mers",g:"ame"},
     {id:"ombre-et-nafs",t:"L’ombre et le nafs",g:"ame"},
     {id:"les-reves",t:"Les rêves",g:"ame"},
+    {id:"le-souffle",t:"Le souffle",g:"ame"},
     {id:"le-desenchantement",t:"Le désenchantement",g:"sens"},
     {id:"les-signes",t:"Les signes",g:"sens"},
     {id:"l-univers-ajuste",t:"L’univers ajusté",g:"sens"},
@@ -155,7 +157,11 @@
     ["le-probleme-du-mal","les-deux-livres"],["le-probleme-du-mal","les-signes"],
     ["les-deux-livres","les-signes"],
     ["les-reves","freud-et-jung"],["les-reves","le-confluent-des-deux-mers"],
-    ["les-reves","ombre-et-nafs"],["les-reves","la-lecture-symbolique"]
+    ["les-reves","ombre-et-nafs"],["les-reves","la-lecture-symbolique"],
+    ["le-souffle","la-fitra"],["le-souffle","ombre-et-nafs"],["le-souffle","les-deux-livres"],
+    ["le-souffle","shahrour-le-livre-et-le-coran"],["le-souffle","le-libre-arbitre"],["le-souffle","le-probleme-du-mal"],
+    ["les-mots-et-le-monde","shahrour-le-livre-et-le-coran"],["les-mots-et-le-monde","la-rhetorique-semitique"],
+    ["les-mots-et-le-monde","la-lecture-symbolique"],["les-mots-et-le-monde","les-signes"]
   ];
 
   var byId={},deg={},neighbors={};
@@ -165,7 +171,7 @@
   // layout : 3 constellations bien séparées
   var groups={lire:[],ame:[],sens:[]};
   NODES.forEach(function(n){groups[n.g].push(n);});
-  var RR={lire:150,ame:120,sens:200},OFF={lire:-0.5,ame:0.6,sens:-1.5708};
+  var RR={lire:120,ame:98,sens:150},OFF={lire:-0.5,ame:0.6,sens:-1.5708};
   Object.keys(groups).forEach(function(g){
     var arr=groups[g],cen=THREADS[g].cen,n=arr.length,rr=RR[g];
     arr.forEach(function(node,i){
@@ -184,8 +190,8 @@
   function nss(e){e.setAttribute("vector-effect","non-scaling-stroke");return e;}
 
   // astrolabe léger : 2 cercles + limbe gradué
-  vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:300,"class":"grat","stroke-width":1})));
-  var LIMB=600;
+  vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:210,"class":"grat","stroke-width":1})));
+  var LIMB=460;
   vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:LIMB,"class":"grat-strong","stroke-width":1.2})));
   vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:LIMB+10,"class":"grat","stroke-width":1})));
   for(var d=0;d<360;d+=6){var a=d*Math.PI/180,big=(d%30===0),r1=big?LIMB-13:LIMB-6;
@@ -258,7 +264,7 @@
     var xs=NODES.map(function(n){return n.x;}),ys=NODES.map(function(n){return n.y;});
     var minx=Math.min.apply(0,xs),maxx=Math.max.apply(0,xs),miny=Math.min.apply(0,ys),maxy=Math.max.apply(0,ys);
     var bw=maxx-minx,bh=maxy-miny,pad=(W<560)?70:120;
-    var s=Math.min((W-pad*2)/bw,(H-pad*2-60)/bh);s=Math.max(.28,Math.min(s,1.0));
+    var s=Math.min((W-pad*2)/bw,(H-pad*2-60)/bh)*0.94;s=Math.max(.3,Math.min(s,1.05));
     state.s=s;state.tx=-(minx+maxx)/2*s;state.ty=-(miny+maxy)/2*s;apply();refreshLabels();}
 
   // ---- selection ----
@@ -307,11 +313,7 @@
   function endPointer(ev){
     if(down&&!moved&&pointers.size<=1){
       if(down.id){select(down.id);}
-      else if(ev.target===scene||ev.target.id==="svg"||ev.target.id==="bg-paper"){
-        var now=Date.now();
-        if(now-lastTap<320&&Math.abs(ev.clientX-lastX)<30&&Math.abs(ev.clientY-lastY)<30){zoomAt(ev.clientX,ev.clientY,1.8);lastTap=0;}
-        else{select(null);lastTap=now;lastX=ev.clientX;lastY=ev.clientY;}
-      }
+      else if(ev.target===scene||ev.target.id==="svg"||ev.target.id==="bg-paper"){select(null);}
     }
     pointers.delete(ev.pointerId);if(pointers.size<2)pinchStart=null;
     if(pointers.size===0){down=null;scene.classList.remove("grabbing");}}
@@ -328,7 +330,8 @@
   var hint=document.getElementById("hint");function hideHint(){if(hint)hint.style.opacity="0";}
   setTimeout(hideHint,6000);
   window.addEventListener("resize",function(){fit();});
-  fit();
+  window.addEventListener("load",fit);
+  fit();requestAnimationFrame(fit);
 })();
 </script>
 </body>
