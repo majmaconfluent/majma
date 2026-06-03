@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Constellation des idées · Majmaʿ</title>
+<meta name="description" content="La constellation de Majmaʿ : chaque essai est une étoile, reliée aux autres par ses idées.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f4ef;--paper-deep:#e9e6dc;--card:#fcfbf8;
+    --ink:#15110c;--soft:#574f45;--faint:#8a8276;--rule:#e0dbd0;
+    --line:#c4bcad;--line-hi:#0e6b60;
+    --lire:#0e6b60;--ame:#9c6b34;--sens:#3f5e8c;--accent:#0e6b60;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;overflow:hidden;background:var(--paper);}
+  body{font-family:"Fraunces",Georgia,serif;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  #scene{position:fixed;inset:0;touch-action:none;cursor:grab;}
+  #scene.grabbing{cursor:grabbing;}
+  #bg-paper{position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(closest-side at 50% 28%, rgba(63,94,140,.05), transparent 70%),
+      radial-gradient(closest-side at 76% 72%, rgba(14,107,96,.05), transparent 70%),
+      radial-gradient(closest-side at 24% 72%, rgba(156,107,52,.05), transparent 70%),
+      radial-gradient(ellipse at 50% 45%, #faf9f5 0%, var(--paper) 46%, var(--paper-deep) 100%);}
+  #svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .grat{fill:none;stroke:var(--rule);}
+  .grat-strong{fill:none;stroke:#d3ccbd;}
+  .tick{stroke:#cdc6b7;}.tick-l{stroke:#bdb5a4;}
+  .edge{stroke:var(--line);opacity:.5;transition:stroke .25s,opacity .25s;}
+  .edge.hi{stroke:var(--line-hi);opacity:.9;}
+  .edge.dim{opacity:.12;}
+  .star{cursor:pointer;transition:opacity .25s;}
+  .star .halo{opacity:0;transition:opacity .25s;}
+  .star.sel .halo,.star.nb .halo{opacity:.45;}
+  .star.dim{opacity:.4;}
+  #labels{position:absolute;inset:0;pointer-events:none;}
+  .label{position:absolute;left:0;top:0;font-weight:500;font-size:13px;line-height:1.15;color:var(--soft);
+    white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .22s,color .22s;
+    text-shadow:0 1px 2px rgba(245,244,239,.96),0 0 2px rgba(245,244,239,.92);}
+  .label.on{opacity:.92;pointer-events:auto;cursor:pointer;}
+  .label.strong{color:var(--ink);font-weight:600;}
+  .label.thread{font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;opacity:.9;}
+  .label.core{font-family:"Amiri",serif;font-size:22px;color:var(--ink);opacity:1;
+    transform:translate(-50%,-50%);text-shadow:0 1px 3px rgba(245,244,239,1);}
+  .topbar{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;
+    padding:13px 15px;z-index:30;pointer-events:none;background:linear-gradient(to bottom,rgba(245,244,239,.94),transparent);}
+  .topbar a,.topbar span{pointer-events:auto;}
+  .back{color:var(--ink);text-decoration:none;font-size:14px;display:inline-flex;gap:7px;align-items:center;
+    background:rgba(255,255,255,.65);border:1px solid var(--rule);padding:8px 13px;border-radius:999px;backdrop-filter:blur(5px);}
+  .ttl{font-size:13px;color:var(--faint);letter-spacing:.2em;text-transform:uppercase;}
+  .legend{position:fixed;left:15px;bottom:15px;z-index:30;display:flex;flex-direction:column;gap:7px;
+    background:rgba(252,251,248,.8);border:1px solid var(--rule);border-radius:13px;padding:11px 13px;backdrop-filter:blur(5px);font-size:12.5px;color:var(--soft);}
+  .legend .row{display:flex;align-items:center;gap:9px;}
+  .legend .dot{width:10px;height:10px;border-radius:50%;}
+  .zoom{position:fixed;right:15px;bottom:15px;z-index:30;display:flex;flex-direction:column;gap:8px;}
+  .zoom button{width:46px;height:46px;border-radius:13px;border:1px solid var(--rule);background:rgba(252,251,248,.85);
+    color:var(--ink);font-size:22px;line-height:1;cursor:pointer;backdrop-filter:blur(5px);font-family:inherit;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(40,34,24,.08);}
+  .zoom button:active{transform:scale(.94);}
+  .zoom .rc{font-size:18px;}
+  .hint{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:25;color:var(--faint);
+    font-size:13px;background:rgba(252,251,248,.72);padding:8px 15px;border-radius:999px;backdrop-filter:blur(5px);
+    transition:opacity .6s;pointer-events:none;border:1px solid var(--rule);max-width:78%;text-align:center;}
+  .card{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);z-index:40;
+    width:min(440px,calc(100% - 26px));opacity:0;pointer-events:none;background:var(--card);border:1px solid var(--rule);
+    border-radius:18px;padding:16px 18px 15px;box-shadow:0 16px 44px rgba(40,34,24,.18);transition:opacity .28s,transform .28s;}
+  .card.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+  .card .thread{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;}
+  .card h2{font-weight:600;font-size:21px;margin:5px 0 4px;line-height:1.18;color:var(--ink);}
+  .card .links{font-size:12.5px;color:var(--soft);margin:8px 0 14px;line-height:1.45;}
+  .card .links b{color:var(--ink);font-weight:600;}
+  .card .go{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-weight:600;
+    background:var(--accent);padding:11px 18px;border-radius:999px;font-size:14.5px;transition:transform .15s;}
+  .card .go:active{transform:scale(.97);}
+  .card .close{position:absolute;top:11px;right:13px;color:var(--faint);font-size:21px;line-height:1;cursor:pointer;background:none;border:none;}
+  @media (max-width:520px){.ttl{display:none;}}
+</style>
+</head>
+<body>
+<div id="scene">
+  <div id="bg-paper"></div>
+  <svg id="svg" aria-label="Constellation des essais"></svg>
+  <div id="labels"></div>
+</div>
+
+<div class="topbar">
+  <a class="back" href="index.html">← retour au site</a>
+  <span class="ttl">Constellation des idées</span><span style="width:1px"></span>
+</div>
+
+<div class="legend">
+  <div class="row"><span class="dot" style="background:var(--lire)"></span>Les textes</div>
+  <div class="row"><span class="dot" style="background:var(--ame)"></span>L’âme</div>
+  <div class="row"><span class="dot" style="background:var(--sens)"></span>Le sens</div>
+</div>
+
+<div class="zoom">
+  <button id="zin" aria-label="Zoomer">+</button>
+  <button id="zout" aria-label="Dézoomer">−</button>
+  <button id="zrec" class="rc" aria-label="Recentrer">⤢</button>
+</div>
+
+<div class="hint" id="hint">Touchez une étoile pour la lire · pincez ou +/− pour zoomer</div>
+
+<div class="card" id="card">
+  <button class="close" id="cardClose" aria-label="Fermer">×</button>
+  <div class="thread" id="cardThread"></div>
+  <h2 id="cardTitle"></h2>
+  <div class="links" id="cardLinks"></div>
+  <a class="go" id="cardGo" href="#">Lire l’essai →</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var THREADS={
+    lire:{name:"Les textes",color:"#0e6b60",cen:[430,300]},
+    ame:{name:"L’âme",color:"#9c6b34",cen:[-430,300]},
+    sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-430]}
+  };
+  var NODES=[
+    {id:"averroes-la-raison",t:"Averroès, la raison",g:"lire"},
+    {id:"la-lecture-symbolique",t:"La lecture symbolique",g:"lire"},
+    {id:"la-rhetorique-semitique",t:"La rhétorique sémitique",g:"lire"},
+    {id:"shahrour-le-livre-et-le-coran",t:"Shahrour : le Livre et le Coran",g:"lire"},
+    {id:"freud-et-jung",t:"Freud et Jung",g:"ame"},
+    {id:"le-confluent-des-deux-mers",t:"Le confluent des deux mers",g:"ame"},
+    {id:"ombre-et-nafs",t:"L’ombre et le nafs",g:"ame"},
+    {id:"les-reves",t:"Les rêves",g:"ame"},
+    {id:"le-desenchantement",t:"Le désenchantement",g:"sens"},
+    {id:"les-signes",t:"Les signes",g:"sens"},
+    {id:"l-univers-ajuste",t:"L’univers ajusté",g:"sens"},
+    {id:"le-probleme-du-mal",t:"Le problème du mal",g:"sens"},
+    {id:"le-libre-arbitre",t:"Le libre arbitre et le décret",g:"sens"},
+    {id:"les-deux-livres",t:"Les deux livres",g:"sens"},
+    {id:"la-fitra",t:"La fiṭra et la dignité",g:"sens"}
+  ];
+  var EDGES=[
+    ["averroes-la-raison","la-fitra"],["averroes-la-raison","la-lecture-symbolique"],
+    ["averroes-la-raison","le-libre-arbitre"],["averroes-la-raison","les-deux-livres"],
+    ["averroes-la-raison","les-signes"],["l-univers-ajuste","le-desenchantement"],
+    ["l-univers-ajuste","le-libre-arbitre"],["l-univers-ajuste","les-deux-livres"],
+    ["l-univers-ajuste","les-signes"],["la-fitra","le-libre-arbitre"],
+    ["la-fitra","le-probleme-du-mal"],["la-fitra","les-signes"],
+    ["la-fitra","ombre-et-nafs"],["la-lecture-symbolique","la-rhetorique-semitique"],
+    ["la-lecture-symbolique","le-confluent-des-deux-mers"],
+    ["la-rhetorique-semitique","shahrour-le-livre-et-le-coran"],
+    ["le-desenchantement","les-deux-livres"],["le-desenchantement","les-signes"],
+    ["le-libre-arbitre","le-probleme-du-mal"],["le-libre-arbitre","les-deux-livres"],
+    ["le-libre-arbitre","shahrour-le-livre-et-le-coran"],
+    ["le-probleme-du-mal","les-deux-livres"],["le-probleme-du-mal","les-signes"],
+    ["les-deux-livres","les-signes"],
+    ["les-reves","freud-et-jung"],["les-reves","le-confluent-des-deux-mers"],
+    ["les-reves","ombre-et-nafs"],["les-reves","la-lecture-symbolique"]
+  ];
+
+  var byId={},deg={},neighbors={};
+  NODES.forEach(function(n){byId[n.id]=n;deg[n.id]=0;neighbors[n.id]={};});
+  EDGES.forEach(function(e){deg[e[0]]++;deg[e[1]]++;neighbors[e[0]][e[1]]=1;neighbors[e[1]][e[0]]=1;});
+
+  // layout : 3 constellations bien séparées
+  var groups={lire:[],ame:[],sens:[]};
+  NODES.forEach(function(n){groups[n.g].push(n);});
+  var RR={lire:150,ame:120,sens:200},OFF={lire:-0.5,ame:0.6,sens:-1.5708};
+  Object.keys(groups).forEach(function(g){
+    var arr=groups[g],cen=THREADS[g].cen,n=arr.length,rr=RR[g];
+    arr.forEach(function(node,i){
+      var a=OFF[g]+i*(2*Math.PI/n);
+      var r=rr*(0.7+((i*29)%4)/4*0.6);
+      node.x=cen[0]+r*Math.cos(a);
+      node.y=cen[1]+r*Math.sin(a);
+      node.r=4.5+Math.min(deg[node.id],6)*1.0;
+    });
+  });
+  var CORE=[0,0];
+
+  var SVG="http://www.w3.org/2000/svg",svg=document.getElementById("svg");
+  var vp=document.createElementNS(SVG,"g");svg.appendChild(vp);
+  function mk(t,a){var e=document.createElementNS(SVG,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function nss(e){e.setAttribute("vector-effect","non-scaling-stroke");return e;}
+
+  // astrolabe léger : 2 cercles + limbe gradué
+  vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:300,"class":"grat","stroke-width":1})));
+  var LIMB=600;
+  vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:LIMB,"class":"grat-strong","stroke-width":1.2})));
+  vp.appendChild(nss(mk("circle",{cx:0,cy:0,r:LIMB+10,"class":"grat","stroke-width":1})));
+  for(var d=0;d<360;d+=6){var a=d*Math.PI/180,big=(d%30===0),r1=big?LIMB-13:LIMB-6;
+    vp.appendChild(nss(mk("line",{x1:r1*Math.cos(a),y1:r1*Math.sin(a),x2:LIMB*Math.cos(a),y2:LIMB*Math.sin(a),"class":big?"tick-l":"tick","stroke-width":1})));}
+
+  // edges
+  var edgeEls=[];
+  EDGES.forEach(function(e){var a=byId[e[0]],b=byId[e[1]];
+    var ln=nss(mk("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,"class":"edge","stroke-width":1}));
+    ln._a=e[0];ln._b=e[1];vp.appendChild(ln);edgeEls.push(ln);});
+
+  // cœur (étoile à 8 branches), contre-échelle via groupe
+  var coreG=mk("g",{});vp.appendChild(coreG);
+  function starPath(o,inr,p){var s="",N=p*2;for(var i=0;i<N;i++){var rr=(i%2===0)?o:inr,a=i*Math.PI/p-Math.PI/2;
+    s+=(i?"L":"M")+(rr*Math.cos(a)).toFixed(2)+" "+(rr*Math.sin(a)).toFixed(2)+" ";}return s+"Z";}
+  coreG.appendChild(nss(mk("circle",{cx:0,cy:0,r:24,fill:"none",stroke:"#d3ccbd","stroke-width":1})));
+  coreG.appendChild(mk("path",{d:starPath(15,6,8),fill:"#0e6b60",opacity:".9"}));
+  coreG.appendChild(mk("circle",{cx:0,cy:0,r:3,fill:"#f5f4ef"}));
+
+  // étoiles (contre-échelle des rayons -> taille écran constante)
+  var starEls={};
+  NODES.forEach(function(n){
+    var g=mk("g",{"class":"star"});g.dataset.id=n.id;
+    n._halo=mk("circle",{cx:n.x,cy:n.y,fill:THREADS[n.g].color,"class":"halo"});
+    n._ring=nss(mk("circle",{cx:n.x,cy:n.y,fill:"none",stroke:THREADS[n.g].color,"stroke-width":1,opacity:".45"}));
+    n._dot=mk("circle",{cx:n.x,cy:n.y,fill:THREADS[n.g].color});
+    g.appendChild(n._halo);g.appendChild(n._ring);g.appendChild(n._dot);
+    vp.appendChild(g);starEls[n.id]=g;
+  });
+
+  // labels
+  var labelsBox=document.getElementById("labels"),labelEls={};
+  NODES.forEach(function(n){var d=document.createElement("div");d.className="label";d.textContent=n.t;d.dataset.id=n.id;
+    labelsBox.appendChild(d);labelEls[n.id]=d;});
+  var threadLabels={};
+  Object.keys(THREADS).forEach(function(g){var c=THREADS[g].cen;
+    var d=document.createElement("div");d.className="label thread on";d.textContent=THREADS[g].name;d.style.color=THREADS[g].color;
+    labelsBox.appendChild(d);threadLabels[g]={x:c[0]*1.34,y:c[1]*1.34,el:d};});
+  var coreLabel=document.createElement("div");coreLabel.className="label core";coreLabel.textContent="مجمع";labelsBox.appendChild(coreLabel);
+
+  // ---- transform ----
+  var state={s:1,tx:0,ty:0},ox=0,oy=0,SHOW_ALL=1.15,selected=null,hoverId=null;
+  function projX(wx){return ox+state.tx+wx*state.s;}
+  function projY(wy){return oy+state.ty+wy*state.s;}
+  function setR(){var s=state.s;NODES.forEach(function(n){
+    n._dot.setAttribute("r",n.r/s);n._ring.setAttribute("r",(n.r+3.5)/s);n._halo.setAttribute("r",(n.r+9)/s);});
+    coreG.setAttribute("transform","scale("+(1/s)+")");}
+  function layoutLabels(){
+    NODES.forEach(function(n){var el=labelEls[n.id];
+      var sx=projX(n.x),sy=projY(n.y),right=n.x>=THREADS[n.g].cen[0];
+      el.style.top=(sy-9)+"px";
+      if(right){el.style.left=(sx+13)+"px";el.style.transform="none";el.style.textAlign="left";}
+      else{el.style.left=(sx-13)+"px";el.style.transform="translateX(-100%)";el.style.textAlign="right";}
+    });
+    Object.keys(THREADS).forEach(function(g){var p=threadLabels[g];
+      p.el.style.left=projX(p.x)+"px";p.el.style.top=projY(p.y)+"px";p.el.style.transform="translate(-50%,-50%)";});
+    coreLabel.style.left=projX(0)+"px";coreLabel.style.top=(projY(0)-26)+"px";
+  }
+  function refreshLabels(){
+    var showAll=state.s>=SHOW_ALL;
+    NODES.forEach(function(n){var el=labelEls[n.id],show=false,strong=false;
+      if(selected){if(n.id===selected){show=true;strong=true;}else if(neighbors[selected][n.id]){show=true;strong=true;}else show=showAll;}
+      else{show=showAll||hoverId===n.id;}
+      el.classList.toggle("on",show);el.classList.toggle("strong",strong);
+    });
+  }
+  function apply(){vp.setAttribute("transform","translate("+(ox+state.tx)+","+(oy+state.ty)+") scale("+state.s+")");
+    setR();layoutLabels();}
+  function fit(){var W=window.innerWidth,H=window.innerHeight;ox=W/2;oy=H/2;
+    var xs=NODES.map(function(n){return n.x;}),ys=NODES.map(function(n){return n.y;});
+    var minx=Math.min.apply(0,xs),maxx=Math.max.apply(0,xs),miny=Math.min.apply(0,ys),maxy=Math.max.apply(0,ys);
+    var bw=maxx-minx,bh=maxy-miny,pad=(W<560)?70:120;
+    var s=Math.min((W-pad*2)/bw,(H-pad*2-60)/bh);s=Math.max(.28,Math.min(s,1.0));
+    state.s=s;state.tx=-(minx+maxx)/2*s;state.ty=-(miny+maxy)/2*s;apply();refreshLabels();}
+
+  // ---- selection ----
+  var card=document.getElementById("card");
+  function select(id){selected=id;
+    if(!id){card.classList.remove("show");edgeEls.forEach(function(e){e.classList.remove("hi","dim");});
+      NODES.forEach(function(n){starEls[n.id].classList.remove("sel","nb","dim");});refreshLabels();return;}
+    var nb=neighbors[id];
+    NODES.forEach(function(n){var g=starEls[n.id];g.classList.remove("sel","nb","dim");
+      if(n.id===id)g.classList.add("sel");else if(nb[n.id])g.classList.add("nb");else g.classList.add("dim");});
+    edgeEls.forEach(function(e){if(e._a===id||e._b===id){e.classList.add("hi");e.classList.remove("dim");}
+      else{e.classList.add("dim");e.classList.remove("hi");}});
+    var n=byId[id],th=THREADS[n.g],ct=document.getElementById("cardThread");
+    ct.textContent=th.name;ct.style.color=th.color;document.getElementById("cardTitle").textContent=n.t;
+    var names=Object.keys(nb).map(function(k){return byId[k].t;});
+    document.getElementById("cardLinks").innerHTML=names.length?("Relié à <b>"+names.length+"</b> essai"+(names.length>1?"s":"")+" : "+names.join(" · ")):"Un point de départ.";
+    var go=document.getElementById("cardGo");go.setAttribute("href",n.id+".html");go.style.background=th.color;
+    card.classList.add("show");refreshLabels();hideHint();}
+
+  // ---- zoom helpers ----
+  function clamp(s){return Math.max(.28,Math.min(3,s));}
+  function zoomAt(cx,cy,f){var ns=clamp(state.s*f),wx=(cx-ox-state.tx)/state.s,wy=(cy-oy-state.ty)/state.s;
+    state.s=ns;state.tx=cx-ox-wx*ns;state.ty=cy-oy-wy*ns;apply();refreshLabels();}
+  document.getElementById("zin").addEventListener("click",function(){zoomAt(ox,oy,1.5);});
+  document.getElementById("zout").addEventListener("click",function(){zoomAt(ox,oy,1/1.5);});
+  document.getElementById("zrec").addEventListener("click",function(){select(null);fit();});
+
+  // ---- pointer ----
+  var scene=document.getElementById("scene"),pointers=new Map(),down=null,moved=false,pinchStart=null,lastTap=0,lastX=0,lastY=0;
+  function dist(a,b){var dx=a.x-b.x,dy=a.y-b.y;return Math.sqrt(dx*dx+dy*dy);}
+  function mid(a,b){return{x:(a.x+b.x)/2,y:(a.y+b.y)/2};}
+  scene.addEventListener("pointerdown",function(ev){scene.setPointerCapture(ev.pointerId);
+    pointers.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});moved=false;
+    var pl=ev.target.closest?ev.target.closest(".star"):null;
+    var lid=(ev.target.classList&&ev.target.classList.contains("label")&&ev.target.dataset.id)?ev.target.dataset.id:null;
+    down={x:ev.clientX,y:ev.clientY,id:pl?pl.dataset.id:lid,tx:state.tx,ty:state.ty};
+    if(pointers.size===2){var p=[...pointers.values()];pinchStart={d:dist(p[0],p[1]),s:state.s,m:mid(p[0],p[1]),tx:state.tx,ty:state.ty};}
+    scene.classList.add("grabbing");});
+  scene.addEventListener("pointermove",function(ev){if(!pointers.has(ev.pointerId))return;
+    pointers.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});
+    if(pointers.size===2&&pinchStart){var p=[...pointers.values()],nd=dist(p[0],p[1]),ns=clamp(pinchStart.s*(nd/pinchStart.d)),m=pinchStart.m;
+      var wx=(m.x-ox-pinchStart.tx)/pinchStart.s,wy=(m.y-oy-pinchStart.ty)/pinchStart.s;
+      state.s=ns;state.tx=m.x-ox-wx*ns;state.ty=m.y-oy-wy*ns;moved=true;apply();refreshLabels();return;}
+    if(down&&pointers.size===1){var dx=ev.clientX-down.x,dy=ev.clientY-down.y;if(Math.abs(dx)+Math.abs(dy)>6)moved=true;
+      state.tx=down.tx+dx;state.ty=down.ty+dy;apply();}});
+  function endPointer(ev){
+    if(down&&!moved&&pointers.size<=1){
+      if(down.id){select(down.id);}
+      else if(ev.target===scene||ev.target.id==="svg"||ev.target.id==="bg-paper"){
+        var now=Date.now();
+        if(now-lastTap<320&&Math.abs(ev.clientX-lastX)<30&&Math.abs(ev.clientY-lastY)<30){zoomAt(ev.clientX,ev.clientY,1.8);lastTap=0;}
+        else{select(null);lastTap=now;lastX=ev.clientX;lastY=ev.clientY;}
+      }
+    }
+    pointers.delete(ev.pointerId);if(pointers.size<2)pinchStart=null;
+    if(pointers.size===0){down=null;scene.classList.remove("grabbing");}}
+  scene.addEventListener("pointerup",endPointer);scene.addEventListener("pointercancel",endPointer);
+  scene.addEventListener("wheel",function(ev){ev.preventDefault();zoomAt(ev.clientX,ev.clientY,Math.exp(-ev.deltaY*0.0012));},{passive:false});
+
+  // desktop hover
+  NODES.forEach(function(n){var g=starEls[n.id];
+    g.addEventListener("pointerover",function(){if(!selected){hoverId=n.id;refreshLabels();}});
+    g.addEventListener("pointerout",function(){if(hoverId===n.id){hoverId=null;refreshLabels();}});});
+  Object.keys(labelEls).forEach(function(id){labelEls[id].addEventListener("click",function(e){e.stopPropagation();select(id);});});
+  document.getElementById("cardClose").addEventListener("click",function(){select(null);});
+
+  var hint=document.getElementById("hint");function hideHint(){if(hint)hint.style.opacity="0";}
+  setTimeout(hideHint,6000);
+  window.addEventListener("resize",function(){fit();});
+  fit();
+})();
+</script>
+</body>
+</html>
