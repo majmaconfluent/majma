@@ -205,3 +205,30 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
 .emblem-rule{display:flex;align-items:center;gap:1rem;margin-top:1.3rem;}
 .emblem-rule .ln{height:1px;background:var(--rule);flex:1;}
 .emblem-rule .emblem{flex:0 0 auto;}
+
+
+/* === accueil C+D === */
+.parc-intro{max-width:880px;margin:18px auto 0;padding:0 22px;}
+.parc{max-width:880px;margin:0 auto;padding:14px 22px 4px;display:grid;gap:18px;grid-template-columns:1fr;}
+@media(min-width:680px){.parc{grid-template-columns:1fr 1fr;}}
+.parc-card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:22px;border-top:3px solid var(--accent);}
+.parc-card h3{font-family:var(--display);font-size:1.25rem;color:var(--ink);margin:0;}
+.parc-why{color:var(--ink-soft);font-size:.9rem;margin:6px 0 10px;}
+.parc-steps{list-style:none;margin:0;padding:0;counter-reset:s;}
+.parc-steps li{counter-increment:s;border-top:1px solid var(--rule);}
+.parc-steps a{display:block;padding:10px 0;text-decoration:none;color:var(--ink);font-family:var(--display);font-size:1.02rem;}
+.parc-steps a:before{content:counter(s)".";color:var(--ink-faint);margin-right:8px;}
+.parc-steps a:hover{color:var(--accent);}
+.idx-head{max-width:1000px;margin:34px auto 0;padding:0 22px;text-align:center;}
+.fbar{max-width:1000px;margin:0 auto;padding:14px 22px 6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.fbtn{font-family:var(--display);font-size:.9rem;border:1px solid var(--rule);background:var(--card);color:var(--ink-soft);padding:8px 16px;border-radius:999px;cursor:pointer;}
+.fbtn.active{background:var(--bc,var(--accent));border-color:var(--bc,var(--accent));color:#fff;}
+.fgrid{max-width:1000px;margin:0 auto;padding:14px 22px 0;display:grid;gap:16px;grid-template-columns:1fr;}
+@media(min-width:620px){.fgrid{grid-template-columns:1fr 1fr;}}
+@media(min-width:940px){.fgrid{grid-template-columns:1fr 1fr 1fr;}}
+.fcard{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:18px;text-decoration:none;display:flex;flex-direction:column;gap:6px;border-top:3px solid var(--tc,var(--accent));}
+.fcard .tg{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent));font-family:var(--display);}
+.fcard h3{font-family:var(--display);font-size:1.1rem;color:var(--ink);margin:0;}
+.fcard .dk{color:var(--ink-soft);font-size:.88rem;}
+.fcard .mt{color:var(--ink-faint);font-size:.76rem;margin-top:auto;padding-top:6px;}
+.fcard.hide{display:none;}
