@@ -51,6 +51,20 @@
   img{opacity:.94;}
 }
 
+/* === thèmes forcés par le bouton (priment sur le système) === */
+:root[data-theme="dark"]{
+  --paper:#141210; --paper-deep:#1c1915; --card:#1c1813;
+  --ink:#ece6db; --ink-soft:#b6ab9a; --ink-faint:#8b8273; --rule:#332e26;
+  --accent:#34a596; --gold:#34a596; --philo:#34a596; --psycho:#34a596; --religion:#34a596;
+}
+:root[data-theme="light"]{
+  --paper:#f5f4ef; --paper-deep:#ece9e1; --card:#fcfbf8;
+  --ink:#15110c; --ink-soft:#574f45; --ink-faint:#8a8276; --rule:#e3dfd6;
+  --accent:#0e6b60; --gold:#0e6b60; --philo:#0e6b60; --psycho:#0e6b60; --religion:#0e6b60;
+}
+.theme-toggle{background:none;border:1px solid var(--rule);color:var(--ink-soft);font-family:var(--display);font-weight:500;font-size:1rem;line-height:1;padding:.26rem .54rem;border-radius:5px;cursor:pointer;flex:0 0 auto;}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent);}
+
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
