@@ -32,6 +32,25 @@
   --measure-wide:64rem;
 }
 
+/* === mode sombre automatique (respecte le réglage du système) === */
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141210;
+    --paper-deep:#1c1915;
+    --card:#1c1813;
+    --ink:#ece6db;
+    --ink-soft:#b6ab9a;
+    --ink-faint:#8b8273;
+    --rule:#332e26;
+    --accent:#34a596;
+    --gold:#34a596;
+    --philo:#34a596;
+    --psycho:#34a596;
+    --religion:#34a596;
+  }
+  img{opacity:.94;}
+}
+
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
