@@ -277,3 +277,16 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
   .reading.prose p{line-height:1.85;}
   .reading.prose h2{margin-top:2.3em;}
 }
+
+.hero-mark{display:block;width:148px;height:auto;margin:0 0 1.3rem;}
+@media(max-width:640px){.hero-mark{width:120px;}}
+
+.brand-logo{height:46px;width:auto;display:block;}
+@media(max-width:640px){.brand-logo{height:42px;}}
+
+.foot-logo{height:74px;width:auto;display:block;margin:0 auto .7rem;}
+
+/*center-header*/
+.site-header .bar{display:flex !important;flex-direction:column !important;align-items:center !important;}
+.site-header .brand{align-self:center;}
+.site-header .site-nav{justify-content:center !important;}
