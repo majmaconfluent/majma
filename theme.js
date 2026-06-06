@@ -4,8 +4,7 @@
   if(s==='dark'||s==='light') root.setAttribute('data-theme', s);
   function cur(){
     var a=root.getAttribute('data-theme');
-    if(a) return a;
-    return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    return a ? a : 'light';
   }
   function upd(){
     var b=document.getElementById('themeBtn'); if(!b) return;

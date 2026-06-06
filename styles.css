@@ -33,23 +33,7 @@
 }
 
 /* === mode sombre automatique (respecte le réglage du système) === */
-@media (prefers-color-scheme: dark){
-  :root{
-    --paper:#141210;
-    --paper-deep:#1c1915;
-    --card:#1c1813;
-    --ink:#ece6db;
-    --ink-soft:#b6ab9a;
-    --ink-faint:#8b8273;
-    --rule:#332e26;
-    --accent:#34a596;
-    --gold:#34a596;
-    --philo:#34a596;
-    --psycho:#34a596;
-    --religion:#34a596;
-  }
-  img{opacity:.94;}
-}
+
 
 /* === thèmes forcés par le bouton (priment sur le système) === */
 :root[data-theme="dark"]{
@@ -281,10 +265,10 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
 .hero-mark{display:block;width:148px;height:auto;margin:0 0 1.3rem;}
 @media(max-width:640px){.hero-mark{width:120px;}}
 
-.brand-logo{height:46px;width:auto;display:block;}
-@media(max-width:640px){.brand-logo{height:42px;}}
+.brand-logo{height:92px;width:auto;display:block;}
+@media(max-width:640px){.brand-logo{height:84px;}}
 
-.foot-logo{height:74px;width:auto;display:block;margin:0 auto .7rem;}
+.foot-logo{height:76px;width:auto;display:block;margin:0 auto .7rem;}
 
 /*center-header*/
 .site-header .bar{display:flex !important;flex-direction:column !important;align-items:center !important;}
