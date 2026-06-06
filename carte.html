@@ -123,6 +123,8 @@
     sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-250]}
   };
   var NODES=[
+    {id:"raison-et-revelation",t:"Raison et révélation",g:"lire"},
+    {id:"les-destins-du-moi",t:"Les destins du moi",g:"ame"},
     {id:"averroes-la-raison",t:"Averroès, la raison",g:"lire"},
     {id:"le-premier-mot",t:"Le premier mot",g:"lire"},
     {id:"la-lecture-symbolique",t:"La lecture symbolique",g:"lire"},
@@ -144,6 +146,11 @@
     {id:"la-fitra",t:"La fiṭra et la dignité",g:"sens"}
   ];
   var EDGES=[
+    ["raison-et-revelation","averroes-la-raison"],["raison-et-revelation","la-lecture-symbolique"],
+    ["raison-et-revelation","shahrour-le-livre-et-le-coran"],["raison-et-revelation","les-deux-livres"],
+    ["les-destins-du-moi","ombre-et-nafs"],["les-destins-du-moi","le-coeur"],
+    ["les-destins-du-moi","le-souffle"],["les-destins-du-moi","le-confluent-des-deux-mers"],
+    ["les-destins-du-moi","freud-et-jung"],
     ["averroes-la-raison","la-fitra"],["averroes-la-raison","la-lecture-symbolique"],
     ["averroes-la-raison","le-libre-arbitre"],["averroes-la-raison","les-deux-livres"],
     ["averroes-la-raison","les-signes"],["l-univers-ajuste","le-desenchantement"],
