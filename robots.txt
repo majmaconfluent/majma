@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /modele.html
+
+Sitemap: https://majma.me/sitemap.xml

@@ -89,6 +89,7 @@
   <meta property="og:url" content="https://majma.me/carte.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://majma.me/og.png">
+  <link rel="canonical" href="https://majma.me/carte.html">
 </head>
 <body>
 <div id="scene">
@@ -133,6 +134,7 @@
     sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-250]}
   };
   var NODES=[
+    {id:"maitriser-le-desir",t:"Maîtriser le désir",g:"ame"},
     {id:"raison-et-revelation",t:"Raison et révélation",g:"lire"},
     {id:"les-destins-du-moi",t:"Les destins du moi",g:"ame"},
     {id:"averroes-la-raison",t:"Averroès, la raison",g:"lire"},
@@ -156,6 +158,8 @@
     {id:"la-fitra",t:"La fiṭra et la dignité",g:"sens"}
   ];
   var EDGES=[
+    ["maitriser-le-desir","le-coeur"],["maitriser-le-desir","les-destins-du-moi"],
+    ["maitriser-le-desir","ombre-et-nafs"],["maitriser-le-desir","le-libre-arbitre"],
     ["raison-et-revelation","averroes-la-raison"],["raison-et-revelation","la-lecture-symbolique"],
     ["raison-et-revelation","shahrour-le-livre-et-le-coran"],["raison-et-revelation","les-deux-livres"],
     ["les-destins-du-moi","ombre-et-nafs"],["les-destins-du-moi","le-coeur"],
