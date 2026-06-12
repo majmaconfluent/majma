@@ -33,6 +33,8 @@
   .edge{stroke:var(--line);opacity:.5;transition:stroke .25s,opacity .25s;}
   .edge.hi{stroke:var(--line-hi);opacity:.9;}
   .edge.dim{opacity:.12;}
+  .edge.cross{opacity:0;}
+  .edge.cross.hi{opacity:.9;stroke-dasharray:4 3;}
   .star{cursor:pointer;transition:opacity .25s;}
   .star .halo{opacity:0;transition:opacity .25s;}
   .star.sel .halo,.star.nb .halo{opacity:.45;}
@@ -155,39 +157,84 @@
     {id:"le-probleme-du-mal",t:"Le problème du mal",g:"sens"},
     {id:"le-libre-arbitre",t:"Le libre arbitre et le décret",g:"sens"},
     {id:"les-deux-livres",t:"Les deux livres",g:"sens"},
-    {id:"la-fitra",t:"La fiṭra et la dignité",g:"sens"}
+    {id:"la-fitra",t:"La fiṭra et la dignité",g:"sens"},
+    {id:"quest-ce-qu-une-lecture",t:"Qu’est-ce qu’une lecture ?",g:"lire"},
+    {id:"le-coran-en-pratique",t:"Le Coran, concrètement",g:"lire"},
+    {id:"jung-en-dix-minutes",t:"Jung en dix minutes",g:"ame"}
   ];
   var EDGES=[
-    ["maitriser-le-desir","le-coeur"],["maitriser-le-desir","les-destins-du-moi"],
-    ["maitriser-le-desir","ombre-et-nafs"],["maitriser-le-desir","le-libre-arbitre"],
-    ["raison-et-revelation","averroes-la-raison"],["raison-et-revelation","la-lecture-symbolique"],
-    ["raison-et-revelation","shahrour-le-livre-et-le-coran"],["raison-et-revelation","les-deux-livres"],
-    ["les-destins-du-moi","ombre-et-nafs"],["les-destins-du-moi","le-coeur"],
-    ["les-destins-du-moi","le-souffle"],["les-destins-du-moi","le-confluent-des-deux-mers"],
-    ["les-destins-du-moi","freud-et-jung"],
-    ["averroes-la-raison","la-fitra"],["averroes-la-raison","la-lecture-symbolique"],
-    ["averroes-la-raison","le-libre-arbitre"],["averroes-la-raison","les-deux-livres"],
-    ["averroes-la-raison","les-signes"],["l-univers-ajuste","le-desenchantement"],
-    ["l-univers-ajuste","le-libre-arbitre"],["l-univers-ajuste","les-deux-livres"],
-    ["l-univers-ajuste","les-signes"],["la-fitra","le-libre-arbitre"],
-    ["la-fitra","le-probleme-du-mal"],["la-fitra","les-signes"],
-    ["la-fitra","ombre-et-nafs"],["la-lecture-symbolique","la-rhetorique-semitique"],
-    ["la-lecture-symbolique","le-confluent-des-deux-mers"],
+    ["averroes-la-raison","la-fitra","x"],
+    ["averroes-la-raison","la-lecture-symbolique"],
+    ["averroes-la-raison","le-libre-arbitre","x"],
+    ["averroes-la-raison","le-premier-mot"],
+    ["averroes-la-raison","les-deux-livres","x"],
+    ["averroes-la-raison","les-signes","x"],
+    ["averroes-la-raison","raison-et-revelation"],
+    ["freud-et-jung","jung-en-dix-minutes"],
+    ["freud-et-jung","les-reves"],
+    ["jung-en-dix-minutes","le-confluent-des-deux-mers"],
+    ["jung-en-dix-minutes","les-reves"],
+    ["jung-en-dix-minutes","ombre-et-nafs"],
+    ["l-univers-ajuste","le-desenchantement"],
+    ["l-univers-ajuste","le-libre-arbitre"],
+    ["l-univers-ajuste","les-deux-livres"],
+    ["l-univers-ajuste","les-signes"],
+    ["la-fitra","le-desenchantement"],
+    ["la-fitra","le-libre-arbitre"],
+    ["la-fitra","le-probleme-du-mal"],
+    ["la-fitra","les-destins-du-moi","x"],
+    ["la-fitra","les-signes"],
+    ["la-fitra","ombre-et-nafs","x"],
+    ["la-lecture-symbolique","la-rhetorique-semitique"],
+    ["la-lecture-symbolique","le-confluent-des-deux-mers","x"],
+    ["la-lecture-symbolique","les-reves","x"],
+    ["la-lecture-symbolique","quest-ce-qu-une-lecture"],
+    ["la-lecture-symbolique","raison-et-revelation"],
+    ["la-rhetorique-semitique","le-coran-en-pratique"],
+    ["la-rhetorique-semitique","les-mots-et-le-monde"],
+    ["la-rhetorique-semitique","quest-ce-qu-une-lecture"],
     ["la-rhetorique-semitique","shahrour-le-livre-et-le-coran"],
-    ["le-desenchantement","les-deux-livres"],["le-desenchantement","les-signes"],
-    ["le-libre-arbitre","le-probleme-du-mal"],["le-libre-arbitre","les-deux-livres"],
-    ["le-libre-arbitre","shahrour-le-livre-et-le-coran"],
-    ["le-probleme-du-mal","les-deux-livres"],["le-probleme-du-mal","les-signes"],
+    ["le-coeur","le-libre-arbitre","x"],
+    ["le-coeur","le-premier-mot","x"],
+    ["le-coeur","le-souffle"],
+    ["le-coeur","les-destins-du-moi"],
+    ["le-coeur","maitriser-le-desir"],
+    ["le-coeur","ombre-et-nafs"],
+    ["le-confluent-des-deux-mers","les-destins-du-moi"],
+    ["le-confluent-des-deux-mers","les-reves"],
+    ["le-confluent-des-deux-mers","raison-et-revelation","x"],
+    ["le-coran-en-pratique","le-premier-mot"],
+    ["le-coran-en-pratique","les-mots-et-le-monde"],
+    ["le-desenchantement","les-deux-livres"],
+    ["le-desenchantement","les-signes"],
+    ["le-libre-arbitre","le-probleme-du-mal"],
+    ["le-libre-arbitre","le-souffle","x"],
+    ["le-libre-arbitre","les-deux-livres"],
+    ["le-libre-arbitre","maitriser-le-desir","x"],
+    ["le-libre-arbitre","shahrour-le-livre-et-le-coran","x"],
+    ["le-premier-mot","le-souffle","x"],
+    ["le-premier-mot","les-deux-livres","x"],
+    ["le-premier-mot","les-mots-et-le-monde"],
+    ["le-premier-mot","shahrour-le-livre-et-le-coran"],
+    ["le-probleme-du-mal","le-souffle","x"],
+    ["le-probleme-du-mal","les-deux-livres"],
+    ["le-probleme-du-mal","les-signes"],
+    ["le-souffle","les-destins-du-moi"],
+    ["le-souffle","les-deux-livres","x"],
+    ["le-souffle","les-mots-et-le-monde","x"],
+    ["le-souffle","ombre-et-nafs"],
+    ["le-souffle","shahrour-le-livre-et-le-coran","x"],
+    ["les-destins-du-moi","maitriser-le-desir"],
+    ["les-destins-du-moi","ombre-et-nafs"],
     ["les-deux-livres","les-signes"],
-    ["les-reves","freud-et-jung"],["les-reves","le-confluent-des-deux-mers"],
-    ["les-reves","ombre-et-nafs"],["les-reves","la-lecture-symbolique"],
-    ["le-souffle","la-fitra"],["le-souffle","ombre-et-nafs"],["le-souffle","les-deux-livres"],
-    ["le-souffle","shahrour-le-livre-et-le-coran"],["le-souffle","le-libre-arbitre"],["le-souffle","le-probleme-du-mal"],
-    ["les-mots-et-le-monde","shahrour-le-livre-et-le-coran"],["les-mots-et-le-monde","la-rhetorique-semitique"],
-    ["les-mots-et-le-monde","la-lecture-symbolique"],["les-mots-et-le-monde","les-signes"],
-    ["le-premier-mot","averroes-la-raison"],["le-premier-mot","les-mots-et-le-monde"],["le-premier-mot","la-lecture-symbolique"],["le-premier-mot","shahrour-le-livre-et-le-coran"],["le-premier-mot","le-souffle"],["le-premier-mot","les-deux-livres"],
-    ["la-fitra","le-desenchantement"],["le-souffle","les-mots-et-le-monde"],
-    ["le-coeur","le-souffle"],["le-coeur","ombre-et-nafs"],["le-coeur","le-premier-mot"],["le-coeur","freud-et-jung"]
+    ["les-deux-livres","raison-et-revelation","x"],
+    ["les-mots-et-le-monde","les-signes","x"],
+    ["les-mots-et-le-monde","raison-et-revelation"],
+    ["les-mots-et-le-monde","shahrour-le-livre-et-le-coran"],
+    ["les-reves","ombre-et-nafs"],
+    ["maitriser-le-desir","ombre-et-nafs"],
+    ["ombre-et-nafs","raison-et-revelation","x"],
+    ["raison-et-revelation","shahrour-le-livre-et-le-coran"],
   ];
 
   var byId={},deg={},neighbors={};
@@ -226,7 +273,8 @@
   // edges
   var edgeEls=[];
   EDGES.forEach(function(e){var a=byId[e[0]],b=byId[e[1]];
-    var ln=nss(mk("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,"class":"edge","stroke-width":1}));
+    var cls=(e[2]==="x")?"edge cross":"edge";
+    var ln=nss(mk("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,"class":cls,"stroke-width":1}));
     ln._a=e[0];ln._b=e[1];vp.appendChild(ln);edgeEls.push(ln);});
 
   // cœur (étoile à 8 branches), contre-échelle via groupe
@@ -277,10 +325,9 @@
     coreLabel.style.left=projX(0)+"px";coreLabel.style.top=(projY(0)-26)+"px";
   }
   function refreshLabels(){
-    var showAll=state.s>=SHOW_ALL;
     NODES.forEach(function(n){var el=labelEls[n.id],show=false,strong=false;
-      if(selected){if(n.id===selected){show=true;strong=true;}else if(neighbors[selected][n.id]){show=true;strong=true;}else show=showAll;}
-      else{show=showAll||hoverId===n.id;}
+      if(selected){if(n.id===selected){show=true;strong=true;}else if(neighbors[selected][n.id]){show=true;strong=true;}else show=false;}
+      else{show=(hoverId===n.id);}
       el.classList.toggle("on",show);el.classList.toggle("strong",strong);
     });
   }
