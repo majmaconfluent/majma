@@ -38,7 +38,20 @@
   "Qalb":"Le cœur : dans le Coran, non le siège de la seule émotion, mais l’organe de la compréhension, de la foi et de la décision. Il peut être sain (salīm), malade, durci ou scellé. C’est là que le savoir devient conviction.",
   "Āya":"Le signe. Le même mot désigne un verset du Coran et toute chose du monde : la nature se lit comme un texte.",
   "Rūḥ":"L’esprit. Dans la lecture symbolique (Shahrour), non une substance mais l’ordre divin (al-amr) et le saut vers la pensée abstraite : « l’esprit relève de l’amr de mon Seigneur » (17:85).",
-  "Soi":"Chez Jung : le Soi est le centre total de la psyché ; l'ombre, la part de nous que nous refusons de voir."
+  "Soi":"Chez Jung : le Soi est le centre total de la psyché ; l'ombre, la part de nous que nous refusons de voir.",
+  "Apatheia":"Chez les stoïciens, l'absence de passions-troubles : non l'insensibilité, mais la liberté à l'égard de ce qui nous agite sans raison.",
+  "Sublimation":"Chez Freud, le déplacement de l'énergie pulsionnelle vers un but non sexuel et socialement valorisé : art, pensée, action.",
+  "Archétype":"Chez Jung, un motif universel qui structure l'inconscient collectif : le héros, l'ombre, le vieux sage, la mère, et d'autres figures que l'on retrouve dans tous les mythes et tous les rêves.",
+  "Inconscient collectif":"Chez Jung, la couche de l'inconscient commune à toute l'humanité, faite d'archétypes : des dispositions héritées, non du contenu, qui structurent les images et récits de toutes les cultures.",
+  "Taṇhā":"Dans le bouddhisme, la soif, l'attachement qui s'accroche à ce qui change : la racine de la souffrance (dukkha) selon le deuxième des Quatre Nobles Vérités.",
+  "Nirvāṇa":"Dans le bouddhisme, l'extinction de la soif (taṇhā) et donc de la souffrance qu'elle engendre : non un lieu, mais la fin d'un mécanisme.",
+  "Verdrängung":"Le refoulement chez Freud : le mécanisme par lequel un contenu psychique inacceptable est repoussé hors de la conscience, sans disparaître.",
+  "Contenu manifeste":"Chez Freud, le rêve tel qu'on le vit et le raconte, par opposition au contenu latent, son sens caché que le travail d'interprétation cherche à dégager.",
+  "Contenu latent":"Chez Freud, le sens caché d'un rêve, derrière son contenu manifeste : ce que le travail d'interprétation cherche à dégager.",
+  "Yetser ha-ra":"Dans la pensée juive, le penchant mauvais : une inclination intérieure à dominer plutôt qu'une force extérieure, proche en cela du hawā coranique.",
+  "ʿIlm ladunî":"Le savoir « venu d'auprès de Dieu » : reçu directement, non par apprentissage ni raisonnement, comme celui de Khidr dans le récit coranique.",
+  "Fanāʾ":"Dans le soufisme, l'extinction du moi (nafs) dans l'union avec le divin : la dissolution de l'ego comme aboutissement du chemin spirituel.",
+  "Psychē":"En grec, l'âme : principe vital et pensant, racine de « psychologie » et de « psychanalyse »."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
@@ -53,6 +66,10 @@
   var BOUND = "(^|[^\\p{L}\\p{N}\\u02bf\\u02bb\\u0304\\u0331])";
   var BOUND_END = "(?=[^\\p{L}\\p{N}\\u02bf\\u02bb\\u0304\\u0331]|$)";
 
+  // Termes dont la casse est significative : "Soi" (Jung) ne doit pas matcher
+  // "soi" en minuscule (sens ordinaire, tres frequent en francais).
+  var CASE_SENSITIVE = {"Soi": true};
+
   function processTextNode(node, used){
     var text = node.nodeValue;
     if(!text || !text.trim()) return;
@@ -61,7 +78,8 @@
       if(used[term]) continue;
       var re;
       try{
-        re=new RegExp(BOUND+"("+esc(term)+")"+BOUND_END,"ui");
+        var flags = CASE_SENSITIVE[term] ? "u" : "ui";
+        re=new RegExp(BOUND+"("+esc(term)+")"+BOUND_END,flags);
       }catch(e){ continue; }
       var m=re.exec(text);
       if(!m) continue;
