@@ -54,7 +54,11 @@
   "Psychē":"En grec, l'âme : principe vital et pensant, racine de « psychologie » et de « psychanalyse ».",
   "Persona":"Chez Jung, le masque social que chacun présente aux autres : non un mensonge, mais une façade nécessaire, derrière laquelle se trouvent l'ombre et le reste de la psyché.",
   "Sentiment d’infériorité":"Chez Alfred Adler, le sentiment, commun à tout enfant face aux adultes, d'être petit et dépendant ; un point de départ, pas un défaut, autour duquel s'organise une grande partie de la vie psychique.",
-  "Compensation":"Chez Alfred Adler, la façon dont chacun répond à son sentiment d'infériorité : apprendre, contribuer, se rendre utile, trouver sa place dans un groupe."
+  "Compensation":"Chez Alfred Adler, la façon dont chacun répond à son sentiment d'infériorité : apprendre, contribuer, se rendre utile, trouver sa place dans un groupe.",
+  "Énantiodromie":"Chez Jung, la loi selon laquelle ce qu'on refoule ou ignore ne disparaît pas, mais s'accumule et revient par-derrière en sens contraire, souvent avec d'autant plus de force qu'on l'a longtemps ignoré.",
+  "Désir mimétique":"Chez René Girard, le mécanisme par lequel on désire non pas spontanément un objet, mais ce qu'un autre désire : le désir naît de l'imitation d'un modèle, pas d'un besoin propre.",
+  "Logothérapie":"Thérapie fondée par Viktor Frankl : soin par le sens. Sa thèse : la première motivation de l'être humain est la quête de sens, non le plaisir (Freud) ni la puissance (Adler).",
+  "Possession":"Chez Jung, l'état dans lequel une énergie psychique a pris le pouvoir sur le moi sans que celui-ci s'en aperçoive : il croit librement vouloir ce à quoi il est en réalité assujetti. Ce que les Anciens nommaient être possédé par un dieu."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
