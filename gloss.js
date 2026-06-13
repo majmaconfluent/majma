@@ -51,7 +51,10 @@
   "Yetser ha-ra":"Dans la pensée juive, le penchant mauvais : une inclination intérieure à dominer plutôt qu'une force extérieure, proche en cela du hawā coranique.",
   "ʿIlm ladunî":"Le savoir « venu d'auprès de Dieu » : reçu directement, non par apprentissage ni raisonnement, comme celui de Khidr dans le récit coranique.",
   "Fanāʾ":"Dans le soufisme, l'extinction du moi (nafs) dans l'union avec le divin : la dissolution de l'ego comme aboutissement du chemin spirituel.",
-  "Psychē":"En grec, l'âme : principe vital et pensant, racine de « psychologie » et de « psychanalyse »."
+  "Psychē":"En grec, l'âme : principe vital et pensant, racine de « psychologie » et de « psychanalyse ».",
+  "Persona":"Chez Jung, le masque social que chacun présente aux autres : non un mensonge, mais une façade nécessaire, derrière laquelle se trouvent l'ombre et le reste de la psyché.",
+  "Sentiment d’infériorité":"Chez Alfred Adler, le sentiment, commun à tout enfant face aux adultes, d'être petit et dépendant ; un point de départ, pas un défaut, autour duquel s'organise une grande partie de la vie psychique.",
+  "Compensation":"Chez Alfred Adler, la façon dont chacun répond à son sentiment d'infériorité : apprendre, contribuer, se rendre utile, trouver sa place dans un groupe."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
