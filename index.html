@@ -3,22 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Majmaʿ · revue d’idées</title>
-<meta name="description" content="Une revue d’essais en trois fils : lire les textes, connaître l’âme, chercher le sens. Au croisement de la philosophie, de la psychologie et de la religion.">
+<title>Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée</title>
+<meta name="description" content="Majmaʿ ,  revue d'essais sur l'islam, la psychologie de Jung, la sémantique du Coran et la philosophie comparée. 32 essais, en français.">
 <link rel="stylesheet" href="styles.css">
 <script src="theme.js"></script>
-  <link rel="icon" type="image/png" href="favicon-32.png">
-  <link rel="apple-touch-icon" href="favicon-180.png">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Majmaʿ">
-  <meta property="og:title" content="Majmaʿ · revue d’idées">
-  <meta property="og:description" content="Une revue d’essais en trois fils : lire les textes, connaître l’âme, chercher le sens. Au croisement de la philosophie, de la psychologie et de la religion.">
-  <meta property="og:image" content="https://majma.me/og.png">
-  <meta property="og:url" content="https://majma.me/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://majma.me/og.png">
-  <link rel="canonical" href="https://majma.me/">
-  <meta name="google-site-verification" content="GVurbiYpkBvRXiJ0HLHjznTfpb0iHvIleedPQavLswQ" />
+<script src="gloss.js" defer></script>
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Majmaʿ">
+<meta property="og:title" content="Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée">
+<meta property="og:description" content="32 essais sur l'islam, Jung et la pensée comparée.">
+<meta property="og:image" content="https://majma.me/og.png">
+<meta property="og:url" content="https://majma.me/">
+<link rel="canonical" href="https://majma.me/">
+<style>
+/* ── NEW INDEX STYLES ── */
+
+/* Search */
+.search-wrap {position:relative;max-width:36rem;margin:0 auto 2.4rem;}
+.search-input {
+  width:100%;padding:.85rem 1.2rem .85rem 3rem;
+  border:1px solid var(--rule);border-radius:8px;
+  background:var(--card);color:var(--ink);
+  font-family:var(--body);font-size:1.1rem;
+  transition:border-color .2s;outline:none;
+}
+.search-input:focus{border-color:var(--accent);}
+.search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--ink-faint);pointer-events:none;font-size:1.1rem;}
+.search-results{display:none;flex-direction:column;gap:.5rem;margin-top:1rem;}
+.search-results.show{display:flex;}
+.sr-item{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.7rem 1rem;background:var(--card);border:1px solid var(--rule);border-radius:6px;text-decoration:none;color:var(--ink);transition:border-color .15s;}
+.sr-item:hover{border-color:var(--accent);text-decoration:none;}
+.sr-title{font-family:var(--display);font-weight:600;font-size:1.05rem;}
+.sr-meta{color:var(--ink-faint);font-size:.9rem;white-space:nowrap;}
+.no-results{text-align:center;color:var(--ink-faint);font-style:italic;padding:1.5rem;}
+
+/* Hero */
+.hero2{
+  text-align:center;padding:2.2rem 1.6rem 1.8rem;
+  border-bottom:1px solid var(--rule);
+}
+.hero2 .ar{font-family:"Amiri",serif;font-size:2.6rem;color:var(--accent);direction:rtl;margin:0 0 .8rem;line-height:1.3;}
+.hero2 h1{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:.98;letter-spacing:-.025em;margin:0 0 .7rem;}
+.hero2 .lede{font-family:var(--body);font-style:italic;font-size:1.2rem;color:var(--ink-soft);max-width:32rem;margin:0 auto 1.2rem;}
+.hero2-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-prim{display:inline-block;padding:.7rem 1.6rem;background:var(--accent);color:#fff;font-family:var(--display);font-weight:600;font-size:1rem;border-radius:6px;text-decoration:none;transition:opacity .15s;}
+.btn-prim:hover{opacity:.88;text-decoration:none;color:#fff;}
+.btn-sec{display:inline-block;padding:.7rem 1.6rem;border:1px solid var(--rule);color:var(--ink-soft);font-family:var(--display);font-weight:500;font-size:1rem;border-radius:6px;text-decoration:none;transition:border-color .15s,color .15s;}
+.btn-sec:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+
+/* Featured cards */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.2rem 0;}
+.feat-card{
+  display:flex;flex-direction:column;gap:.4rem;
+  padding:1.1rem 1.2rem 1rem;
+  background:var(--card);border:1px solid var(--rule);
+  border-radius:10px;text-decoration:none;color:var(--ink);
+  transition:border-color .18s,box-shadow .18s;
+}
+.feat-card:hover{border-color:var(--accent);box-shadow:0 4px 18px rgba(14,107,96,.10);text-decoration:none;color:var(--ink);}
+.feat-tag{font-family:var(--display);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.feat-title{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0;line-height:1.2;}
+.feat-desc{font-family:var(--body);font-size:.98rem;color:var(--ink-soft);margin:0;line-height:1.5;flex:1;}
+.feat-cta{font-family:var(--display);font-size:.88rem;color:var(--accent);font-weight:600;margin-top:.4rem;}
+
+/* Chapters accordion */
+.ch-panel{
+  border:1px solid var(--rule);border-radius:8px;
+  margin-bottom:.4rem;overflow:hidden;
+  background:var(--card);
+}
+.ch-head{
+  display:flex;align-items:center;gap:1.2rem;
+  padding:1.1rem 1.4rem;cursor:pointer;list-style:none;
+  user-select:none;
+}
+.ch-head::-webkit-details-marker{display:none;}
+.ch-head::marker{display:none;}
+.ch-num{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;flex:0 0 auto;min-width:1.8rem;color:var(--accent);}
+.ch-info{flex:1;}
+.ch-title{display:block;font-family:var(--display);font-weight:700;font-size:1.12rem;}
+.ch-why{display:block;font-family:var(--body);font-size:.9rem;color:var(--ink-soft);font-style:italic;margin-top:.15rem;}
+.ch-count{font-family:var(--display);font-size:.82rem;color:var(--ink-faint);white-space:nowrap;flex:0 0 auto;}
+details[open] .ch-head{border-bottom:1px solid var(--rule);}
+.ch-body{padding:.8rem .4rem .8rem 1rem;display:flex;flex-direction:column;gap:0;}
+
+/* Essay rows inside chapters */
+.erow{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;padding:.55rem .8rem;border-radius:5px;
+  text-decoration:none;color:var(--ink);
+  transition:background .12s;
+}
+.erow:hover{background:var(--paper-deep);text-decoration:none;}
+.erow-title{font-family:var(--body);font-size:1rem;}
+.erow-meta{font-family:var(--display);font-size:.8rem;color:var(--ink-faint);white-space:nowrap;flex:0 0 auto;}
+
+/* Tracks */
+.tracks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0 1.4rem;}
+.track{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1rem;}
+.track-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;}
+.track-icon{font-size:1.4rem;color:var(--accent);flex:0 0 auto;}
+.track-title{font-family:var(--display);font-weight:700;font-size:1.05rem;display:block;}
+.track-total{font-family:var(--display);font-size:.78rem;color:var(--ink-faint);display:block;margin-top:.1rem;}
+.track-desc{font-family:var(--body);font-style:italic;font-size:.9rem;color:var(--ink-soft);margin:0 0 .9rem;}
+.track-essays{display:flex;flex-direction:column;gap:.4rem;}
+.mini-card{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:.5rem;padding:.45rem .7rem;
+  background:var(--paper);border:1px solid var(--rule);
+  border-radius:5px;text-decoration:none;color:var(--ink);
+  transition:border-color .12s;
+}
+.mini-card:hover{border-color:var(--accent);text-decoration:none;}
+.mc-title{font-family:var(--body);font-size:.9rem;}
+.mc-time{font-family:var(--display);font-size:.75rem;color:var(--ink-faint);white-space:nowrap;}
+
+/* Section headers */
+.idx-section{max-width:var(--measure-wide);margin:0 auto;padding:1.4rem 1.6rem 0;}
+.idx-section + .idx-section{padding-top:1rem;}
+.idx-label{
+  display:flex;align-items:center;gap:.9rem;
+  font-family:var(--display);font-weight:700;font-size:1.05rem;
+  letter-spacing:.01em;color:var(--ink-soft);
+  margin-bottom:.8rem;
+}
+.idx-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+
+/* Mobile */
+@media(max-width:600px){
+  .hero2 h1{font-size:2rem;}
+  .hero2 .ar{font-size:2rem;}
+  .feat-grid{grid-template-columns:1fr;}
+  .tracks-grid{grid-template-columns:1fr;}
+  .ch-head{padding:.9rem 1rem;}
+  .ch-num{font-size:1.6rem;min-width:1.4rem;}
+  .ch-why{display:none;}
+}
+</style>
 </head>
 <body>
 <div id="progress"></div>
@@ -27,304 +150,349 @@
   <div class="bar">
     <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
     <nav class="site-nav">
-      <a href="index.html#lire">Les textes</a>
-      <a href="index.html#ame">L’âme</a>
-      <a href="index.html#sens">Le sens</a>
+      <a href="#chapitres">Les chapitres</a>
+      <a href="#parcours">Parcours</a>
+      <a href="glossaire.html">Glossaire</a>
+      <a href="carte.html">Carte</a>
       <a href="apropos.html">À propos</a>
       <button id="themeBtn" class="theme-toggle" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <p class="ar">مَجْمَعَ الْبَحْرَيْنِ</p>
-  <p class="ar-tr">« Le confluent des deux mers »</p>
-  <h1>Le confluent des idées</h1>
-  <p class="lede">Une revue d’essais au croisement de la philosophie, de la psychologie et de la religion, où les textes anciens se relisent à neuf.</p>
-  <p class="manifeste">Ici, la raison n’est pas l’ennemie de la foi, et lire n’est pas obéir. On relit les textes anciens à la lumière de la philosophie et de la psychologie, pour penser plus librement, raviver la confiance en un Créateur et le caractère sacré de la nature humaine, sans réduire les textes à leur seule lettre. Des interprétations, pas des verdicts.</p>
-  <div class="orn"></div>
-  <p style="margin:6px 0 0;"><a href="carte.html" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1rem;color:var(--accent);border:1px solid var(--accent);padding:10px 20px;border-radius:999px;">✦ Explorer la carte des essais</a></p>
+<!-- HERO -->
+<section class="hero2">
+  <p class="ar" lang="ar">مجمع</p>
+  <h1>Majmaʿ</h1>
+  <p class="lede">Une revue d'essais au confluent de la philosophie islamique, la psychologie jungienne et la pensée comparée.</p>
+  <div class="hero2-btns">
+    <a class="btn-prim" href="quest-ce-qu-une-lecture.html">Commencer ici</a>
+    <a class="btn-sec" href="#chapitres">Explorer les 32 essais</a>
+  </div>
 </section>
 
-<section class="parc-intro"><h2 class="section-title" style="margin-top:0;">Par où commencer ?</h2><p class="section-sub">Comme les chapitres d’un livre : chaque partie s’appuie sur la précédente, des fondations jusqu’aux questions les plus difficiles. Les 32 essais sont là, dans l’ordre.</p></section>
-<div class="parc">
-  <div class="parc-card">
-    <h3>Chapitre 1 · Premiers pas</h3>
-    <p class="parc-why">Poser les fondations : pourquoi lire ainsi, la dignité humaine, le cœur qui comprend.</p>
-    <ul class="parc-steps">
-      <li><a href="quest-ce-qu-une-lecture.html">Qu'est-ce qu'une lecture ?</a></li>
-      <li><a href="le-coran-en-pratique.html">Le Coran, concrètement</a></li>
-      <li><a href="methode.html">Méthode</a></li>
-      <li><a href="la-fitra.html">La fiṭra et la dignité</a></li>
-      <li><a href="le-coeur.html">Le cœur</a></li>
-      <li><a href="le-premier-mot.html">Le premier mot</a></li>
-    </ul>
+<!-- SEARCH -->
+<div class="idx-section" style="padding-top:1.4rem;">
+  <div class="idx-label">Recherche</div>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input class="search-input" type="search" placeholder="Chercher un essai, un auteur, un concept…" id="srch" autocomplete="off">
   </div>
-  <div class="parc-card">
-    <h3>Chapitre 2 · Apprendre à lire</h3>
-    <p class="parc-why">Les outils de lecture : Averroès et la raison, Izutsu et la sémantique du Coran, Shahrour et la rhétorique sémitique.</p>
-    <ul class="parc-steps">
-      <li><a href="averroes-la-raison.html">Averroès et le droit de la raison</a></li>
-      <li><a href="la-lecture-symbolique.html">La lecture symbolique</a></li>
-      <li><a href="le-monde-imaginal.html">Le monde entre deux</a></li>
-      <li><a href="la-rhetorique-semitique.html">La rhétorique sémitique</a></li>
-      <li><a href="les-mots-et-le-monde.html">Les mots et le monde</a></li>
-      <li><a href="shahrour-le-livre-et-le-coran.html">Shahrour : le Livre et le Coran</a></li>
-      <li><a href="raison-et-revelation.html">Raison et révélation</a></li>
-    </ul>
-  </div>
-  <div class="parc-card">
-    <h3>Chapitre 3 · Le voyage intérieur</h3>
-    <p class="parc-why">L’âme, l’ombre et le nafs : la psychologie de Freud et Jung face à la spiritualité islamique et bouddhiste.</p>
-    <ul class="parc-steps">
-      <li><a href="jung-en-dix-minutes.html">Ce qui agit sans qu'on le sache</a></li>
-      <li><a href="ombre-et-nafs.html">L’ombre et le nafs</a></li>
-      <li><a href="trois-portes-pour-la-meme-piece.html">Trois portes pour la même pièce</a></li>
-      <li><a href="les-reves.html">Les rêves</a></li>
-      <li><a href="le-souffle.html">Le souffle</a></li>
-      <li><a href="le-confluent-des-deux-mers.html">Le Confluent des deux mers</a></li>
-      <li><a href="les-destins-du-moi.html">Les destins du moi</a></li>
-      <li><a href="maitriser-le-desir.html">Maîtriser le désir</a></li>
-    </ul>
-  </div>
-  <div class="parc-card">
-    <h3>Chapitre 4 · Lire le monde</h3>
-    <p class="parc-why">Science et foi, sens et finitude : Weber, Frankl, Sénèque, Heidegger, la beauté et le problème du mal.</p>
-    <ul class="parc-steps">
-      <li><a href="les-signes.html">Les signes : lire le monde</a></li>
-      <li><a href="l-univers-ajuste.html">L’univers ajusté</a></li>
-      <li><a href="les-deux-livres.html">Les deux livres</a></li>
-      <li><a href="le-desenchantement.html">Le désenchantement du monde</a></li>
-      <li><a href="le-sens-malgre-tout.html">Le sens malgré tout</a></li>
-      <li><a href="la-finitude.html">La finitude</a></li>
-      <li><a href="ce-qui-arrete.html">Ce qui arrête</a></li>
-      <li><a href="le-libre-arbitre.html">Le libre arbitre et le décret</a></li>
-      <li><a href="le-probleme-du-mal.html">Le problème du mal</a></li>
-    </ul>
-  </div>
-  <div class="parc-card">
-    <h3>Chapitre 5 · Aujourd’hui</h3>
-    <p class="parc-why">Les mêmes idées, à l’épreuve du présent : narcissisme, réseaux sociaux et quête de sens.</p>
-    <ul class="parc-steps">
-      <li><a href="le-scroll-et-la-pause.html">Le scroll et la pause</a></li>
-      <li><a href="le-moi-et-son-image.html">Le moi et son image</a></li>
-      <li><a href="je-et-tu.html">Je et Tu</a></li>
-    </ul>
-  </div>
-</div>
-<section id="index" class="idx-head">
-  <span id="lire"></span><span id="ame"></span><span id="sens"></span>
-  <h2 class="section-title">Ou parcourez tout</h2>
-  <p class="section-sub">L’index complet, filtrable par fil.</p>
-</section>
-<div class="fbar">
-  <button class="fbtn active" data-f="all">Tous</button>
-  <button class="fbtn" data-f="lire" style="--bc:#0e6b60">Les textes</button>
-  <button class="fbtn" data-f="ame" style="--bc:#9c6b34">L’âme</button>
-  <button class="fbtn" data-f="sens" style="--bc:#3f5e8c">Le sens</button>
+  <div class="search-results" id="sr"></div>
 </div>
 
-<section id="index" class="idx-head">
-  <span id="lire"></span><span id="ame"></span><span id="sens"></span>
-  <h2 class="section-title">Ou parcourez tout</h2>
-  <p class="section-sub">L’index complet, filtrable par fil.</p>
-</section>
-
-<div class="fgrid">
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="quest-ce-qu-une-lecture.html">
-    <span class="tg">Religion · Philosophie</span>
-    <h3>Qu’est-ce qu’une lecture ?</h3>
-    <span class="dk">On ne lit jamais un texte à nu : il y a toujours une lecture. Pourquoi plusieurs lectures peuvent être justes, sans que tout se vaille.</span>
-    <span class="mt">Essai · ~8 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="le-coran-en-pratique.html">
-    <span class="tg">Religion</span>
-    <h3>Le Coran, concrètement</h3>
-    <span class="dk">Sourate, verset, révélation par fragments, ordre du livre, traductions : les bases pour qui n’a jamais ouvert le texte.</span>
-    <span class="mt">Essai · ~8 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="la-fitra.html">
-    <span class="tg">Religion</span>
-    <h3>La fiṭra et la dignité</h3>
-    <span class="dk">La nature première inscrite en l’humain, et la dignité qui lui est conférée : « Nous avons honoré les fils d’Adam ».</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="le-coeur.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>Le cœur</h3>
-    <span class="dk">Al-qalb : dans le Coran, non le siège de l’émotion mais l’organe qui comprend, croit et décide. Ses états, et le lieu où le savoir devient foi.</span>
-    <span class="mt">Essai · ~16 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="le-premier-mot.html">
-    <span class="tg">Linguistique · Religion</span>
-    <h3>Le premier mot</h3>
-    <span class="dk">Iqraʾ, « Lis » : le premier verset révélé n’est ni « crois » ni « obéis ». La connaissance avant le dogme, et un ordre adressé à l’humanité.</span>
-    <span class="mt">Essai · ~23 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="averroes-la-raison.html">
-    <span class="tg">Philosophie</span>
-    <h3>Averroès et le droit de la raison</h3>
-    <span class="dk">« La vérité ne contredit pas la vérité. » Comment Ibn Rushd a fondé, au XIIᵉ siècle, le droit de lire l’Écriture avec la raison.</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="la-lecture-symbolique.html">
-    <span class="tg">Religion</span>
-    <h3>La lecture symbolique</h3>
-    <span class="dk">Du sens littéral au sens caché : le ẓāhir et le bāṭin, le symbole selon Ricœur et Corbin, et le garde-fou contre l’arbitraire.</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#3f5e8c" href="le-monde-imaginal.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Le monde entre deux</h3>
-    <span class="dk">Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.</span>
-    <span class="mt">Essai · ~10 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="la-rhetorique-semitique.html">
-    <span class="tg">Religion</span>
-    <h3>La rhétorique sémitique</h3>
-    <span class="dk">Comment le Coran et la Bible sont composés : parallélismes et structures en miroir, et pourquoi le centre est souvent la clé.</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="les-mots-et-le-monde.html">
-    <span class="tg">Linguistique · Religion</span>
-    <h3>Les mots et le monde</h3>
-    <span class="dk">Un mot n’est pas une étiquette mais un nœud dans un réseau : comment le Coran a refait le sens des mots, avec le linguiste Toshihiko Izutsu.</span>
-    <span class="mt">Essai · ~15 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="shahrour-le-livre-et-le-coran.html">
-    <span class="tg">Religion</span>
-    <h3>Shahrour : le Livre et le Coran</h3>
-    <span class="dk">Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? La méthode de Muhammad Shahrour et sa relecture des mots-clés.</span>
-    <span class="mt">Essai · ~13 min</span>
-  </a>
-  <a class="fcard" data-thread="lire" style="--tc:#0e6b60" href="raison-et-revelation.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Raison et révélation</h3>
-    <span class="dk">Averroès, Maïmonide, Thomas d’Aquin : trois fois la même querelle entre Aristote et l’Écriture, et ce qu’elle apprend pour lire le Coran aujourd’hui.</span>
-    <span class="mt">Essai · ~19 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="jung-en-dix-minutes.html">
-    <span class="tg">Psychologie</span>
-    <h3>Ce qui agit sans qu’on le sache</h3>
-    <span class="dk">Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.</span>
-    <span class="mt">Essai · ~10 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="ombre-et-nafs.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>L’ombre et le nafs</h3>
-    <span class="dk">L’ombre de Jung et les trois stations du nafs coranique : ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.</span>
-    <span class="mt">Essai · ~11 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="trois-portes-pour-la-meme-piece.html">
-    <span class="tg">Psychologie</span>
-    <h3>Trois portes pour la même pièce</h3>
-    <span class="dk">Devant une même hésitation, Freud, Jung et Adler n’auraient pas regardé au même endroit. Trois façons simples de se relire.</span>
-    <span class="mt">Essai · ~7 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="les-reves.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>Les rêves</h3>
-    <span class="dk">De Yūsuf à Jung : le rêve comme langue de l’âme, ni oracle à lire au pied de la lettre, ni bruit sans valeur, mais symbole à interpréter.</span>
-    <span class="mt">Essai · ~17 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="le-souffle.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Le souffle</h3>
-    <span class="dk">Al-rūḥ : non un fantôme dans l’argile, mais le saut vers la pensée abstraite, « de l’ordre de mon Seigneur » (Shahrour). Une lecture symbolique.</span>
-    <span class="mt">Essai · ~21 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="le-confluent-des-deux-mers.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>Le Confluent des deux mers</h3>
-    <span class="dk">Jung avait lu le Coran. Dans l’histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi.</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="les-destins-du-moi.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>Les destins du moi</h3>
-    <span class="dk">Le nafs, l’âme, le non-soi, le Soi : quatre traditions, une même énigme du moi, et des destins opposés.</span>
-    <span class="mt">Essai · ~18 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="maitriser-le-desir.html">
-    <span class="tg">Psychologie · Religion</span>
-    <h3>Maîtriser le désir</h3>
-    <span class="dk">Le hawā, la soif, l’apatheia, la sublimation : six écoles devant le même feu. L’éteindre, s’en détacher, le convertir, le transformer, l’atteler, ou l’orienter ?</span>
-    <span class="mt">Essai · ~17 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="les-signes.html">
-    <span class="tg">Religion</span>
-    <h3>Les signes : lire le monde</h3>
-    <span class="dk">Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.</span>
-    <span class="mt">Essai · ~12 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="l-univers-ajuste.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>L’univers ajusté</h3>
-    <span class="dk">Le réglage fin de l’univers et le principe anthropique : hasard, multivers ou dessein ? Une merveille réelle, mais pourquoi ce n’est pas une preuve.</span>
-    <span class="mt">Essai · ~15 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="les-deux-livres.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Les deux livres</h3>
-    <span class="dk">Science et foi : deux lectures du même monde, un seul Auteur. En suivant Nidhal Guessoum, d’Averroès à Barbour, lire le comment sans prétendre prouver le pourquoi.</span>
-    <span class="mt">Essai · ~16 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="le-desenchantement.html">
-    <span class="tg">Philosophie</span>
-    <h3>Le désenchantement du monde</h3>
-    <span class="dk">Comment l’Occident a vidé le monde de son sens (Weber, Gauchet, Taylor), et pourquoi la question du sens revient sans cesse.</span>
-    <span class="mt">Essai · ~11 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="le-sens-malgre-tout.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Le sens malgré tout</h3>
-    <span class="dk">Dans les camps, Frankl a observé que ceux qui résistaient le mieux n'étaient pas les plus forts, mais ceux qui avaient encore un pourquoi.</span>
-    <span class="mt">Essai · ~8 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="la-finitude.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>La finitude</h3>
-    <span class="dk">Se souvenir qu'on va mourir n'est pas morbide. Sénèque, Heidegger et le dhikr al-mawt : trois façons d'en faire une lucidité.</span>
-    <span class="mt">Essai · ~8 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="ce-qui-arrete.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Ce qui arrête</h3>
-    <span class="dk">Un coucher de soleil, une phrase, une mélodie. Ce que la beauté dit de nous, et ce que Platon, Ibn Hazm et l'iḥsān en ont fait.</span>
-    <span class="mt">Essai · ~8 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="le-libre-arbitre.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Le libre arbitre et le décret</h3>
-    <span class="dk">Sommes-nous libres ou tout est-il écrit ? Le qadar relu, des Qadarites à Shahrour, de Boèce à la physique quantique et aux neurosciences.</span>
-    <span class="mt">Essai · ~20 min</span>
-  </a>
-  <a class="fcard" data-thread="sens" style="--tc:#3f5e8c" href="le-probleme-du-mal.html">
-    <span class="tg">Philosophie · Religion</span>
-    <h3>Le problème du mal</h3>
-    <span class="dk">Si le monde a un sens et un Créateur bon, d’où vient la souffrance des innocents ? La plus forte des objections, prise au sérieux.</span>
-    <span class="mt">Essai · ~16 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="le-scroll-et-la-pause.html">
-    <span class="tg">Aujourd’hui · Psychologie</span>
-    <h3>Le scroll et la pause</h3>
-    <span class="dk">Le téléphone vibre, la main bouge avant la pensée. Le hawā, le design persuasif, et ce que le flux continu a fait disparaître.</span>
-    <span class="mt">Essai · ~6 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="le-moi-et-son-image.html">
-    <span class="tg">Aujourd’hui · Psychologie</span>
-    <h3>Le moi et son image</h3>
-    <span class="dk">Un soir, une photo, un pincement. D’où ça vient, et ce que le qalb a à en dire.</span>
-    <span class="mt">Essai · ~6 min</span>
-  </a>
-  <a class="fcard" data-thread="ame" style="--tc:#9c6b34" href="je-et-tu.html">
-    <span class="tg">Aujourd'hui · Philosophie</span>
-    <h3>Je et Tu</h3>
-    <span class="dk">Il y a deux façons d'être en présence de quelqu'un : le voir, ou le regarder. Buber a appelé ça Je-Tu et Je-Cela. Une distinction simple, aux conséquences immenses.</span>
-    <span class="mt">Essai · ~7 min</span>
-  </a>
+<!-- TROIS PORTES -->
+<div class="idx-section">
+  <div class="idx-label">Trois portes d'entrée</div>
+  <div class="feat-grid">
+    <a class="feat-card" href="le-monde-imaginal.html">
+      <span class="feat-tag">Philosophie · Religion</span>
+      <h3 class="feat-title">Le monde entre deux</h3>
+      <p class="feat-desc">Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.</p>
+      <span class="feat-cta">Lire · ~10 min</span>
+    </a>
+<a class="feat-card" href="jung-en-dix-minutes.html">
+      <span class="feat-tag">Psychologie</span>
+      <h3 class="feat-title">Ce qui agit sans qu’on le sache</h3>
+      <p class="feat-desc">Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.</p>
+      <span class="feat-cta">Lire · ~10 min</span>
+    </a>
+<a class="feat-card" href="les-signes.html">
+      <span class="feat-tag">Religion</span>
+      <h3 class="feat-title">Les signes : lire le monde</h3>
+      <p class="feat-desc">Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.</p>
+      <span class="feat-cta">Lire · ~12 min</span>
+    </a>
+  </div>
 </div>
 
+<!-- CHAPITRES -->
+<div class="idx-section" id="chapitres">
+  <div class="idx-label">Les 32 essais</div>
+  <details class="ch-panel" id="ch1">
+    <summary class="ch-head">
+      <span class="ch-num">1</span>
+      <span class="ch-info">
+        <span class="ch-title">Premiers pas</span>
+        <span class="ch-why">Poser les fondations : pourquoi lire ainsi, l'islam comme méthode de lecture du monde.</span>
+      </span>
+      <span class="ch-count">6 essais</span>
+    </summary>
+    <div class="ch-body">
+        <a class="erow" href="quest-ce-qu-une-lecture.html">
+          <span class="erow-title">Qu’est-ce qu’une lecture ?</span>
+          <span class="erow-meta">~8 min</span>
+        </a>
+        <a class="erow" href="le-coran-en-pratique.html">
+          <span class="erow-title">Le Coran, concrètement</span>
+          <span class="erow-meta">~8 min</span>
+        </a>
+        <a class="erow" href="methode.html">methode.html</a>
+        <a class="erow" href="la-fitra.html">
+          <span class="erow-title">La fiṭra et la dignité</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="le-coeur.html">
+          <span class="erow-title">Le cœur</span>
+          <span class="erow-meta">~16 min</span>
+        </a>
+        <a class="erow" href="le-premier-mot.html">
+          <span class="erow-title">Le premier mot</span>
+          <span class="erow-meta">~23 min</span>
+        </a>
+    </div>
+  </details>
+<details class="ch-panel" id="ch2">
+    <summary class="ch-head">
+      <span class="ch-num">2</span>
+      <span class="ch-info">
+        <span class="ch-title">Apprendre à lire</span>
+        <span class="ch-why">Les outils : Averroès et la raison, Izutsu et la sémantique du Coran, Shahrour et la rhétorique sémitique.</span>
+      </span>
+      <span class="ch-count">7 essais</span>
+    </summary>
+    <div class="ch-body">
+        <a class="erow" href="averroes-la-raison.html">
+          <span class="erow-title">Averroès et le droit de la raison</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="la-lecture-symbolique.html">
+          <span class="erow-title">La lecture symbolique</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="le-monde-imaginal.html">
+          <span class="erow-title">Le monde entre deux</span>
+          <span class="erow-meta">~10 min</span>
+        </a>
+        <a class="erow" href="la-rhetorique-semitique.html">
+          <span class="erow-title">La rhétorique sémitique</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="les-mots-et-le-monde.html">
+          <span class="erow-title">Les mots et le monde</span>
+          <span class="erow-meta">~15 min</span>
+        </a>
+        <a class="erow" href="shahrour-le-livre-et-le-coran.html">
+          <span class="erow-title">Shahrour : le Livre et le Coran</span>
+          <span class="erow-meta">~13 min</span>
+        </a>
+        <a class="erow" href="raison-et-revelation.html">
+          <span class="erow-title">Raison et révélation</span>
+          <span class="erow-meta">~19 min</span>
+        </a>
+    </div>
+  </details>
+<details class="ch-panel" id="ch3">
+    <summary class="ch-head">
+      <span class="ch-num">3</span>
+      <span class="ch-info">
+        <span class="ch-title">Le voyage intérieur</span>
+        <span class="ch-why">L'âme, l'ombre et le nafs : la psychologie de Jung face à la spiritualité islamique.</span>
+      </span>
+      <span class="ch-count">8 essais</span>
+    </summary>
+    <div class="ch-body">
+        <a class="erow" href="jung-en-dix-minutes.html">
+          <span class="erow-title">Ce qui agit sans qu’on le sache</span>
+          <span class="erow-meta">~10 min</span>
+        </a>
+        <a class="erow" href="ombre-et-nafs.html">
+          <span class="erow-title">L’ombre et le nafs</span>
+          <span class="erow-meta">~11 min</span>
+        </a>
+        <a class="erow" href="trois-portes-pour-la-meme-piece.html">
+          <span class="erow-title">Trois portes pour la même pièce</span>
+          <span class="erow-meta">~7 min</span>
+        </a>
+        <a class="erow" href="les-reves.html">
+          <span class="erow-title">Les rêves</span>
+          <span class="erow-meta">~17 min</span>
+        </a>
+        <a class="erow" href="le-souffle.html">
+          <span class="erow-title">Le souffle</span>
+          <span class="erow-meta">~21 min</span>
+        </a>
+        <a class="erow" href="le-confluent-des-deux-mers.html">
+          <span class="erow-title">Le Confluent des deux mers</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="les-destins-du-moi.html">
+          <span class="erow-title">Les destins du moi</span>
+          <span class="erow-meta">~18 min</span>
+        </a>
+        <a class="erow" href="maitriser-le-desir.html">
+          <span class="erow-title">Maîtriser le désir</span>
+          <span class="erow-meta">~17 min</span>
+        </a>
+    </div>
+  </details>
+<details class="ch-panel" id="ch4">
+    <summary class="ch-head">
+      <span class="ch-num">4</span>
+      <span class="ch-info">
+        <span class="ch-title">Lire le monde</span>
+        <span class="ch-why">Science et foi, sens et finitude : Weber, Frankl, Sénèque, Heidegger et le problème du mal.</span>
+      </span>
+      <span class="ch-count">9 essais</span>
+    </summary>
+    <div class="ch-body">
+        <a class="erow" href="les-signes.html">
+          <span class="erow-title">Les signes : lire le monde</span>
+          <span class="erow-meta">~12 min</span>
+        </a>
+        <a class="erow" href="l-univers-ajuste.html">
+          <span class="erow-title">L’univers ajusté</span>
+          <span class="erow-meta">~15 min</span>
+        </a>
+        <a class="erow" href="les-deux-livres.html">
+          <span class="erow-title">Les deux livres</span>
+          <span class="erow-meta">~16 min</span>
+        </a>
+        <a class="erow" href="le-desenchantement.html">
+          <span class="erow-title">Le désenchantement du monde</span>
+          <span class="erow-meta">~11 min</span>
+        </a>
+        <a class="erow" href="le-sens-malgre-tout.html">
+          <span class="erow-title">Le sens malgré tout</span>
+          <span class="erow-meta">~8 min</span>
+        </a>
+        <a class="erow" href="la-finitude.html">
+          <span class="erow-title">La finitude</span>
+          <span class="erow-meta">~8 min</span>
+        </a>
+        <a class="erow" href="ce-qui-arrete.html">
+          <span class="erow-title">Ce qui arrête</span>
+          <span class="erow-meta">~8 min</span>
+        </a>
+        <a class="erow" href="le-libre-arbitre.html">
+          <span class="erow-title">Le libre arbitre et le décret</span>
+          <span class="erow-meta">~20 min</span>
+        </a>
+        <a class="erow" href="le-probleme-du-mal.html">
+          <span class="erow-title">Le problème du mal</span>
+          <span class="erow-meta">~16 min</span>
+        </a>
+    </div>
+  </details>
+<details class="ch-panel" id="ch5">
+    <summary class="ch-head">
+      <span class="ch-num">5</span>
+      <span class="ch-info">
+        <span class="ch-title">Aujourd'hui</span>
+        <span class="ch-why">Les mêmes idées, à l'épreuve du présent : narcissisme, réseaux sociaux et quête de sens.</span>
+      </span>
+      <span class="ch-count">3 essais</span>
+    </summary>
+    <div class="ch-body">
+        <a class="erow" href="le-scroll-et-la-pause.html">
+          <span class="erow-title">Le scroll et la pause</span>
+          <span class="erow-meta">~6 min</span>
+        </a>
+        <a class="erow" href="le-moi-et-son-image.html">
+          <span class="erow-title">Le moi et son image</span>
+          <span class="erow-meta">~6 min</span>
+        </a>
+        <a class="erow" href="je-et-tu.html">
+          <span class="erow-title">Je et Tu</span>
+          <span class="erow-meta">~7 min</span>
+        </a>
+    </div>
+  </details>
+
+</div>
+
+<!-- PARCOURS RECOMMANDÉS -->
+<div class="idx-section" id="parcours">
+  <div class="idx-label">Parcours recommandés</div>
+  <div class="tracks-grid">
+    <div class="track">
+    <div class="track-head">
+      <span class="track-icon">◎</span>
+      <div>
+        <strong class="track-title">Pour commencer</strong>
+        <span class="track-total">~32 min</span>
+      </div>
+    </div>
+    <p class="track-desc">Le parcours le plus court pour entrer dans la revue, de la méthode aux signes.</p>
+    <div class="track-essays">
+      <a class="mini-card" href="quest-ce-qu-une-lecture.html">
+        <span class="mc-title">Qu’est-ce qu’une lecture ?</span>
+        <span class="mc-time">~8 min</span>
+      </a>
+      <a class="mini-card" href="le-coran-en-pratique.html">
+        <span class="mc-title">Le Coran, concrètement</span>
+        <span class="mc-time">~8 min</span>
+      </a>
+      <a class="mini-card" href="la-fitra.html">
+        <span class="mc-title">La fiṭra et la dignité</span>
+        <span class="mc-time">~12 min</span>
+      </a>
+      <a class="mini-card" href="les-signes.html">
+        <span class="mc-title">Les signes : lire le monde</span>
+        <span class="mc-time">~12 min</span>
+      </a>
+    </div>
+  </div>
+<div class="track">
+    <div class="track-head">
+      <span class="track-icon">◑</span>
+      <div>
+        <strong class="track-title">La psychologie de l'âme</strong>
+        <span class="track-total">~50 min</span>
+      </div>
+    </div>
+    <p class="track-desc">Jung, l'ombre, les rêves et le Confluent ,  pour qui veut traverser le Chapitre 3.</p>
+    <div class="track-essays">
+      <a class="mini-card" href="jung-en-dix-minutes.html">
+        <span class="mc-title">Ce qui agit sans qu’on le sache</span>
+        <span class="mc-time">~10 min</span>
+      </a>
+      <a class="mini-card" href="ombre-et-nafs.html">
+        <span class="mc-title">L’ombre et le nafs</span>
+        <span class="mc-time">~11 min</span>
+      </a>
+      <a class="mini-card" href="les-reves.html">
+        <span class="mc-title">Les rêves</span>
+        <span class="mc-time">~17 min</span>
+      </a>
+      <a class="mini-card" href="le-confluent-des-deux-mers.html">
+        <span class="mc-title">Le Confluent des deux mers</span>
+        <span class="mc-time">~12 min</span>
+      </a>
+    </div>
+  </div>
+<div class="track">
+    <div class="track-head">
+      <span class="track-icon">◐</span>
+      <div>
+        <strong class="track-title">Les questions difficiles</strong>
+        <span class="track-total">~48 min</span>
+      </div>
+    </div>
+    <p class="track-desc">Raison, désenchantement, liberté, mal ,  le fil le plus exigeant.</p>
+    <div class="track-essays">
+      <a class="mini-card" href="raison-et-revelation.html">
+        <span class="mc-title">Raison et révélation</span>
+        <span class="mc-time">~19 min</span>
+      </a>
+      <a class="mini-card" href="le-desenchantement.html">
+        <span class="mc-title">Le désenchantement du monde</span>
+        <span class="mc-time">~11 min</span>
+      </a>
+      <a class="mini-card" href="le-libre-arbitre.html">
+        <span class="mc-title">Le libre arbitre et le décret</span>
+        <span class="mc-time">~20 min</span>
+      </a>
+      <a class="mini-card" href="le-probleme-du-mal.html">
+        <span class="mc-title">Le problème du mal</span>
+        <span class="mc-time">~16 min</span>
+      </a>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- À PROPOS -->
 <section class="reading" id="apropos">
   <h2 class="section-title">À propos</h2>
   <p style="text-align:left;"><em>Majmaʿ</em> (مجمع) désigne le confluent, le lieu où deux mers se rejoignent, une image tirée du Coran, <span class="ar-inline">مجمع البحرين</span> (« le confluent des deux mers »), là où Moïse rencontra Khidr. C’est l’esprit de cette revue : un point de rencontre entre des disciplines et des traditions qui, d’ordinaire, ne se mêlent pas.</p>
@@ -333,6 +501,7 @@
   <p style="text-align:left;margin-top:1.1rem;font-family:var(--display);font-weight:500;font-size:1rem;"><a href="methode.html">La méthode de la revue</a> · <a href="glossaire.html">le glossaire des termes</a> · <a href="figures.html">les figures citées</a> · <a href="apropos.html">qui écrit ?</a></p>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
   <nav class="foot-nav">
@@ -350,13 +519,29 @@
 </footer>
 
 <script>
-  var bar=document.getElementById("progress");
-  function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
-  document.addEventListener("scroll",upd,{passive:true});upd();
-  var btns=document.querySelectorAll(".fbtn"),cards=document.querySelectorAll(".fcard");
-  btns.forEach(function(x){x.addEventListener("click",function(){btns.forEach(function(y){y.classList.remove("active")});x.classList.add("active");var f=x.dataset.f;cards.forEach(function(c){c.classList.toggle("hide",f!=="all"&&c.dataset.thread!==f)});});});
-  function applyHash(){var h=(location.hash||"").replace("#","");if(h==="lire"||h==="ame"||h==="sens"){var b=document.querySelector('.fbtn[data-f="'+h+'"]');if(b)b.click();}}
-  window.addEventListener("hashchange",applyHash);applyHash();
+var bar=document.getElementById("progress");
+function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
+document.addEventListener("scroll",upd,{passive:true});upd();
+
+// Search
+var DATA=[{"href": "quest-ce-qu-une-lecture.html", "title": "Qu’est-ce qu’une lecture ?", "desc": "On ne lit jamais un texte à nu : il y a toujours une lecture. Pourquoi plusieurs lectures peuvent être justes, sans que tout se vaille.", "tag": "Religion · Philosophie", "time": "Essai · ~8 min"}, {"href": "le-coran-en-pratique.html", "title": "Le Coran, concrètement", "desc": "Sourate, verset, révélation par fragments, ordre du livre, traductions : les bases pour qui n’a jamais ouvert le texte.", "tag": "Religion", "time": "Essai · ~8 min"}, {"href": "la-fitra.html", "title": "La fiṭra et la dignité", "desc": "La nature première inscrite en l’humain, et la dignité qui lui est conférée : « Nous avons honoré les fils d’Adam ».", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-coeur.html", "title": "Le cœur", "desc": "Al-qalb : dans le Coran, non le siège de l’émotion mais l’organe qui comprend, croit et décide. Ses états, et le lieu où le savoir devient foi.", "tag": "Psychologie · Religion", "time": "Essai · ~16 min"}, {"href": "le-premier-mot.html", "title": "Le premier mot", "desc": "Iqraʾ, « Lis » : le premier verset révélé n’est ni « crois » ni « obéis ». La connaissance avant le dogme, et un ordre adressé à l’humanité.", "tag": "Linguistique · Religion", "time": "Essai · ~23 min"}, {"href": "averroes-la-raison.html", "title": "Averroès et le droit de la raison", "desc": "« La vérité ne contredit pas la vérité. » Comment Ibn Rushd a fondé, au XIIᵉ siècle, le droit de lire l’Écriture avec la raison.", "tag": "Philosophie", "time": "Essai · ~12 min"}, {"href": "la-lecture-symbolique.html", "title": "La lecture symbolique", "desc": "Du sens littéral au sens caché : le ẓāhir et le bāṭin, le symbole selon Ricœur et Corbin, et le garde-fou contre l’arbitraire.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-monde-imaginal.html", "title": "Le monde entre deux", "desc": "Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.", "tag": "Philosophie · Religion", "time": "Essai · ~10 min"}, {"href": "la-rhetorique-semitique.html", "title": "La rhétorique sémitique", "desc": "Comment le Coran et la Bible sont composés : parallélismes et structures en miroir, et pourquoi le centre est souvent la clé.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "les-mots-et-le-monde.html", "title": "Les mots et le monde", "desc": "Un mot n’est pas une étiquette mais un nœud dans un réseau : comment le Coran a refait le sens des mots, avec le linguiste Toshihiko Izutsu.", "tag": "Linguistique · Religion", "time": "Essai · ~15 min"}, {"href": "shahrour-le-livre-et-le-coran.html", "title": "Shahrour : le Livre et le Coran", "desc": "Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? La méthode de Muhammad Shahrour et sa relecture des mots-clés.", "tag": "Religion", "time": "Essai · ~13 min"}, {"href": "raison-et-revelation.html", "title": "Raison et révélation", "desc": "Averroès, Maïmonide, Thomas d’Aquin : trois fois la même querelle entre Aristote et l’Écriture, et ce qu’elle apprend pour lire le Coran aujourd’hui.", "tag": "Philosophie · Religion", "time": "Essai · ~19 min"}, {"href": "jung-en-dix-minutes.html", "title": "Ce qui agit sans qu’on le sache", "desc": "Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.", "tag": "Psychologie", "time": "Essai · ~10 min"}, {"href": "ombre-et-nafs.html", "title": "L’ombre et le nafs", "desc": "L’ombre de Jung et les trois stations du nafs coranique : ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.", "tag": "Psychologie · Religion", "time": "Essai · ~11 min"}, {"href": "trois-portes-pour-la-meme-piece.html", "title": "Trois portes pour la même pièce", "desc": "Devant une même hésitation, Freud, Jung et Adler n’auraient pas regardé au même endroit. Trois façons simples de se relire.", "tag": "Psychologie", "time": "Essai · ~7 min"}, {"href": "les-reves.html", "title": "Les rêves", "desc": "De Yūsuf à Jung : le rêve comme langue de l’âme, ni oracle à lire au pied de la lettre, ni bruit sans valeur, mais symbole à interpréter.", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "le-souffle.html", "title": "Le souffle", "desc": "Al-rūḥ : non un fantôme dans l’argile, mais le saut vers la pensée abstraite, « de l’ordre de mon Seigneur » (Shahrour). Une lecture symbolique.", "tag": "Philosophie · Religion", "time": "Essai · ~21 min"}, {"href": "le-confluent-des-deux-mers.html", "title": "Le Confluent des deux mers", "desc": "Jung avait lu le Coran. Dans l’histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi.", "tag": "Psychologie · Religion", "time": "Essai · ~12 min"}, {"href": "les-destins-du-moi.html", "title": "Les destins du moi", "desc": "Le nafs, l’âme, le non-soi, le Soi : quatre traditions, une même énigme du moi, et des destins opposés.", "tag": "Psychologie · Religion", "time": "Essai · ~18 min"}, {"href": "maitriser-le-desir.html", "title": "Maîtriser le désir", "desc": "Le hawā, la soif, l’apatheia, la sublimation : six écoles devant le même feu. L’éteindre, s’en détacher, le convertir, le transformer, l’atteler, ou l’orienter ?", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "les-signes.html", "title": "Les signes : lire le monde", "desc": "Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "l-univers-ajuste.html", "title": "L’univers ajusté", "desc": "Le réglage fin de l’univers et le principe anthropique : hasard, multivers ou dessein ? Une merveille réelle, mais pourquoi ce n’est pas une preuve.", "tag": "Philosophie · Religion", "time": "Essai · ~15 min"}, {"href": "les-deux-livres.html", "title": "Les deux livres", "desc": "Science et foi : deux lectures du même monde, un seul Auteur. En suivant Nidhal Guessoum, d’Averroès à Barbour, lire le comment sans prétendre prouver le pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-desenchantement.html", "title": "Le désenchantement du monde", "desc": "Comment l’Occident a vidé le monde de son sens (Weber, Gauchet, Taylor), et pourquoi la question du sens revient sans cesse.", "tag": "Philosophie", "time": "Essai · ~11 min"}, {"href": "le-sens-malgre-tout.html", "title": "Le sens malgré tout", "desc": "Dans les camps, Frankl a observé que ceux qui résistaient le mieux n'étaient pas les plus forts, mais ceux qui avaient encore un pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "la-finitude.html", "title": "La finitude", "desc": "Se souvenir qu'on va mourir n'est pas morbide. Sénèque, Heidegger et le dhikr al-mawt : trois façons d'en faire une lucidité.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "ce-qui-arrete.html", "title": "Ce qui arrête", "desc": "Un coucher de soleil, une phrase, une mélodie. Ce que la beauté dit de nous, et ce que Platon, Ibn Hazm et l'iḥsān en ont fait.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "le-libre-arbitre.html", "title": "Le libre arbitre et le décret", "desc": "Sommes-nous libres ou tout est-il écrit ? Le qadar relu, des Qadarites à Shahrour, de Boèce à la physique quantique et aux neurosciences.", "tag": "Philosophie · Religion", "time": "Essai · ~20 min"}, {"href": "le-probleme-du-mal.html", "title": "Le problème du mal", "desc": "Si le monde a un sens et un Créateur bon, d’où vient la souffrance des innocents ? La plus forte des objections, prise au sérieux.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-scroll-et-la-pause.html", "title": "Le scroll et la pause", "desc": "Le téléphone vibre, la main bouge avant la pensée. Le hawā, le design persuasif, et ce que le flux continu a fait disparaître.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "le-moi-et-son-image.html", "title": "Le moi et son image", "desc": "Un soir, une photo, un pincement. D’où ça vient, et ce que le qalb a à en dire.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "je-et-tu.html", "title": "Je et Tu", "desc": "Il y a deux façons d'être en présence de quelqu'un : le voir, ou le regarder. Buber a appelé ça Je-Tu et Je-Cela. Une distinction simple, aux conséquences immenses.", "tag": "Aujourd'hui · Philosophie", "time": "Essai · ~7 min"}];
+var srch=document.getElementById("srch");
+var sr=document.getElementById("sr");
+srch.addEventListener("input",function(){
+  var q=this.value.trim().toLowerCase();
+  if(!q){sr.innerHTML="";sr.classList.remove("show");return;}
+  var hits=DATA.filter(function(d){
+    return d.title.toLowerCase().indexOf(q)>=0||d.desc.toLowerCase().indexOf(q)>=0||d.tag.toLowerCase().indexOf(q)>=0;
+  });
+  if(!hits.length){
+    sr.innerHTML="<p class=\"no-results\">Aucun résultat pour \""+q+"\"</p>";
+    sr.classList.add("show");return;
+  }
+  sr.innerHTML=hits.map(function(d){
+    return "<a class=\"sr-item\" href=\""+d.href+"\"><span class=\"sr-title\">"+d.title+"</span><span class=\"sr-meta\">"+d.time.replace("Essai · ","")+"</span></a>";
+  }).join("");
+  sr.classList.add("show");
+});
 </script>
 </body>
 </html>
