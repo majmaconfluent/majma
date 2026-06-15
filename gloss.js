@@ -73,6 +73,12 @@
 
   "Compensation":"Chez Alfred Adler, la façon dont chacun répond à son sentiment d'infériorité : apprendre, contribuer, se rendre utile, trouver sa place dans un groupe.",
   "Énantiodromie":"Chez Jung, la loi selon laquelle ce qu'on refoule ou ignore ne disparaît pas, mais s'accumule et revient par-derrière en sens contraire, souvent avec d'autant plus de force qu'on l'a longtemps ignoré.",
+    "Mundus Imaginalis":"Terme latin créé par Henry Corbin pour désigner le monde imaginal, 'Alam al-Mithāl en arabe : un espace intermédiaire entre le monde sensible et le monde purement divin, où les symboles, les archétypes et les figures des visions ont une réalité propre. Distinct de l’imaginaire : non pas ce qui n’existe pas, mais ce qui existe selon un autre mode d’être.",
+  "Barzakh":"En arabe, l’isthme, la zone entre deux mers. Dans le Coran (55:19-20), il sépare deux mers sans les laisser se mélanger. Dans la cosmologie islamique et soufie, il désigne le monde intermédiaire entre le visible (shahāda) et l’invisible (ghayb), l’espace où le Monde Imaginal prend forme.",
+  "Ketmān":"Concept islamique traduit par Henry Corbin par ‘discipline de l’arcane’ : la discrétion sur ce qui ne peut se transmettre que par l’expérience directe, non par le discours. Jung et Corbin l’ont pratiquée sur leur convergence.",
+  "ʿAlam al-Mithāl":"Le monde des images archétypales dans la cosmologie islamique classique, traduit par Henry Corbin comme Mundus Imaginalis. L’espace intermédiaire où les esprits se corporalisent et les corps se spiritualisent.",
+  "Shahāda":"Le visible, le monde sensible dans la cosmologie islamique. Aussi : l’attestation de foi (il n’y a de dieu que Dieu). Le contexte distingue les deux sens.",
+  "Ghayb":"L’invisible, ce qui est caché au sens percevant dans la cosmologie islamique. S’oppose à shahāda. Le Coran s’ouvre sur les croyants qui ‘croient au ghayb’.",
   "Murāqaba":"Dans la tradition islamique, la vigilance intérieure : conscience d'être sous le regard de Dieu, et par extension, qualité de présence attentive au moment et à l'autre.",
   "Ḥuqūq al-ʿibād":"Les droits que les personnes ont sur nous dans la tradition islamique : une catégorie de devoirs envers autrui aussi importante que les devoirs envers Dieu.",
   "Je-Tu":"Chez Martin Buber, le mode de relation où l'autre est rencontré comme un sujet entier, une présence irréductible à son rôle ou à son utilité. Son contraire, le Je-Cela, est la relation où l'autre devient objet ou moyen.",
