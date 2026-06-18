@@ -59,6 +59,7 @@
   display:flex;flex-direction:column;gap:.4rem;
   padding:1.1rem 1.2rem 1rem;
   background:var(--card);border:1px solid var(--rule);
+  border-top:2px solid #b8923f;
   border-radius:10px;text-decoration:none;color:var(--ink);
   transition:border-color .18s,box-shadow .18s;
 }
@@ -81,7 +82,7 @@
 }
 .ch-head::-webkit-details-marker{display:none;}
 .ch-head::marker{display:none;}
-.ch-num{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;flex:0 0 auto;min-width:1.8rem;color:var(--accent);}
+.ch-num{font-family:var(--display);font-weight:800;font-size:1.7rem;line-height:1;flex:0 0 auto;min-width:1.6rem;color:var(--accent);}
 .ch-info{flex:1;}
 .ch-title{display:block;font-family:var(--display);font-weight:700;font-size:1.12rem;}
 .ch-why{display:block;font-family:var(--body);font-size:.9rem;color:var(--ink-soft);font-style:italic;margin-top:.15rem;}
@@ -92,44 +93,33 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 /* Essay rows inside chapters */
 .erow{
   display:flex;justify-content:space-between;align-items:baseline;
-  gap:1rem;padding:.55rem .8rem;border-radius:5px;
+  gap:1rem;padding:.85rem .8rem;border-radius:5px;
   text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--rule);
   transition:background .12s;
 }
+.erow:last-child{border-bottom:none;}
 .erow:hover{background:var(--paper-deep);text-decoration:none;}
 .erow-title{font-family:var(--body);font-size:1rem;}
 .erow-meta{font-family:var(--display);font-size:.8rem;color:var(--ink-faint);white-space:nowrap;flex:0 0 auto;}
 
-/* Tracks */
-.tracks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0 1.4rem;}
-.track{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1rem;}
-.track-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;}
-.track-icon{font-size:1.4rem;color:var(--accent);flex:0 0 auto;}
-.track-title{font-family:var(--display);font-weight:700;font-size:1.05rem;display:block;}
-.track-total{font-family:var(--display);font-size:.78rem;color:var(--ink-faint);display:block;margin-top:.1rem;}
-.track-desc{font-family:var(--body);font-style:italic;font-size:.9rem;color:var(--ink-soft);margin:0 0 .9rem;}
-.track-essays{display:flex;flex-direction:column;gap:.4rem;}
-.mini-card{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:.5rem;padding:.45rem .7rem;
-  background:var(--paper);border:1px solid var(--rule);
-  border-radius:5px;text-decoration:none;color:var(--ink);
-  transition:border-color .12s;
-}
-.mini-card:hover{border-color:var(--accent);text-decoration:none;}
-.mc-title{font-family:var(--body);font-size:.9rem;}
-.mc-time{font-family:var(--display);font-size:.75rem;color:var(--ink-faint);white-space:nowrap;}
+
 
 /* Section headers */
-.idx-section{max-width:var(--measure-wide);margin:0 auto;padding:1.4rem 1.6rem 0;}
-.idx-section + .idx-section{padding-top:1rem;}
-.idx-label{
-  display:flex;align-items:center;gap:.9rem;
-  font-family:var(--display);font-weight:700;font-size:1.05rem;
-  letter-spacing:.01em;color:var(--ink-soft);
-  margin-bottom:.8rem;
+.idx-section{max-width:var(--measure-wide);margin:0 auto;padding:2.8rem 1.6rem 0;}
+.idx-section + .idx-section{
+  border-top:1px solid var(--rule);
+  padding-top:2.8rem;margin-top:1.6rem;
 }
-.idx-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+.idx-label{
+  font-family:var(--display);font-weight:800;font-size:1.5rem;
+  letter-spacing:-.01em;color:var(--ink);
+  margin-bottom:1.1rem;
+}
+.idx-label::after{
+  content:"";display:block;width:2.4rem;height:3px;
+  background:#b8923f;margin-top:.5rem;border-radius:2px;
+}
 
 /* Mobile */
 @media(max-width:600px){
@@ -140,6 +130,72 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
   .ch-head{padding:.9rem 1rem;}
   .ch-num{font-size:1.6rem;min-width:1.4rem;}
   .ch-why{display:none;}
+}
+
+.apropos-links{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:.9rem;margin-top:1.6rem;
+}
+.apropos-links a{
+  display:flex;flex-direction:column;gap:.2rem;
+  padding:1rem 1.1rem;
+  background:var(--card);border:1px solid var(--rule);border-radius:8px;
+  text-decoration:none;color:var(--ink);
+  transition:border-color .18s;
+}
+.apropos-links a:hover{border-color:#b8923f;text-decoration:none;color:var(--ink);}
+.al-title{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-top:.1rem;}
+.al-desc{font-family:var(--body);font-style:italic;font-size:.85rem;color:var(--ink-faint);}
+
+/* Gold touch on hero rule */
+
+
+.apropos-blurb{
+  font-family:var(--body);font-size:1.05rem;line-height:1.7;
+  color:var(--ink-soft);max-width:42rem;
+  text-align:justify;text-justify:inter-word;hyphens:auto;
+  margin:0 0 1.6rem;
+}
+.apropos-blurb em{font-style:italic;color:var(--ink);}
+.apropos-blurb a{color:var(--accent);font-weight:500;}
+
+/* Parcours intro */
+.idx-intro{font-family:var(--body);font-style:italic;color:var(--ink-soft);font-size:1rem;margin:0 0 1.6rem;}
+
+/* Track accordion (parcours) */
+.track2{
+  border:1px solid var(--rule);border-radius:8px;
+  margin-bottom:.7rem;overflow:hidden;background:var(--card);
+}
+.track2-head{
+  display:flex;align-items:baseline;gap:.9rem;
+  padding:1rem 1.3rem;cursor:pointer;list-style:none;user-select:none;
+}
+.track2-head::-webkit-details-marker{display:none;}
+.track2-head::marker{display:none;}
+.track2-icon{color:var(--accent);font-size:1.1rem;flex:0 0 auto;}
+.track2-name{font-family:var(--display);font-weight:700;font-size:1.05rem;flex:1;}
+.track2-name small{
+  display:block;font-weight:400;font-size:.82rem;color:var(--ink-faint);
+  margin-top:.15rem;
+}
+.track2[open] .track2-head{border-bottom:1px solid var(--rule);}
+.track2-desc{
+  font-family:var(--body);font-style:italic;font-size:.92rem;
+  color:var(--ink-soft);margin:1rem 1.3rem .8rem;
+}
+.track2-list{list-style:none;margin:0;padding:0 .6rem .6rem;}
+.track2-list li{margin:0;}
+.track2-list a{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;padding:.6rem .8rem;border-radius:5px;
+  text-decoration:none;color:var(--ink);font-family:var(--body);font-size:.98rem;
+  transition:background .12s;
+}
+.track2-list a:hover{background:var(--paper-deep);text-decoration:none;}
+.track2-list a span{
+  font-family:var(--display);font-size:.82rem;color:var(--ink-faint);
+  white-space:nowrap;flex:0 0 auto;
 }
 </style>
 </head>
@@ -227,7 +283,10 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
           <span class="erow-title">Le Coran, concrètement</span>
           <span class="erow-meta">~8 min</span>
         </a>
-        <a class="erow" href="methode.html">methode.html</a>
+        <a class="erow" href="methode.html">
+          <span class="erow-title">Méthode</span>
+          <span class="erow-meta">Manifeste</span>
+        </a>
         <a class="erow" href="la-fitra.html">
           <span class="erow-title">La fiṭra et la dignité</span>
           <span class="erow-meta">~12 min</span>
@@ -404,101 +463,61 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 <!-- PARCOURS RECOMMANDÉS -->
 <div class="idx-section" id="parcours">
   <div class="idx-label">Parcours recommandés</div>
-  <div class="tracks-grid">
-    <div class="track">
-    <div class="track-head">
-      <span class="track-icon">◎</span>
-      <div>
-        <strong class="track-title">Pour commencer</strong>
-        <span class="track-total">~32 min</span>
-      </div>
-    </div>
-    <p class="track-desc">Le parcours le plus court pour entrer dans la revue, de la méthode aux signes.</p>
-    <div class="track-essays">
-      <a class="mini-card" href="quest-ce-qu-une-lecture.html">
-        <span class="mc-title">Qu’est-ce qu’une lecture ?</span>
-        <span class="mc-time">~8 min</span>
-      </a>
-      <a class="mini-card" href="le-coran-en-pratique.html">
-        <span class="mc-title">Le Coran, concrètement</span>
-        <span class="mc-time">~8 min</span>
-      </a>
-      <a class="mini-card" href="la-fitra.html">
-        <span class="mc-title">La fiṭra et la dignité</span>
-        <span class="mc-time">~12 min</span>
-      </a>
-      <a class="mini-card" href="les-signes.html">
-        <span class="mc-title">Les signes : lire le monde</span>
-        <span class="mc-time">~12 min</span>
-      </a>
-    </div>
-  </div>
-<div class="track">
-    <div class="track-head">
-      <span class="track-icon">◑</span>
-      <div>
-        <strong class="track-title">La psychologie de l'âme</strong>
-        <span class="track-total">~50 min</span>
-      </div>
-    </div>
-    <p class="track-desc">Jung, l'ombre, les rêves et le Confluent ,  pour qui veut traverser le Chapitre 3.</p>
-    <div class="track-essays">
-      <a class="mini-card" href="jung-en-dix-minutes.html">
-        <span class="mc-title">Ce qui agit sans qu’on le sache</span>
-        <span class="mc-time">~10 min</span>
-      </a>
-      <a class="mini-card" href="ombre-et-nafs.html">
-        <span class="mc-title">L’ombre et le nafs</span>
-        <span class="mc-time">~11 min</span>
-      </a>
-      <a class="mini-card" href="les-reves.html">
-        <span class="mc-title">Les rêves</span>
-        <span class="mc-time">~17 min</span>
-      </a>
-      <a class="mini-card" href="le-confluent-des-deux-mers.html">
-        <span class="mc-title">Le Confluent des deux mers</span>
-        <span class="mc-time">~12 min</span>
-      </a>
-    </div>
-  </div>
-<div class="track">
-    <div class="track-head">
-      <span class="track-icon">◐</span>
-      <div>
-        <strong class="track-title">Les questions difficiles</strong>
-        <span class="track-total">~48 min</span>
-      </div>
-    </div>
-    <p class="track-desc">Raison, désenchantement, liberté, mal ,  le fil le plus exigeant.</p>
-    <div class="track-essays">
-      <a class="mini-card" href="raison-et-revelation.html">
-        <span class="mc-title">Raison et révélation</span>
-        <span class="mc-time">~19 min</span>
-      </a>
-      <a class="mini-card" href="le-desenchantement.html">
-        <span class="mc-title">Le désenchantement du monde</span>
-        <span class="mc-time">~11 min</span>
-      </a>
-      <a class="mini-card" href="le-libre-arbitre.html">
-        <span class="mc-title">Le libre arbitre et le décret</span>
-        <span class="mc-time">~20 min</span>
-      </a>
-      <a class="mini-card" href="le-probleme-du-mal.html">
-        <span class="mc-title">Le problème du mal</span>
-        <span class="mc-time">~16 min</span>
-      </a>
-    </div>
-  </div>
-  </div>
+  <p class="idx-intro">Trois façons de traverser la revue, selon ce qui vous intéresse.</p>
+
+  <details class="track2" open>
+    <summary class="track2-head">
+      <span class="track2-icon">◎</span>
+      <span class="track2-name">Pour commencer<small>~32 min · 4 essais</small></span>
+    </summary>
+    <p class="track2-desc">Le parcours le plus court pour entrer dans la revue, de la méthode aux signes.</p>
+    <ol class="track2-list">
+      <li><a href="quest-ce-qu-une-lecture.html">Qu’est-ce qu’une lecture ?<span>~8 min</span></a></li>
+      <li><a href="le-coran-en-pratique.html">Le Coran, concrètement<span>~8 min</span></a></li>
+      <li><a href="la-fitra.html">La fiṭra et la dignité<span>~12 min</span></a></li>
+      <li><a href="les-signes.html">Les signes : lire le monde<span>~12 min</span></a></li>
+    </ol>
+  </details>
+
+  <details class="track2">
+    <summary class="track2-head">
+      <span class="track2-icon">◑</span>
+      <span class="track2-name">La psychologie de l’âme<small>~50 min · 4 essais</small></span>
+    </summary>
+    <p class="track2-desc">Jung, l’ombre, les rêves et le Confluent, pour qui veut traverser le Chapitre 3.</p>
+    <ol class="track2-list">
+      <li><a href="jung-en-dix-minutes.html">Ce qui agit sans qu’on le sache<span>~10 min</span></a></li>
+      <li><a href="ombre-et-nafs.html">L’ombre et le nafs<span>~11 min</span></a></li>
+      <li><a href="les-reves.html">Les rêves<span>~17 min</span></a></li>
+      <li><a href="le-confluent-des-deux-mers.html">Le Confluent des deux mers<span>~12 min</span></a></li>
+    </ol>
+  </details>
+
+  <details class="track2">
+    <summary class="track2-head">
+      <span class="track2-icon">◐</span>
+      <span class="track2-name">Les questions difficiles<small>~48 min · 4 essais</small></span>
+    </summary>
+    <p class="track2-desc">Raison, désenchantement, liberté, mal : le fil le plus exigeant.</p>
+    <ol class="track2-list">
+      <li><a href="raison-et-revelation.html">Raison et révélation<span>~19 min</span></a></li>
+      <li><a href="le-desenchantement.html">Le désenchantement du monde<span>~11 min</span></a></li>
+      <li><a href="le-libre-arbitre.html">Le libre arbitre et le décret<span>~20 min</span></a></li>
+      <li><a href="le-probleme-du-mal.html">Le problème du mal<span>~16 min</span></a></li>
+    </ol>
+  </details>
 </div>
 
 <!-- À PROPOS -->
-<section class="reading" id="apropos">
-  <h2 class="section-title">À propos</h2>
-  <p style="text-align:left;"><em>Majmaʿ</em> (مجمع) désigne le confluent, le lieu où deux mers se rejoignent, une image tirée du Coran, <span class="ar-inline">مجمع البحرين</span> (« le confluent des deux mers »), là où Moïse rencontra Khidr. C’est l’esprit de cette revue : un point de rencontre entre des disciplines et des traditions qui, d’ordinaire, ne se mêlent pas.</p>
-  <p style="text-align:left;text-indent:1.4rem;">Majmaʿ rassemble des lectures personnelles, à la croisée de la philosophie, de la psychologie des profondeurs et d’une approche du texte coranique attentive à ses sens cachés. Elle s’inscrit dans l’esprit des penseurs du renouveau, d’Averroès, qui posa le droit de la raison, à <em>Muhammad Shahrour</em>, qui en fit une méthode, pour qui relire les mots, c’est rouvrir le sens.</p>
-  <p style="text-align:left;text-indent:1.4rem;">Les idées proposées ici sont des interprétations parmi d’autres, offertes à la réflexion et non comme des vérités closes. On y avance par questions plutôt que par sentences. Chaque lecteur reste libre de sa route.</p>
-  <p style="text-align:left;margin-top:1.1rem;font-family:var(--display);font-weight:500;font-size:1rem;"><a href="methode.html">La méthode de la revue</a> · <a href="glossaire.html">le glossaire des termes</a> · <a href="figures.html">les figures citées</a> · <a href="apropos.html">qui écrit ?</a></p>
+<section class="idx-section" id="apropos">
+  <div class="idx-label">À propos</div>
+  <p class="apropos-blurb"><em>Majmaʿ</em> (مجمع), le confluent, là où deux mers se rejoignent sans se mêler. Des lectures personnelles à la croisée de la philosophie, de la psychologie des profondeurs et du texte coranique. <a href="apropos.html">En savoir plus →</a></p>
+  <div class="apropos-links">
+    <a href="methode.html"><span class="al-title">Méthode</span><span class="al-desc">Comment on lit, ici</span></a>
+    <a href="glossaire.html"><span class="al-title">Glossaire</span><span class="al-desc">Les termes, en bref</span></a>
+    <a href="figures.html"><span class="al-title">Figures</span><span class="al-desc">Les penseurs cités</span></a>
+    <a href="apropos.html"><span class="al-title">Qui écrit ?</span><span class="al-desc">L'auteur, en quelques mots</span></a>
+  </div>
 </section>
 
 <!-- FOOTER -->
