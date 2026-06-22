@@ -50,6 +50,7 @@
   "Contenu latent":"Chez Freud, le sens caché d'un rêve, derrière son contenu manifeste : ce que le travail d'interprétation cherche à dégager.",
   "Yetser ha-ra":"Dans la pensée juive, le penchant mauvais : une inclination intérieure à dominer plutôt qu'une force extérieure, proche en cela du hawā coranique.",
   "ʿIlm ladunî":"Le savoir « venu d'auprès de Dieu » : reçu directement, non par apprentissage ni raisonnement, comme celui de Khidr dans le récit coranique.",
+  "Walāya":"La proximité sanctifiante avec Dieu, la sainteté dans la tradition soufie. Le walī (saint, « ami de Dieu ») en est le porteur ; Khidr en est une figure majeure.",
   "Fanāʾ":"Dans le soufisme, l'extinction du moi (nafs) dans l'union avec le divin : la dissolution de l'ego comme aboutissement du chemin spirituel.",
   "Psychē":"En grec, l'âme : principe vital et pensant, racine de « psychologie » et de « psychanalyse ».",
   "Persona":"Chez Jung, le masque social que chacun présente aux autres : non un mensonge, mais une façade nécessaire, derrière laquelle se trouvent l'ombre et le reste de la psyché.",

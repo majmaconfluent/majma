@@ -197,6 +197,23 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
   font-family:var(--display);font-size:.82rem;color:var(--ink-faint);
   white-space:nowrap;flex:0 0 auto;
 }
+
+/* Header icons (search + theme) */
+.header-icon{
+  background:none;border:1px solid var(--rule);color:var(--ink-soft);
+  font-family:var(--display);font-size:1.05rem;line-height:1;
+  padding:.3rem .55rem;border-radius:5px;cursor:pointer;flex:0 0 auto;
+  transition:color .15s,border-color .15s;
+}
+.header-icon:hover{color:var(--accent);border-color:var(--accent);}
+
+/* Collapsible search panel */
+.search-panel{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s ease;
+  max-width:var(--measure-wide);margin:0 auto;padding:0 1.6rem;
+}
+.search-panel.open{max-height:60vh;padding:1rem 1.6rem 1.4rem;}
 </style>
 </head>
 <body>
@@ -211,8 +228,16 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
       <a href="glossaire.html">Glossaire</a>
       <a href="carte.html">Carte</a>
       <a href="apropos.html">À propos</a>
-      <button id="themeBtn" class="theme-toggle" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
+      <button id="searchBtn" class="header-icon" type="button" onclick="__toggleSearch()" aria-label="Rechercher" title="Rechercher">⌕</button>
+      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
     </nav>
+  </div>
+  <div class="search-panel" id="searchPanel">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" type="search" placeholder="Chercher un essai, un auteur, un concept…" id="srch" autocomplete="off">
+    </div>
+    <div class="search-results" id="sr"></div>
   </div>
 </header>
 
@@ -222,20 +247,10 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
   <h1>Majmaʿ</h1>
   <p class="lede">Une revue d'essais au confluent de la philosophie islamique, la psychologie jungienne et la pensée comparée.</p>
   <div class="hero2-btns">
-    <a class="btn-prim" href="quest-ce-qu-une-lecture.html">Commencer ici</a>
-    <a class="btn-sec" href="#chapitres">Explorer les 32 essais</a>
+    <a class="btn-prim" href="quest-ce-qu-une-lecture.html">Commencer la lecture</a>
+    <a class="btn-sec" href="#chapitres">Parcourir les 32 essais</a>
   </div>
 </section>
-
-<!-- SEARCH -->
-<div class="idx-section" style="padding-top:1.4rem;">
-  <div class="idx-label">Recherche</div>
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input class="search-input" type="search" placeholder="Chercher un essai, un auteur, un concept…" id="srch" autocomplete="off">
-  </div>
-  <div class="search-results" id="sr"></div>
-</div>
 
 <!-- TROIS PORTES -->
 <div class="idx-section">
@@ -544,6 +559,11 @@ document.addEventListener("scroll",upd,{passive:true});upd();
 
 // Search
 var DATA=[{"href": "quest-ce-qu-une-lecture.html", "title": "Qu’est-ce qu’une lecture ?", "desc": "On ne lit jamais un texte à nu : il y a toujours une lecture. Pourquoi plusieurs lectures peuvent être justes, sans que tout se vaille.", "tag": "Religion · Philosophie", "time": "Essai · ~8 min"}, {"href": "le-coran-en-pratique.html", "title": "Le Coran, concrètement", "desc": "Sourate, verset, révélation par fragments, ordre du livre, traductions : les bases pour qui n’a jamais ouvert le texte.", "tag": "Religion", "time": "Essai · ~8 min"}, {"href": "la-fitra.html", "title": "La fiṭra et la dignité", "desc": "La nature première inscrite en l’humain, et la dignité qui lui est conférée : « Nous avons honoré les fils d’Adam ».", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-coeur.html", "title": "Le cœur", "desc": "Al-qalb : dans le Coran, non le siège de l’émotion mais l’organe qui comprend, croit et décide. Ses états, et le lieu où le savoir devient foi.", "tag": "Psychologie · Religion", "time": "Essai · ~16 min"}, {"href": "le-premier-mot.html", "title": "Le premier mot", "desc": "Iqraʾ, « Lis » : le premier verset révélé n’est ni « crois » ni « obéis ». La connaissance avant le dogme, et un ordre adressé à l’humanité.", "tag": "Linguistique · Religion", "time": "Essai · ~23 min"}, {"href": "averroes-la-raison.html", "title": "Averroès et le droit de la raison", "desc": "« La vérité ne contredit pas la vérité. » Comment Ibn Rushd a fondé, au XIIᵉ siècle, le droit de lire l’Écriture avec la raison.", "tag": "Philosophie", "time": "Essai · ~12 min"}, {"href": "la-lecture-symbolique.html", "title": "La lecture symbolique", "desc": "Du sens littéral au sens caché : le ẓāhir et le bāṭin, le symbole selon Ricœur et Corbin, et le garde-fou contre l’arbitraire.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-monde-imaginal.html", "title": "Le monde entre deux", "desc": "Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.", "tag": "Philosophie · Religion", "time": "Essai · ~10 min"}, {"href": "la-rhetorique-semitique.html", "title": "La rhétorique sémitique", "desc": "Comment le Coran et la Bible sont composés : parallélismes et structures en miroir, et pourquoi le centre est souvent la clé.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "les-mots-et-le-monde.html", "title": "Les mots et le monde", "desc": "Un mot n’est pas une étiquette mais un nœud dans un réseau : comment le Coran a refait le sens des mots, avec le linguiste Toshihiko Izutsu.", "tag": "Linguistique · Religion", "time": "Essai · ~15 min"}, {"href": "shahrour-le-livre-et-le-coran.html", "title": "Shahrour : le Livre et le Coran", "desc": "Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? La méthode de Muhammad Shahrour et sa relecture des mots-clés.", "tag": "Religion", "time": "Essai · ~13 min"}, {"href": "raison-et-revelation.html", "title": "Raison et révélation", "desc": "Averroès, Maïmonide, Thomas d’Aquin : trois fois la même querelle entre Aristote et l’Écriture, et ce qu’elle apprend pour lire le Coran aujourd’hui.", "tag": "Philosophie · Religion", "time": "Essai · ~19 min"}, {"href": "jung-en-dix-minutes.html", "title": "Ce qui agit sans qu’on le sache", "desc": "Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.", "tag": "Psychologie", "time": "Essai · ~10 min"}, {"href": "ombre-et-nafs.html", "title": "L’ombre et le nafs", "desc": "L’ombre de Jung et les trois stations du nafs coranique : ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.", "tag": "Psychologie · Religion", "time": "Essai · ~11 min"}, {"href": "trois-portes-pour-la-meme-piece.html", "title": "Trois portes pour la même pièce", "desc": "Devant une même hésitation, Freud, Jung et Adler n’auraient pas regardé au même endroit. Trois façons simples de se relire.", "tag": "Psychologie", "time": "Essai · ~7 min"}, {"href": "les-reves.html", "title": "Les rêves", "desc": "De Yūsuf à Jung : le rêve comme langue de l’âme, ni oracle à lire au pied de la lettre, ni bruit sans valeur, mais symbole à interpréter.", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "le-souffle.html", "title": "Le souffle", "desc": "Al-rūḥ : non un fantôme dans l’argile, mais le saut vers la pensée abstraite, « de l’ordre de mon Seigneur » (Shahrour). Une lecture symbolique.", "tag": "Philosophie · Religion", "time": "Essai · ~21 min"}, {"href": "le-confluent-des-deux-mers.html", "title": "Le Confluent des deux mers", "desc": "Jung avait lu le Coran. Dans l’histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi.", "tag": "Psychologie · Religion", "time": "Essai · ~12 min"}, {"href": "les-destins-du-moi.html", "title": "Les destins du moi", "desc": "Le nafs, l’âme, le non-soi, le Soi : quatre traditions, une même énigme du moi, et des destins opposés.", "tag": "Psychologie · Religion", "time": "Essai · ~18 min"}, {"href": "maitriser-le-desir.html", "title": "Maîtriser le désir", "desc": "Le hawā, la soif, l’apatheia, la sublimation : six écoles devant le même feu. L’éteindre, s’en détacher, le convertir, le transformer, l’atteler, ou l’orienter ?", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "les-signes.html", "title": "Les signes : lire le monde", "desc": "Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "l-univers-ajuste.html", "title": "L’univers ajusté", "desc": "Le réglage fin de l’univers et le principe anthropique : hasard, multivers ou dessein ? Une merveille réelle, mais pourquoi ce n’est pas une preuve.", "tag": "Philosophie · Religion", "time": "Essai · ~15 min"}, {"href": "les-deux-livres.html", "title": "Les deux livres", "desc": "Science et foi : deux lectures du même monde, un seul Auteur. En suivant Nidhal Guessoum, d’Averroès à Barbour, lire le comment sans prétendre prouver le pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-desenchantement.html", "title": "Le désenchantement du monde", "desc": "Comment l’Occident a vidé le monde de son sens (Weber, Gauchet, Taylor), et pourquoi la question du sens revient sans cesse.", "tag": "Philosophie", "time": "Essai · ~11 min"}, {"href": "le-sens-malgre-tout.html", "title": "Le sens malgré tout", "desc": "Dans les camps, Frankl a observé que ceux qui résistaient le mieux n'étaient pas les plus forts, mais ceux qui avaient encore un pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "la-finitude.html", "title": "La finitude", "desc": "Se souvenir qu'on va mourir n'est pas morbide. Sénèque, Heidegger et le dhikr al-mawt : trois façons d'en faire une lucidité.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "ce-qui-arrete.html", "title": "Ce qui arrête", "desc": "Un coucher de soleil, une phrase, une mélodie. Ce que la beauté dit de nous, et ce que Platon, Ibn Hazm et l'iḥsān en ont fait.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "le-libre-arbitre.html", "title": "Le libre arbitre et le décret", "desc": "Sommes-nous libres ou tout est-il écrit ? Le qadar relu, des Qadarites à Shahrour, de Boèce à la physique quantique et aux neurosciences.", "tag": "Philosophie · Religion", "time": "Essai · ~20 min"}, {"href": "le-probleme-du-mal.html", "title": "Le problème du mal", "desc": "Si le monde a un sens et un Créateur bon, d’où vient la souffrance des innocents ? La plus forte des objections, prise au sérieux.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-scroll-et-la-pause.html", "title": "Le scroll et la pause", "desc": "Le téléphone vibre, la main bouge avant la pensée. Le hawā, le design persuasif, et ce que le flux continu a fait disparaître.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "le-moi-et-son-image.html", "title": "Le moi et son image", "desc": "Un soir, une photo, un pincement. D’où ça vient, et ce que le qalb a à en dire.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "je-et-tu.html", "title": "Je et Tu", "desc": "Il y a deux façons d'être en présence de quelqu'un : le voir, ou le regarder. Buber a appelé ça Je-Tu et Je-Cela. Une distinction simple, aux conséquences immenses.", "tag": "Aujourd'hui · Philosophie", "time": "Essai · ~7 min"}];
+window.__toggleSearch=function(){
+  var p=document.getElementById("searchPanel");
+  p.classList.toggle("open");
+  if(p.classList.contains("open")){setTimeout(function(){document.getElementById("srch").focus();},100);}
+};
 var srch=document.getElementById("srch");
 var sr=document.getElementById("sr");
 srch.addEventListener("input",function(){
