@@ -396,3 +396,27 @@ body{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w
 .essay-next:hover{color:var(--accent);text-decoration:none;}
 .nav-next em,
 .essay-next em{font-style:italic;color:var(--accent);}
+
+/* ── Bilingual toggle ───────────────────────────────── */
+.lang-en { display: none; }
+.lang-fr { display: block; }
+html[lang="en"] .lang-en { display: block; }
+html[lang="en"] .lang-fr { display: none; }
+html[lang="en"] .lang-en-inline { display: inline; }
+html[lang="en"] .lang-fr-inline { display: none; }
+.lang-en-inline { display: none; }
+.lang-fr-inline { display: inline; }
+
+.lang-toggle {
+  display: flex; gap: 0; border: 1px solid var(--rule);
+  border-radius: 5px; overflow: hidden; flex: 0 0 auto;
+}
+.lang-toggle button {
+  background: none; border: none; padding: .28rem .55rem;
+  font-family: var(--display); font-size: .82rem; font-weight: 600;
+  color: var(--ink-faint); cursor: pointer; transition: background .12s, color .12s;
+  line-height: 1;
+}
+.lang-toggle button.active {
+  background: var(--accent); color: #fff;
+}

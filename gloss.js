@@ -132,6 +132,7 @@
       span.className="gt";
       span.tabIndex=0;
       span.setAttribute("data-def",GLOSS[term]);
+      span.setAttribute("data-term",term);
       span.textContent=match;
 
       var frag=document.createDocumentFragment();
@@ -170,6 +171,32 @@
       walk(blocks[i], used);
     }
 
+  var GLOSS_EN = {
+    "Inconscient":"The part of the psyche beyond conscious awareness — not absence of thought, but a vast submerged layer of drives, memories, and autonomous figures.",
+    "Soi":"In Jung, the Self (capital S) is the center and totality of the psyche — conscious and unconscious together. Not a larger ego, but a different center entirely.",
+    "Moi":"The ego: the everyday conscious \"I\" that decides and plans. Useful, but prone to mistaking itself for the whole person.",
+    "Individuation":"Jung's term for the lifelong process by which the ego gradually reconciles with the Self — becoming more whole rather than more perfect.",
+    "Arch\u00e9type":"Universal patterns or figures that recur across cultures — the wise man, the hero, the shadow, the guide. Molds each culture fills differently.",
+    "Ombre":"The shadow: everything the conscious ego refuses to acknowledge in itself — projected onto others or acted out unconsciously.",
+    "Nafs":"In the Quran, the nafs is the self or soul — not a fixed entity but a site of struggle, from the \"commanding nafs\" (toward wrong) to the \"reassured nafs.\"",
+    "\u1e92\u0101hir":"The apparent, literal surface of a text. Opposed to b\u0101\u1e6din.",
+    "B\u0101\u1e6din":"The hidden inner meaning of a text. The dimension the ta\u02bfw\u012bl seeks to uncover.",
+    "Ta\u02bfw\u012bl":"Spiritual or symbolic interpretation that leads a text back to its inner meaning. Not arbitrary — it follows rules.",
+    "Fi\u1e6dra":"The primordial nature inscribed in every human at creation — an original orientation toward the good, prior to any religion.",
+    "Haw\u0101":"In the Quran, the inner pull or caprice that acts before thought. The desire that, unchecked, takes the place of god.",
+    "Qadar":"Divine decree or predestination in Islamic theology. Does not negate human freedom — the debate over how the two relate is central to Islamic thought.",
+    "Barzakh":"The isthmus — an intermediate state neither one thing nor another. In the Quran, the barrier between two seas; by extension, the imaginal world.",
+    "\u02bfIlm ladun\u00ee":"The knowledge received directly from God — not learned or reasoned. The knowledge Khidr holds in the Quranic narrative.",
+    "Wal\u0101ya":"Sanctifying proximity to God in Sufi tradition — the sainthood of the wal\u012b (friend of God), whose knowledge comes directly from the divine.",
+    "Monde imaginal":"Henry Corbin's term for the intermediate world between the physical and the intelligible — where archetypes are real, where visions occur.",
+    "Synchronicit\u00e9":"Jung's concept of meaningful coincidence: two events linked not by cause but by shared meaning.",
+    "Qalb":"The heart in the Quran — not the seat of emotion but the organ of understanding, faith, and decision.",
+    "R\u016b\u1e25":"The spirit or breath — in the Quran, what God breathed into Adam. The divine spark in the human.",
+    "D\u00e9senchantement":"Max Weber's term for the withdrawal of the sacred from the modern world through rationalization.",
+    "Principe anthropique":"The observation that the universe appears fine-tuned to permit life.",
+    "Rh\u00e9torique s\u00e9mitique":"The art of composition by symmetries and concentric structures, characteristic of the Bible and the Quran."
+  };
+
     // tooltip
     var tip=document.createElement("div");
     tip.className="gt-tip";
@@ -178,7 +205,10 @@
 
     function show(el){
       current=el;
-      tip.textContent=el.getAttribute("data-def");
+      var lang=document.documentElement.lang||"fr";
+      var defEn=GLOSS_EN[el.getAttribute("data-term")];
+      var defFr=el.getAttribute("data-def");
+      tip.textContent=(lang==="en"&&defEn)?defEn:defFr;
       tip.classList.add("show");
       // forcer un reflow pour obtenir les dimensions a jour avant de positionner
       var r=el.getBoundingClientRect();
