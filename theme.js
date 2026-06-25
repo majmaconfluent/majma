@@ -21,17 +21,3 @@
   if(document.readyState!=='loading') upd();
   else document.addEventListener('DOMContentLoaded', upd);
 })();
-
-// Language toggle
-function __setLang(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem('majma-lang', lang);
-  document.querySelectorAll('.lang-toggle button').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-}
-function __initLang() {
-  var saved = localStorage.getItem('majma-lang') || 'fr';
-  __setLang(saved);
-}
-document.addEventListener('DOMContentLoaded', __initLang);
