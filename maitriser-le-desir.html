@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="styles.css">
 <script src="theme.js"></script>
 <script src="gloss.js" defer></script>
+<script src="parcours.js" defer></script>
+<script src="read-tracker.js" defer></script>
 <style>:root{--accent:var(--psycho);}</style>
   <link rel="icon" type="image/png" href="favicon-32.png">
   <link rel="apple-touch-icon" href="favicon-180.png">
@@ -29,24 +31,38 @@
   gtag('js', new Date());
   gtag('config', 'G-38RNGLZV63');
 </script>
+<style>
+@media(max-width:640px){
+  .site-nav a:not(.header-icon):not(.lang-switch){font-size:.82rem;}
+  .site-nav{gap:.55rem!important;}
+  .brand-logo{height:60px!important;}
+}
+</style>
 </head>
 <body>
 <div id="progress"></div>
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
-        <nav class="site-nav">
-      <a href="index.html#lire">Les textes</a>
-      <a href="index.html#ame">L’âme</a>
-      <a href="index.html#sens">Le sens</a>
-      <a href="apropos.html">À propos</a>
-      <a href="/en/" class="header-icon lang-switch" title="Read in English">EN</a>
-      <button id="searchBtn" class="header-icon" type="button" onclick="__toggleSearch()" aria-label="Rechercher" title="Rechercher">⌕</button>
-      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
-    </nav>
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
   </div>
 </header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
 
 <article>
   <header class="article-head">
@@ -206,9 +222,9 @@
 <footer class="site-footer">
   <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
   <nav class="foot-nav">
-    <a href="index.html#lire">Les textes</a>
-    <a href="index.html#ame">L’âme</a>
-    <a href="index.html#sens">Le sens</a>
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
     <a href="apropos.html">À propos</a>
     <a href="methode.html">Méthode</a>
     <a href="glossaire.html">Glossaire</a>

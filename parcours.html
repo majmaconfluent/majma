@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parcours de lecture · Majmaʿ</title>
+<meta name="description" content="Choisissez votre chemin dans Majmaʿ selon ce que vous cherchez à approfondir.">
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="canonical" href="https://majma.me/parcours.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38RNGLZV63');</script>
+<style>
+/* ── Variables de chemin ── */
+.p-foi   { --c:#0e6b60; }
+.p-ame   { --c:#5a3f7a; }
+.p-texte { --c:#7a5515; }
+.p-monde { --c:#1a4f7a; }
+
+/* ── Accordéon chemin ── */
+.p-item { border-bottom:1px solid var(--rule); overflow:hidden; }
+.p-summary {
+  display:flex; align-items:center; gap:1rem;
+  padding:1.05rem 0; cursor:pointer; list-style:none;
+  border-left:3px solid transparent;
+  padding-left:0; transition:border-color .2s, background .2s, padding-left .2s;
+  background:transparent;
+}
+.p-summary::-webkit-details-marker { display:none; }
+.p-item[open] .p-summary {
+  border-left-color:var(--c); padding-left:.9rem; background:var(--paper-deep,#ece9e1);
+}
+.p-summary:hover { border-left-color:var(--rule); padding-left:.9rem; }
+.p-item[open] .p-arrow { transform:rotate(180deg); color:var(--c); }
+
+.p-num {
+  font-family:var(--display); font-weight:800; font-size:1.5rem;
+  color:var(--rule); line-height:1; flex-shrink:0; width:28px; text-align:center;
+  transition:color .2s;
+}
+.p-item[open] .p-num { color:var(--c); }
+
+.p-info { flex:1; min-width:0; }
+.p-name {
+  font-family:var(--display); font-weight:700; font-size:1rem; color:var(--ink);
+  margin-bottom:.12rem;
+}
+.p-ar {
+  font-family:"Amiri",serif; font-size:.9rem; color:var(--c);
+  margin-left:.4rem; opacity:.7; transition:opacity .2s;
+}
+.p-item[open] .p-ar { opacity:1; }
+.p-why { font-size:.82rem; color:var(--ink-soft); line-height:1.5; }
+
+.p-meta { flex-shrink:0; text-align:right; padding-right:.4rem; }
+.p-cnt { font-family:var(--display); font-size:.75rem; color:var(--ink-faint); display:block; }
+.p-arrow { color:var(--rule); font-size:.85rem; display:block; margin-top:.1rem; transition:transform .25s, color .2s; }
+
+/* ── Contenu accordéon ── */
+.p-body { padding-bottom:1.8rem; }
+
+/* Progression */
+.p-progress { display:flex; align-items:center; gap:.8rem; padding:.9rem 0 .8rem; }
+.p-track { flex:1; height:2px; background:var(--rule); border-radius:99px; overflow:hidden; }
+.p-fill { height:100%; background:var(--c); border-radius:99px; transition:width .6s ease; }
+.p-prog-text { font-family:var(--display); font-size:.75rem; color:var(--ink-faint); white-space:nowrap; }
+
+/* Prochaine lecture */
+.p-nextup {
+  display:flex; gap:.75rem; padding:.9rem 1rem; margin-bottom:1rem;
+  background:var(--paper,#f5f4ef); border-left:3px solid var(--c);
+  text-decoration:none;
+}
+.p-nextup-label {
+  font-family:var(--display); font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--c); display:block; margin-bottom:.2rem;
+}
+.p-nextup-title { font-family:var(--display); font-weight:700; font-size:.97rem; color:var(--ink); display:block; margin-bottom:.15rem; }
+.p-nextup-hint { font-size:.84rem; color:var(--ink-soft); line-height:1.55; }
+.p-nextup-arrow { color:var(--c); font-size:1rem; margin-top:.2rem; flex-shrink:0; }
+
+/* Fleuron */
+.p-fleuron { text-align:center; color:var(--rule); letter-spacing:.4em; font-size:.8rem; padding:.7rem 0; user-select:none; }
+
+/* Timeline */
+.p-steps { position:relative; }
+.p-steps::before {
+  content:""; position:absolute; left:11px; top:10px; bottom:10px;
+  width:1px; background:var(--rule);
+}
+.p-step { display:flex; gap:1rem; padding:1rem 0; border-top:1px solid var(--rule); }
+.p-step:first-child { border-top:none; }
+
+.p-node {
+  flex-shrink:0; width:22px; height:22px; border-radius:50%; z-index:1; position:relative;
+  margin-top:.2rem; display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-size:.7rem; font-weight:700;
+  background:var(--paper,#f5f4ef); border:1.5px solid var(--rule); color:var(--ink-faint);
+  transition:all .25s;
+}
+.p-step.done .p-node { background:var(--c); border-color:var(--c); color:#fff; font-size:.85rem; }
+.p-step-body { flex:1; }
+.p-step-title {
+  font-family:var(--display); font-weight:700; font-size:.97rem; color:var(--ink);
+  margin-bottom:.1rem; line-height:1.3; transition:color .2s;
+}
+.p-step.done .p-step-title { color:var(--ink-faint); text-decoration:line-through; text-decoration-color:var(--rule); }
+.p-step-meta { font-size:.73rem; color:var(--ink-faint); margin-bottom:.45rem; letter-spacing:.03em; }
+.p-step-hint { font-size:.87rem; color:var(--ink-soft); line-height:1.62; margin-bottom:.65rem; font-style:italic; }
+.p-step.done .p-step-hint { display:none; }
+.p-step-actions { display:flex; gap:.4rem; flex-wrap:wrap; }
+
+.p-btn {
+  display:inline-flex; align-items:center; gap:.3rem;
+  padding:.3rem .75rem; font-family:var(--display);
+  font-size:.78rem; font-weight:700; cursor:pointer;
+  letter-spacing:.02em; text-decoration:none; transition:all .15s;
+}
+.p-btn-read { background:var(--c); color:#fff; border:none; }
+.p-btn-read:hover { opacity:.82; }
+.p-btn-mark { border:1px solid var(--rule); background:none; color:var(--ink-soft); }
+.p-btn-mark:hover { border-color:var(--c); color:var(--c); }
+.p-step.done .p-btn-mark { border-color:var(--c); color:var(--c); }
+
+/* Pour aller plus loin */
+.p-plus { margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid var(--rule); }
+.p-plus-title {
+  font-family:var(--display); font-weight:700; font-size:.76rem;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.75rem;
+}
+.p-plus-item {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.55rem .85rem; border:1px solid var(--rule); background:var(--paper,#f5f4ef);
+  text-decoration:none; margin-bottom:.4rem; transition:border-color .15s;
+}
+.p-plus-item:hover { border-color:var(--c); }
+.p-plus-item-title { font-family:var(--display); font-weight:600; font-size:.9rem; color:var(--ink); }
+.p-plus-item-t { font-size:.72rem; color:var(--ink-faint); flex-shrink:0; margin-left:.8rem; }
+
+/* Bravo */
+.p-bravo {
+  text-align:center; padding:1.8rem 1rem; margin-top:1rem;
+  background:var(--paper-deep,#ece9e1);
+}
+.p-bravo-ar { font-family:"Amiri",serif; font-size:2rem; color:var(--c); direction:rtl; display:block; margin-bottom:.4rem; }
+.p-bravo-quote { font-size:.9rem; color:var(--ink-soft); font-style:italic; line-height:1.6; margin:.3rem auto .6rem; max-width:30rem; }
+.p-bravo-ref { display:block; font-style:normal; font-size:.72rem; color:var(--ink-faint); letter-spacing:.04em; margin-top:.2rem; }
+.p-bravo-title { font-family:var(--display); font-weight:800; font-size:1.2rem; color:var(--ink); margin-bottom:.35rem; }
+.p-bravo-text { font-size:.88rem; color:var(--ink-soft); line-height:1.65; }
+
+.p-reset {
+  background:none; border:none; font-size:.72rem; color:var(--ink-faint);
+  cursor:pointer; text-decoration:underline; display:block; margin:1rem 0 0;
+  font-family:var(--body);
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
+  </div>
+</header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
+
+<!-- Bande géométrique -->
+<div class="band" style="height:48px">
+  <svg class="band-svg" viewBox="0 0 640 50" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
+    <defs><pattern id="petal" width="30" height="30" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.20">
+        <circle cx="0" cy="15" r="15"/><circle cx="30" cy="15" r="15"/>
+        <circle cx="15" cy="0" r="15"/><circle cx="15" cy="30" r="15"/>
+        <circle cx="15" cy="15" r="15"/>
+      </g></pattern></defs>
+    <rect width="640" height="50" fill="url(#petal)"/>
+  </svg>
+</div>
+
+<!-- En-tête -->
+<header class="article-head" style="padding-bottom:1.6rem">
+  <span class="kicker">Parcours de lecture</span>
+  <h1 style="font-size:clamp(1.9rem,5.5vw,2.7rem)">Par où commencer ?</h1>
+  <p class="sub">Choisissez ce qui vous touche le plus. Un chemin d'essais dans l'ordre, une progression à votre rythme.</p>
+  <div class="emblem-rule">
+    <svg class="emblem" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round">
+        <circle cx="50" cy="50" r="28"/>
+        <path d="M50 22 A28 28 0 0 1 78 50" stroke-dasharray="4 6"/>
+      </g>
+      <circle cx="50" cy="50" r="4" fill="var(--accent)"/>
+    </svg>
+    <span class="ln"></span>
+  </div>
+  <div id="total-banner" style="display:none;margin-top:.8rem">
+    <span style="font-family:var(--display);font-size:.78rem;color:var(--ink-faint);
+      border:1px solid var(--rule);padding:.28rem .8rem;display:inline-block">
+      <span id="total-count"></span> essais lus au total
+    </span>
+  </div>
+</header>
+
+<!-- Corps -->
+<div class="reading prose" style="padding-bottom:4rem">
+
+  <div id="paths-list">
+    <!-- Chemins injectés par JS -->
+  </div>
+
+  <div id="invite" style="text-align:center;padding:2.5rem 1rem;color:var(--ink-faint)">
+    <div style="font-family:'Amiri',serif;font-size:1.6rem;direction:rtl;margin-bottom:.5rem;color:var(--rule)">اختر</div>
+    <div style="font-family:var(--display);font-size:.88rem">Choisissez un chemin ci-dessus pour commencer</div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
+  <nav class="foot-nav">
+    <a href="le-coran.html">Les textes</a>
+    <a href="parcours.html">Parcours</a>
+    <a href="carte.html">Carte</a>
+    <a href="methode.html">Méthode</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="apropos.html">À propos</a>
+  </nav>
+  <p class="foot-copy">© 2026 Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée.</p>
+</footer>
+
+<script>
+var SK = 'majma_parcours_v2';
+var COLORS = { foi:'#0e6b60', ame:'#a67c2e', texte:'#0e6b60', monde:'#2d8c6e' };
+var ENDQUOTES = {
+  foi:   { ar:'وَقُل رَّبِّ زِدْنِي عِلْمًا', fr:'« Et dis : Seigneur, accrois mon savoir. »', ref:'Coran 20:114' },
+  ame:   { ar:'مَن عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ', fr:'« Qui se connaît soi-même connaît son Seigneur. »', ref:'Tradition soufie' },
+  texte: { ar:'أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ', fr:'« Ne méditent-ils donc pas le Coran ? »', ref:'Coran 4:82' },
+  monde: { ar:'فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ', fr:'« Où que vous vous tourniez, là est la Face de Dieu. »', ref:'Coran 2:115' }
+};
+
+var PATHS = {
+  foi: {
+    name:'Je questionne ma foi', ar:'الإيمان', num:'1', cls:'p-foi',
+    why:"Sources, raison, liberté : les grandes questions que l'islam se pose à lui-même.",
+    steps:[
+      {id:'a',href:'quest-ce-qu-une-lecture',  title:"Qu'est-ce qu'une lecture ?",        t:10, hint:"Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s'applique pas."},
+      {id:'b',href:'la-source-et-le-fleuve',   title:'La source et le fleuve',             t:16, hint:"Coran et Sunnah n'ont pas toujours eu la même relation. D'où viennent les règles ?"},
+      {id:'c',href:'averroes-la-raison',        title:'Averroès et le droit de la raison',  t:12, hint:"Au XIIe siècle, un penseur de Cordoue pose la question qui traverse encore l'islam."},
+      {id:'d',href:'le-libre-arbitre',          title:'Le libre arbitre et le décret',      t:18, hint:"Qadar ou qaḍāʾ ? Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
+      {id:'e',href:'le-probleme-du-mal',        title:'Le problème du mal',                 t:14, hint:"Si Dieu est bon et tout-puissant, pourquoi le mal existe-t-il ?"},
+    ],
+    plus:[
+      {href:'le-sens-avant-le-comment',title:'Le sens avant le comment',t:15},
+      {href:'raison-et-revelation',    title:'Raison et révélation',    t:19},
+      {href:'shahrour-le-livre-et-le-coran',title:'Shahrour : le Livre et le Coran',t:13},
+    ]
+  },
+  ame: {
+    name:'Je veux me connaître', ar:'النفس', num:'2', cls:'p-ame',
+    why:"Un voyage intérieur entre psychologie jungienne et tradition islamique de l'âme.",
+    steps:[
+      {id:'a',href:'la-fitra',                 title:'La fiṭra et la dignité',          t:10, hint:"Qu'est-ce qui est inscrit en nous avant toute culture ?"},
+      {id:'b',href:'jung-en-dix-minutes',      title:"Ce qui agit sans qu'on le sache", t:10, hint:"Jung en dix minutes : l'inconscient, les archétypes, le Soi."},
+      {id:'c',href:'ombre-et-nafs',            title:"L'ombre et le nafs",              t:12, hint:"Ce que Jung appelle l'ombre et le Coran appelle la nafs ammāra."},
+      {id:'d',href:'le-coeur',                 title:'Le cœur',                        t:9,  hint:"Dans le Coran, le qalb est l'organe de la compréhension."},
+      {id:'e',href:'maitriser-le-desir',       title:'Maîtriser le désir',              t:12, hint:"Hawā, taṇhā, concupiscence : trois cultures pour une même lutte."},
+      {id:'f',href:'le-confluent-des-deux-mers',title:'Le confluent des deux mers',    t:14, hint:"Khidr et Moïse : deux modes de savoir, intérieur et extérieur."},
+    ],
+    plus:[
+      {href:'les-reves',         title:'Les rêves',         t:11},
+      {href:'le-souffle',        title:'Le souffle',        t:10},
+      {href:'les-destins-du-moi',title:'Les destins du moi',t:12},
+    ]
+  },
+  texte: {
+    name:'Je lis le texte autrement', ar:'القراءة', num:'3', cls:'p-texte',
+    why:"Rhétorique, symbole, sémantique : les outils pour lire le Coran tel qu'il parle.",
+    steps:[
+      {id:'a',href:'le-premier-mot',           title:'Le premier mot',           t:9,  hint:"Iqraʾ. Le premier mot révélé est un ordre de lire."},
+      {id:'b',href:'quest-ce-qu-une-lecture',  title:"Qu'est-ce qu'une lecture ?",t:10, hint:"Lire un texte sacré n'est pas lire un roman. Mais qu'est-ce que cela change ?"},
+      {id:'c',href:'la-rhetorique-semitique',  title:'La rhétorique sémitique',   t:12, hint:"Le Coran est composé par symétries concentriques."},
+      {id:'d',href:'la-lecture-symbolique',    title:'La lecture symbolique',     t:12, hint:"Ẓāhir et bāṭin : la lettre et le sens profond."},
+      {id:'e',href:'les-mots-et-le-monde',    title:'Les mots et le monde',      t:15, hint:"Izutsu et la sémantique du Coran : les mots structurent une vision du monde."},
+    ],
+    plus:[
+      {href:'le-sens-avant-le-comment',   title:'Le sens avant le comment',  t:15},
+      {href:'le-monde-imaginal',          title:'Le monde entre deux',        t:10},
+      {href:'shahrour-le-livre-et-le-coran',title:'Shahrour : le Livre et le Coran',t:13},
+    ]
+  },
+  monde: {
+    name:'Je vis dans ce monde', ar:'العالم', num:'4', cls:'p-monde',
+    why:"Désenchantement, attention, sens : des essais pour penser le monde d'aujourd'hui.",
+    steps:[
+      {id:'a',href:'le-desenchantement',       title:'Le désenchantement du monde', t:12, hint:"Max Weber et la perte du sacré dans la modernité."},
+      {id:'b',href:'le-scroll-et-la-pause',    title:'Le scroll et la pause',        t:10, hint:"Le design persuasif, le hawā, et comment reprendre son attention."},
+      {id:'c',href:'le-sens-malgre-tout',      title:'Le sens malgré tout',           t:11, hint:"Frankl dans les camps, Camus face à l'absurde."},
+      {id:'d',href:'je-et-tu',                title:'Je et Tu',                     t:9,  hint:"Martin Buber et la relation vraie à l'ère des réseaux."},
+      {id:'e',href:'la-finitude',              title:'La finitude',                  t:10, hint:"Heidegger, l'islam et la mort comme horizon."},
+    ],
+    plus:[
+      {href:'le-probleme-du-mal',  title:'Le problème du mal',  t:14},
+      {href:'l-univers-ajuste',    title:"L'univers ajusté",     t:11},
+      {href:'les-deux-livres',     title:'Les deux livres',      t:12},
+    ]
+  }
+};
+
+function getState(){ try{return JSON.parse(localStorage.getItem(SK)||'{}');}catch(e){return{};} }
+function saveState(s){ try{localStorage.setItem(SK,JSON.stringify(s));}catch(e){} }
+
+function renderPath(pid) {
+  var p = PATHS[pid];
+  var state = getState();
+  var pd = state[pid] || {};
+  var doneN = p.steps.filter(function(s){ return pd[s.id]; }).length;
+  var total = p.steps.length;
+  var pct = Math.round(doneN/total*100);
+  var next = p.steps.find(function(s){ return !pd[s.id]; });
+
+  var h = '';
+
+  // Progression
+  h += '<div class="p-progress">';
+  h += '<div class="p-track"><div class="p-fill" id="fill-'+pid+'" style="width:'+pct+'%"></div></div>';
+  h += '<div class="p-prog-text">'+doneN+' / '+total+'</div>';
+  h += '</div>';
+
+  // Prochaine lecture
+  if (next && doneN > 0) {
+    h += '<a class="p-nextup" href="'+next.href+'.html">';
+    h += '<div><span class="p-nextup-label">À lire maintenant</span>';
+    h += '<span class="p-nextup-title">'+next.title+'</span>';
+    h += '<span class="p-nextup-hint">'+next.hint+'</span></div>';
+    h += '<span class="p-nextup-arrow">→</span></a>';
+  }
+
+  h += '<div class="p-fleuron">❦ · ❦ · ❦</div>';
+
+  // Étapes
+  h += '<div class="p-steps">';
+  p.steps.forEach(function(step, i) {
+    var isDone = !!pd[step.id];
+    h += '<div class="p-step'+(isDone?' done':'')+'" id="step-'+pid+'-'+step.id+'">';
+    h += '<div class="p-node">'+(isDone?'✓':(i+1))+'</div>';
+    h += '<div class="p-step-body">';
+    h += '<div class="p-step-title">'+step.title+'</div>';
+    h += '<div class="p-step-meta">Essai · ~'+step.t+' min</div>';
+    if (!isDone) h += '<div class="p-step-hint">'+step.hint+'</div>';
+    h += '<div class="p-step-actions">';
+    h += '<a class="p-btn p-btn-read" href="'+step.href+'.html">Lire →</a>';
+    h += '<button class="p-btn p-btn-mark" data-pid="'+pid+'" data-sid="'+step.id+'">'+(isDone?'✓ Lu':'Marquer comme lu')+'</button>';
+    h += '</div></div></div>';
+  });
+  h += '</div>';
+
+  // Pour aller plus loin
+  if (p.plus) {
+    h += '<div class="p-plus">';
+    h += '<div class="p-plus-title">Pour aller plus loin</div>';
+    p.plus.forEach(function(e) {
+      h += '<a class="p-plus-item" href="'+e.href+'.html">';
+      h += '<span class="p-plus-item-title">'+e.title+'</span>';
+      h += '<span class="p-plus-item-t">~'+e.t+' min</span></a>';
+    });
+    h += '</div>';
+  }
+
+  // Bravo
+  if (doneN === total) {
+    var eq = ENDQUOTES[pid];
+    h += '<div class="p-bravo">';
+    if (eq) {
+      if (eq.ar) h += '<span class="p-bravo-ar">'+eq.ar+'</span>';
+    }
+    h += '<div class="p-bravo-title">Parcours accompli</div>';
+    if (eq) h += '<div class="p-bravo-quote">'+eq.fr+' <span class="p-bravo-ref">'+eq.ref+'</span></div>';
+    h += '<div class="p-bravo-text">'+total+' essais lus. Explorez les suggestions ci-dessus ou la <a href="carte.html" style="color:var(--c)">constellation complète</a>.</div>';
+    h += '</div>';
+  }
+
+  h += '<button class="p-reset" data-reset="'+pid+'">Réinitialiser ce parcours</button>';
+  return h;
+}
+
+function renderAll() {
+  var list = document.getElementById('paths-list');
+  var state = getState();
+  var totalDone = 0;
+
+  list.innerHTML = '';
+  Object.keys(PATHS).forEach(function(pid) {
+    var p = PATHS[pid];
+    var pd = state[pid] || {};
+    var doneN = p.steps.filter(function(s){ return pd[s.id]; }).length;
+    totalDone += doneN;
+
+    var el = document.createElement('details');
+    el.className = 'p-item ' + p.cls;
+    el.id = 'path-' + pid;
+
+    var summary = document.createElement('summary');
+    summary.className = 'p-summary';
+    summary.innerHTML =
+      '<div class="p-num">'+p.num+'</div>'+
+      '<div class="p-info">'+
+        '<div class="p-name">'+p.name+'<span class="p-ar">'+p.ar+'</span></div>'+
+        '<div class="p-why">'+p.why+'</div>'+
+      '</div>'+
+      '<div class="p-meta">'+
+        '<span class="p-cnt">'+(doneN>0?doneN+' / '+p.steps.length:p.steps.length+' essais')+'</span>'+
+        '<span class="p-arrow">▼</span>'+
+      '</div>';
+
+    var body = document.createElement('div');
+    body.className = 'p-body';
+    body.innerHTML = renderPath(pid);
+
+    el.appendChild(summary);
+    el.appendChild(body);
+    list.appendChild(el);
+
+    // Écouter les clics "Marquer comme lu"
+    el.addEventListener('click', function(e) {
+      var btn = e.target.closest('.p-btn-mark');
+      var rst = e.target.closest('.p-reset');
+
+      if (btn) {
+        var s = getState();
+        if (!s[btn.dataset.pid]) s[btn.dataset.pid] = {};
+        s[btn.dataset.pid][btn.dataset.sid] = !s[btn.dataset.pid][btn.dataset.sid];
+        saveState(s);
+        body.innerHTML = renderPath(pid);
+        updateTotal();
+      }
+      if (rst) {
+        var s2 = getState();
+        s2[rst.dataset.reset] = {};
+        saveState(s2);
+        body.innerHTML = renderPath(pid);
+        updateTotal();
+      }
+    });
+
+    // Ouvrir si hash correspond
+    if (window.location.hash === '#'+pid) {
+      el.open = true;
+      setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+    }
+  });
+
+  updateTotal(totalDone);
+  document.getElementById('invite').style.display = 'none';
+}
+
+function updateTotal(n) {
+  if (n === undefined) {
+    var state = getState();
+    n = 0;
+    Object.keys(PATHS).forEach(function(pid){
+      var pd = state[pid]||{};
+      n += PATHS[pid].steps.filter(function(s){ return pd[s.id]; }).length;
+    });
+  }
+  var banner = document.getElementById('total-banner');
+  var cnt = document.getElementById('total-count');
+  if (n > 0) { banner.style.display='block'; cnt.textContent=n; }
+  else { banner.style.display='none'; }
+}
+
+document.addEventListener('DOMContentLoaded', renderAll);
+
+var bar=document.getElementById("progress");
+function upd(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
+document.addEventListener("scroll",upd,{passive:true});upd();
+</script>
+</body>
+</html>

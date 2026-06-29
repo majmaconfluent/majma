@@ -91,6 +91,17 @@
   "Être-pour-la-mort":"Chez Heidegger, la reconnaissance que la mort est l'horizon certain et personnel de toute existence. Non un pessimisme, mais une invitation à vivre de façon authentique, comme si la vie t'appartenait vraiment.",
   "Désir mimétique":"Chez René Girard, le mécanisme par lequel on désire non pas spontanément un objet, mais ce qu'un autre désire : le désir naît de l'imitation d'un modèle, pas d'un besoin propre.",
   "Logothérapie":"Thérapie fondée par Viktor Frankl : soin par le sens. Sa thèse : la première motivation de l'être humain est la quête de sens, non le plaisir (Freud) ni la puissance (Adler).",
+  "Tafwīd":"La 'remise' ou 'délégation' : posture théologique classique qui affirme le sens des attributs divins sans en préciser la modalité. On dit que Dieu 'a une Main' sans demander 'comment'. Ce n'est pas de l'ignorance : c'est la reconnaissance que le sens ne dépend pas de la modalité pour être réel. Formulé classiquement : bilā kayf, sans demander comment.",
+  "Phénoménologie":"Méthode philosophique fondée par Edmund Husserl (1859-1938), qui consiste à décrire rigoureusement les phénomènes tels qu'ils se donnent à la conscience, avant toute théorie causale. Le principe : retourner aux choses elles-mêmes.",
+  "Ijmāʿ":"Le consensus des savants musulmans. Troisième source du droit islamique après le Coran et la Sunnah. Quand les juristes s'accordent sur une règle, ce consensus a valeur juridique et comble les cas que les textes n'ont pas explicitement prévus.",
+  "Rijāl":"Littéralement 'les hommes' : science islamique classique d'étude des transmetteurs de hadith. Chaque narrateur est évalué sur sa fiabilité, sa mémoire, ses maîtres et ses élèves.",
+  "Muḥkamāt":"Les versets 'univoques' du Coran, clairs dans leur sens, qui forment l'Umm al-Kitāb, la mère du Livre (3:7). Opposés aux mutashābihāt.",
+  "Mutashābihāt":"Les versets 'équivoques' du Coran dont le sens résiste à une lecture définitive (3:7). Seul Dieu en connaît la vraie interprétation. La bonne posture face à eux est l'humilité : nous y croyons, tout vient de notre Seigneur.",
+  "Tafsīr":"L'exégèse coranique : le commentaire et l'interprétation du texte coranique. Discipline immense de la pensée islamique sur quatorze siècles. Diffère du taʾwīl, qui désigne une interprétation plus profonde.",
+  "Nāsikh":"L'abrogeant : verset ou hadith qui annule une règle antérieure. Avec le mansūkh (l'abrogé), il permet de réconcilier des textes apparemment contradictoires en les situant chronologiquement.",
+  "Mansūkh":"L'abrogé : règle annulée par un texte postérieur (nāsikh). L'étendue de l'abrogation et ses critères sont parmi les questions les plus débattues de la méthodologie islamique.",
+  "Al-ʿAwl":"Littéralement 'l'augmentation' : mécanisme juridique qui réduit proportionnellement les parts d'héritage quand leur somme dépasse l'unité. Les Compagnons ont divergé : Omar l'acceptait, Ibn Abbas proposait une autre répartition.",
+  "Raziyyat al-Khamīs":"La 'Calamité du Jeudi' : épisode rapporté dans Sahih Bukhari (4168-4169) et Sahih Muslim (1637). Le Prophète agonisant demanda de quoi écrire un testament. Omar dit : 'le Livre de Dieu nous suffit.' Ibn Abbas dira : 'La plus grande calamité fut que cette dispute empêcha le Prophète d'écrire.'",
   "Possession":"Chez Jung, l'état dans lequel une énergie psychique a pris le pouvoir sur le moi sans que celui-ci s'en aperçoive : il croit librement vouloir ce à quoi il est en réalité assujetti. Ce que les Anciens nommaient être possédé par un dieu."
 };
 

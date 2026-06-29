@@ -43,18 +43,25 @@
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
-        <nav class="site-nav">
-      <a href="index.html#lire">Les textes</a>
-      <a href="index.html#ame">L’âme</a>
-      <a href="index.html#sens">Le sens</a>
-      <a href="apropos.html">À propos</a>
-      <a href="/en/" class="header-icon lang-switch" title="Read in English">EN</a>
-      <button id="searchBtn" class="header-icon" type="button" onclick="__toggleSearch()" aria-label="Rechercher" title="Rechercher">⌕</button>
-      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
-    </nav>
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
   </div>
 </header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
 
 <article>
   <header class="article-head">
@@ -70,6 +77,11 @@
       <div class="item">
         <span class="term">Al-ākhira</span>
         <p class="def">En arabe, 'ce qui vient après' : la vie future dans la cosmologie islamique. Terme souvent traduit par 'au-delà' ou 'vie éternelle'.</p>
+      </div>
+      <div class="item">
+        <span class="term">Al-ʿAwl</span><span class="ar">العَوْل</span>
+        <p class="def">Littéralement "l'augmentation" : mécanisme juridique islamique utilisé en cas d'héritage où la somme des parts coraniques attribuées aux héritiers dépasse mathématiquement l'unité. La solution classique (al-ʿawl) consiste à réduire toutes les parts proportionnellement. Les Compagnons eux-mêmes ont divergé sur ce point : Omar ibn al-Khattab optait pour l'al-ʿawl, Ibn Abbas pour une autre répartition.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
       </div>
       <div class="item">
         <span class="term">ʿAlam al-Mithāl</span>
@@ -241,7 +253,13 @@
       </div>
       <div class="item">
         <span class="term">Ijtihād</span>
-        <p class="def">En droit islamique, l'effort de raisonnement personnel pour déduire une règle d'une situation nouvelle à partir des sources. Opposé au taqlīd, l'imitation sans examen.</p>
+        <p class="def">En droit islamique, l'effort de raisonnement personnel pour déduire une règle d'une situation nouvelle à partir des sources. Opposé au taqlīd, l'imitation sans examen. La fermeture progressive des "portes de l'ijtihād" à partir du IVe siècle de l'hégire est l'un des débats les plus vifs de la pensée islamique contemporaine.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
+      </div>
+      <div class="item">
+        <span class="term">Ijmāʿ</span><span class="ar">إجماع</span>
+        <p class="def">Le consensus des savants musulmans. Troisième source du droit islamique après le Coran et la Sunnah. Quand les juristes s'accordent sur une règle, ce consensus a valeur juridique et comble les cas que les textes n'ont pas explicitement prévus. Son périmètre (qui compte comme savant ? sur quelle période ?) est lui-même débattu.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
       </div>
       <div class="item">
         <span class="term">ʿIlm ladunī</span><span class="ar">علم لدني</span>
@@ -274,6 +292,11 @@
       <div class="item">
         <span class="term">Je-Cela</span>
         <p class="def">Chez Martin Buber, le mode de relation où l'autre est traité comme un objet, un rôle ou un moyen, par opposition au Je-Tu, la rencontre vraie. Le monde Je-Cela est nécessaire, mais problématique quand il envahit ce qui devrait être rencontre.</p>
+      </div>
+      <div class="item">
+        <span class="term">Jarḥ wa-ta'dīl</span><span class="ar">جرح وتعديل</span>
+        <p class="def">Littéralement "la blessure et la rectification" : science islamique classique d'évaluation critique des transmetteurs de hadith. Chaque maillon de la chaîne de transmission est analysé : sa fiabilité, sa mémoire, ses éventuelles erreurs. C'est le principal outil développé par la tradition pour distinguer hadith authentiques et inauthentiques.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
       </div>
       <div class="item">
         <span class="term">Je-Tu</span>
@@ -323,6 +346,16 @@
         <p class="def">Dans la tradition islamique, la vigilance intérieure : conscience d'être sous le regard de Dieu, et par extension, qualité de présence attentive au moment et à l'autre.</p>
       </div>
       <div class="item">
+        <span class="term">Muḥkamāt</span><span class="ar">محكمات</span>
+        <p class="def">Les versets "univoques" du Coran, clairs dans leur sens, qui constituent le fondement du Livre selon le verset 3:7. Ils forment "l'Umm al-Kitāb", la mère du Livre. Opposés aux mutashābihāt. La question de savoir quels versets appartiennent à chaque catégorie est elle-même débattue.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a> · <a href="la-lecture-symbolique.html">→ La lecture symbolique</a></p>
+      </div>
+      <div class="item">
+        <span class="term">Mutashābihāt</span><span class="ar">متشابهات</span>
+        <p class="def">Les versets "équivoques" du Coran, dont le sens résiste à une lecture définitive (3:7). Seul Dieu, dit le verset, en connaît la vraie interprétation. Opposés aux muḥkamāt. La posture juste face à ces versets est, selon la tradition, l'humilité : "Nous y croyons, tout vient de notre Seigneur."</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a> · <a href="la-lecture-symbolique.html">→ La lecture symbolique</a></p>
+      </div>
+      <div class="item">
         <span class="term">Nafs</span><span class="ar">النفس</span>
         <p class="def">Le souffle, l'âme-soi. Le Coran en décrit trois stations : instigatrice (ammāra), qui se blâme (lawwāma), apaisée (muṭmaʾinna).</p>
         <p class="see"><a href="ombre-et-nafs.html">→ L'ombre et le nafs</a></p>
@@ -330,6 +363,11 @@
       <div class="item">
         <span class="term">Nahḍa</span>
         <p class="def">La renaissance culturelle et intellectuelle du monde arabe au XIXe et début XXe siècle : mouvement de réforme qui cherchait à concilier modernité et tradition islamique.</p>
+      </div>
+      <div class="item">
+        <span class="term">Nāsikh wa-l-mansūkh</span><span class="ar">ناسخ ومنسوخ</span>
+        <p class="def">Littéralement "l'abrogeant et l'abrogé" : principe selon lequel certains versets coraniques ou hadith abrogent des règles antérieures. Permet de réconcilier des textes apparemment contradictoires en les situant dans une chronologie de révélation. L'étendue de l'abrogation et les critères pour la déterminer sont parmi les questions les plus débattues de la méthodologie juridique islamique.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
       </div>
       <div class="item">
         <span class="term">Nirvāṇa</span>
@@ -387,6 +425,16 @@
         <p class="see"><a href="le-coeur.html">→ Le cœur</a></p>
       </div>
       <div class="item">
+        <span class="term">Raziyyat al-Khamīs</span><span class="ar">رزية الخميس</span>
+        <p class="def">La "Calamité du Jeudi" : épisode rapporté dans Sahih Bukhari et Sahih Muslim (Bukhari 4168-4169, Muslim 1637). Le jeudi précédant sa mort, le Prophète demanda de quoi écrire un testament qui préserverait sa communauté de l'égarement. Omar ibn al-Khattab s'y opposa en disant "le Livre de Dieu nous suffit." Une dispute éclata entre les Compagnons. Ibn Abbas qualifiera cet épisode de plus grande calamité pour l'islam. L'événement est reconnu et transmis par la tradition sunnite elle-même.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
+      </div>
+      <div class="item">
+        <span class="term">Rijāl</span><span class="ar">رجال</span>
+        <p class="def">Littéralement "les hommes" : science islamique classique d'étude des transmetteurs de hadith. Chaque narrateur de la chaîne de transmission est évalué sur sa fiabilité, sa mémoire, ses maîtres et élèves. Constitue avec le jarḥ wa-ta'dīl le principal outil de critique des hadith développé par la tradition.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
+      </div>
+      <div class="item">
         <span class="term">Rhétorique sémitique</span><span class="ar">نظم</span>
         <p class="def">L’art de composer par symétries, propre à la Bible et au Coran ; et l’analyse de cette composition (Meynet, Cuypers).</p>
         <p class="see"><a href="la-rhetorique-semitique.html">→ La rhétorique sémitique</a></p>
@@ -436,6 +484,11 @@
         <p class="see"><a href="les-reves.html">→ Les rêves : de Yūsuf à Jung</a></p>
       </div>
       <div class="item">
+        <span class="term">Tafsīr</span><span class="ar">تفسير</span>
+        <p class="def">L'exégèse coranique : le commentaire et l'interprétation du texte coranique. Discipline immense de la pensée islamique, qui comprend des milliers de volumes sur plus de quatorze siècles. Diffère du taʾwīl, qui désigne une interprétation plus profonde ou allégorique.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a> · <a href="la-lecture-symbolique.html">→ La lecture symbolique</a></p>
+      </div>
+      <div class="item">
         <span class="term">Taklīf</span><span class="ar">تكليف</span>
         <p class="def">L’obligation, donc la responsabilité morale. Elle suppose la raison (ʿaql) et la capacité (qudra) : nul n’est tenu au-delà de ce qu’il peut (Coran 2, 286).</p>
         <p class="see"><a href="le-libre-arbitre.html">→ Le libre arbitre et le décret</a></p>
@@ -449,8 +502,9 @@
         <p class="def">Le décret divin dans la pensée islamique : l'idée que Dieu connaît et a 'mesuré' toute chose. Au cœur du débat sur le libre arbitre.</p>
       </div>
       <div class="item">
-        <span class="term">Taqlīd</span>
-        <p class="def">Dans la tradition islamique, le fait de suivre l'opinion d'un savant ou d'une école sans en examiner les fondements. Contraire de l'ijtihād.</p>
+        <span class="term">Taqlīd</span><span class="ar">تقليد</span>
+        <p class="def">Dans la tradition islamique, le fait de suivre l'opinion d'un savant ou d'une école sans en examiner les fondements. Contraire de l'ijtihād. À partir du IVe siècle de l'hégire, le taqlīd est devenu la pratique dominante dans les grandes écoles juridiques, au détriment du raisonnement indépendant.</p>
+        <p class="see"><a href="la-source-et-le-fleuve.html">→ La source et le fleuve</a></p>
       </div>
       <div class="item">
         <span class="term">Taqwā</span>
@@ -526,9 +580,9 @@
 <footer class="site-footer">
   <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
   <nav class="foot-nav">
-    <a href="index.html#lire">Les textes</a>
-    <a href="index.html#ame">L’âme</a>
-    <a href="index.html#sens">Le sens</a>
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
     <a href="apropos.html">À propos</a>
     <a href="methode.html">Méthode</a>
     <a href="glossaire.html">Glossaire</a>

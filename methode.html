@@ -34,18 +34,25 @@
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
-        <nav class="site-nav">
-      <a href="index.html#lire">Les textes</a>
-      <a href="index.html#ame">L’âme</a>
-      <a href="index.html#sens">Le sens</a>
-      <a href="apropos.html">À propos</a>
-      <a href="/en/" class="header-icon lang-switch" title="Read in English">EN</a>
-      <button id="searchBtn" class="header-icon" type="button" onclick="__toggleSearch()" aria-label="Rechercher" title="Rechercher">⌕</button>
-      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
-    </nav>
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
   </div>
 </header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
 
 <article>
   <header class="article-head">
@@ -93,7 +100,7 @@
     <p>L’outil ne décide pas du sens. Une analogie comme celle entre l’ombre jungienne et le nafs coranique, par exemple, part toujours d’une intuition de lecture : le sentiment que deux textes parlent peut-être de la même chose sous deux noms différents. L’outil sert ensuite à vérifier cette intuition, retrouver les passages exacts, croiser les sources, repérer où l’analogie tient et où elle force. Mais l’intuition de départ, le choix de la garder ou de l’abandonner, et la décision finale sur ce qui mérite d’être écrit restent humains d’un bout à l’autre. Elle élargit le champ, comme le télescope a élargi le regard sans rien voir à la place de l’astronome. Penser à la vitesse où l’on peut interroger des milliers de textes change la portée de la question, non la personne qui la pose.</p>
     <p>Cette revue assume donc d’être, à sa petite échelle, une expérience : une façon de raisonner où l’érudition n’est plus le privilège de quelques-uns, mais un instrument à portée de main, au service d’une seule chose, lire mieux.</p>
 
-    <p>Le reste suit de là. Pour les termes, voyez le <a href="glossaire.html">glossaire</a> ; pour les idées, les <a href="index.html#lire">essais</a>. La porte est ouverte, mais c'est à chacun d'avancer.</p>
+    <p>Le reste suit de là. Pour les termes, voyez le <a href="glossaire.html">glossaire</a> ; pour les idées, les <a href="le-coran.html">essais</a>. La porte est ouverte, mais c'est à chacun d'avancer.</p>
 
     <div class="divider">◆</div>
     <p style="text-align:center;font-family:var(--body);font-style:italic;font-size:1.18rem;color:var(--ink-soft);">Lire, douter, recommencer : ce n'est pas une méthode parmi d'autres, c'est la condition pour qu'une idée reste vivante. <span style="font-style:normal;">وَاللَّهُ أَعْلَم (Dieu seul sait)</span>.</p>
@@ -106,9 +113,9 @@
 <footer class="site-footer">
   <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
   <nav class="foot-nav">
-    <a href="index.html#lire">Les textes</a>
-    <a href="index.html#ame">L’âme</a>
-    <a href="index.html#sens">Le sens</a>
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
     <a href="apropos.html">À propos</a>
     <a href="methode.html">Méthode</a>
     <a href="glossaire.html">Glossaire</a>
@@ -124,5 +131,6 @@
   function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+'%';}
   document.addEventListener('scroll',upd,{passive:true});upd();
 </script>
+<script src="read-tracker.js"></script>
 </body>
 </html>

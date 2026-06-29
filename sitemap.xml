@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://majma.me/</loc><lastmod>2026-06-15</lastmod><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://majma.me/</loc><lastmod>2026-06-15</lastmod><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/"/>
+  </url>
   <url><loc>https://majma.me/apropos.html</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://majma.me/methode.html</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://majma.me/glossaire.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
@@ -22,7 +28,12 @@
   <url><loc>https://majma.me/trois-portes-pour-la-meme-piece.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/les-reves.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/le-souffle.html</loc><lastmod>2026-06-12</lastmod><priority>0.7</priority></url>
-  <url><loc>https://majma.me/le-confluent-des-deux-mers.html</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority></url>
+  <url>
+    <loc>https://majma.me/le-confluent-des-deux-mers.html</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-confluent-des-deux-mers.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/where-two-seas-meet.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-confluent-des-deux-mers.html"/>
+  </url>
   <url><loc>https://majma.me/les-destins-du-moi.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/maitriser-le-desir.html</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://majma.me/les-signes.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
@@ -32,9 +43,51 @@
   <url><loc>https://majma.me/le-sens-malgre-tout.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/la-finitude.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/ce-qui-arrete.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://majma.me/le-libre-arbitre.html</loc><lastmod>2026-06-12</lastmod><priority>0.7</priority></url>
+  <url>
+    <loc>https://majma.me/le-libre-arbitre.html</loc><lastmod>2026-06-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-libre-arbitre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/free-will-and-decree.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-libre-arbitre.html"/>
+  </url>
   <url><loc>https://majma.me/le-probleme-du-mal.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://majma.me/le-scroll-et-la-pause.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
+  <url>
+    <loc>https://majma.me/le-scroll-et-la-pause.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-scroll-et-la-pause.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/scroll-and-pause.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-scroll-et-la-pause.html"/>
+  </url>
   <url><loc>https://majma.me/le-moi-et-son-image.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/je-et-tu.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
+  <url>
+    <loc>https://majma.me/en/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/"/>
+  </url>
+  <url>
+    <loc>https://majma.me/en/where-two-seas-meet.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-confluent-des-deux-mers.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/where-two-seas-meet.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-confluent-des-deux-mers.html"/>
+  </url>
+  <url>
+    <loc>https://majma.me/en/scroll-and-pause.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-scroll-et-la-pause.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/scroll-and-pause.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-scroll-et-la-pause.html"/>
+  </url>
+  <url>
+    <loc>https://majma.me/en/free-will-and-decree.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-libre-arbitre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/free-will-and-decree.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-libre-arbitre.html"/>
+  </url>
 </urlset>

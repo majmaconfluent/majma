@@ -3,45 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée</title>
-<meta name="description" content="Majmaʿ : revue d'essais à la croisée de la philosophie islamique, la psychologie jungienne et la pensée comparée. 32 essais, en français.">
+<title>Majmaʿ · le confluent de la pensée islamique, la psychologie jungienne et la pensée comparée</title>
+<meta name="description" content="Majmaʿ : là où la pensée islamique rencontre la psychologie des profondeurs et la pensée comparée. Des clés de lecture pour penser par soi-même.">
 <link rel="stylesheet" href="styles.css">
+<script src="icons.js"></script>
 <script src="theme.js"></script>
 <script src="gloss.js" defer></script>
+<script src="parcours.js" defer></script>
+<script src="read-tracker.js" defer></script>
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Majmaʿ">
-<meta property="og:title" content="Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée">
-<meta property="og:description" content="32 essais sur l'islam, Jung et la pensée comparée.">
+<meta property="og:title" content="Majmaʿ · le confluent">
+<meta property="og:description" content="Là où la pensée islamique rencontre la psychologie des profondeurs et la pensée comparée.">
 <meta property="og:image" content="https://majma.me/og.png">
 <meta property="og:url" content="https://majma.me/">
 <link rel="canonical" href="https://majma.me/">
-
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-38RNGLZV63');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38RNGLZV63');</script>
+<style>
+:root{--gold:#b8923f;}
+.search-wrap{max-width:22rem!important;margin:0 auto 1.5rem!important;}
+.search-panel{max-height:0;overflow:hidden;opacity:0;padding:0 1.2rem!important;transition:max-height .28s ease,opacity .2s ease,padding .28s ease;border-top:1px solid transparent}
+.search-panel.open{max-height:60vh;opacity:1;padding:.9rem 1.2rem!important;border-top-color:var(--rule)}
+.explore-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%) translateY(-6px);width:min(280px,80vw);background:var(--card);border:1px solid var(--rule);border-radius:10px;box-shadow:0 12px 32px -12px rgba(20,15,10,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;overflow:hidden}
+.explore-menu.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.explore-menu a{display:block;padding:.8rem 1rem;text-decoration:none;border-bottom:1px solid var(--rule);transition:background .15s;text-align:left}
+.explore-menu a:last-child{border-bottom:none}
+.explore-menu a:hover{background:var(--paper-deep,#ece9e1)}
+.em-ar{font-family:"Amiri",serif;font-size:.9rem;color:var(--accent);display:block;direction:rtl;margin-bottom:.15rem}
+.em-t{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink);display:block}
+.em-d{font-size:.78rem;color:var(--ink-soft);display:block;margin-top:.1rem}
+.p-foi{--c:#0e6b60}.p-ame{--c:#1a7a5a}.p-texte{--c:#2d8c6e}.p-monde{--c:#0a4d44}
+/* Portes : couleurs de la carte des essais */
+.porte.p-texte{--c:#0e6b60}
+.porte.p-ame{--c:#a67c2e}
+.porte.p-monde{--c:#2d8c6e}
+
+/* Trois portes thématiques */
+.portes{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:1.4rem auto 0;max-width:760px}
+.porte{display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--rule);border-top:3px solid var(--pc);border-radius:10px;padding:1.1rem 1rem;background:var(--card);transition:transform .18s,box-shadow .18s,border-color .18s}
+.porte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(20,15,10,.3)}
+.porte-ar{font-family:"Amiri",serif;font-size:1.15rem;color:var(--pc);direction:rtl;margin-bottom:.45rem;line-height:1}
+.porte-t{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.3rem}
+.porte-d{font-size:.82rem;color:var(--ink-soft);line-height:1.5;flex:1}
+.porte-go{font-family:var(--display);font-size:.78rem;font-weight:600;color:var(--pc);margin-top:.7rem;display:inline-flex;align-items:center;gap:.3rem}
+@media(max-width:640px){
+  .portes{grid-template-columns:1fr;gap:.6rem;margin-top:1.2rem}
+  .porte{flex-direction:row;align-items:center;gap:.9rem;padding:.9rem 1rem;border-top:1px solid var(--rule);border-left:3px solid var(--pc)}
+  .porte-ar{margin-bottom:0;font-size:1.15rem;flex-shrink:0;width:2.6rem;text-align:center}
+  .porte-body{flex:1;min-width:0}
+  .porte-t{margin-bottom:.15rem}
+  .porte-go{display:none}
+}
+
+/* Hero */
+.hero-x{text-align:center;padding:2.6rem 1.4rem 2rem;border-bottom:1px solid var(--rule);position:relative}
+.hero-x-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none;clip-path:inset(0)}
+.hero-x::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 62% at 50% 48%,var(--paper) 0%,var(--paper) 30%,rgba(245,244,239,.55) 62%,transparent 100%)}
+.hero-x-inner{position:relative;z-index:2}
+.hero-ar{font-family:"Amiri",serif;font-size:2.2rem;color:var(--accent);margin-bottom:.4rem;direction:rtl;font-weight:700}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1.1rem}
+.hero-rule-line{width:54px;height:1px}
+.hero-rule-l{background:linear-gradient(to right,transparent,var(--gold))}
+.hero-rule-r{background:linear-gradient(to left,transparent,var(--gold))}
+.hero-rule-txt{font-family:var(--display);font-size:1rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.1;color:var(--ink);margin-bottom:.8rem}
+.hero-sub{color:var(--ink-soft);font-size:1.02rem;line-height:1.75;max-width:450px;margin:0 auto 1.5rem;font-style:italic}
+.hero-cta{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.btn-prim-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:var(--accent);color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;position:relative;overflow:hidden;text-decoration:none}
+.btn-sec-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border:1px solid var(--rule);background:var(--card);color:var(--ink-soft);font-family:var(--display);font-size:.9rem;font-weight:600;text-decoration:none;border-radius:99px;cursor:pointer}
+.btn-prim-x::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
+@keyframes shine{0%{left:-100%}50%,100%{left:200%}}
+
+/* Parcours */
+.pc-intro{font-size:.88rem;color:var(--ink-soft);line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.ip-item{border:1px solid var(--rule);border-left:3px solid transparent;border-radius:8px;margin-bottom:.4rem;overflow:hidden;background:var(--card);transition:border-color .2s,border-left-color .2s}
+.ip-item[open]{border-color:var(--c);border-left-color:var(--c)}
+.ip-summary{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem;cursor:pointer;list-style:none;user-select:none;background:transparent;transition:background .18s}
+.ip-summary::-webkit-details-marker{display:none}
+.ip-item[open] .ip-summary{background:var(--paper-deep,#ece9e1)}
+.ip-num{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;flex-shrink:0;width:28px;color:var(--gold);transition:color .2s}
+.ip-item[open] .ip-num{color:var(--c)}
+.ip-info{flex:1;min-width:0}
+.ip-name{display:block;font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink)}
+.ip-why{display:block;font-size:.82rem;color:var(--ink-soft);font-style:italic;line-height:1.4;margin-top:.1rem}
+.ip-right{flex-shrink:0;text-align:right;padding-left:.4rem}
+.ip-cnt{display:block;font-family:var(--display);font-size:.72rem;color:var(--ink-faint)}
+.ip-arrow{font-size:.72rem;color:var(--rule);margin-top:.1rem;display:inline-block;transition:transform .22s,color .2s}
+.ip-item[open] .ip-arrow{transform:rotate(180deg);color:var(--c)}
+.ip-body{position:relative;padding:.8rem 1.1rem 1.1rem}
+
+.ip-prog-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.ip-track{flex:1;height:2px;background:var(--rule);border-radius:99px;overflow:hidden}
+.ip-fill{height:100%;background:var(--c);border-radius:99px;transition:width .5s ease}
+.ip-prog-n{font-family:var(--display);font-size:.72rem;color:var(--ink-faint)}
+
+.ip-next{display:block;position:relative;z-index:5;margin:.6rem 0 1.1rem;border-radius:12px;background:var(--card);border:1px solid var(--rule);overflow:hidden;animation:ipnextbreathe 3s ease-in-out infinite}
+@keyframes ipnextbreathe{0%,100%{box-shadow:0 0 0 0 rgba(14,107,96,0),0 0 0 0 rgba(184,146,63,0);border-color:var(--rule)}50%{box-shadow:0 0 18px -2px rgba(14,107,96,.30),0 0 28px -2px rgba(184,146,63,.24);border-color:color-mix(in srgb,var(--c) 50%,var(--rule))}}
+@media(prefers-reduced-motion:reduce){.ip-next{animation:none;border-color:color-mix(in srgb,var(--c) 45%,var(--rule))}}
+.ip-next-beam{display:none}
+.ip-next-inner{position:relative;z-index:1;background:var(--card);display:flex;gap:.85rem;align-items:center;padding:1rem 1.05rem;border-radius:11px;margin:0}
+.ip-next-logo{width:42px;height:42px;flex-shrink:0;object-fit:contain;align-self:center}
+.ip-next-ic{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;align-self:center}
+.ip-next-ic svg{width:2.1rem;height:2.1rem}
+.ip-next-label{font-family:var(--display);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--c);margin-bottom:.18rem}
+.ip-next-title{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink)}
+.ip-next-hint{font-size:.82rem;color:var(--ink-soft);line-height:1.5;margin-top:.1rem}
+.ip-next-arrow{color:var(--c);font-size:.9rem;margin-top:.2rem;flex-shrink:0}
+
+.ip-fleuron{text-align:center;color:var(--rule);letter-spacing:.4em;font-size:.78rem;padding:.4rem 0 .7rem;user-select:none}
+
+.ip-steps{position:relative}
+.ip-steps::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:1px;background:var(--rule)}
+.ip-step{display:flex;gap:.9rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:flex-start}
+.ip-step:first-child{border-top:none}
+.ip-node{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:.12rem;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.68rem;font-weight:700;background:var(--paper);border:1.5px solid;transition:all .22s;z-index:1;position:relative}
+.ip-step-body{flex:1;min-width:0}
+.ip-step-title{font-family:var(--display);font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.07rem;transition:color .2s}
+.ip-step.done .ip-step-title{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--rule)}
+.ip-step-meta{font-size:.7rem;color:var(--ink-faint)}
+.ip-step-hint{font-size:.83rem;color:var(--ink-soft);line-height:1.55;font-style:italic;margin-top:.35rem}
+.ip-step.done .ip-step-hint{display:none}
+.ip-pill{display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .65rem;border:1px solid var(--rule);background:none;color:var(--ink-soft);font-family:var(--display);font-size:.73rem;font-weight:700;cursor:pointer;border-radius:99px;transition:all .18s;flex-shrink:0;white-space:nowrap}
+
+.ip-quote{border-left:2px solid var(--gold);padding-left:.9rem;margin-bottom:1rem}
+.ip-quote-ar{font-family:"Amiri",serif;font-size:1.1rem;direction:rtl;color:var(--ink);line-height:1.8;margin-bottom:.3rem}
+.ip-quote-fr{font-size:.8rem;color:var(--ink-soft);font-style:italic;margin-bottom:.1rem}
+.ip-quote-ref{font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em}
+.ip-after{background:var(--paper-deep,#ece9e1);padding:.8rem .9rem;display:flex;align-items:center;justify-content:space-between}
+.ip-after-label{font-family:var(--display);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin-bottom:.2rem}
+.ip-after-title{font-family:var(--display);font-weight:700;font-size:.92rem;color:var(--ink)}
+
+.ip-actions{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--rule)}
+.ip-back{display:inline-flex;align-items:center;gap:.3rem;padding:.28rem .65rem;border:1px solid var(--rule);background:none;color:var(--ink-soft);font-family:var(--display);font-size:.77rem;font-weight:600;cursor:pointer;border-radius:99px}
+.ip-reset{background:none;border:none;font-size:.7rem;color:var(--ink-faint);cursor:pointer;text-decoration:underline;font-family:var(--body)}
+
+.ip-confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10}
+
+/* About footer text */
+.about-x{font-size:.88rem;color:var(--ink-soft);line-height:1.7;max-width:470px;margin:0 auto 1.2rem}
+
+@media(max-width:640px){
+  .site-nav{font-size:.84rem!important}
+}
+/* === Hero agrandi === */
+.hero-x{padding:2rem 1.4rem 2.8rem;min-height:auto;display:flex;flex-direction:column;justify-content:center}
+.hero-title{font-size:clamp(1.75rem,5.2vw,2.5rem);margin-bottom:1rem}
+.hero-sub{font-size:1.08rem;max-width:480px;margin-bottom:1.8rem}
+.hero-rule{margin-bottom:1.4rem}
+.hero-x-inner>*{animation:fadeUp .8s cubic-bezier(.2,.7,.3,1) both}
+.hero-x-inner>*:nth-child(2){animation-delay:.08s}
+.hero-x-inner>*:nth-child(3){animation-delay:.16s}
+.hero-x-inner>*:nth-child(4){animation-delay:.24s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* === Header hamburger (A) === */
+.site-header::after{display:none!important}
+.site-header::before{content:"";position:absolute;left:0;bottom:0;height:2px;width:35%;background:linear-gradient(90deg,transparent,var(--accent),var(--gold),transparent);animation:headerBeamSlow 14s linear infinite;z-index:2;opacity:.5}
+@keyframes headerBeamSlow{0%{left:-35%}100%{left:100%}}
+@media(prefers-reduced-motion:reduce){.site-header::before{display:none}}
+.site-header .bar{flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:1rem;padding:.7rem 1.3rem!important;max-width:960px;margin:0 auto}
+.site-header .brand{align-self:center!important;display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand-logo{height:54px!important;width:auto!important}
+.brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1}
+.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s,background .15s;flex:0 0 auto}
+.menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.site-nav{display:none!important}
+.search-panel{max-width:960px;margin:0 auto}
+.menu-drawer{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--paper);box-shadow:-14px 0 50px -24px rgba(20,15,10,.55);transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s linear .32s;z-index:300;overflow-y:auto}
+.menu-drawer.open{transform:translateX(0);visibility:visible;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s}
+.menu-close{position:absolute;top:1.1rem;right:1.4rem;font-size:1.7rem;line-height:1;background:none;border:none;cursor:pointer;color:var(--ink-soft);z-index:2;padding:0}
+.menu-back{position:fixed;inset:0;background:rgba(20,15,10,.4);opacity:0;pointer-events:none;transition:opacity .28s;z-index:250}
+.menu-back.open{opacity:1;pointer-events:auto}
+@media(max-width:480px){.brand-logo{height:48px!important}.brand-name{font-size:1.3rem}}
+
+/* === Illustrations des portes === */
+.porte{position:relative}
+.porte-ill{flex-shrink:0;margin-bottom:.7rem}
+.porte-ill svg{display:block;width:40px;height:40px}
+@media(max-width:640px){
+  .porte-ill{margin-bottom:0}
+}
+/* Compense le header sticky lors des sauts d'ancre */
+[id]{scroll-margin-top:90px;}
+.idx-section[id]{scroll-margin-top:80px;}
+/* Pour aller plus loin (accueil) */
+.ip-further{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule);}
+.ip-further-label{font-family:var(--display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;}
+.ip-further-link{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:.92rem;}
+.ip-further-link:hover{opacity:.75;}
+.ip-further-all{display:block;text-align:center;margin-top:.8rem;padding:.6rem;border:1px solid;border-radius:8px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.85rem;}
+.ip-further-all:hover{opacity:.85;}
+</style>
 </head>
 <body>
 <div id="progress"></div>
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
-        <nav class="site-nav">
-      <a href="index.html#lire">Les textes</a>
-      <a href="index.html#ame">L’âme</a>
-      <a href="index.html#sens">Le sens</a>
-      <a href="apropos.html">À propos</a>
-      <a href="/en/" class="header-icon lang-switch" title="Read in English">EN</a>
-      <button id="searchBtn" class="header-icon" type="button" onclick="__toggleSearch()" aria-label="Rechercher" title="Rechercher">⌕</button>
-      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Basculer clair / sombre" title="Thème clair / sombre">☾</button>
-    </nav>
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
   </div>
   <div class="search-panel" id="searchPanel">
     <div class="search-wrap">
@@ -51,371 +214,453 @@
     <div class="search-results" id="sr"></div>
   </div>
 </header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
 
 <!-- HERO -->
-<section class="hero2">
-  <h1>Majmaʿ</h1>
-  <p class="lede">Une revue d'essais au confluent de la philosophie islamique, la psychologie jungienne et la pensée comparée.</p>
-  <div class="hero2-btns">
-    <a class="btn-prim" href="quest-ce-qu-une-lecture.html">Commencer la lecture</a>
-    <a class="btn-sec" href="#chapitres">Parcourir les 32 essais</a>
+<section class="hero-x">
+  <canvas class="hero-x-bg" id="heroParticles" aria-hidden="true"></canvas>
+  <div class="hero-x-inner">
+    <div class="hero-rule">
+      <div class="hero-rule-line hero-rule-l"></div>
+      <div class="hero-rule-txt">Le confluent</div>
+      <div class="hero-rule-line hero-rule-r"></div>
+    </div>
+    <h1 class="hero-title">Trois traditions, une seule quête</h1>
+    <p class="hero-sub">Là où la pensée islamique rencontre la psychologie des profondeurs et la pensée comparée. Des clés de lecture à explorer, pour penser par soi-même.</p>
+    <div class="hero-cta">
+      <a href="#commencer" class="btn-prim-x" id="findBtn">Trouver mon parcours ↓</a>
+    </div>
   </div>
 </section>
 
-<!-- TROIS PORTES -->
-<div class="idx-section">
-  <div class="idx-label">Trois portes d'entrée</div>
-  <div class="feat-grid">
-    <a class="feat-card" href="le-monde-imaginal.html">
-      <span class="feat-tag">Philosophie · Religion</span>
-      <h3 class="feat-title">Le monde entre deux</h3>
-      <p class="feat-desc">Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.</p>
-      <span class="feat-cta">Lire · ~10 min</span>
+<!-- TROIS PORTES THÉMATIQUES -->
+<div class="idx-section" style="padding-top:1.6rem">
+  <div class="idx-label">Explorer par thème</div>
+  <p class="pc-intro">Trois portes d'entrée vers un même questionnement. Choisissez celle qui vous appelle, ou laissez-vous guider par un parcours plus bas.</p>
+  <div class="portes">
+    <a class="porte p-texte" href="le-coran.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--pc)" stroke-width="1.6"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">Les textes</div>
+        <div class="porte-d">Lire le Coran : méthode, contexte, interprétation</div>
+      </div>
+      <span class="porte-go">Entrer →</span>
     </a>
-<a class="feat-card" href="jung-en-dix-minutes.html">
-      <span class="feat-tag">Psychologie</span>
-      <h3 class="feat-title">Ce qui agit sans qu’on le sache</h3>
-      <p class="feat-desc">Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.</p>
-      <span class="feat-cta">Lire · ~10 min</span>
+    <a class="porte p-ame" href="lame.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--pc)" opacity=".55"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">L'âme</div>
+        <div class="porte-d">Jung, le nafs, le voyage intérieur</div>
+      </div>
+      <span class="porte-go">Entrer →</span>
     </a>
-<a class="feat-card" href="les-signes.html">
-      <span class="feat-tag">Religion</span>
-      <h3 class="feat-title">Les signes : lire le monde</h3>
-      <p class="feat-desc">Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.</p>
-      <span class="feat-cta">Lire · ~12 min</span>
+    <a class="porte p-monde" href="le-sens.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--pc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--pc)" stroke-width="1.4"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">Le sens</div>
+        <div class="porte-d">Philosophie, finitude, aujourd'hui</div>
+      </div>
+      <span class="porte-go">Entrer →</span>
     </a>
   </div>
 </div>
 
-<!-- CHAPITRES -->
-<div class="idx-section" id="chapitres">
-  <div class="idx-label">Les 32 essais</div>
-  <details class="ch-panel" id="ch1">
-    <summary class="ch-head">
-      <span class="ch-num">1</span>
-      <span class="ch-info">
-        <span class="ch-title">Premiers pas</span>
-        <span class="ch-why">Poser les fondations : pourquoi lire ainsi, l'islam comme méthode de lecture du monde.</span>
-      </span>
-      <span class="ch-count">6 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="quest-ce-qu-une-lecture.html">
-          <span class="erow-title">Qu’est-ce qu’une lecture ?</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="le-coran-en-pratique.html">
-          <span class="erow-title">Le Coran, concrètement</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="methode.html">
-          <span class="erow-title">Méthode</span>
-          <span class="erow-meta">Manifeste</span>
-        </a>
-        <a class="erow" href="la-fitra.html">
-          <span class="erow-title">La fiṭra et la dignité</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="le-coeur.html">
-          <span class="erow-title">Le cœur</span>
-          <span class="erow-meta">~16 min</span>
-        </a>
-        <a class="erow" href="le-premier-mot.html">
-          <span class="erow-title">Le premier mot</span>
-          <span class="erow-meta">~23 min</span>
-        </a>
-    </div>
-  </details>
-<details class="ch-panel" id="ch2">
-    <summary class="ch-head">
-      <span class="ch-num">2</span>
-      <span class="ch-info">
-        <span class="ch-title">Apprendre à lire</span>
-        <span class="ch-why">Les outils : Averroès et la raison, Izutsu et la sémantique du Coran, Shahrour et la rhétorique sémitique.</span>
-      </span>
-      <span class="ch-count">8 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="averroes-la-raison.html">
-          <span class="erow-title">Averroès et le droit de la raison</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="la-lecture-symbolique.html">
-          <span class="erow-title">La lecture symbolique</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="le-monde-imaginal.html">
-          <span class="erow-title">Le monde entre deux</span>
-          <span class="erow-meta">~10 min</span>
-        </a>
-        <a class="erow" href="le-sens-avant-le-comment.html">
-          <span class="erow-title">Le sens avant le comment</span>
-          <span class="erow-meta">~15 min</span>
-        </a>
-        <a class="erow" href="la-rhetorique-semitique.html">
-          <span class="erow-title">La rhétorique sémitique</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="les-mots-et-le-monde.html">
-          <span class="erow-title">Les mots et le monde</span>
-          <span class="erow-meta">~15 min</span>
-        </a>
-        <a class="erow" href="shahrour-le-livre-et-le-coran.html">
-          <span class="erow-title">Shahrour : le Livre et le Coran</span>
-          <span class="erow-meta">~13 min</span>
-        </a>
-        <a class="erow" href="raison-et-revelation.html">
-          <span class="erow-title">Raison et révélation</span>
-          <span class="erow-meta">~19 min</span>
-        </a>
-    </div>
-  </details>
-<details class="ch-panel" id="ch3">
-    <summary class="ch-head">
-      <span class="ch-num">3</span>
-      <span class="ch-info">
-        <span class="ch-title">Le voyage intérieur</span>
-        <span class="ch-why">L'âme, l'ombre et le nafs : la psychologie de Jung face à la spiritualité islamique.</span>
-      </span>
-      <span class="ch-count">8 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="jung-en-dix-minutes.html">
-          <span class="erow-title">Ce qui agit sans qu’on le sache</span>
-          <span class="erow-meta">~10 min</span>
-        </a>
-        <a class="erow" href="ombre-et-nafs.html">
-          <span class="erow-title">L’ombre et le nafs</span>
-          <span class="erow-meta">~11 min</span>
-        </a>
-        <a class="erow" href="trois-portes-pour-la-meme-piece.html">
-          <span class="erow-title">Trois portes pour la même pièce</span>
-          <span class="erow-meta">~7 min</span>
-        </a>
-        <a class="erow" href="les-reves.html">
-          <span class="erow-title">Les rêves</span>
-          <span class="erow-meta">~17 min</span>
-        </a>
-        <a class="erow" href="le-souffle.html">
-          <span class="erow-title">Le souffle</span>
-          <span class="erow-meta">~21 min</span>
-        </a>
-        <a class="erow" href="le-confluent-des-deux-mers.html">
-          <span class="erow-title">Le Confluent des deux mers</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="les-destins-du-moi.html">
-          <span class="erow-title">Les destins du moi</span>
-          <span class="erow-meta">~18 min</span>
-        </a>
-        <a class="erow" href="maitriser-le-desir.html">
-          <span class="erow-title">Maîtriser le désir</span>
-          <span class="erow-meta">~17 min</span>
-        </a>
-    </div>
-  </details>
-<details class="ch-panel" id="ch4">
-    <summary class="ch-head">
-      <span class="ch-num">4</span>
-      <span class="ch-info">
-        <span class="ch-title">Lire le monde</span>
-        <span class="ch-why">Science et foi, sens et finitude : Weber, Frankl, Sénèque, Heidegger et le problème du mal.</span>
-      </span>
-      <span class="ch-count">9 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="les-signes.html">
-          <span class="erow-title">Les signes : lire le monde</span>
-          <span class="erow-meta">~12 min</span>
-        </a>
-        <a class="erow" href="l-univers-ajuste.html">
-          <span class="erow-title">L’univers ajusté</span>
-          <span class="erow-meta">~15 min</span>
-        </a>
-        <a class="erow" href="les-deux-livres.html">
-          <span class="erow-title">Les deux livres</span>
-          <span class="erow-meta">~16 min</span>
-        </a>
-        <a class="erow" href="le-desenchantement.html">
-          <span class="erow-title">Le désenchantement du monde</span>
-          <span class="erow-meta">~11 min</span>
-        </a>
-        <a class="erow" href="le-sens-malgre-tout.html">
-          <span class="erow-title">Le sens malgré tout</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="la-finitude.html">
-          <span class="erow-title">La finitude</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="ce-qui-arrete.html">
-          <span class="erow-title">Ce qui arrête</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="le-libre-arbitre.html">
-          <span class="erow-title">Le libre arbitre et le décret</span>
-          <span class="erow-meta">~20 min</span>
-        </a>
-        <a class="erow" href="le-probleme-du-mal.html">
-          <span class="erow-title">Le problème du mal</span>
-          <span class="erow-meta">~16 min</span>
-        </a>
-    </div>
-  </details>
-<details class="ch-panel" id="ch5">
-    <summary class="ch-head">
-      <span class="ch-num">5</span>
-      <span class="ch-info">
-        <span class="ch-title">Aujourd'hui</span>
-        <span class="ch-why">Les mêmes idées, à l'épreuve du présent : narcissisme, réseaux sociaux et quête de sens.</span>
-      </span>
-      <span class="ch-count">3 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="le-scroll-et-la-pause.html">
-          <span class="erow-title">Le scroll et la pause</span>
-          <span class="erow-meta">~6 min</span>
-        </a>
-        <a class="erow" href="le-moi-et-son-image.html">
-          <span class="erow-title">Le moi et son image</span>
-          <span class="erow-meta">~6 min</span>
-        </a>
-        <a class="erow" href="je-et-tu.html">
-          <span class="erow-title">Je et Tu</span>
-          <span class="erow-meta">~7 min</span>
-        </a>
-    </div>
-  </details>
-
+<!-- PARCOURS -->
+<div class="idx-section" id="commencer">
+  <div class="idx-label">Par où commencer ?</div>
+  <p class="pc-intro">Choisissez ce qui vous touche. Chaque chemin réunit 5 essais à lire dans l'ordre. Marquez votre progression, le site retient où vous en êtes.</p>
+  <div id="idx-paths"></div>
 </div>
 
-<!-- PARCOURS RECOMMANDÉS -->
-<div class="idx-section" id="parcours">
-  <div class="idx-label">Parcours recommandés</div>
-  <p class="idx-intro">Trois façons de traverser la revue, selon ce qui vous intéresse.</p>
 
-  <details class="track2" open>
-    <summary class="track2-head">
-      <span class="track2-icon">◎</span>
-      <span class="track2-name">Pour commencer<small>~32 min · 4 essais</small></span>
-    </summary>
-    <p class="track2-desc">Le parcours le plus court pour entrer dans la revue, de la méthode aux signes.</p>
-    <ol class="track2-list">
-      <li><a href="quest-ce-qu-une-lecture.html">Qu’est-ce qu’une lecture ?<span>~8 min</span></a></li>
-      <li><a href="le-coran-en-pratique.html">Le Coran, concrètement<span>~8 min</span></a></li>
-      <li><a href="la-fitra.html">La fiṭra et la dignité<span>~12 min</span></a></li>
-      <li><a href="les-signes.html">Les signes : lire le monde<span>~12 min</span></a></li>
-    </ol>
-  </details>
-
-  <details class="track2">
-    <summary class="track2-head">
-      <span class="track2-icon">◑</span>
-      <span class="track2-name">La psychologie de l’âme<small>~50 min · 4 essais</small></span>
-    </summary>
-    <p class="track2-desc">Jung, l’ombre, les rêves et le Confluent, pour qui veut traverser le Chapitre 3.</p>
-    <ol class="track2-list">
-      <li><a href="jung-en-dix-minutes.html">Ce qui agit sans qu’on le sache<span>~10 min</span></a></li>
-      <li><a href="ombre-et-nafs.html">L’ombre et le nafs<span>~11 min</span></a></li>
-      <li><a href="les-reves.html">Les rêves<span>~17 min</span></a></li>
-      <li><a href="le-confluent-des-deux-mers.html">Le Confluent des deux mers<span>~12 min</span></a></li>
-    </ol>
-  </details>
-
-  <details class="track2">
-    <summary class="track2-head">
-      <span class="track2-icon">◐</span>
-      <span class="track2-name">Les questions difficiles<small>~48 min · 4 essais</small></span>
-    </summary>
-    <p class="track2-desc">Raison, désenchantement, liberté, mal : le fil le plus exigeant.</p>
-    <ol class="track2-list">
-      <li><a href="raison-et-revelation.html">Raison et révélation<span>~19 min</span></a></li>
-      <li><a href="le-desenchantement.html">Le désenchantement du monde<span>~11 min</span></a></li>
-      <li><a href="le-libre-arbitre.html">Le libre arbitre et le décret<span>~20 min</span></a></li>
-      <li><a href="le-probleme-du-mal.html">Le problème du mal<span>~16 min</span></a></li>
-    </ol>
-  </details>
+<!-- CARTE -->
+<div class="idx-section" style="border-top:1px solid var(--rule);margin-top:1rem;padding-top:1.6rem">
+  <div class="idx-label">Explorer librement</div>
+  <a href="carte.html" class="carte-card" style="display:flex;align-items:center;gap:1rem;text-decoration:none;border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:8px;padding:1.1rem 1.2rem;background:var(--card);transition:border-color .2s,box-shadow .2s">
+    <div style="flex-shrink:0;width:64px;height:64px;position:relative">
+      <canvas id="carteMini" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    </div>
+    <div style="flex:1">
+      <div style="font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.2rem">La carte des essais</div>
+      <div style="font-size:.86rem;color:var(--ink-soft);line-height:1.55">Une vue d'ensemble où chaque essai est relié aux autres. Pour voir comment tout s'articule, ou vagabonder librement.</div>
+    </div>
+    <div style="color:var(--accent);font-size:1.1rem;flex-shrink:0">→</div>
+  </a>
 </div>
 
-<!-- À PROPOS -->
-<section class="idx-section" id="apropos">
-  <div class="idx-label">À propos</div>
-  <p class="apropos-blurb"><em>Majmaʿ</em> (مجمع), le confluent, là où deux mers se rejoignent sans se mêler. Des lectures personnelles à la croisée de la philosophie, de la psychologie des profondeurs et du texte coranique. <a href="apropos.html">En savoir plus →</a></p>
-  <div class="apropos-links">
-    <a href="methode.html"><span class="al-title">Méthode</span><span class="al-desc">Comment on lit, ici</span></a>
-    <a href="glossaire.html"><span class="al-title">Glossaire</span><span class="al-desc">Les termes, en bref</span></a>
-    <a href="figures.html"><span class="al-title">Figures</span><span class="al-desc">Les penseurs cités</span></a>
-    <a href="apropos.html"><span class="al-title">Qui écrit ?</span><span class="al-desc">L'auteur, en quelques mots</span></a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="site-footer">
-  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
+  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:72px;width:auto;display:block;margin:0 auto 1rem"></a>
+  <p class="about-x">Majmaʿ, « le confluent » en arabe, est le point de rencontre entre la pensée islamique, la psychologie jungienne et la pensée comparée. Chaque essai propose des clés de lecture pour explorer une question, sans prétendre la trancher.</p>
   <nav class="foot-nav">
-    <a href="index.html#lire">Les textes</a>
-    <a href="index.html#ame">L’âme</a>
-    <a href="index.html#sens">Le sens</a>
-    <a href="apropos.html">À propos</a>
-    <a href="methode.html">Méthode</a>
-    <a href="glossaire.html">Glossaire</a>
-    <a href="figures.html">Figures</a>
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
     <a href="carte.html">Carte</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="apropos.html">À propos</a>
   </nav>
-  <p>Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
-  <p class="copy">© 2026 Majmaʿ · revue d’idées.</p>
+  <p class="foot-copy">© 2026 Majmaʿ · revue au confluent de la pensée islamique, la psychologie jungienne et la pensée comparée.</p>
 </footer>
 
 <script>
-var bar=document.getElementById("progress");
-function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
-document.addEventListener("scroll",upd,{passive:true});upd();
-
-// Search
-var DATA=[{"href": "quest-ce-qu-une-lecture.html", "title": "Qu’est-ce qu’une lecture ?", "desc": "On ne lit jamais un texte à nu : il y a toujours une lecture. Pourquoi plusieurs lectures peuvent être justes, sans que tout se vaille.", "tag": "Religion · Philosophie", "time": "Essai · ~8 min"}, {"href": "le-coran-en-pratique.html", "title": "Le Coran, concrètement", "desc": "Sourate, verset, révélation par fragments, ordre du livre, traductions : les bases pour qui n’a jamais ouvert le texte.", "tag": "Religion", "time": "Essai · ~8 min"}, {"href": "la-fitra.html", "title": "La fiṭra et la dignité", "desc": "La nature première inscrite en l’humain, et la dignité qui lui est conférée : « Nous avons honoré les fils d’Adam ».", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-coeur.html", "title": "Le cœur", "desc": "Al-qalb : dans le Coran, non le siège de l’émotion mais l’organe qui comprend, croit et décide. Ses états, et le lieu où le savoir devient foi.", "tag": "Psychologie · Religion", "time": "Essai · ~16 min"}, {"href": "le-premier-mot.html", "title": "Le premier mot", "desc": "Iqraʾ, « Lis » : le premier verset révélé n’est ni « crois » ni « obéis ». La connaissance avant le dogme, et un ordre adressé à l’humanité.", "tag": "Linguistique · Religion", "time": "Essai · ~23 min"}, {"href": "averroes-la-raison.html", "title": "Averroès et le droit de la raison", "desc": "« La vérité ne contredit pas la vérité. » Comment Ibn Rushd a fondé, au XIIᵉ siècle, le droit de lire l’Écriture avec la raison.", "tag": "Philosophie", "time": "Essai · ~12 min"}, {"href": "la-lecture-symbolique.html", "title": "La lecture symbolique", "desc": "Du sens littéral au sens caché : le ẓāhir et le bāṭin, le symbole selon Ricœur et Corbin, et le garde-fou contre l’arbitraire.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "le-monde-imaginal.html", "title": "Le monde entre deux", "desc": "Entre le matériel et l’abstrait, un troisième espace : le Monde Imaginal de Corbin, l’inconscient collectif de Jung, le barzakh coranique.", "tag": "Philosophie · Religion", "time": "Essai · ~10 min"}, {"href": "la-rhetorique-semitique.html", "title": "La rhétorique sémitique", "desc": "Comment le Coran et la Bible sont composés : parallélismes et structures en miroir, et pourquoi le centre est souvent la clé.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "les-mots-et-le-monde.html", "title": "Les mots et le monde", "desc": "Un mot n’est pas une étiquette mais un nœud dans un réseau : comment le Coran a refait le sens des mots, avec le linguiste Toshihiko Izutsu.", "tag": "Linguistique · Religion", "time": "Essai · ~15 min"}, {"href": "shahrour-le-livre-et-le-coran.html", "title": "Shahrour : le Livre et le Coran", "desc": "Et si « Coran », « Livre », « Furqân » ne désignaient pas la même chose ? La méthode de Muhammad Shahrour et sa relecture des mots-clés.", "tag": "Religion", "time": "Essai · ~13 min"}, {"href": "raison-et-revelation.html", "title": "Raison et révélation", "desc": "Averroès, Maïmonide, Thomas d’Aquin : trois fois la même querelle entre Aristote et l’Écriture, et ce qu’elle apprend pour lire le Coran aujourd’hui.", "tag": "Philosophie · Religion", "time": "Essai · ~19 min"}, {"href": "jung-en-dix-minutes.html", "title": "Ce qui agit sans qu’on le sache", "desc": "Une colère trop forte, un rêve qui reste, un agacement qui en dit long : l’inconscient, l’ombre et le Soi selon Jung, à partir de ce que tout le monde connaît déjà.", "tag": "Psychologie", "time": "Essai · ~10 min"}, {"href": "ombre-et-nafs.html", "title": "L’ombre et le nafs", "desc": "L’ombre de Jung et les trois stations du nafs coranique : ammāra, lawwāma, muṭmaʾinna. Du visage qu’on cache à l’âme apaisée.", "tag": "Psychologie · Religion", "time": "Essai · ~11 min"}, {"href": "trois-portes-pour-la-meme-piece.html", "title": "Trois portes pour la même pièce", "desc": "Devant une même hésitation, Freud, Jung et Adler n’auraient pas regardé au même endroit. Trois façons simples de se relire.", "tag": "Psychologie", "time": "Essai · ~7 min"}, {"href": "les-reves.html", "title": "Les rêves", "desc": "De Yūsuf à Jung : le rêve comme langue de l’âme, ni oracle à lire au pied de la lettre, ni bruit sans valeur, mais symbole à interpréter.", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "le-souffle.html", "title": "Le souffle", "desc": "Al-rūḥ : non un fantôme dans l’argile, mais le saut vers la pensée abstraite, « de l’ordre de mon Seigneur » (Shahrour). Une lecture symbolique.", "tag": "Philosophie · Religion", "time": "Essai · ~21 min"}, {"href": "le-confluent-des-deux-mers.html", "title": "Le Confluent des deux mers", "desc": "Jung avait lu le Coran. Dans l’histoire de Moïse et de Khidr, il reconnut le voyage du moi vers le Soi.", "tag": "Psychologie · Religion", "time": "Essai · ~12 min"}, {"href": "les-destins-du-moi.html", "title": "Les destins du moi", "desc": "Le nafs, l’âme, le non-soi, le Soi : quatre traditions, une même énigme du moi, et des destins opposés.", "tag": "Psychologie · Religion", "time": "Essai · ~18 min"}, {"href": "maitriser-le-desir.html", "title": "Maîtriser le désir", "desc": "Le hawā, la soif, l’apatheia, la sublimation : six écoles devant le même feu. L’éteindre, s’en détacher, le convertir, le transformer, l’atteler, ou l’orienter ?", "tag": "Psychologie · Religion", "time": "Essai · ~17 min"}, {"href": "les-signes.html", "title": "Les signes : lire le monde", "desc": "Le monde et nous-mêmes comme « signes » : l’émerveillement comme voie vers le Créateur, et le refus honnête des preuves faciles.", "tag": "Religion", "time": "Essai · ~12 min"}, {"href": "l-univers-ajuste.html", "title": "L’univers ajusté", "desc": "Le réglage fin de l’univers et le principe anthropique : hasard, multivers ou dessein ? Une merveille réelle, mais pourquoi ce n’est pas une preuve.", "tag": "Philosophie · Religion", "time": "Essai · ~15 min"}, {"href": "les-deux-livres.html", "title": "Les deux livres", "desc": "Science et foi : deux lectures du même monde, un seul Auteur. En suivant Nidhal Guessoum, d’Averroès à Barbour, lire le comment sans prétendre prouver le pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-desenchantement.html", "title": "Le désenchantement du monde", "desc": "Comment l’Occident a vidé le monde de son sens (Weber, Gauchet, Taylor), et pourquoi la question du sens revient sans cesse.", "tag": "Philosophie", "time": "Essai · ~11 min"}, {"href": "le-sens-malgre-tout.html", "title": "Le sens malgré tout", "desc": "Dans les camps, Frankl a observé que ceux qui résistaient le mieux n'étaient pas les plus forts, mais ceux qui avaient encore un pourquoi.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "la-finitude.html", "title": "La finitude", "desc": "Se souvenir qu'on va mourir n'est pas morbide. Sénèque, Heidegger et le dhikr al-mawt : trois façons d'en faire une lucidité.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "ce-qui-arrete.html", "title": "Ce qui arrête", "desc": "Un coucher de soleil, une phrase, une mélodie. Ce que la beauté dit de nous, et ce que Platon, Ibn Hazm et l'iḥsān en ont fait.", "tag": "Philosophie · Religion", "time": "Essai · ~8 min"}, {"href": "le-libre-arbitre.html", "title": "Le libre arbitre et le décret", "desc": "Sommes-nous libres ou tout est-il écrit ? Le qadar relu, des Qadarites à Shahrour, de Boèce à la physique quantique et aux neurosciences.", "tag": "Philosophie · Religion", "time": "Essai · ~20 min"}, {"href": "le-probleme-du-mal.html", "title": "Le problème du mal", "desc": "Si le monde a un sens et un Créateur bon, d’où vient la souffrance des innocents ? La plus forte des objections, prise au sérieux.", "tag": "Philosophie · Religion", "time": "Essai · ~16 min"}, {"href": "le-scroll-et-la-pause.html", "title": "Le scroll et la pause", "desc": "Le téléphone vibre, la main bouge avant la pensée. Le hawā, le design persuasif, et ce que le flux continu a fait disparaître.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "le-moi-et-son-image.html", "title": "Le moi et son image", "desc": "Un soir, une photo, un pincement. D’où ça vient, et ce que le qalb a à en dire.", "tag": "Aujourd’hui · Psychologie", "time": "Essai · ~6 min"}, {"href": "je-et-tu.html", "title": "Je et Tu", "desc": "Il y a deux façons d'être en présence de quelqu'un : le voir, ou le regarder. Buber a appelé ça Je-Tu et Je-Cela. Une distinction simple, aux conséquences immenses.", "tag": "Aujourd'hui · Philosophie", "time": "Essai · ~7 min"}];
-window.__toggleSearch=function(){
-  var p=document.getElementById("searchPanel");
-  p.classList.toggle("open");
-  if(p.classList.contains("open")){setTimeout(function(){document.getElementById("srch").focus();},100);}
+var SK='majma_parcours_v2';
+var GREENS={foi:'#0e6b60',ame:'#a67c2e',texte:'#0e6b60',monde:'#2d8c6e'};
+var FURTHER={
+  foi:{rubrique:'le-coran.html',rubname:'Les textes',essais:[
+    {href:'la-rhetorique-semitique',t:'La rhétorique sémitique'},
+    {href:'les-deux-livres',t:'Les deux livres'},
+    {href:'raison-et-revelation',t:'Raison et révélation'}]},
+  ame:{rubrique:'lame.html',rubname:"L'âme",essais:[
+    {href:'les-reves',t:'Les rêves'},
+    {href:'les-destins-du-moi',t:'Les destins du moi'},
+    {href:'le-souffle',t:'Le souffle'}]},
+  texte:{rubrique:'le-coran.html',rubname:'Les textes',essais:[
+    {href:'le-monde-imaginal',t:'Le monde imaginal'},
+    {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran'},
+    {href:'le-coran-en-pratique',t:'Le Coran, concrètement'}]},
+  monde:{rubrique:'le-sens.html',rubname:'Le sens',essais:[
+    {href:'le-sens-avant-le-comment',t:'Le sens avant le comment'},
+    {href:'l-univers-ajuste',t:"L'univers ajusté"},
+    {href:'le-moi-et-son-image',t:'Le moi et son image'}]}
 };
-var srch=document.getElementById("srch");
-var sr=document.getElementById("sr");
-srch.addEventListener("input",function(){
-  var q=this.value.trim().toLowerCase();
-  if(!q){sr.innerHTML="";sr.classList.remove("show");return;}
-  var hits=DATA.filter(function(d){
-    return d.title.toLowerCase().indexOf(q)>=0||d.desc.toLowerCase().indexOf(q)>=0||d.tag.toLowerCase().indexOf(q)>=0;
-  });
-  if(!hits.length){
-    sr.innerHTML="<p class=\"no-results\">Aucun résultat pour \""+q+"\"</p>";
-    sr.classList.add("show");return;
+var GOLD='#b8923f';
+
+var CITATIONS={
+  foi:[
+    {ar:"وَقُل رَّبِّ زِدْنِي عِلْمًا",fr:"« Seigneur, accroîs ma connaissance. »",ref:"Coran 20:114"},
+    {fr:"« La vérité ne saurait contredire la vérité : elle lui est accordée et en témoigne. »",ref:"Averroès (1126–1198)"},
+    {ar:"أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ أَمْ عَلَىٰ قُلُوبٍ أَقْفَالُهَا",fr:"« Ne méditent-ils pas le Coran ? Ou bien y a-t-il des verrous sur leurs cœurs ? »",ref:"Coran 47:24"},
+    {fr:"« Le savoir sans l'action est folie. L'action sans le savoir est néant. »",ref:"Al-Ghazālī (1058–1111)"},
+  ],
+  ame:[
+    {ar:"وَفِي أَنفُسِكُمْ أَفَلَا تُبْصِرُونَ",fr:"« Et en vous-mêmes — ne voyez-vous donc pas ? »",ref:"Coran 51:21"},
+    {fr:"« Celui qui regarde en dehors rêve. Celui qui regarde en lui-même s'éveille. »",ref:"Carl Gustav Jung (1875–1961)"},
+    {fr:"« Ne cherche pas Dieu hors de toi. Tu es Son miroir et Il est le tien. »",ref:"Ibn ʿArabī (1165–1240)"},
+    {fr:"« L'ombre est la personne que tu ne voudrais pas être. La connaître, c'est commencer à être libre. »",ref:"Carl Gustav Jung (1875–1961)"},
+  ],
+  texte:[
+    {ar:"إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ",fr:"« Parmi Ses serviteurs, ce sont les savants qui craignent Allah. »",ref:"Coran 35:28"},
+    {fr:"« Le Coran a un sens apparent et un sens caché, une limite et un point sublime au-delà duquel nul ne peut aller. »",ref:"Ibn ʿArabī (1165–1240)"},
+    {ar:"إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ",fr:"« C'est Nous qui avons fait descendre ce Rappel, et c'est Nous qui en sommes le gardien. »",ref:"Coran 15:9"},
+    {fr:"« Les mots du Coran ne décrivent pas simplement le monde, ils le constituent. »",ref:"Toshihiko Izutsu (1914–1993)"},
+  ],
+  monde:[
+    {ar:"إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ",fr:"« Dans la création des cieux et de la terre, et dans l'alternance de la nuit et du jour, il y a des signes pour les doués d'intelligence. »",ref:"Coran 3:190"},
+    {fr:"« Celui qui a un pourquoi qui lui tient lieu de vie peut supporter presque tous les comment. »",ref:"Viktor Frankl (1905–1997)"},
+    {fr:"« Il faut imaginer Sisyphe heureux. »",ref:"Albert Camus (1913–1960)"},
+    {ar:"وَمَا أُوتِيتُم مِّنَ الْعِلْمِ إِلَّا قَلِيلًا",fr:"« Vous n'avez reçu de la connaissance qu'une infime partie. »",ref:"Coran 17:85"},
+  ],
+};
+
+var PATHS={
+  foi:{n:'1',name:'Penser sa foi',cls:'p-foi',
+    why:"Sources, raison, liberté : les grandes questions de la foi, posées honnêtement.",
+    steps:[
+      {id:'a',href:'quest-ce-qu-une-lecture',t:"Qu'est-ce qu'une lecture ?",min:10,h:"Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s'applique pas."},
+      {id:'b',href:'la-source-et-le-fleuve',t:'La source et le fleuve',min:16,h:"Coran et Sunnah : d'où viennent les règles que nous suivons ?"},
+      {id:'c',href:'averroes-la-raison',t:'Averroès et le droit de la raison',min:12,h:"Au XIIe siècle : la raison a-t-elle droit de cité dans l'islam ?"},
+      {id:'d',href:'le-libre-arbitre',t:'Le libre arbitre et le décret',min:18,h:"Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
+      {id:'e',href:'le-probleme-du-mal',t:'Le problème du mal',min:14,h:"La question la plus difficile, posée sans raccourci."},
+    ],plus:[
+      {href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:15},
+      {href:'raison-et-revelation',t:'Raison et révélation',min:19},
+      {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:13},
+    ]},
+  ame:{n:'2',name:'Je veux me connaître',cls:'p-ame',
+    why:"Un voyage intérieur, entre psychologie des profondeurs et traditions de l'âme.",
+    steps:[
+      {id:'a',href:'la-fitra',t:'La fiṭra et la dignité',min:10,h:"Ce qui est inscrit en nous avant toute culture."},
+      {id:'b',href:'jung-en-dix-minutes',t:"Ce qui agit sans qu'on le sache",min:10,h:"Jung : l'inconscient, les archétypes, le Soi."},
+      {id:'c',href:'ombre-et-nafs',t:"L'ombre et le nafs",min:12,h:"Ce que Jung et le Coran disent de la même réalité."},
+      {id:'d',href:'le-coeur',t:'Le cœur',min:9,h:"Le qalb, organe de la compréhension, pas seulement des émotions."},
+      {id:'e',href:'maitriser-le-desir',t:'Maîtriser le désir',min:12,h:"Hawā, taṇhā, concupiscence : une même lutte intérieure."},
+    ],plus:[
+      {href:'le-confluent-des-deux-mers',t:'Le confluent des deux mers',min:14},
+      {href:'les-reves',t:'Les rêves',min:11},
+      {href:'le-souffle',t:'Le souffle',min:10},
+    ]},
+  texte:{n:'3',name:'Je veux lire le Coran autrement',cls:'p-texte',
+    why:"Les outils pour lire le Coran dans sa langue, sa rhétorique et sa structure propres.",
+    steps:[
+      {id:'a',href:'quest-ce-qu-une-lecture',t:"Qu'est-ce qu'une lecture ?",min:10,h:"Lire un texte sacré n'est pas lire un roman. Mais qu'est-ce que cela change ?"},
+      {id:'b',href:'le-premier-mot',t:'Le premier mot',min:9,h:"Iqraʾ, un ordre de lire, et ce que cela dit de la révélation."},
+      {id:'c',href:'la-rhetorique-semitique',t:'La rhétorique sémitique',min:12,h:"Symétries concentriques du Coran : une fois qu'on le sait, on ne lit plus pareil."},
+      {id:'d',href:'la-lecture-symbolique',t:'La lecture symbolique',min:12,h:"Ẓāhir et bāṭin : la lettre et le sens profond."},
+      {id:'e',href:'les-mots-et-le-monde',t:'Les mots et le monde',min:15,h:"Izutsu et la sémantique coranique : les mots structurent une vision du monde."},
+    ],plus:[
+      {href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:15},
+      {href:'le-monde-imaginal',t:'Le monde entre deux',min:10},
+      {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:13},
+    ]},
+  monde:{n:'4',name:"Trouver du sens aujourd'hui",cls:'p-monde',
+    why:"Désenchantement, attention, finitude : des clés pour penser notre époque.",
+    steps:[
+      {id:'a',href:'le-desenchantement',t:'Le désenchantement du monde',min:12,h:"Weber et la perte du sacré dans la modernité."},
+      {id:'b',href:'le-scroll-et-la-pause',t:'Le scroll et la pause',min:10,h:"Le design persuasif, le hawā, et comment reprendre son attention."},
+      {id:'c',href:'le-sens-malgre-tout',t:'Le sens malgré tout',min:11,h:"Frankl dans les camps, Camus face à l'absurde."},
+      {id:'d',href:'je-et-tu',t:'Je et Tu',min:9,h:"Martin Buber et la relation vraie à l'ère des réseaux."},
+      {id:'e',href:'la-finitude',t:'La finitude',min:10,h:"Heidegger, l'islam et la mort comme horizon de la vie."},
+    ],plus:[
+      {href:'le-probleme-du-mal',t:'Le problème du mal',min:14},
+      {href:'l-univers-ajuste',t:"L'univers ajusté",min:11},
+      {href:'les-deux-livres',t:'Les deux livres',min:12},
+    ]}
+};
+
+function gs(){try{return JSON.parse(localStorage.getItem(SK)||'{}');}catch(e){return{};}}
+function ss(s){try{localStorage.setItem(SK,JSON.stringify(s));}catch(e){}}
+
+function fireConfetti(canvas,color){
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;
+  var cx=canvas.width/2,cy=canvas.height*.38;
+  var P=[];for(var i=0;i<50;i++){P.push({x:cx+(Math.random()-.5)*50,y:cy,vx:(Math.random()-.5)*5.5,vy:-(Math.random()*6+4),col:[color,GOLD,'#e3dfd6','#2d8c6e'][Math.floor(Math.random()*4)],circle:Math.random()>.5,sz:Math.random()*3+1.5,len:Math.random()*8+4,ang:Math.random()*Math.PI,va:(Math.random()-.5)*.15,a:1});}
+  function go(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);var alive=false;
+    P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.ang+=p.va;p.a-=.016;if(p.a<=0)return;alive=true;ctx.save();ctx.globalAlpha=p.a;ctx.fillStyle=p.col;ctx.strokeStyle=p.col;if(p.circle){ctx.beginPath();ctx.arc(p.x,p.y,p.sz,0,Math.PI*2);ctx.fill();}else{ctx.lineWidth=1.5;ctx.beginPath();ctx.translate(p.x,p.y);ctx.rotate(p.ang);ctx.moveTo(-p.len/2,0);ctx.lineTo(p.len/2,0);ctx.stroke();}ctx.restore();});
+    if(alive)requestAnimationFrame(go);else ctx.clearRect(0,0,canvas.width,canvas.height);
   }
-  sr.innerHTML=hits.map(function(d){
-    return "<a class=\"sr-item\" href=\""+d.href+"\"><span class=\"sr-title\">"+d.title+"</span><span class=\"sr-meta\">"+d.time.replace("Essai · ","")+"</span></a>";
-  }).join("");
-  sr.classList.add("show");
+  requestAnimationFrame(go);
+}
+
+var citationCache={};
+
+function renderBody(pid){
+  var p=PATHS[pid],state=gs(),pd=state[pid]||{},c=GREENS[pid];
+  var dn=p.steps.filter(function(s){return pd[s.id];}).length,tot=p.steps.length;
+  var pctV=Math.round(dn/tot*100),next=p.steps.find(function(s){return !pd[s.id];});
+  var allDone=dn===tot;
+
+  var h='<canvas class="ip-confetti" data-canvas="'+pid+'"></canvas>';
+
+  h+='<div class="ip-prog-row"><div class="ip-track"><div class="ip-fill" style="width:'+pctV+'%"></div></div><div class="ip-prog-n" style="color:'+(dn>0?c:'')+'">'+dn+' / '+tot+'</div></div>';
+
+  if(next&&dn>0){
+    h+='<a class="ip-next" href="'+next.href+'.html" style="--c:'+c+';--gold:'+GOLD+';text-decoration:none">';
+    h+='<div class="ip-next-beam"></div>';
+    var nextIcon = (window.MajmaIcons) ? window.MajmaIcons.svgFor(next.href, c) : '';
+    h+='<div class="ip-next-inner"><span class="ip-next-ic">'+nextIcon+'</span><div style="flex:1"><div class="ip-next-label">À lire maintenant</div><div class="ip-next-title">'+next.t+'</div><div class="ip-next-hint">'+next.h+'</div></div><div class="ip-next-arrow">→</div></div></a>';
+  }
+
+  h+='<div class="ip-fleuron">❦ · ❦ · ❦</div>';
+
+  h+='<div class="ip-steps">';
+  p.steps.forEach(function(step,i){
+    var done=!!pd[step.id];
+    h+='<div class="ip-step'+(done?' done':'')+'">';
+    h+='<div class="ip-node" style="background:'+(done?c:'var(--paper)')+';border-color:'+(done?c:c+'55')+';color:'+(done?'#fff':c)+'">'+(done?'✓':(i+1))+'</div>';
+    h+='<div class="ip-step-body"><div class="ip-step-title">'+step.t+'</div><div class="ip-step-meta">~'+step.min+' min</div>';
+    if(!done)h+='<div class="ip-step-hint">'+step.h+'</div>';
+    h+='</div>';
+    h+='<button class="ip-pill" data-pid="'+pid+'" data-sid="'+step.id+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
+    h+='</div>';
+  });
+  h+='</div>';
+
+  if(allDone){
+    if(!citationCache[pid]){var pool=CITATIONS[pid];citationCache[pid]=pool[Math.floor(Math.random()*pool.length)];}
+    var cit=citationCache[pid];
+    h+='<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--rule)">';
+    h+='<div class="ip-quote">';
+    if(cit.ar)h+='<div class="ip-quote-ar">'+cit.ar+'</div>';
+    h+='<div class="ip-quote-fr">'+cit.fr+'</div><div class="ip-quote-ref">'+cit.ref+'</div></div>';
+    var fr=FURTHER[pid];
+    if(fr){
+      h+='<div class="ip-further">';
+      h+='<div class="ip-further-label" style="color:'+c+'">Pour aller plus loin</div>';
+      fr.essais.forEach(function(e){h+='<a class="ip-further-link" href="'+e.href+'.html"><span>'+e.t+'</span><span style="color:'+c+'">&rarr;</span></a>';});
+      h+='<a class="ip-further-all" href="'+fr.rubrique+'" style="border-color:'+c+';color:'+c+'">Explorer tous les essais de '+fr.rubname+' &rarr;</a>';
+      h+='</div>';
+    }
+    h+='<a class="ip-after" href="carte.html" style="text-decoration:none;margin-top:.7rem"><div><div class="ip-after-label" style="color:'+c+'">Et maintenant ?</div><div class="ip-after-title">Explorez la carte des essais</div></div><div style="color:'+c+';font-size:1.1rem">→</div></a>';
+    h+='</div>';
+  } else {
+    delete citationCache[pid];
+  }
+
+  h+='<div class="ip-actions"><button class="ip-back" data-close="'+pid+'">← Autres chemins</button><button class="ip-reset" data-reset="'+pid+'">Réinitialiser</button></div>';
+  return h;
+}
+
+function updateCnt(det,pid){
+  var s=gs(),pd=s[pid]||{},c=GREENS[pid];
+  var dn=PATHS[pid].steps.filter(function(x){return pd[x.id];}).length;
+  var cnt=det.querySelector('.ip-cnt');
+  if(cnt)cnt.innerHTML=dn>0?'<span style="color:'+c+';font-weight:700">'+dn+' / '+PATHS[pid].steps.length+'</span>':PATHS[pid].steps.length+' essais';
+}
+
+function animateBeam(canvas){/* placeholder */}
+
+function render(){
+  var el=document.getElementById('idx-paths');if(!el)return;
+  el.innerHTML='';
+  Object.keys(PATHS).forEach(function(pid){
+    var p=PATHS[pid],c=GREENS[pid];
+    var det=document.createElement('details');
+    det.className='ip-item '+p.cls;det.id='path-'+pid;det.style.setProperty('--c',c);det.style.setProperty('--gold',GOLD);
+    det.innerHTML='<summary class="ip-summary"><span class="ip-num">'+p.n+'</span><span class="ip-info"><span class="ip-name">'+p.name+'</span><span class="ip-why">'+p.why+'</span></span><span class="ip-right"><span class="ip-cnt">'+p.steps.length+' essais</span><span class="ip-arrow">▼</span></span></summary>';
+    var body=document.createElement('div');body.className='ip-body';body.innerHTML=renderBody(pid);
+    det.appendChild(body);el.appendChild(det);
+    updateCnt(det,pid);
+
+    det.addEventListener('toggle',function(){
+      if(det.open){
+        document.querySelectorAll('.ip-item').forEach(function(o){if(o!==det)o.open=false;});
+        setTimeout(function(){det.scrollIntoView({behavior:'smooth',block:'start'});},60);
+        // Confetti si déjà complété
+        var s=gs(),pd=s[pid]||{};
+        var dn=PATHS[pid].steps.filter(function(x){return pd[x.id];}).length;
+        if(dn===PATHS[pid].steps.length){
+          var cv=body.querySelector('[data-canvas="'+pid+'"]');
+          setTimeout(function(){fireConfetti(cv,c);},200);
+        }
+        // Animer le beam
+        animBeam(body);
+      }
+    });
+
+    det.addEventListener('click',function(e){
+      var btn=e.target.closest('.ip-pill');
+      var rst=e.target.closest('[data-reset]');
+      var cls=e.target.closest('[data-close]');
+      if(btn){
+        var s=gs();if(!s[btn.dataset.pid])s[btn.dataset.pid]={};
+        var was=s[btn.dataset.pid][btn.dataset.sid];
+        s[btn.dataset.pid][btn.dataset.sid]=!was;ss(s);
+        var nowComplete=PATHS[pid].steps.every(function(x){return s[pid][x.id];});
+        body.innerHTML=renderBody(pid);updateCnt(det,pid);animBeam(body);
+        if(nowComplete){var cv=body.querySelector('[data-canvas="'+pid+'"]');setTimeout(function(){fireConfetti(cv,c);},150);}
+      }
+      if(rst){var s2=gs();s2[rst.dataset.reset]={};ss(s2);delete citationCache[pid];body.innerHTML=renderBody(pid);updateCnt(det,pid);animBeam(body);}
+      if(cls){
+        e.preventDefault();
+        var sec=document.getElementById('commencer');
+        var top=sec?sec.getBoundingClientRect().top+window.pageYOffset-70:0;
+        window.scrollTo({top:top,behavior:'smooth'});
+        setTimeout(function(){det.open=false;},400);
+      }
+    });
+
+    if(window.location.hash==='#path-'+pid){setTimeout(function(){det.open=true;},100);}
+  });
+}
+
+function animBeam(body){
+  var beam=body.querySelector('.ip-next-beam');
+  if(!beam)return;
+  var a=0;
+  function go(){a=(a+1.8)%360;beam.style.background='conic-gradient(from '+a+'deg,transparent,var(--c) 60deg,'+GOLD+' 120deg,transparent 200deg)';if(beam.isConnected)requestAnimationFrame(go);}
+  requestAnimationFrame(go);
+}
+
+document.addEventListener('DOMContentLoaded',render);
+// Ouvre la recherche si on arrive depuis une autre page via #rechercher
+if(location.hash==='#rechercher'){document.addEventListener('DOMContentLoaded',function(){if(window.__toggleSearch)window.__toggleSearch();var p=document.getElementById('searchPanel');if(p)p.scrollIntoView({behavior:'smooth',block:'start'});});}
+// Si déjà sur l'accueil et clic sur Rechercher dans le menu
+window.addEventListener('hashchange',function(){
+  if(location.hash==='#rechercher'){
+    if(typeof __toggleMenu==='function'){var d=document.getElementById('menuDrawer');if(d&&d.classList.contains('open'))__toggleMenu();}
+    var p=document.getElementById('searchPanel');
+    if(p&&!p.classList.contains('open')&&window.__toggleSearch)window.__toggleSearch();
+    if(p)p.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 });
 
-// Exclusive accordion for chapters and parcours
+// Bouton hero
+window.__toggleExplore=function(){
+  var m=document.getElementById('exploreMenu');
+  m.classList.toggle('open');
+};
+document.addEventListener('click',function(e){
+  var w=e.target.closest('.explore-wrap');
+  if(!w){var m=document.getElementById('exploreMenu');if(m)m.classList.remove('open');}
+});
+
+document.getElementById('findBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  document.getElementById('commencer').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+// Recherche
+var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lecture ?","tag":"Religion · Philosophie"},{"href":"la-source-et-le-fleuve.html","title":"La source et le fleuve","tag":"Religion · Histoire"},{"href":"averroes-la-raison.html","title":"Averroès et le droit de la raison","tag":"Philosophie"},{"href":"le-libre-arbitre.html","title":"Le libre arbitre et le décret","tag":"Philosophie · Religion"},{"href":"le-probleme-du-mal.html","title":"Le problème du mal","tag":"Philosophie · Religion"},{"href":"la-fitra.html","title":"La fiṭra et la dignité","tag":"Religion"},{"href":"jung-en-dix-minutes.html","title":"Ce qui agit sans qu'on le sache","tag":"Psychologie"},{"href":"ombre-et-nafs.html","title":"L'ombre et le nafs","tag":"Psychologie · Religion"},{"href":"le-coeur.html","title":"Le cœur","tag":"Religion · Psychologie"},{"href":"maitriser-le-desir.html","title":"Maîtriser le désir","tag":"Religion · Philosophie"},{"href":"le-premier-mot.html","title":"Le premier mot","tag":"Religion"},{"href":"la-rhetorique-semitique.html","title":"La rhétorique sémitique","tag":"Religion · Langue"},{"href":"la-lecture-symbolique.html","title":"La lecture symbolique","tag":"Religion"},{"href":"les-mots-et-le-monde.html","title":"Les mots et le monde","tag":"Religion · Langue"},{"href":"le-desenchantement.html","title":"Le désenchantement du monde","tag":"Philosophie"},{"href":"le-scroll-et-la-pause.html","title":"Le scroll et la pause","tag":"Aujourd'hui"},{"href":"le-sens-malgre-tout.html","title":"Le sens malgré tout","tag":"Philosophie"},{"href":"je-et-tu.html","title":"Je et Tu","tag":"Philosophie"},{"href":"la-finitude.html","title":"La finitude","tag":"Philosophie · Religion"}];
 (function(){
-  function makeExclusive(selector){
-    document.querySelectorAll(selector + ' > summary').forEach(function(summary){
-      summary.addEventListener('click', function(e){
-        var panel = summary.parentElement;
-        var wasOpen = panel.open;
-        document.querySelectorAll(selector).forEach(function(other){
-          other.removeAttribute('open');
-        });
-        if(!wasOpen) panel.setAttribute('open','');
-        e.preventDefault();
-      });
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function(){
-    makeExclusive('.ch-panel');
-    makeExclusive('.track2');
+  var inp=document.getElementById('srch'),res=document.getElementById('sr');
+  if(!inp||!res)return;
+  inp.addEventListener('input',function(){
+    var q=inp.value.trim().toLowerCase();if(!q){res.innerHTML='';return;}
+    var hits=DATA.filter(function(d){return d.title.toLowerCase().includes(q)||d.tag.toLowerCase().includes(q);}).slice(0,6);
+    res.innerHTML=hits.map(function(d){return '<a class="sr-item" href="'+d.href+'"><span class="sr-title">'+d.title+'</span><span class="sr-tag">'+d.tag+'</span></a>';}).join('');
   });
 })();
+
+var bar=document.getElementById("progress");
+function upd(){var hh=document.documentElement,m=hh.scrollHeight-hh.clientHeight;if(bar)bar.style.width=(m>0?(hh.scrollTop/m)*100:0)+"%";}
+document.addEventListener("scroll",upd,{passive:true});upd();
+
+// Constellation animée du hero (plein écran)
+(function(){
+  var cv=document.getElementById('heroParticles');if(!cv)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var ctx=cv.getContext('2d'),dpr=Math.min(window.devicePixelRatio||1,2),pts=[],dark=false;
+  function colors(){return ['#0a564d','#9c7a2e'];}
+  function build(){
+    cv.width=cv.offsetWidth*dpr;cv.height=cv.offsetHeight*dpr;ctx.scale(dpr,dpr);
+    var w=cv.offsetWidth,h=cv.offsetHeight;
+    var n=Math.max(22,Math.min(54,Math.round(w*h/6500)));
+    pts=[];for(var i=0;i<n;i++){pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.7,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.45+.4,g:Math.random()<.16});}
+  }
+  build();
+  var ro=window.ResizeObserver?new ResizeObserver(function(){ctx.setTransform(1,0,0,1,0,0);build();}):null;
+  if(ro)ro.observe(cv);
+  function go(){
+    var w=cv.offsetWidth,h=cv.offsetHeight,col=colors(),LINK=120;
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){
+      var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<LINK){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=col[0];ctx.globalAlpha=(1-d/LINK)*.55;ctx.lineWidth=.7;ctx.stroke();}
+    }
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?col[1]:col[0];ctx.globalAlpha=p.a;ctx.fill();
+    });
+    ctx.globalAlpha=1;
+    if(cv.isConnected)requestAnimationFrame(go);
+  }
+  requestAnimationFrame(go);
+})();
+
+// Mini constellation animée
+(function(){
+  var cv=document.getElementById('carteMini');if(!cv)return;
+  var ctx=cv.getContext('2d');
+  function resize(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;}
+  resize();
+  var pts=[];for(var i=0;i<14;i++){pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.4+.6,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.5+.3});}
+  function go(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='#0e6b60';ctx.globalAlpha=p.a;ctx.fill();});
+    ctx.globalAlpha=1;
+    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<60){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='#0e6b60';ctx.globalAlpha=(1-d/60)*.25;ctx.lineWidth=.7;ctx.stroke();}}
+    if(cv.isConnected)requestAnimationFrame(go);
+  }
+  requestAnimationFrame(go);
+})();
+
 </script>
 </body>
 </html>

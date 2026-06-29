@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /modele.html
 Disallow: /carte.html
+Disallow: /en/template.html
 
 # Redirected pages (noindex, but allow crawl for redirect following)
 # freud-et-jung.html and le-desir-de-lautre.html redirect to new locations

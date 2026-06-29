@@ -13,7 +13,7 @@
     --paper:#f5f4ef;--paper-deep:#e9e6dc;--card:#fcfbf8;
     --ink:#15110c;--soft:#574f45;--faint:#8a8276;--rule:#e0dbd0;
     --line:#c4bcad;--line-hi:#0e6b60;
-    --lire:#0e6b60;--ame:#9c6b34;--sens:#3f5e8c;--accent:#0e6b60;
+    --lire:#0e6b60;--ame:#a67c2e;--sens:#2d8c6e;--accent:#0e6b60;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{height:100%;overflow:hidden;background:var(--paper);}
@@ -140,8 +140,8 @@
   "use strict";
   var THREADS={
     lire:{name:"Les textes",color:"#0e6b60",cen:[250,175]},
-    ame:{name:"L’âme",color:"#9c6b34",cen:[-250,175]},
-    sens:{name:"Le sens",color:"#3f5e8c",cen:[0,-250]}
+    ame:{name:"L’âme",color:"#a67c2e",cen:[-250,175]},
+    sens:{name:"Le sens",color:"#2d8c6e",cen:[0,-250]}
   };
   var NODES=[
     {id:"maitriser-le-desir",t:"Maîtriser le désir",g:"ame"},
@@ -174,7 +174,9 @@
     {id:"ce-qui-arrete",t:"Ce qui arrête",g:"sens"},
     {id:"je-et-tu",t:"Je et Tu",g:"ame"},
     {id:"jung-en-dix-minutes",t:"Ce qui agit sans qu'on le sache",g:"ame"},
-    {id:"trois-portes-pour-la-meme-piece",t:"Trois portes pour la même pièce",g:"ame"}
+    {id:"trois-portes-pour-la-meme-piece",t:"Trois portes pour la même pièce",g:"ame"},
+    {id:"la-source-et-le-fleuve",t:"La source et le fleuve",g:"lire"},
+    {id:"le-sens-avant-le-comment",t:"Le sens avant le comment",g:"lire"}
   ];
   var EDGES = [
     ["averroes-la-raison","la-lecture-symbolique"],
@@ -237,7 +239,16 @@
     ["raison-et-revelation","shahrour-le-livre-et-le-coran"],
     ["le-monde-imaginal","le-confluent-des-deux-mers","x"],
     ["le-monde-imaginal","ombre-et-nafs","x"],
-    ["ce-qui-arrete","maitriser-le-desir","x"]
+    ["ce-qui-arrete","maitriser-le-desir","x"],
+    ["la-source-et-le-fleuve","averroes-la-raison"],
+    ["la-source-et-le-fleuve","la-lecture-symbolique"],
+    ["la-source-et-le-fleuve","raison-et-revelation"],
+    ["la-source-et-le-fleuve","shahrour-le-livre-et-le-coran"],
+    ["la-source-et-le-fleuve","le-libre-arbitre","x"],
+    ["le-sens-avant-le-comment","le-monde-imaginal"],
+    ["le-sens-avant-le-comment","la-lecture-symbolique"],
+    ["le-sens-avant-le-comment","averroes-la-raison","x"],
+    ["le-sens-avant-le-comment","la-rhetorique-semitique","x"]
   ];
 
   var byId={},deg={},neighbors={};
