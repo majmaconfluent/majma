@@ -3,49 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Majmaʿ · Essays on Islamic Philosophy &amp; Jungian Psychology</title>
-<meta name="description" content="Majmaʿ: a journal of essays at the crossroads of Islamic philosophy, Jungian psychology and comparative thought. Essays available in English.">
+<title>Majmaʿ · the confluence of Islamic thought, Jungian psychology and comparative philosophy</title>
+<meta name="description" content="Majmaʿ: where Islamic thought meets depth psychology and comparative philosophy. Reading keys to think for yourself. Essays in English.">
+<link rel="stylesheet" href="/styles.css">
+<script src="/icons.js"></script>
+<script src="/theme.js"></script>
+<link rel="icon" type="image/png" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Majmaʿ">
+<meta property="og:title" content="Majmaʿ · the confluence">
+<meta property="og:description" content="Where Islamic thought meets depth psychology and comparative philosophy.">
+<meta property="og:image" content="https://majma.me/og.png">
+<meta property="og:url" content="https://majma.me/en/">
 <link rel="canonical" href="https://majma.me/en/">
 <link rel="alternate" hreflang="fr" href="https://majma.me/">
 <link rel="alternate" hreflang="en" href="https://majma.me/en/">
-<link rel="stylesheet" href="/styles.css">
-<script src="/theme.js"></script>
-<link rel="icon" href="/favicon.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-38RNGLZV63');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38RNGLZV63');</script>
+<style>
+:root{--gold:#b8923f;}
+.search-wrap{max-width:22rem!important;margin:0 auto 1.5rem!important;}
+.search-panel{max-height:0;overflow:hidden;opacity:0;padding:0 1.2rem!important;transition:max-height .28s ease,opacity .2s ease,padding .28s ease;border-top:1px solid transparent}
+.search-panel.open{max-height:60vh;opacity:1;padding:.9rem 1.2rem!important;border-top-color:var(--rule)}
+.explore-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%) translateY(-6px);width:min(280px,80vw);background:var(--card);border:1px solid var(--rule);border-radius:10px;box-shadow:0 12px 32px -12px rgba(20,15,10,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;overflow:hidden}
+.explore-menu.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.explore-menu a{display:block;padding:.8rem 1rem;text-decoration:none;border-bottom:1px solid var(--rule);transition:background .15s;text-align:left}
+.explore-menu a:last-child{border-bottom:none}
+.explore-menu a:hover{background:var(--paper-deep,#ece9e1)}
+.em-ar{font-family:"Amiri",serif;font-size:.9rem;color:var(--accent);display:block;direction:rtl;margin-bottom:.15rem}
+.em-t{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink);display:block}
+.em-d{font-size:.78rem;color:var(--ink-soft);display:block;margin-top:.1rem}
+.p-foi{--c:#0e6b60}.p-ame{--c:#1a7a5a}.p-texte{--c:#2d8c6e}.p-monde{--c:#0a4d44}
+/* Portes : couleurs de la carte des essais */
+.porte.p-texte{--c:#0e6b60}
+.porte.p-ame{--c:#a67c2e}
+.porte.p-monde{--c:#2d8c6e}
+
+/* Trois portes thématiques */
+.portes{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:1.4rem auto 0;max-width:760px}
+.porte{display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--rule);border-top:3px solid var(--pc);border-radius:10px;padding:1.1rem 1rem;background:var(--card);transition:transform .18s,box-shadow .18s,border-color .18s}
+.porte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(20,15,10,.3)}
+.porte-ar{font-family:"Amiri",serif;font-size:1.15rem;color:var(--pc);direction:rtl;margin-bottom:.45rem;line-height:1}
+.porte-t{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.3rem}
+.porte-d{font-size:.82rem;color:var(--ink-soft);line-height:1.5;flex:1}
+.porte-go{font-family:var(--display);font-size:.78rem;font-weight:600;color:var(--pc);margin-top:.7rem;display:inline-flex;align-items:center;gap:.3rem}
+@media(max-width:640px){
+  .portes{grid-template-columns:1fr;gap:.6rem;margin-top:1.2rem}
+  .porte{flex-direction:row;align-items:center;gap:.9rem;padding:.9rem 1rem;border-top:1px solid var(--rule);border-left:3px solid var(--pc)}
+  .porte-ar{margin-bottom:0;font-size:1.15rem;flex-shrink:0;width:2.6rem;text-align:center}
+  .porte-body{flex:1;min-width:0}
+  .porte-t{margin-bottom:.15rem}
+  .porte-go{display:none}
+}
+
+/* Hero */
+.hero-x{text-align:center;padding:2.6rem 1.4rem 2rem;border-bottom:1px solid var(--rule);position:relative}
+.hero-x-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none;clip-path:inset(0)}
+.hero-x::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 62% at 50% 48%,var(--paper) 0%,var(--paper) 30%,rgba(245,244,239,.55) 62%,transparent 100%)}
+.hero-x-inner{position:relative;z-index:2}
+.hero-ar{font-family:"Amiri",serif;font-size:2.2rem;color:var(--accent);margin-bottom:.4rem;direction:rtl;font-weight:700}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1.1rem}
+.hero-rule-line{width:54px;height:1px}
+.hero-rule-l{background:linear-gradient(to right,transparent,var(--gold))}
+.hero-rule-r{background:linear-gradient(to left,transparent,var(--gold))}
+.hero-rule-txt{font-family:var(--display);font-size:1rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.1;color:var(--ink);margin-bottom:.8rem}
+.hero-sub{color:var(--ink-soft);font-size:1.02rem;line-height:1.75;max-width:450px;margin:0 auto 1.5rem;font-style:italic}
+.hero-cta{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.btn-prim-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:var(--accent);color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;position:relative;overflow:hidden;text-decoration:none}
+.btn-sec-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border:1px solid var(--rule);background:var(--card);color:var(--ink-soft);font-family:var(--display);font-size:.9rem;font-weight:600;text-decoration:none;border-radius:99px;cursor:pointer}
+.btn-prim-x::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
+@keyframes shine{0%{left:-100%}50%,100%{left:200%}}
+
+/* Parcours */
+.pc-intro{font-size:.88rem;color:var(--ink-soft);line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.ip-item{border:1px solid var(--rule);border-left:3px solid transparent;border-radius:8px;margin-bottom:.4rem;overflow:hidden;background:var(--card);transition:border-color .2s,border-left-color .2s}
+.ip-item[open]{border-color:var(--c);border-left-color:var(--c)}
+.ip-summary{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem;cursor:pointer;list-style:none;user-select:none;background:transparent;transition:background .18s}
+.ip-summary::-webkit-details-marker{display:none}
+.ip-item[open] .ip-summary{background:var(--paper-deep,#ece9e1)}
+.ip-num{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;flex-shrink:0;width:28px;color:var(--gold);transition:color .2s}
+.ip-item[open] .ip-num{color:var(--c)}
+.ip-info{flex:1;min-width:0}
+.ip-name{display:block;font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink)}
+.ip-why{display:block;font-size:.82rem;color:var(--ink-soft);font-style:italic;line-height:1.4;margin-top:.1rem}
+.ip-right{flex-shrink:0;text-align:right;padding-left:.4rem}
+.ip-cnt{display:block;font-family:var(--display);font-size:.72rem;color:var(--ink-faint)}
+.ip-arrow{font-size:.72rem;color:var(--rule);margin-top:.1rem;display:inline-block;transition:transform .22s,color .2s}
+.ip-item[open] .ip-arrow{transform:rotate(180deg);color:var(--c)}
+.ip-body{position:relative;padding:.8rem 1.1rem 1.1rem}
+
+.ip-prog-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.ip-track{flex:1;height:2px;background:var(--rule);border-radius:99px;overflow:hidden}
+.ip-fill{height:100%;background:var(--c);border-radius:99px;transition:width .5s ease}
+.ip-prog-n{font-family:var(--display);font-size:.72rem;color:var(--ink-faint)}
+
+.ip-next{display:block;position:relative;z-index:5;margin:.6rem 0 1.1rem;border-radius:12px;background:var(--card);border:1px solid var(--rule);overflow:hidden;animation:ipnextbreathe 3s ease-in-out infinite}
+@keyframes ipnextbreathe{0%,100%{box-shadow:0 0 0 0 rgba(14,107,96,0),0 0 0 0 rgba(184,146,63,0);border-color:var(--rule)}50%{box-shadow:0 0 18px -2px rgba(14,107,96,.30),0 0 28px -2px rgba(184,146,63,.24);border-color:color-mix(in srgb,var(--c) 50%,var(--rule))}}
+@media(prefers-reduced-motion:reduce){.ip-next{animation:none;border-color:color-mix(in srgb,var(--c) 45%,var(--rule))}}
+.ip-next-beam{display:none}
+.ip-next-inner{position:relative;z-index:1;background:var(--card);display:flex;gap:.85rem;align-items:center;padding:1rem 1.05rem;border-radius:11px;margin:0}
+.ip-next-logo{width:42px;height:42px;flex-shrink:0;object-fit:contain;align-self:center}
+.ip-next-ic{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;align-self:center}
+.ip-next-ic svg{width:2.1rem;height:2.1rem}
+.ip-next-label{font-family:var(--display);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--c);margin-bottom:.18rem}
+.ip-next-title{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink)}
+.ip-next-hint{font-size:.82rem;color:var(--ink-soft);line-height:1.5;margin-top:.1rem}
+.ip-next-arrow{color:var(--c);font-size:.9rem;margin-top:.2rem;flex-shrink:0}
+
+.ip-fleuron{text-align:center;color:var(--rule);letter-spacing:.4em;font-size:.78rem;padding:.4rem 0 .7rem;user-select:none}
+
+.ip-steps{position:relative}
+.ip-steps::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:1px;background:var(--rule)}
+.ip-step{display:flex;gap:.9rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:flex-start}
+.ip-step:first-child{border-top:none}
+.ip-node{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:.12rem;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.68rem;font-weight:700;background:var(--paper);border:1.5px solid;transition:all .22s;z-index:1;position:relative}
+.ip-step-body{flex:1;min-width:0}
+.ip-step-title{font-family:var(--display);font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.07rem;transition:color .2s}
+.ip-step.done .ip-step-title{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--rule)}
+.ip-step-meta{font-size:.7rem;color:var(--ink-faint)}
+.ip-step-hint{font-size:.83rem;color:var(--ink-soft);line-height:1.55;font-style:italic;margin-top:.35rem}
+.ip-step.done .ip-step-hint{display:none}
+.ip-pill{display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .65rem;border:1px solid var(--rule);background:none;color:var(--ink-soft);font-family:var(--display);font-size:.73rem;font-weight:700;cursor:pointer;border-radius:99px;transition:all .18s;flex-shrink:0;white-space:nowrap}
+
+.ip-quote{border-left:2px solid var(--gold);padding-left:.9rem;margin-bottom:1rem}
+.ip-quote-ar{font-family:"Amiri",serif;font-size:1.1rem;direction:rtl;color:var(--ink);line-height:1.8;margin-bottom:.3rem}
+.ip-quote-fr{font-size:.8rem;color:var(--ink-soft);font-style:italic;margin-bottom:.1rem}
+.ip-quote-ref{font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em}
+.ip-after{background:var(--paper-deep,#ece9e1);padding:.8rem .9rem;display:flex;align-items:center;justify-content:space-between}
+.ip-after-label{font-family:var(--display);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin-bottom:.2rem}
+.ip-after-title{font-family:var(--display);font-weight:700;font-size:.92rem;color:var(--ink)}
+
+.ip-actions{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--rule)}
+.ip-back{display:inline-flex;align-items:center;gap:.3rem;padding:.28rem .65rem;border:1px solid var(--rule);background:none;color:var(--ink-soft);font-family:var(--display);font-size:.77rem;font-weight:600;cursor:pointer;border-radius:99px}
+.ip-reset{background:none;border:none;font-size:.7rem;color:var(--ink-faint);cursor:pointer;text-decoration:underline;font-family:var(--body)}
+
+.ip-confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10}
+
+/* About footer text */
+.about-x{font-size:.88rem;color:var(--ink-soft);line-height:1.7;max-width:470px;margin:0 auto 1.2rem}
+
+@media(max-width:640px){
+  .site-nav{font-size:.84rem!important}
+}
+/* === Hero agrandi === */
+.hero-x{padding:2rem 1.4rem 2.8rem;min-height:auto;display:flex;flex-direction:column;justify-content:center}
+.hero-title{font-size:clamp(1.75rem,5.2vw,2.5rem);margin-bottom:1rem}
+.hero-sub{font-size:1.08rem;max-width:480px;margin-bottom:1.8rem}
+.hero-rule{margin-bottom:1.4rem}
+.hero-x-inner>*{animation:fadeUp .8s cubic-bezier(.2,.7,.3,1) both}
+.hero-x-inner>*:nth-child(2){animation-delay:.08s}
+.hero-x-inner>*:nth-child(3){animation-delay:.16s}
+.hero-x-inner>*:nth-child(4){animation-delay:.24s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* === Header hamburger (A) === */
+.site-header::after{display:none!important}
+.site-header::before{content:"";position:absolute;left:0;bottom:0;height:2px;width:35%;background:linear-gradient(90deg,transparent,var(--accent),var(--gold),transparent);animation:headerBeamSlow 14s linear infinite;z-index:2;opacity:.5}
+@keyframes headerBeamSlow{0%{left:-35%}100%{left:100%}}
+@media(prefers-reduced-motion:reduce){.site-header::before{display:none}}
+.site-header .bar{flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:1rem;padding:.7rem 1.3rem!important;max-width:960px;margin:0 auto}
+.site-header .brand{align-self:center!important;display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand-logo{height:54px!important;width:auto!important}
+.brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1}
+.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s,background .15s;flex:0 0 auto}
+.menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.site-nav{display:none!important}
+.search-panel{max-width:960px;margin:0 auto}
+.menu-drawer{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--paper);box-shadow:-14px 0 50px -24px rgba(20,15,10,.55);transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s linear .32s;z-index:300;overflow-y:auto}
+.menu-drawer.open{transform:translateX(0);visibility:visible;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s}
+.menu-close{position:absolute;top:1.1rem;right:1.4rem;font-size:1.7rem;line-height:1;background:none;border:none;cursor:pointer;color:var(--ink-soft);z-index:2;padding:0}
+.menu-back{position:fixed;inset:0;background:rgba(20,15,10,.4);opacity:0;pointer-events:none;transition:opacity .28s;z-index:250}
+.menu-back.open{opacity:1;pointer-events:auto}
+@media(max-width:480px){.brand-logo{height:48px!important}.brand-name{font-size:1.3rem}}
+
+/* === Illustrations des portes === */
+.porte{position:relative}
+.porte-ill{flex-shrink:0;margin-bottom:.7rem}
+.porte-ill svg{display:block;width:40px;height:40px}
+@media(max-width:640px){
+  .porte-ill{margin-bottom:0}
+}
+/* Compense le header sticky lors des sauts d'ancre */
+[id]{scroll-margin-top:90px;}
+.idx-section[id]{scroll-margin-top:80px;}
+/* Pour aller plus loin (accueil) */
+.ip-further{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule);}
+.ip-further-label{font-family:var(--display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;}
+.ip-further-link{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:.92rem;}
+.ip-further-link:hover{opacity:.75;}
+.ip-further-all{display:block;text-align:center;margin-top:.8rem;padding:.6rem;border:1px solid;border-radius:8px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.85rem;}
+.ip-further-all:hover{opacity:.85;}
+</style>
+<style>
+html,body{overflow-x:hidden;max-width:100%;}
+.feat-card.soon{opacity:.62;pointer-events:none;border-top-color:var(--rule)}
+.feat-card.soon .feat-read{color:var(--ink-faint)}
+</style>
 </head>
 <body>
+<div id="progress"></div>
+
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="/"><img class="brand-logo" src="/logo.png" alt="Majmaʿ" style="height:92px;width:auto"></a>
-    <nav class="site-nav">
-      <a href="/#lire">Texts</a>
-      <a href="/#ame">The soul</a>
-      <a href="/#sens">Meaning</a>
-      <a href="/apropos.html">About</a>
-      <a href="/" class="header-icon lang-switch" title="Version française">FR</a>
-      <button id="themeBtn" class="header-icon" type="button" onclick="__toggleTheme()" aria-label="Toggle theme">☾</button>
-    </nav>
+    <a class="brand" href="/en/"><img class="brand-logo" src="/logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
   </div>
 </header>
 
-<div class="hero2">
-  <h1>Majmaʿ</h1>
-  <p class="lede"><em>A journal of essays at the crossroads of Islamic philosophy, Jungian psychology, and comparative thought.</em></p>
-  <div class="hero2-btns">
-    <a class="btn-prim" href="/en/where-two-seas-meet.html">Read the first essay</a>
-    <a class="btn-sec" href="/">All 32 essays (French)</a>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Main menu">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Close">×</button>
+  <div class="menu-head"><img src="/logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="/le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>The texts</a>
+    <a href="/lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>The soul</a>
+    <a href="/le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Meaning</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="/en/where-two-seas-meet.html">Essays in English</a>
+    <a class="sec" href="/apropos.html">About</a>
+    <a class="sec" href="/glossaire.html">Glossary</a>
+    <a class="sec" href="/">Version française</a>
+  </div>
+</nav>
+
+<section class="hero-x">
+  <div class="hero-x-inner">
+    <div class="hero-rule">
+      <div class="hero-rule-line hero-rule-l"></div>
+      <div class="hero-rule-txt">The confluence</div>
+      <div class="hero-rule-line hero-rule-r"></div>
+    </div>
+    <h1 class="hero-title">Three traditions, one quest</h1>
+    <p class="hero-sub">Where Islamic thought meets depth psychology and comparative philosophy. Reading keys to explore, so you can think for yourself.</p>
+    <div class="hero-cta">
+      <a href="/en/where-two-seas-meet.html" class="btn-prim-x">Read the first essay →</a>
+      <a href="/" class="btn-sec-x">All 32 essays (French)</a>
+    </div>
+  </div>
+</section>
+
+<div class="idx-section" style="padding-top:1.6rem">
+  <div class="idx-label">Explore by theme</div>
+  <p class="pc-intro">Three doors into the same questioning. Choose the one that calls to you. (Theme pages are in French for now.)</p>
+  <div class="portes">
+    <a class="porte p-texte" href="/le-coran.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--pc)" stroke-width="1.6"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">The texts</div>
+        <div class="porte-d">Reading the Quran: method, context, interpretation</div>
+      </div>
+      <span class="porte-go">Enter →</span>
+    </a>
+    <a class="porte p-ame" href="/lame.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--pc)" opacity=".55"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">The soul</div>
+        <div class="porte-d">Jung, the nafs, the inner journey</div>
+      </div>
+      <span class="porte-go">Enter →</span>
+    </a>
+    <a class="porte p-monde" href="/le-sens.html" style="--pc:var(--c)">
+      <span class="porte-ill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--pc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--pc)" stroke-width="1.4"/></svg></span>
+      <div class="porte-body">
+        <div class="porte-t">Meaning</div>
+        <div class="porte-d">Philosophy, finitude, today</div>
+      </div>
+      <span class="porte-go">Enter →</span>
+    </a>
   </div>
 </div>
 
 <div class="idx-section">
   <div class="idx-label">Essays in English</div>
-  <p style="font-family:var(--body);font-style:italic;color:var(--ink-soft);margin-bottom:1.6rem;">Majmaʿ is written in French. These essays have been translated into English.</p>
+  <p class="pc-intro">Majmaʿ is written in French. These essays have been translated into English.</p>
   <div class="feat-grid">
     <a class="feat-card" href="/en/where-two-seas-meet.html">
       <span class="feat-tag">Psychology · Religion</span>
@@ -66,25 +298,42 @@
       <span class="feat-read">Read · ~20 min</span>
     </a>
   </div>
-  <p style="margin-top:1.2rem;font-family:var(--body);font-style:italic;color:var(--ink-soft);font-size:.95rem;">Coming soon: Averroes and Reason · What Acts Without Our Knowing · The Problem of Evil.</p>
-</div>
-
-<div class="idx-section">
-  <div class="idx-label">About Majmaʿ</div>
-  <p style="font-family:var(--body);line-height:1.75;text-align:justify;"><em>Majmaʿ</em> (مجمع), the confluence — where two seas meet without merging. Personal essays at the crossroads of Islamic philosophy, Jungian depth psychology, and comparative thought. Ideas, not verdicts.</p>
-  <p style="margin-top:.9rem;font-family:var(--body);"><a href="/apropos.html">About the journal →</a> · <a href="/glossaire.html">Glossary of terms</a></p>
+  <p style="margin:1.6rem 0 1rem;font-family:var(--display);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);">Coming soon</p>
+  <div class="feat-grid">
+    <div class="feat-card soon">
+      <span class="feat-tag">Texts · Reason</span>
+      <strong class="feat-title">Averroes and the Right to Reason</strong>
+      <p class="feat-desc">In the 12th century: does reason have a place in Islam? Averroes' answer, and what it still means today.</p>
+      <span class="feat-read">Translation in progress</span>
+    </div>
+    <div class="feat-card soon">
+      <span class="feat-tag">The soul</span>
+      <strong class="feat-title">What Acts Without Our Knowing</strong>
+      <p class="feat-desc">Jung: the unconscious, the archetypes, the Self. A ten-minute introduction to depth psychology.</p>
+      <span class="feat-read">Translation in progress</span>
+    </div>
+    <div class="feat-card soon">
+      <span class="feat-tag">Philosophy · Religion</span>
+      <strong class="feat-title">The Problem of Evil</strong>
+      <p class="feat-desc">If God is good and all-powerful, why evil? The question posed honestly, across traditions.</p>
+      <span class="feat-read">Translation in progress</span>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
-  <a class="foot-brand" href="/"><img class="foot-logo" src="/logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
+  <a class="foot-brand" href="/en/"><img class="foot-logo" src="/logo.png" alt="Majmaʿ" style="height:72px;width:auto;display:block;margin:0 auto 1rem"></a>
+  <p class="about-x">Majmaʿ, "the confluence" in Arabic, is the meeting point of Islamic thought, Jungian psychology and comparative philosophy. Each essay offers reading keys to explore a question, without claiming to settle it.</p>
   <nav class="foot-nav">
-    <a href="/">Texts (FR)</a>
-    <a href="/methode.html">Method</a>
+    <a href="/le-coran.html">The texts</a>
+    <a href="/lame.html">The soul</a>
+    <a href="/le-sens.html">Meaning</a>
     <a href="/glossaire.html">Glossary</a>
     <a href="/apropos.html">About</a>
+    <a href="/">Version française</a>
   </nav>
-  <p class="foot-copy">Write to the journal: <a href="mailto:contact@majma.me">contact@majma.me</a></p>
-  <p class="foot-copy">© 2026 Majmaʿ · journal of ideas.</p>
+  <p class="foot-copy">© 2026 Majmaʿ · a journal at the confluence of Islamic thought, Jungian psychology and comparative philosophy.</p>
 </footer>
+
 </body>
 </html>
