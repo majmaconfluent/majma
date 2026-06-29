@@ -8,42 +8,53 @@
     foi: {
       name: 'Je questionne ma foi', ar: 'الإيمان', num: '1',
       steps: [
-        { id:'a', href:'quest-ce-qu-une-lecture',   title:"Qu'est-ce qu'une lecture ?" },
-        { id:'b', href:'la-source-et-le-fleuve',     title:'La source et le fleuve' },
-        { id:'c', href:'averroes-la-raison',         title:'Averroès et le droit de la raison' },
-        { id:'d', href:'le-libre-arbitre',           title:'Le libre arbitre et le décret' },
-        { id:'e', href:'le-probleme-du-mal',         title:'Le problème du mal' },
+        { id:'a', href:'quest-ce-qu-une-lecture',      title:"Qu'est-ce qu'une lecture ?" },
+        { id:'b', href:'la-source-et-le-fleuve',        title:'La source et le fleuve' },
+        { id:'c', href:'averroes-la-raison',            title:'Averroès et le droit de la raison' },
+        { id:'d', href:'le-libre-arbitre',              title:'Le libre arbitre et le décret' },
+        { id:'e', href:'le-probleme-du-mal',            title:'Le problème du mal' },
+        { id:'f', href:'le-coran-en-pratique',          title:'Le Coran, concrètement' },
+        { id:'g', href:'les-deux-livres',               title:'Les deux livres' },
+        { id:'h', href:'raison-et-revelation',          title:'Raison et révélation' },
       ]
     },
     ame: {
       name: 'Je veux me connaître', ar: 'النفس', num: '2',
       steps: [
-        { id:'a', href:'la-fitra',                  title:'La fiṭra et la dignité' },
-        { id:'b', href:'jung-en-dix-minutes',        title:"Ce qui agit sans qu'on le sache" },
-        { id:'c', href:'ombre-et-nafs',              title:'L\'ombre et le nafs' },
-        { id:'d', href:'le-coeur',                   title:'Le cœur' },
-        { id:'e', href:'maitriser-le-desir',         title:'Maîtriser le désir' },
-        { id:'f', href:'le-confluent-des-deux-mers', title:'Le confluent des deux mers' },
+        { id:'a', href:'la-fitra',                     title:'La fiṭra et la dignité' },
+        { id:'b', href:'jung-en-dix-minutes',           title:"Ce qui agit sans qu'on le sache" },
+        { id:'c', href:'ombre-et-nafs',                 title:'L\'ombre et le nafs' },
+        { id:'d', href:'le-coeur',                      title:'Le cœur' },
+        { id:'e', href:'maitriser-le-desir',            title:'Maîtriser le désir' },
+        { id:'f', href:'le-confluent-des-deux-mers',    title:'Le confluent des deux mers' },
+        { id:'g', href:'les-reves',                     title:'Les rêves' },
+        { id:'h', href:'les-destins-du-moi',            title:'Les destins du moi' },
+        { id:'i', href:'le-souffle',                    title:'Le souffle' },
       ]
     },
     texte: {
       name: 'Je lis le texte autrement', ar: 'القراءة', num: '3',
       steps: [
-        { id:'a', href:'le-premier-mot',             title:'Le premier mot' },
-        { id:'b', href:'quest-ce-qu-une-lecture',    title:"Qu'est-ce qu'une lecture ?" },
-        { id:'c', href:'la-rhetorique-semitique',    title:'La rhétorique sémitique' },
-        { id:'d', href:'la-lecture-symbolique',      title:'La lecture symbolique' },
-        { id:'e', href:'les-mots-et-le-monde',       title:'Les mots et le monde' },
+        { id:'a', href:'le-premier-mot',               title:'Le premier mot' },
+        { id:'b', href:'quest-ce-qu-une-lecture',       title:"Qu'est-ce qu'une lecture ?" },
+        { id:'c', href:'la-rhetorique-semitique',       title:'La rhétorique sémitique' },
+        { id:'d', href:'la-lecture-symbolique',         title:'La lecture symbolique' },
+        { id:'e', href:'les-mots-et-le-monde',          title:'Les mots et le monde' },
+        { id:'f', href:'shahrour-le-livre-et-le-coran', title:'Shahrour : le Livre et le Coran' },
+        { id:'g', href:'le-monde-imaginal',             title:'Le monde entre deux' },
+        { id:'h', href:'le-sens-avant-le-comment',      title:'Le sens avant le comment' },
       ]
     },
     monde: {
       name: 'Je vis dans ce monde', ar: 'العالم', num: '4',
       steps: [
-        { id:'a', href:'le-desenchantement',         title:'Le désenchantement du monde' },
-        { id:'b', href:'le-scroll-et-la-pause',      title:'Le scroll et la pause' },
-        { id:'c', href:'le-sens-malgre-tout',        title:'Le sens malgré tout' },
-        { id:'d', href:'je-et-tu',                   title:'Je et Tu' },
-        { id:'e', href:'la-finitude',                title:'La finitude' },
+        { id:'a', href:'le-desenchantement',           title:'Le désenchantement du monde' },
+        { id:'b', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
+        { id:'c', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
+        { id:'d', href:'je-et-tu',                      title:'Je et Tu' },
+        { id:'e', href:'la-finitude',                   title:'La finitude' },
+        { id:'f', href:'l-univers-ajuste',              title:"L'univers ajusté" },
+        { id:'g', href:'le-moi-et-son-image',           title:'Le moi et son image' },
       ]
     }
   };
@@ -59,28 +70,6 @@
   };
 
   /* Suggestions hors-parcours affichées à la fin (pour aller plus loin) */
-  var FURTHER = {
-    foi:   { rubrique:'le-coran.html', rubname:'Les textes', essais:[
-      {href:'la-rhetorique-semitique', t:'La rhétorique sémitique'},
-      {href:'les-deux-livres', t:'Les deux livres'},
-      {href:'raison-et-revelation', t:'Raison et révélation'}
-    ]},
-    ame:   { rubrique:'lame.html', rubname:"L'âme", essais:[
-      {href:'les-reves', t:'Les rêves'},
-      {href:'les-destins-du-moi', t:'Les destins du moi'},
-      {href:'le-souffle', t:'Le souffle'}
-    ]},
-    texte: { rubrique:'le-coran.html', rubname:'Les textes', essais:[
-      {href:'le-monde-imaginal', t:'Le monde imaginal'},
-      {href:'shahrour-le-livre-et-le-coran', t:'Shahrour : le Livre et le Coran'},
-      {href:'le-coran-en-pratique', t:'Le Coran, concrètement'}
-    ]},
-    monde: { rubrique:'le-sens.html', rubname:'Le sens', essais:[
-      {href:'le-sens-avant-le-comment', t:'Le sens avant le comment'},
-      {href:'l-univers-ajuste', t:"L'univers ajusté"},
-      {href:'le-moi-et-son-image', t:'Le moi et son image'}
-    ]}
-  };
 
   function getState() {
     try { return JSON.parse(localStorage.getItem(SK) || '{}'); } catch(e) { return {}; }
@@ -166,7 +155,7 @@
       html += '<button class="pb-btn pb-btn-mark" data-pid="' + pid + '" data-sid="' + m.step.id + '" style="' + (isDone ? 'border-color:' + col + ';color:' + col + ';' : '') + '">';
       html += isDone ? '✓ Marqué comme lu' : 'Marquer comme lu';
       html += '</button>';
-      html += '<a class="pb-btn pb-btn-path" href="parcours.html#' + pid + '" style="border-color:' + col + ';color:' + col + '">Voir le parcours →</a>';
+      html += '<a class="pb-btn pb-btn-path" href="index.html#commencer" style="border-color:' + col + ';color:' + col + '">Voir les parcours →</a>';
       html += '</div>';
 
       /* Prochaine lecture */
@@ -184,17 +173,6 @@
           html += '<div class="pb-end-ref">' + q.ref + '</div>';
         }
         html += '</div>';
-        // Pour aller plus loin
-        var fr = FURTHER[pid];
-        if (fr) {
-          html += '<div class="pb-further">';
-          html += '<div class="pb-further-label" style="color:' + col + '">Pour aller plus loin</div>';
-          fr.essais.forEach(function(e){
-            html += '<a class="pb-further-link" href="' + e.href + '.html"><span>' + e.t + '</span><span class="pb-further-arrow" style="color:' + col + '">&rarr;</span></a>';
-          });
-          html += '<a class="pb-further-all" href="' + fr.rubrique + '" style="border-color:' + col + ';color:' + col + '">Explorer tous les essais de ' + fr.rubname + ' &rarr;</a>';
-          html += '</div>';
-        }
       }
 
       html += '</div>';
@@ -229,13 +207,6 @@
       '.pb-end-ar{font-family:"Amiri",serif;font-size:1.15rem;direction:rtl;line-height:1.9;margin-bottom:.35rem;}',
       '.pb-end-fr{font-size:.82rem;color:var(--ink-soft);font-style:italic;line-height:1.5;margin-bottom:.15rem;}',
       '.pb-end-ref{font-size:.7rem;color:var(--ink-faint);letter-spacing:.04em;}',
-      '.pb-further{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule);}',
-      '.pb-further-label{font-family:var(--display);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;}',
-      '.pb-further-link{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:.95rem;}',
-      '.pb-further-link:hover{opacity:.75;}',
-      '.pb-further-arrow{flex:0 0 auto;}',
-      '.pb-further-all{display:block;text-align:center;margin-top:.9rem;padding:.65rem;border:1px solid;border-radius:8px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.88rem;transition:background .15s,color .15s;}',
-      '.pb-further-all:hover{opacity:.85;}',
       '.pb-steps{display:flex;align-items:center;gap:.35rem;margin:.7rem 0 .2rem;flex-wrap:wrap;}',
       '.pb-step{text-decoration:none;}',
       '.pb-step-dot{display:flex;align-items:center;justify-content:center;width:1.55rem;height:1.55rem;border-radius:50%;border:1.5px solid var(--rule);font-family:var(--display);font-size:.72rem;font-weight:700;color:var(--ink-faint);background:var(--card);transition:transform .15s;}',

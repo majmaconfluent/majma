@@ -40,10 +40,10 @@
       '.erow-ic{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;}',
       '.erow-ic svg{width:1.7rem;height:1.7rem;}',
       '.erow.has-ic .erow-title{flex:1 1 auto;text-align:left;}',
-      '.erow.has-ic .erow-meta{flex:0 0 auto;margin-left:.5rem;}',
+      '.erow.has-ic .erow-meta{flex:0 0 auto;margin-left:auto;}',
       '.erow.is-read .erow-ic{opacity:.5;}',
       '.erow.is-read .erow-title{color:var(--ink-faint);}',
-      '.erow-readmark{display:inline-flex;align-items:center;justify-content:center;width:1.15rem;height:1.15rem;border-radius:50%;background:var(--accent);color:#fff;font-size:.7rem;margin-left:.5rem;flex:0 0 auto;vertical-align:middle;}'
+      '.erow-readmark{display:inline-flex;align-items:center;justify-content:center;width:1.15rem;height:1.15rem;border-radius:50%;background:var(--accent);color:#fff;font-size:.7rem;flex:0 0 auto;align-self:center;margin-left:.6rem;}'
     ].join('');
     document.head.appendChild(st);
 
@@ -60,13 +60,12 @@
       }
       if(window.MajmaRead.isRead(slug)){
         a.classList.add('is-read');
-        var t = a.querySelector('.erow-title');
-        if(t && !t.querySelector('.erow-readmark')){
+        if(!a.querySelector('.erow-readmark')){
           var mark = document.createElement('span');
           mark.className = 'erow-readmark';
           mark.textContent = '✓';
           mark.title = 'Lu';
-          t.appendChild(mark);
+          a.appendChild(mark);
         }
       }
     });

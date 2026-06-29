@@ -60,7 +60,7 @@
 
 /* Hero */
 .hero-x{text-align:center;padding:2.6rem 1.4rem 2rem;border-bottom:1px solid var(--rule);position:relative}
-.hero-x-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none;clip-path:inset(0)}
+.hero-x-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none;clip-path:inset(0);z-index:0}
 .hero-x::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 62% at 50% 48%,var(--paper) 0%,var(--paper) 30%,rgba(245,244,239,.55) 62%,transparent 100%)}
 .hero-x-inner{position:relative;z-index:2}
 .hero-ar{font-family:"Amiri",serif;font-size:2.2rem;color:var(--accent);margin-bottom:.4rem;direction:rtl;font-weight:700}
@@ -189,13 +189,25 @@
 /* Compense le header sticky lors des sauts d'ancre */
 [id]{scroll-margin-top:90px;}
 .idx-section[id]{scroll-margin-top:80px;}
-/* Pour aller plus loin (accueil) */
-.ip-further{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule);}
-.ip-further-label{font-family:var(--display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;}
-.ip-further-link{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:.92rem;}
-.ip-further-link:hover{opacity:.75;}
-.ip-further-all{display:block;text-align:center;margin-top:.8rem;padding:.6rem;border:1px solid;border-radius:8px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.85rem;}
-.ip-further-all:hover{opacity:.85;}
+/* Carte des essais — sobre avec beam au hover */
+.carte-card{display:block;position:relative;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--card);margin-top:.9rem;transition:box-shadow .25s,border-color .25s;text-decoration:none}
+.carte-card:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--rule));box-shadow:0 4px 20px -8px rgba(14,107,96,.18)}
+.carte-beam{position:absolute;inset:0;border-radius:10px;pointer-events:none;z-index:1;opacity:0;padding:1px;
+  background:conic-gradient(from var(--carte-angle,0deg),transparent 0deg,var(--accent) 60deg,var(--gold) 90deg,transparent 120deg);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .25s}
+.carte-card:hover .carte-beam{opacity:1}
+@property --carte-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes carteBeamSpin{to{--carte-angle:360deg}}
+.carte-card:hover .carte-beam{animation:carteBeamSpin 3s linear infinite}
+.carte-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.12;pointer-events:none;z-index:0}
+.carte-inner{position:relative;z-index:2;display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.2rem}
+.carte-icon{flex-shrink:0;width:2.6rem;height:2.6rem;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.carte-text{flex:1;min-width:0}
+.carte-title{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:.2rem}
+.carte-desc{font-size:.84rem;color:var(--ink-soft);line-height:1.45}
+.carte-arrow{font-size:1rem;flex-shrink:0;color:var(--accent);transition:transform .2s}
+.carte-card:hover .carte-arrow{transform:translateX(3px)}
 </style>
 </head>
 <body>
@@ -290,21 +302,35 @@
 <!-- CARTE -->
 <div class="idx-section" style="border-top:1px solid var(--rule);margin-top:1rem;padding-top:1.6rem">
   <div class="idx-label">Explorer librement</div>
-  <a href="carte.html" class="carte-card" style="display:flex;align-items:center;gap:1rem;text-decoration:none;border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:8px;padding:1.1rem 1.2rem;background:var(--card);transition:border-color .2s,box-shadow .2s">
-    <div style="flex-shrink:0;width:64px;height:64px;position:relative">
-      <canvas id="carteMini" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+  <a href="carte.html" class="carte-card" style="text-decoration:none">
+    <div class="carte-beam"></div>
+    <canvas id="carteMini" class="carte-canvas" aria-hidden="true"></canvas>
+    <div class="carte-inner">
+      <div class="carte-icon">
+        <svg viewBox="0 0 40 40" fill="none" style="width:2rem;height:2rem">
+          <circle cx="9" cy="9" r="2.5" fill="var(--accent)" opacity=".7"/>
+          <circle cx="31" cy="12" r="2" fill="var(--gold)" opacity=".75"/>
+          <circle cx="20" cy="31" r="2.5" fill="var(--accent)" opacity=".65"/>
+          <circle cx="33" cy="30" r="1.8" fill="var(--gold)" opacity=".55"/>
+          <circle cx="7" cy="28" r="1.8" fill="var(--accent)" opacity=".55"/>
+          <line x1="9" y1="9" x2="31" y2="12" stroke="var(--accent)" stroke-width=".9" opacity=".35"/>
+          <line x1="31" y1="12" x2="20" y2="31" stroke="var(--accent)" stroke-width=".9" opacity=".35"/>
+          <line x1="20" y1="31" x2="7" y2="28" stroke="var(--gold)" stroke-width=".9" opacity=".28"/>
+          <line x1="7" y1="28" x2="9" y2="9" stroke="var(--accent)" stroke-width=".9" opacity=".28"/>
+          <line x1="9" y1="9" x2="20" y2="31" stroke="var(--gold)" stroke-width=".7" opacity=".2"/>
+          <line x1="31" y1="12" x2="33" y2="30" stroke="var(--accent)" stroke-width=".7" opacity=".25"/>
+        </svg>
+      </div>
+      <div class="carte-text">
+        <div class="carte-title">La carte des essais</div>
+        <div class="carte-desc">Une vue d'ensemble où chaque essai est relié aux autres.</div>
+      </div>
+      <div class="carte-arrow" style="color:var(--accent)">→</div>
     </div>
-    <div style="flex:1">
-      <div style="font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.2rem">La carte des essais</div>
-      <div style="font-size:.86rem;color:var(--ink-soft);line-height:1.55">Une vue d'ensemble où chaque essai est relié aux autres. Pour voir comment tout s'articule, ou vagabonder librement.</div>
-    </div>
-    <div style="color:var(--accent);font-size:1.1rem;flex-shrink:0">→</div>
   </a>
 </div>
 
 <footer class="site-footer">
-  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:72px;width:auto;display:block;margin:0 auto 1rem"></a>
-  <p class="about-x">Majmaʿ, « le confluent » en arabe, est le point de rencontre entre la pensée islamique, la psychologie jungienne et la pensée comparée. Chaque essai propose des clés de lecture pour explorer une question, sans prétendre la trancher.</p>
   <nav class="foot-nav">
     <a href="le-coran.html">Les textes</a>
     <a href="lame.html">L'âme</a>
@@ -313,30 +339,12 @@
     <a href="glossaire.html">Glossaire</a>
     <a href="apropos.html">À propos</a>
   </nav>
-  <p class="foot-copy">© 2026 Majmaʿ · revue au confluent de la pensée islamique, la psychologie jungienne et la pensée comparée.</p>
+  <p class="foot-copy">© 2026 Majmaʿ · revue de pensée islamique, jungienne et comparée.</p>
 </footer>
 
 <script>
 var SK='majma_parcours_v2';
 var GREENS={foi:'#0e6b60',ame:'#a67c2e',texte:'#0e6b60',monde:'#2d8c6e'};
-var FURTHER={
-  foi:{rubrique:'le-coran.html',rubname:'Les textes',essais:[
-    {href:'la-rhetorique-semitique',t:'La rhétorique sémitique'},
-    {href:'les-deux-livres',t:'Les deux livres'},
-    {href:'raison-et-revelation',t:'Raison et révélation'}]},
-  ame:{rubrique:'lame.html',rubname:"L'âme",essais:[
-    {href:'les-reves',t:'Les rêves'},
-    {href:'les-destins-du-moi',t:'Les destins du moi'},
-    {href:'le-souffle',t:'Le souffle'}]},
-  texte:{rubrique:'le-coran.html',rubname:'Les textes',essais:[
-    {href:'le-monde-imaginal',t:'Le monde imaginal'},
-    {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran'},
-    {href:'le-coran-en-pratique',t:'Le Coran, concrètement'}]},
-  monde:{rubrique:'le-sens.html',rubname:'Le sens',essais:[
-    {href:'le-sens-avant-le-comment',t:'Le sens avant le comment'},
-    {href:'l-univers-ajuste',t:"L'univers ajusté"},
-    {href:'le-moi-et-son-image',t:'Le moi et son image'}]}
-};
 var GOLD='#b8923f';
 
 var CITATIONS={
@@ -375,10 +383,9 @@ var PATHS={
       {id:'c',href:'averroes-la-raison',t:'Averroès et le droit de la raison',min:12,h:"Au XIIe siècle : la raison a-t-elle droit de cité dans l'islam ?"},
       {id:'d',href:'le-libre-arbitre',t:'Le libre arbitre et le décret',min:18,h:"Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
       {id:'e',href:'le-probleme-du-mal',t:'Le problème du mal',min:14,h:"La question la plus difficile, posée sans raccourci."},
-    ],plus:[
-      {href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:15},
-      {href:'raison-et-revelation',t:'Raison et révélation',min:19},
-      {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:13},
+      {id:'f',href:'le-coran-en-pratique',t:'Le Coran, concrètement',min:6,h:"Sourate, verset, révélation : ce qu'il faut savoir avant de lire."},
+      {id:'g',href:'les-deux-livres',t:'Les deux livres',min:7,h:"Science et foi ne parlent pas de la même chose. Comment les lire ensemble."},
+      {id:'h',href:'raison-et-revelation',t:'Raison et révélation',min:12,h:"Averroès, Maïmonide, Thomas d'Aquin : trois réponses à la même question."},
     ]},
   ame:{n:'2',name:'Je veux me connaître',cls:'p-ame',
     why:"Un voyage intérieur, entre psychologie des profondeurs et traditions de l'âme.",
@@ -388,10 +395,10 @@ var PATHS={
       {id:'c',href:'ombre-et-nafs',t:"L'ombre et le nafs",min:12,h:"Ce que Jung et le Coran disent de la même réalité."},
       {id:'d',href:'le-coeur',t:'Le cœur',min:9,h:"Le qalb, organe de la compréhension, pas seulement des émotions."},
       {id:'e',href:'maitriser-le-desir',t:'Maîtriser le désir',min:12,h:"Hawā, taṇhā, concupiscence : une même lutte intérieure."},
-    ],plus:[
-      {href:'le-confluent-des-deux-mers',t:'Le confluent des deux mers',min:14},
-      {href:'les-reves',t:'Les rêves',min:11},
-      {href:'le-souffle',t:'Le souffle',min:10},
+      {id:'f',href:'le-confluent-des-deux-mers',t:'Le confluent des deux mers',min:14,h:"Jung et Khidr au bord du fleuve. Le récit coranique de l'individuation."},
+      {id:'g',href:'les-reves',t:'Les rêves',min:10,h:"De Yūsuf à Freud et Jung : le rêve comme langue de l'âme."},
+      {id:'h',href:'les-destins-du-moi',t:'Les destins du moi',min:8,h:"Nafs, anattā, ego, Soi : quatre façons d'appeler la même question."},
+      {id:'i',href:'le-souffle',t:'Le souffle',min:11,h:"Al-rūḥ et la création d'Adam : le souffle comme lien entre Dieu et l'homme."},
     ]},
   texte:{n:'3',name:'Je veux lire le Coran autrement',cls:'p-texte',
     why:"Les outils pour lire le Coran dans sa langue, sa rhétorique et sa structure propres.",
@@ -401,10 +408,9 @@ var PATHS={
       {id:'c',href:'la-rhetorique-semitique',t:'La rhétorique sémitique',min:12,h:"Symétries concentriques du Coran : une fois qu'on le sait, on ne lit plus pareil."},
       {id:'d',href:'la-lecture-symbolique',t:'La lecture symbolique',min:12,h:"Ẓāhir et bāṭin : la lettre et le sens profond."},
       {id:'e',href:'les-mots-et-le-monde',t:'Les mots et le monde',min:15,h:"Izutsu et la sémantique coranique : les mots structurent une vision du monde."},
-    ],plus:[
-      {href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:15},
-      {href:'le-monde-imaginal',t:'Le monde entre deux',min:10},
-      {href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:13},
+      {id:'f',href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:6,h:"Une méthode de lecture déroutante, et ce qu'elle déplace vraiment."},
+      {id:'g',href:'le-monde-imaginal',t:'Le monde entre deux',min:7,h:"Corbin et Jung ont nommé le même espace : entre matière et abstraction."},
+      {id:'h',href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:11,h:"Certaines vérités se donnent dans leur sens sans jamais livrer leur comment."},
     ]},
   monde:{n:'4',name:"Trouver du sens aujourd'hui",cls:'p-monde',
     why:"Désenchantement, attention, finitude : des clés pour penser notre époque.",
@@ -414,10 +420,8 @@ var PATHS={
       {id:'c',href:'le-sens-malgre-tout',t:'Le sens malgré tout',min:11,h:"Frankl dans les camps, Camus face à l'absurde."},
       {id:'d',href:'je-et-tu',t:'Je et Tu',min:9,h:"Martin Buber et la relation vraie à l'ère des réseaux."},
       {id:'e',href:'la-finitude',t:'La finitude',min:10,h:"Heidegger, l'islam et la mort comme horizon de la vie."},
-    ],plus:[
-      {href:'le-probleme-du-mal',t:'Le problème du mal',min:14},
-      {href:'l-univers-ajuste',t:"L'univers ajusté",min:11},
-      {href:'les-deux-livres',t:'Les deux livres',min:12},
+      {id:'f',href:'l-univers-ajuste',t:"L'univers ajusté",min:6,h:"Le réglage fin de l'univers : hasard ou dessein ? Ce que la physique permet de dire."},
+      {id:'g',href:'le-moi-et-son-image',t:'Le moi et son image',min:6,h:"Sur les réseaux, on gère une image. Le Coran et Jung ont nommé ce piège."},
     ]}
 };
 
@@ -439,34 +443,40 @@ function fireConfetti(canvas,color){
 
 var citationCache={};
 
+function isStepDone(step){
+  if(window.MajmaRead&&typeof window.MajmaRead.isRead==='function')return window.MajmaRead.isRead(step.href);
+  var s=gs();return !!(s._read&&s._read[step.href]);
+}
+
 function renderBody(pid){
-  var p=PATHS[pid],state=gs(),pd=state[pid]||{},c=GREENS[pid];
-  var dn=p.steps.filter(function(s){return pd[s.id];}).length,tot=p.steps.length;
-  var pctV=Math.round(dn/tot*100),next=p.steps.find(function(s){return !pd[s.id];});
+  var p=PATHS[pid],c=GREENS[pid];
+  var dn=p.steps.filter(function(s){return isStepDone(s);}).length,tot=p.steps.length;
+  var pctV=Math.round(dn/tot*100),next=p.steps.find(function(s){return !isStepDone(s);});
   var allDone=dn===tot;
 
   var h='<canvas class="ip-confetti" data-canvas="'+pid+'"></canvas>';
 
   h+='<div class="ip-prog-row"><div class="ip-track"><div class="ip-fill" style="width:'+pctV+'%"></div></div><div class="ip-prog-n" style="color:'+(dn>0?c:'')+'">'+dn+' / '+tot+'</div></div>';
 
-  if(next&&dn>0){
+  if(next){
+    var label = dn===0 ? 'Commencer par' : 'Continuer avec';
     h+='<a class="ip-next" href="'+next.href+'.html" style="--c:'+c+';--gold:'+GOLD+';text-decoration:none">';
     h+='<div class="ip-next-beam"></div>';
     var nextIcon = (window.MajmaIcons) ? window.MajmaIcons.svgFor(next.href, c) : '';
-    h+='<div class="ip-next-inner"><span class="ip-next-ic">'+nextIcon+'</span><div style="flex:1"><div class="ip-next-label">À lire maintenant</div><div class="ip-next-title">'+next.t+'</div><div class="ip-next-hint">'+next.h+'</div></div><div class="ip-next-arrow">→</div></div></a>';
+    h+='<div class="ip-next-inner"><span class="ip-next-ic">'+nextIcon+'</span><div style="flex:1"><div class="ip-next-label">'+label+'</div><div class="ip-next-title">'+next.t+'</div><div class="ip-next-hint">'+next.h+'</div></div><div class="ip-next-arrow">→</div></div></a>';
   }
 
   h+='<div class="ip-fleuron">❦ · ❦ · ❦</div>';
 
   h+='<div class="ip-steps">';
   p.steps.forEach(function(step,i){
-    var done=!!pd[step.id];
+    var done=isStepDone(step);
     h+='<div class="ip-step'+(done?' done':'')+'">';
     h+='<div class="ip-node" style="background:'+(done?c:'var(--paper)')+';border-color:'+(done?c:c+'55')+';color:'+(done?'#fff':c)+'">'+(done?'✓':(i+1))+'</div>';
     h+='<div class="ip-step-body"><div class="ip-step-title">'+step.t+'</div><div class="ip-step-meta">~'+step.min+' min</div>';
     if(!done)h+='<div class="ip-step-hint">'+step.h+'</div>';
     h+='</div>';
-    h+='<button class="ip-pill" data-pid="'+pid+'" data-sid="'+step.id+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
+    h+='<button class="ip-pill" data-pid="'+pid+'" data-sid="'+step.id+'" data-href="'+step.href+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
     h+='</div>';
   });
   h+='</div>';
@@ -478,14 +488,6 @@ function renderBody(pid){
     h+='<div class="ip-quote">';
     if(cit.ar)h+='<div class="ip-quote-ar">'+cit.ar+'</div>';
     h+='<div class="ip-quote-fr">'+cit.fr+'</div><div class="ip-quote-ref">'+cit.ref+'</div></div>';
-    var fr=FURTHER[pid];
-    if(fr){
-      h+='<div class="ip-further">';
-      h+='<div class="ip-further-label" style="color:'+c+'">Pour aller plus loin</div>';
-      fr.essais.forEach(function(e){h+='<a class="ip-further-link" href="'+e.href+'.html"><span>'+e.t+'</span><span style="color:'+c+'">&rarr;</span></a>';});
-      h+='<a class="ip-further-all" href="'+fr.rubrique+'" style="border-color:'+c+';color:'+c+'">Explorer tous les essais de '+fr.rubname+' &rarr;</a>';
-      h+='</div>';
-    }
     h+='<a class="ip-after" href="carte.html" style="text-decoration:none;margin-top:.7rem"><div><div class="ip-after-label" style="color:'+c+'">Et maintenant ?</div><div class="ip-after-title">Explorez la carte des essais</div></div><div style="color:'+c+';font-size:1.1rem">→</div></a>';
     h+='</div>';
   } else {
@@ -497,8 +499,8 @@ function renderBody(pid){
 }
 
 function updateCnt(det,pid){
-  var s=gs(),pd=s[pid]||{},c=GREENS[pid];
-  var dn=PATHS[pid].steps.filter(function(x){return pd[x.id];}).length;
+  var c=GREENS[pid];
+  var dn=PATHS[pid].steps.filter(function(x){return isStepDone(x);}).length;
   var cnt=det.querySelector('.ip-cnt');
   if(cnt)cnt.innerHTML=dn>0?'<span style="color:'+c+';font-weight:700">'+dn+' / '+PATHS[pid].steps.length+'</span>':PATHS[pid].steps.length+' essais';
 }
@@ -522,8 +524,7 @@ function render(){
         document.querySelectorAll('.ip-item').forEach(function(o){if(o!==det)o.open=false;});
         setTimeout(function(){det.scrollIntoView({behavior:'smooth',block:'start'});},60);
         // Confetti si déjà complété
-        var s=gs(),pd=s[pid]||{};
-        var dn=PATHS[pid].steps.filter(function(x){return pd[x.id];}).length;
+        var dn=PATHS[pid].steps.filter(function(x){return isStepDone(x);}).length;
         if(dn===PATHS[pid].steps.length){
           var cv=body.querySelector('[data-canvas="'+pid+'"]');
           setTimeout(function(){fireConfetti(cv,c);},200);
@@ -538,14 +539,25 @@ function render(){
       var rst=e.target.closest('[data-reset]');
       var cls=e.target.closest('[data-close]');
       if(btn){
-        var s=gs();if(!s[btn.dataset.pid])s[btn.dataset.pid]={};
-        var was=s[btn.dataset.pid][btn.dataset.sid];
-        s[btn.dataset.pid][btn.dataset.sid]=!was;ss(s);
-        var nowComplete=PATHS[pid].steps.every(function(x){return s[pid][x.id];});
+        var slug=btn.dataset.href;
+        var wasComplete=PATHS[pid].steps.every(function(x){return isStepDone(x);});
+        if(window.MajmaRead&&typeof window.MajmaRead.isRead==='function'){
+          if(window.MajmaRead.isRead(slug))window.MajmaRead.unmark(slug);else window.MajmaRead.mark(slug);
+        }else{
+          var s=gs();if(!s._read)s._read={};if(s._read[slug])delete s._read[slug];else s._read[slug]=Date.now();ss(s);
+        }
+        var nowComplete=PATHS[pid].steps.every(function(x){return isStepDone(x);});
         body.innerHTML=renderBody(pid);updateCnt(det,pid);animBeam(body);
-        if(nowComplete){var cv=body.querySelector('[data-canvas="'+pid+'"]');setTimeout(function(){fireConfetti(cv,c);},150);}
+        if(nowComplete&&!wasComplete){var cv=body.querySelector('[data-canvas="'+pid+'"]');setTimeout(function(){fireConfetti(cv,c);},150);}
       }
-      if(rst){var s2=gs();s2[rst.dataset.reset]={};ss(s2);delete citationCache[pid];body.innerHTML=renderBody(pid);updateCnt(det,pid);animBeam(body);}
+      if(rst){
+        // Réinitialiser ce parcours = démarquer ses essais
+        PATHS[rst.dataset.reset].steps.forEach(function(x){
+          if(window.MajmaRead&&window.MajmaRead.unmark)window.MajmaRead.unmark(x.href);
+          else{var s2=gs();if(s2._read)delete s2._read[x.href];ss(s2);}
+        });
+        delete citationCache[pid];body.innerHTML=renderBody(pid);updateCnt(det,pid);animBeam(body);
+      }
       if(cls){
         e.preventDefault();
         var sec=document.getElementById('commencer');
@@ -568,6 +580,12 @@ function animBeam(body){
 }
 
 document.addEventListener('DOMContentLoaded',render);
+// Re-render si l'état de lecture change (autre onglet, retour navigation)
+window.addEventListener('majma:read-changed',function(){
+  var open=document.querySelector('.ip-item[open]');
+  render();
+  if(open){var again=document.getElementById(open.id);if(again)again.open=true;}
+});
 // Ouvre la recherche si on arrive depuis une autre page via #rechercher
 if(location.hash==='#rechercher'){document.addEventListener('DOMContentLoaded',function(){if(window.__toggleSearch)window.__toggleSearch();var p=document.getElementById('searchPanel');if(p)p.scrollIntoView({behavior:'smooth',block:'start'});});}
 // Si déjà sur l'accueil et clic sur Rechercher dans le menu
@@ -624,7 +642,15 @@ document.addEventListener("scroll",upd,{passive:true});upd();
     pts=[];for(var i=0;i<n;i++){pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.7,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.45+.4,g:Math.random()<.16});}
   }
   build();
-  var ro=window.ResizeObserver?new ResizeObserver(function(){ctx.setTransform(1,0,0,1,0,0);build();}):null;
+  var lastW=cv.offsetWidth;
+  var ro=window.ResizeObserver?new ResizeObserver(function(){
+    /* Sur mobile, masquer/afficher la barre d'adresse change la hauteur du viewport
+       et déclencherait un rebuild inutile. On ne reconstruit que si la largeur change. */
+    var w=cv.offsetWidth;
+    if(Math.abs(w-lastW)<2)return;
+    lastW=w;
+    ctx.setTransform(1,0,0,1,0,0);build();
+  }):null;
   if(ro)ro.observe(cv);
   function go(){
     var w=cv.offsetWidth,h=cv.offsetHeight,col=colors(),LINK=120;
@@ -644,18 +670,20 @@ document.addEventListener("scroll",upd,{passive:true});upd();
   requestAnimationFrame(go);
 })();
 
-// Mini constellation animée
+// Constellation animée de la carte des essais
 (function(){
   var cv=document.getElementById('carteMini');if(!cv)return;
   var ctx=cv.getContext('2d');
-  function resize(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;}
+  function resize(){cv.width=cv.offsetWidth*2;cv.height=cv.offsetHeight*2;ctx.scale(2,2);}
   resize();
-  var pts=[];for(var i=0;i<14;i++){pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.4+.6,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.5+.3});}
+  var N=22;
+  var pts=[];for(var i=0;i<N;i++){pts.push({x:Math.random()*cv.offsetWidth,y:Math.random()*cv.offsetHeight,r:Math.random()*1.2+.5,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,a:Math.random()*.4+.3,gold:Math.random()<.2});}
   function go(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='#0e6b60';ctx.globalAlpha=p.a;ctx.fill();});
+    var w=cv.offsetWidth,h=cv.offsetHeight;
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='#0e6b60';ctx.globalAlpha=(1-d/90)*.2;ctx.lineWidth=.6;ctx.stroke();}}
+    pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.gold?'#b8923f':'#0e6b60';ctx.globalAlpha=p.a;ctx.fill();});
     ctx.globalAlpha=1;
-    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<60){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='#0e6b60';ctx.globalAlpha=(1-d/60)*.25;ctx.lineWidth=.7;ctx.stroke();}}
     if(cv.isConnected)requestAnimationFrame(go);
   }
   requestAnimationFrame(go);
