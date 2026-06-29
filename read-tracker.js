@@ -25,6 +25,23 @@
     if(!s._read[slug]){
       s._read[slug] = Date.now();
       saveState(s);
+      emitChange(slug, true);
+    }
+  }
+
+  function emitChange(slug, isRead){
+    try {
+      window.dispatchEvent(new CustomEvent('majma:read-changed', { detail: { slug: slug, isRead: isRead } }));
+    } catch(e){}
+  }
+
+  function unmarkRead(slug){
+    if(!slug) return;
+    var s = getState();
+    if(s._read && s._read[slug]){
+      delete s._read[slug];
+      saveState(s);
+      emitChange(slug, false);
     }
   }
 
@@ -33,7 +50,8 @@
     isRead: function(slug){ var s=getState(); return !!(s._read && s._read[slug]); },
     allRead: function(){ var s=getState(); return s._read || {}; },
     countRead: function(slugs){ var s=getState(); var r=s._read||{}; return slugs.filter(function(x){return r[x];}).length; },
-    mark: markRead
+    mark: markRead,
+    unmark: unmarkRead
   };
 
   // Marquer la page courante comme lue (après un court délai = lecture réelle, pas un rebond)

@@ -109,24 +109,31 @@
     return found;
   }
 
+  function isStepRead(step){
+    // Source de vérité unique : read-tracker (MajmaRead). Repli sur l'état local si absent.
+    if (window.MajmaRead && typeof window.MajmaRead.isRead === 'function') {
+      return window.MajmaRead.isRead(step.href);
+    }
+    var s = getState();
+    return !!(s._read && s._read[step.href]);
+  }
+
   function renderBanner(matches) {
-    var state = getState();
     var html = '';
 
     matches.forEach(function(m) {
       var pid = m.pid;
       var path = m.path;
       var col = COLORS[pid];
-      var pd = state[pid] || {};
-      var isDone = !!pd[m.step.id];
-      var doneN = path.steps.filter(function(s) { return pd[s.id]; }).length;
+      var isDone = isStepRead(m.step);
+      var doneN = path.steps.filter(function(s) { return isStepRead(s); }).length;
       var total = path.steps.length;
       var pct = Math.round(doneN / total * 100);
 
       /* Prochaine étape */
       var nextStep = null;
       for (var i = m.stepIdx + 1; i < path.steps.length; i++) {
-        if (!pd[path.steps[i].id]) { nextStep = path.steps[i]; break; }
+        if (!isStepRead(path.steps[i])) { nextStep = path.steps[i]; break; }
       }
 
       html += '<div class="pb-block" data-pid="' + pid + '" data-sid="' + m.step.id + '">';
@@ -143,7 +150,7 @@
       /* Frise des étapes : où on en est */
       html += '<div class="pb-steps">';
       path.steps.forEach(function(s, si) {
-        var sDone = !!pd[s.id];
+        var sDone = isStepRead(s);
         var sHere = (s.id === m.step.id);
         var cls = 'pb-step' + (sDone ? ' is-done' : '') + (sHere ? ' is-here' : '');
         var style = sDone || sHere ? 'style="--sc:' + col + '"' : '';
@@ -269,12 +276,24 @@
       if (!btn) return;
       var pid = btn.dataset.pid;
       var sid = btn.dataset.sid;
-      var state = getState();
-      if (!state[pid]) state[pid] = {};
-      var wasComplete = PATHS[pid].steps.every(function(s){return state[pid][s.id];});
-      state[pid][sid] = !state[pid][sid];
-      saveState(state);
-      var nowComplete = PATHS[pid].steps.every(function(s){return state[pid][s.id];});
+      /* Retrouver le slug de l'étape courante dans ce parcours */
+      var path = PATHS[pid];
+      var step = null;
+      for (var i = 0; i < path.steps.length; i++) { if (path.steps[i].id === sid) { step = path.steps[i]; break; } }
+      if (!step) return;
+
+      var wasComplete = path.steps.every(function(s){ return isStepRead(s); });
+
+      /* Basculer l'état "lu" via la source de vérité unique (read-tracker) */
+      var slug = step.href;
+      if (window.MajmaRead && typeof window.MajmaRead.isRead === 'function') {
+        if (window.MajmaRead.isRead(slug)) { window.MajmaRead.unmark ? window.MajmaRead.unmark(slug) : toggleLocalRead(slug, false); }
+        else { window.MajmaRead.mark(slug); }
+      } else {
+        toggleLocalRead(slug, !(getState()._read && getState()._read[slug]));
+      }
+
+      var nowComplete = path.steps.every(function(s){ return isStepRead(s); });
       /* Réinjecter */
       wrap.innerHTML = '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
       /* Confettis si le parcours vient d'être complété */
@@ -282,6 +301,28 @@
         fireConfetti(COLORS[pid] || '#0e6b60');
       }
     });
+
+    /* Rafraîchir le widget si l'état de lecture change ailleurs
+       (ex. auto-marquage après 1,5s, ou action sur un autre composant) */
+    window.addEventListener('majma:read-changed', function(ev) {
+      var changed = ev && ev.detail && ev.detail.slug;
+      /* Ne re-render que si l'essai concerné fait partie d'un parcours affiché */
+      var relevant = !changed || matches.some(function(m) {
+        return m.path.steps.some(function(s) { return s.href === changed; });
+      });
+      if (relevant) {
+        wrap.innerHTML = '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
+      }
+    });
+  }
+
+  /* Repli local pour (dé)marquer un essai si MajmaRead n'expose pas l'opération */
+  function toggleLocalRead(slug, makeRead) {
+    var s = getState();
+    if (!s._read) s._read = {};
+    if (makeRead) { if (!s._read[slug]) s._read[slug] = Date.now(); }
+    else { delete s._read[slug]; }
+    saveState(s);
   }
 
   /* Animation de confettis plein écran */
