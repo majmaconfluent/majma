@@ -1,6 +1,13 @@
 /* read-tracker.js — Majmaʿ
-   Marque automatiquement un essai comme "lu" et expose l'état global de lecture.
+   Marque un essai comme "lu" et expose l'état global de lecture.
    Stockage : même clé que les parcours (majma_parcours_v2), sous-objet "_read".
+
+   MARQUAGE : un essai est marqué lu quand le lecteur atteint la fin du
+   texte (scroll jusqu'au bloc .reading, à 85% de sa hauteur), pas après un
+   simple délai de présence sur la page. Ancien comportement (setTimeout
+   1500ms) marquait un essai "lu" même si l'utilisateur n'avait fait que
+   l'ouvrir par erreur ou le survoler en navigant — d'où des essais
+   apparaissant cochés sans lecture réelle.
 */
 (function(){
   'use strict';
@@ -54,9 +61,45 @@
     unmark: unmarkRead
   };
 
-  // Marquer la page courante comme lue (après un court délai = lecture réelle, pas un rebond)
+  // Marquer la page courante comme lue quand le lecteur atteint la fin du
+  // texte (scroll), pas après un simple délai. On observe la progression
+  // de scroll dans le bloc .reading ; au-delà de 85% de sa hauteur, on
+  // considère que l'essentiel du texte a été parcouru.
   var slug = currentSlug();
   if(slug && NON_ESSAIS.indexOf(slug) === -1){
-    setTimeout(function(){ markRead(slug); }, 1500);
+    var triggered = false;
+    var ticking = false;
+    function checkScrollProgress(){
+      if(triggered) return;
+      var reading = document.querySelector('.reading');
+      if(!reading) return;
+      var rect = reading.getBoundingClientRect();
+      var readingHeight = reading.scrollHeight || rect.height;
+      var readingTop = rect.top + window.scrollY;
+      var readingBottom = readingTop + readingHeight;
+      var viewBottom = window.scrollY + window.innerHeight;
+      var threshold = readingTop + readingHeight * 0.85;
+      if(viewBottom >= threshold){
+        triggered = true;
+        markRead(slug);
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+    // CORRECTIF : getBoundingClientRect() force un recalcul de layout coûteux.
+    // L'appeler à chaque event 'scroll' (qui peut se déclencher des dizaines
+    // de fois par seconde sur mobile) pouvait rendre le défilement saccadé.
+    // On limite désormais à un calcul par frame via requestAnimationFrame.
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        checkScrollProgress();
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Vérifier aussi à l'arrivée (essai déjà court, visible sans scroll,
+    // ou ouverture directe avec ancre en bas de page)
+    setTimeout(checkScrollProgress, 600);
   }
 })();

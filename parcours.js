@@ -1,4 +1,10 @@
-/* parcours.js — Majmaʿ · Logique des parcours de lecture */
+/* parcours.js — Majmaʿ · Logique des parcours de lecture
+   Tous les essais du site appartiennent à un parcours (aucun essai "orphelin").
+   Un essai lu compte dans tous les parcours où il apparaît (lecture partagée,
+   pas de suivi indépendant par parcours) : "quest-ce-qu-une-lecture" est le
+   seul cas où un essai appartient à deux parcours (foi + texte), choix
+   éditorial assumé car c'est l'essai de méthode fondateur, pertinent comme
+   porte d'entrée pour les deux chemins. */
 (function() {
   'use strict';
 
@@ -8,14 +14,15 @@
     foi: {
       name: 'Je questionne ma foi', ar: 'الإيمان', num: '1',
       steps: [
-        { id:'a', href:'quest-ce-qu-une-lecture',      title:"Qu'est-ce qu'une lecture ?" },
-        { id:'b', href:'la-source-et-le-fleuve',        title:'La source et le fleuve' },
-        { id:'c', href:'averroes-la-raison',            title:'Averroès et le droit de la raison' },
-        { id:'d', href:'le-libre-arbitre',              title:'Le libre arbitre et le décret' },
-        { id:'e', href:'le-probleme-du-mal',            title:'Le problème du mal' },
-        { id:'f', href:'le-coran-en-pratique',          title:'Le Coran, concrètement' },
-        { id:'g', href:'les-deux-livres',               title:'Les deux livres' },
-        { id:'h', href:'raison-et-revelation',          title:'Raison et révélation' },
+        { id:'a', href:'quest-ce-qu-une-lecture',           title:"Qu'est-ce qu'une lecture ?" },
+        { id:'b', href:'la-source-et-le-fleuve',             title:'La source et le fleuve' },
+        { id:'c', href:'averroes-la-raison',                 title:'Averroès et le droit de la raison' },
+        { id:'d', href:'lautre-histoire-de-lislam-sunnite',  title:"L'autre histoire de l'islam sunnite" },
+        { id:'e', href:'le-libre-arbitre',                   title:'Le libre arbitre et le décret' },
+        { id:'f', href:'le-probleme-du-mal',                 title:'Le problème du mal' },
+        { id:'g', href:'le-coran-en-pratique',               title:'Le Coran, concrètement' },
+        { id:'h', href:'les-deux-livres',                    title:'Les deux livres' },
+        { id:'i', href:'raison-et-revelation',               title:'Raison et révélation' },
       ]
     },
     ame: {
@@ -23,13 +30,14 @@
       steps: [
         { id:'a', href:'la-fitra',                     title:'La fiṭra et la dignité' },
         { id:'b', href:'jung-en-dix-minutes',           title:"Ce qui agit sans qu'on le sache" },
-        { id:'c', href:'ombre-et-nafs',                 title:'L\'ombre et le nafs' },
-        { id:'d', href:'le-coeur',                      title:'Le cœur' },
-        { id:'e', href:'maitriser-le-desir',            title:'Maîtriser le désir' },
-        { id:'f', href:'le-confluent-des-deux-mers',    title:'Le confluent des deux mers' },
-        { id:'g', href:'les-reves',                     title:'Les rêves' },
-        { id:'h', href:'les-destins-du-moi',            title:'Les destins du moi' },
-        { id:'i', href:'le-souffle',                    title:'Le souffle' },
+        { id:'c', href:'trois-portes-pour-la-meme-piece', title:'Trois portes pour la même pièce' },
+        { id:'d', href:'ombre-et-nafs',                 title:'L\'ombre et le nafs' },
+        { id:'e', href:'le-coeur',                      title:'Le cœur' },
+        { id:'f', href:'maitriser-le-desir',            title:'Maîtriser le désir' },
+        { id:'g', href:'le-confluent-des-deux-mers',    title:'Le confluent des deux mers' },
+        { id:'h', href:'les-reves',                     title:'Les rêves' },
+        { id:'i', href:'les-destins-du-moi',            title:'Les destins du moi' },
+        { id:'j', href:'le-souffle',                    title:'Le souffle' },
       ]
     },
     texte: {
@@ -48,13 +56,15 @@
     monde: {
       name: 'Je vis dans ce monde', ar: 'العالم', num: '4',
       steps: [
-        { id:'a', href:'le-desenchantement',           title:'Le désenchantement du monde' },
-        { id:'b', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
-        { id:'c', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
-        { id:'d', href:'je-et-tu',                      title:'Je et Tu' },
-        { id:'e', href:'la-finitude',                   title:'La finitude' },
-        { id:'f', href:'l-univers-ajuste',              title:"L'univers ajusté" },
-        { id:'g', href:'le-moi-et-son-image',           title:'Le moi et son image' },
+        { id:'a', href:'les-signes',                   title:'Les signes : lire le monde' },
+        { id:'b', href:'le-desenchantement',           title:'Le désenchantement du monde' },
+        { id:'c', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
+        { id:'d', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
+        { id:'e', href:'je-et-tu',                      title:'Je et Tu' },
+        { id:'f', href:'la-finitude',                   title:'La finitude' },
+        { id:'g', href:'ce-qui-arrete',                 title:'Ce qui arrête' },
+        { id:'h', href:'l-univers-ajuste',              title:"L'univers ajusté" },
+        { id:'i', href:'le-moi-et-son-image',           title:'Le moi et son image' },
       ]
     }
   };

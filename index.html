@@ -121,7 +121,8 @@
 .ip-step:first-child{border-top:none}
 .ip-node{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:.12rem;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.68rem;font-weight:700;background:var(--paper);border:1.5px solid;transition:all .22s;z-index:1;position:relative}
 .ip-step-body{flex:1;min-width:0}
-.ip-step-title{font-family:var(--display);font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.07rem;transition:color .2s}
+.ip-step-title{font-family:var(--display);font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.07rem;transition:color .2s;display:block;}
+.ip-step-title:hover{color:var(--c, var(--accent));text-decoration:underline;}
 .ip-step.done .ip-step-title{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--rule)}
 .ip-step-meta{font-size:.7rem;color:var(--ink-faint)}
 .ip-step-hint{font-size:.83rem;color:var(--ink-soft);line-height:1.55;font-style:italic;margin-top:.35rem}
@@ -381,11 +382,12 @@ var PATHS={
       {id:'a',href:'quest-ce-qu-une-lecture',t:"Qu'est-ce qu'une lecture ?",min:10,h:"Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s'applique pas."},
       {id:'b',href:'la-source-et-le-fleuve',t:'La source et le fleuve',min:16,h:"Coran et Sunnah : d'où viennent les règles que nous suivons ?"},
       {id:'c',href:'averroes-la-raison',t:'Averroès et le droit de la raison',min:12,h:"Au XIIe siècle : la raison a-t-elle droit de cité dans l'islam ?"},
-      {id:'d',href:'le-libre-arbitre',t:'Le libre arbitre et le décret',min:18,h:"Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
-      {id:'e',href:'le-probleme-du-mal',t:'Le problème du mal',min:14,h:"La question la plus difficile, posée sans raccourci."},
-      {id:'f',href:'le-coran-en-pratique',t:'Le Coran, concrètement',min:6,h:"Sourate, verset, révélation : ce qu'il faut savoir avant de lire."},
-      {id:'g',href:'les-deux-livres',t:'Les deux livres',min:7,h:"Science et foi ne parlent pas de la même chose. Comment les lire ensemble."},
-      {id:'h',href:'raison-et-revelation',t:'Raison et révélation',min:12,h:"Averroès, Maïmonide, Thomas d'Aquin : trois réponses à la même question."},
+      {id:'d',href:'lautre-histoire-de-lislam-sunnite',t:"L'autre histoire de l'islam sunnite",min:18,h:"Deux traditions théologiques également anciennes, très inégalement connues aujourd'hui."},
+      {id:'e',href:'le-libre-arbitre',t:'Le libre arbitre et le décret',min:18,h:"Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
+      {id:'f',href:'le-probleme-du-mal',t:'Le problème du mal',min:14,h:"La question la plus difficile, posée sans raccourci."},
+      {id:'g',href:'le-coran-en-pratique',t:'Le Coran, concrètement',min:6,h:"Sourate, verset, révélation : ce qu'il faut savoir avant de lire."},
+      {id:'h',href:'les-deux-livres',t:'Les deux livres',min:7,h:"Science et foi ne parlent pas de la même chose. Comment les lire ensemble."},
+      {id:'i',href:'raison-et-revelation',t:'Raison et révélation',min:12,h:"Averroès, Maïmonide, Thomas d'Aquin : trois réponses à la même question."},
     ]},
   ame:{n:'2',name:'Je veux me connaître',cls:'p-ame',
     why:"Un voyage intérieur, entre psychologie des profondeurs et traditions de l'âme.",
@@ -473,7 +475,7 @@ function renderBody(pid){
     var done=isStepDone(step);
     h+='<div class="ip-step'+(done?' done':'')+'">';
     h+='<div class="ip-node" style="background:'+(done?c:'var(--paper)')+';border-color:'+(done?c:c+'55')+';color:'+(done?'#fff':c)+'">'+(done?'✓':(i+1))+'</div>';
-    h+='<div class="ip-step-body"><div class="ip-step-title">'+step.t+'</div><div class="ip-step-meta">~'+step.min+' min</div>';
+    h+='<div class="ip-step-body"><a class="ip-step-title" href="'+step.href+'.html" style="color:inherit;text-decoration:none;">'+step.t+'</a><div class="ip-step-meta">~'+step.min+' min</div>';
     if(!done)h+='<div class="ip-step-hint">'+step.h+'</div>';
     h+='</div>';
     h+='<button class="ip-pill" data-pid="'+pid+'" data-sid="'+step.id+'" data-href="'+step.href+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
@@ -614,7 +616,7 @@ document.getElementById('findBtn').addEventListener('click',function(e){
 });
 
 // Recherche
-var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lecture ?","tag":"Religion · Philosophie"},{"href":"la-source-et-le-fleuve.html","title":"La source et le fleuve","tag":"Religion · Histoire"},{"href":"averroes-la-raison.html","title":"Averroès et le droit de la raison","tag":"Philosophie"},{"href":"le-libre-arbitre.html","title":"Le libre arbitre et le décret","tag":"Philosophie · Religion"},{"href":"le-probleme-du-mal.html","title":"Le problème du mal","tag":"Philosophie · Religion"},{"href":"la-fitra.html","title":"La fiṭra et la dignité","tag":"Religion"},{"href":"jung-en-dix-minutes.html","title":"Ce qui agit sans qu'on le sache","tag":"Psychologie"},{"href":"ombre-et-nafs.html","title":"L'ombre et le nafs","tag":"Psychologie · Religion"},{"href":"le-coeur.html","title":"Le cœur","tag":"Religion · Psychologie"},{"href":"maitriser-le-desir.html","title":"Maîtriser le désir","tag":"Religion · Philosophie"},{"href":"le-premier-mot.html","title":"Le premier mot","tag":"Religion"},{"href":"la-rhetorique-semitique.html","title":"La rhétorique sémitique","tag":"Religion · Langue"},{"href":"la-lecture-symbolique.html","title":"La lecture symbolique","tag":"Religion"},{"href":"les-mots-et-le-monde.html","title":"Les mots et le monde","tag":"Religion · Langue"},{"href":"le-desenchantement.html","title":"Le désenchantement du monde","tag":"Philosophie"},{"href":"le-scroll-et-la-pause.html","title":"Le scroll et la pause","tag":"Aujourd'hui"},{"href":"le-sens-malgre-tout.html","title":"Le sens malgré tout","tag":"Philosophie"},{"href":"je-et-tu.html","title":"Je et Tu","tag":"Philosophie"},{"href":"la-finitude.html","title":"La finitude","tag":"Philosophie · Religion"}];
+var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lecture ?","tag":"Religion · Philosophie"},{"href":"la-source-et-le-fleuve.html","title":"La source et le fleuve","tag":"Religion · Histoire"},{"href":"averroes-la-raison.html","title":"Averroès et le droit de la raison","tag":"Philosophie"},{"href":"lautre-histoire-de-lislam-sunnite.html","title":"L'autre histoire de l'islam sunnite","tag":"Religion · Histoire"},{"href":"le-libre-arbitre.html","title":"Le libre arbitre et le décret","tag":"Philosophie · Religion"},{"href":"le-probleme-du-mal.html","title":"Le problème du mal","tag":"Philosophie · Religion"},{"href":"la-fitra.html","title":"La fiṭra et la dignité","tag":"Religion"},{"href":"jung-en-dix-minutes.html","title":"Ce qui agit sans qu'on le sache","tag":"Psychologie"},{"href":"ombre-et-nafs.html","title":"L'ombre et le nafs","tag":"Psychologie · Religion"},{"href":"le-coeur.html","title":"Le cœur","tag":"Religion · Psychologie"},{"href":"maitriser-le-desir.html","title":"Maîtriser le désir","tag":"Religion · Philosophie"},{"href":"le-premier-mot.html","title":"Le premier mot","tag":"Religion"},{"href":"la-rhetorique-semitique.html","title":"La rhétorique sémitique","tag":"Religion · Langue"},{"href":"la-lecture-symbolique.html","title":"La lecture symbolique","tag":"Religion"},{"href":"les-mots-et-le-monde.html","title":"Les mots et le monde","tag":"Religion · Langue"},{"href":"le-desenchantement.html","title":"Le désenchantement du monde","tag":"Philosophie"},{"href":"le-scroll-et-la-pause.html","title":"Le scroll et la pause","tag":"Aujourd'hui"},{"href":"le-sens-malgre-tout.html","title":"Le sens malgré tout","tag":"Philosophie"},{"href":"je-et-tu.html","title":"Je et Tu","tag":"Philosophie"},{"href":"la-finitude.html","title":"La finitude","tag":"Philosophie · Religion"}];
 (function(){
   var inp=document.getElementById('srch'),res=document.getElementById('sr');
   if(!inp||!res)return;

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>L'autre histoire de l'islam sunnite · Majmaʿ</title>
+<meta name="description" content="Deux traditions théologiques également anciennes, également sérieuses, mais très inégalement connues aujourd'hui : l'histoire de l'ashʿarisme et de l'atharisme dans l'islam sunnite.">
+
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+<script src="gloss.js" defer></script>
+<script src="parcours.js" defer></script>
+<script src="read-tracker.js" defer></script>
+
+<style>:root{--accent:var(--religion);}</style>
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Majmaʿ">
+  <meta property="og:title" content="L'autre histoire de l'islam sunnite · Majmaʿ">
+  <meta property="og:description" content="Deux traditions théologiques également anciennes, également sérieuses, mais très inégalement connues aujourd'hui : l'histoire de l'ashʿarisme et de l'atharisme dans l'islam sunnite.">
+  <meta property="og:image" content="https://majma.me/og.png">
+  <meta property="og:url" content="https://majma.me/lautre-histoire-de-lislam-sunnite.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://majma.me/og.png">
+  <link rel="canonical" href="https://majma.me/lautre-histoire-de-lislam-sunnite.html">
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- EN-TÊTE : ne pas modifier (identique partout) -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
+  </div>
+</header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
+
+<article>
+  <header class="article-head">
+    <div class="band"><svg class="band-svg" viewBox="0 0 640 50" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><pattern id="petal" width="30" height="30" patternUnits="userSpaceOnUse"><g fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.20"><circle cx="0" cy="15" r="15"/><circle cx="30" cy="15" r="15"/><circle cx="15" cy="0" r="15"/><circle cx="15" cy="30" r="15"/><circle cx="15" cy="15" r="15"/></g></pattern></defs><rect width="640" height="50" fill="url(#petal)"/></svg></div>
+    <span class="kicker">Religion · Histoire</span>
+    <h1>L'autre histoire de l'islam sunnite</h1>
+    <p class="sub">Deux traditions théologiques également anciennes, également sérieuses, mais très inégalement connues aujourd'hui.</p>
+    <p class="byline">Essai · lecture ~18 min</p>
+    <!-- Emblème : deux cercles disjoints pointant vers un centre commun — écho du
+         schéma de la section 4 (deux méthodes, une même transcendance protégée).
+         Inspiré de l'emblème d'averroes-la-raison.html (deux chemins, une vérité),
+         adapté pour suggérer une divergence plutôt qu'une fusion immédiate. -->
+    <div class="emblem-rule"><svg class="emblem" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="var(--accent)" stroke-width="2.4"><circle cx="30" cy="42" r="18" opacity="0.55"/><circle cx="70" cy="42" r="18" opacity="0.55"/><path d="M30 60 L50 78 L70 60" opacity="0.6"/></g><circle cx="50" cy="78" r="5" fill="var(--accent)"/></svg><span class="ln"></span></div>
+  </header>
+
+  <div class="reading prose">
+    <div class="essay-chapeau"><a class="nav-prev" href="averroes-la-raison.html">← Averroès et le droit de la raison</a><a class="nav-next" href="la-source-et-le-fleuve.html"><em>La source et le fleuve</em> →</a></div>
+
+    <p class="lead">Tu as peut-être grandi dans une famille musulmane. Ou tu es venu à l'islam plus tard, par curiosité, par conviction, par un chemin qui t'appartient. À un moment, tu as voulu comprendre sérieusement. Tu as lu, écouté, cherché. Et quelqu'un t'a dit, ou tu as fini par lire, que ce que pratiquait ta famille, ta mosquée, la tradition de ton pays, n'était pas vraiment l'islam. Que c'était une déviation. Que les vrais musulmans faisaient autrement, pensaient autrement, évitaient certaines formules, certaines pratiques, certains savants.</p>
+
+    <p>Ce moment existe. Des millions de personnes l'ont vécu, en France, au Maroc, en Égypte, en Indonésie, au Sénégal. Il ressemble à une illumination : on croit enfin avoir trouvé la source, après des années de bricolage. Et il s'accompagne souvent d'un regard neuf, parfois sévère, sur ce qu'on avait reçu avant.</p>
+
+    <p>Cet essai ne te dit pas que ce que tu as trouvé est faux. Il te propose autre chose : comprendre d'où vient ce que tu as trouvé, ce qu'il y avait avant, et pourquoi l'un est devenu si visible pendant que l'autre s'effaçait. Non pour que tu changes de camp, mais pour que tu saches dans quel paysage tu te situes.</p>
+
+    <p>Parce qu'il y a une chose que la plupart des introductions à l'islam ne disent pas : l'islam sunnite a produit, pendant neuf siècles, une tradition théologique dominante que la majorité des musulmans d'aujourd'hui ne connaissent pas sous son nom.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Un nom que neuf siècles ont porté</h2>
+
+    <p>Au Xe siècle, dans la ville de Bassora, en Irak, un théologien du nom d'Abū al-Ḥasan al-Ashʿarī pose les fondements d'une méthode. Il n'invente pas une nouvelle religion. Il répond à une crise : comment tenir ensemble la fidélité au texte révélé et la rigueur intellectuelle face aux philosophes grecs, aux rationalistes muʿtazilites — une école qui faisait de la raison le juge ultime, y compris sur la nature de Dieu —, et aux objections de toutes sortes qui traversent le monde islamique en pleine expansion ? Sa réponse : utiliser la raison comme outil, non comme maître. La révélation reste la source, mais la raison la protège contre les lectures qui feraient injustice à Dieu.</p>
+
+    <p>Cette méthode, qu'on appellera l'ashʿarisme, ne s'impose pas immédiatement. Elle rencontre des résistances, notamment de la part des hanbalites — l'école juridique la plus attachée à une lecture directement textuelle, dont est issu le courant athari. Mais elle s'installe progressivement, portée par les grandes institutions du monde islamique médiéval.</p>
+
+    <p>Le tournant décisif vient en 1066. Le vizir seldjoukide Niẓām al-Mulk fonde à Bagdad la Niẓāmiyya, première grande université islamique de l'histoire. Il y invite al-Juwaynī, le maître d'al-Ghazālī, pour y enseigner la théologie ashʿarite. En quelques décennies, des Niẓāmiyya s'ouvrent dans tout l'empire : Nishapur, Ispahan, Bassora, Merv. L'ashʿarisme devient la théologie des institutions.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 130" role="img" aria-label="D'une méthode théologique à la doctrine des institutions">
+        <rect x="20" y="30" width="160" height="60" rx="12" class="d-accent" opacity="0.10"/>
+        <text x="100" y="55" text-anchor="middle" class="d-ink" font-size="13">Une méthode</text>
+        <text x="100" y="72" text-anchor="middle" class="d-soft" font-size="10">al-Ashʿarī, Bassora, 935</text>
+
+        <path d="M188 60 L268 60" fill="none" class="s-accent" stroke-width="1.6"/>
+        <path d="M260 54 L268 60 L260 66" fill="none" class="s-accent" stroke-width="1.6"/>
+        <text x="228" y="48" text-anchor="middle" class="d-soft" font-size="9" font-style="italic">131 ans</text>
+
+        <rect x="276" y="22" width="164" height="76" rx="12" class="d-accent" opacity="0.20"/>
+        <text x="358" y="50" text-anchor="middle" class="d-accent" font-size="13">La théologie</text>
+        <text x="358" y="66" text-anchor="middle" class="d-accent" font-size="13">des institutions</text>
+        <text x="358" y="84" text-anchor="middle" class="d-soft" font-size="10">Niẓāmiyya, Bagdad, 1066</text>
+      </svg>
+      <figcaption>Cent trente ans séparent la méthode d'un théologien isolé de son adoption comme doctrine officielle des grandes universités de l'empire.</figcaption>
+    </figure>
+
+    <p>Al-Ghazālī lui-même, mort en 1111, en est la figure la plus célèbre. Juriste, mystique, philosophe, il est aujourd'hui cité aussi bien par les salafis que par les soufis, souvent sans qu'on précise qu'il était ashʿarite. Son œuvre monumentale, <em>Iḥyāʾ ʿulūm al-dīn</em> (La revivification des sciences religieuses), reste l'un des textes les plus lus de la littérature islamique.</p>
+
+    <p>Ce mouvement ne reste pas cantonné à l'Est. Il s'étend vers l'Ouest avec les dynasties berbères, vers le Sud avec les routes commerciales sahariennes, vers l'Est jusqu'aux archipels malais. Une école parallèle et très proche, le māturīdisme, fondée au même siècle par Abū Manṣūr al-Māturīdī à Samarcande, couvre l'Asie centrale et le monde turcophone. Les deux écoles, ashʿarite et māturīdite, forment ensemble ce que les historiens appellent le kalam sunnite classique.</p>
+
+    <p>Quand l'Empire ottoman atteint son apogée aux XVe et XVIe siècles, il administre un territoire qui va de l'Algérie à l'Irak, de l'Égypte au Yémen. Sa théologie officielle est māturīdite en Anatolie, ashʿarite dans les provinces arabes. Al-Azhar au Caire illustre bien ce basculement. Fondée en 970 par les Fatimides, elle est d'abord un foyer du chiisme ismaélien, la doctrine de la dynastie qui l'a créée. Ce n'est qu'après la chute des Fatimides et la prise du pouvoir par Saladin, en 1171, qu'elle passe au sunnisme et devient progressivement le grand foyer ashʿarite de référence du monde sunnite. Elle l'est toujours.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 -10 460 140" role="img" aria-label="Al-Azhar : du foyer chiite ismaélien au foyer ashʿarite de référence">
+        <line x1="30" y1="65" x2="430" y2="65" class="s-rule" stroke-width="1.5"/>
+
+        <circle cx="60" cy="65" r="6" fill="var(--accent)" opacity="0.6"/>
+        <text x="60" y="46" text-anchor="middle" class="d-ink" font-size="10.5" font-weight="bold">970</text>
+        <text x="60" y="86" text-anchor="middle" class="d-soft" font-size="9.5">Fondation</text>
+        <text x="60" y="99" text-anchor="middle" class="d-soft" font-size="9.5">par les Fatimides</text>
+
+        <circle cx="340" cy="65" r="6" fill="var(--accent)"/>
+        <text x="340" y="46" text-anchor="middle" class="d-ink" font-size="10.5" font-weight="bold">1171</text>
+        <text x="340" y="86" text-anchor="middle" class="d-soft" font-size="9.5">Saladin,</text>
+        <text x="340" y="99" text-anchor="middle" class="d-soft" font-size="9.5">basculement sunnite</text>
+
+        <path d="M60 32 Q200 16 340 32" fill="none" class="s-accent" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="200" y="14" text-anchor="middle" class="d-accent" font-size="9.5" font-style="italic">~200 ans · foyer chiite ismaélien</text>
+      </svg>
+      <figcaption>Al-Azhar, aujourd'hui symbole de l'islam sunnite, fut d'abord fondée comme centre de propagation du chiisme ismaélien.</figcaption>
+    </figure>
+
+    <p>Ce n'est pas une opinion. C'est un fait historique documenté, que les historiens de toutes orientations confirment : pendant environ neuf siècles, de Cordoue à Jakarta, l'immense majorité des oulémas, des universités, des dynasties et des populations sunnites ont été formées dans la tradition ashʿarite ou māturīdite.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Une carte pour le voir</h2>
+
+    <p>Les noms de villes et de dynasties, égrenés ainsi, restent abstraits. Voici donc la même histoire vue d'en haut : neuf instantanés, de la mort du Prophète à aujourd'hui, montrant quelle tradition théologique domine où, et comment elle s'y est diffusée depuis ses foyers de naissance.</p>
+
+    <p>Une précision s'impose avant de la regarder. La carte raconte une histoire d'institutions et d'écoles dominantes, pays par pays, siècle par siècle. Elle ne raconte pas ce que croyait chaque musulman pris individuellement, ni la part exacte que représentait telle minorité dans telle région. Une teinte uniforme sur un pays ne veut pas dire unanimité : elle veut dire qu'une tradition y tenait les universités, les tribunaux, la formation des oulémas. C'est déjà beaucoup dire, mais ce n'est pas tout dire.</p>
+
+    <!-- INTÉGRATION : carte-A-timeline.html
+         Choix technique : iframe plutôt qu'inline. La carte (430 Ko, D3.js
+         embarqué, son propre <style> et <script>) entrerait en conflit avec
+         styles.css du site si copiée directement dans le flux — classes
+         génériques (.note, .ref, etc.) qui se recoupent, polices différentes.
+         L'iframe isole complètement les deux documents.
+         HAUTEUR : pour éviter tout saut visuel pendant le scroll (l'iframe
+         apparaissait d'abord à une hauteur de secours devinée, puis se
+         redimensionnait après coup une fois le vrai message reçu — l'usager
+         voyait le cadre bouger sous lui), l'iframe reste invisible et un
+         espace réservé (placeholder avec libellé "Chargement de la carte…")
+         occupe sa place. Dès que carte-A-timeline.html signale sa vraie
+         hauteur via postMessage, l'iframe est dimensionnée à cette valeur
+         AVANT d'être affichée, puis le placeholder disparaît. Résultat :
+         la carte apparaît déjà à sa taille finale, sans transition visible.
+         Le fichier carte-A-timeline.html doit être déposé à la racine du
+         site, au même niveau que cette page, ET porter le script de
+         communication ajouté en fin de son <body>.
+         CECI EST UN CHOIX NOUVEAU, jamais fait ailleurs sur le site : à
+         valider avant publication. -->
+    <style>
+      .carte-embed{margin:2.2rem 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;position:relative;}
+      .carte-embed iframe{width:100%;border:none;display:block;}
+      .carte-embed iframe.cf-hidden{position:absolute;visibility:hidden;pointer-events:none;width:100%;height:1200px;top:0;left:0;}
+      .carte-placeholder{display:flex;align-items:center;justify-content:center;min-height:480px;color:var(--ink-faint);font-style:italic;font-size:.95rem;}
+      .carte-placeholder.cf-gone{display:none;}
+    </style>
+    <div class="carte-embed">
+      <div class="carte-placeholder" id="cartePlaceholder">Chargement de la carte…</div>
+      <iframe id="carteAsharismeFrame" class="cf-hidden" src="carte-A-timeline.html" title="Carte de l'évolution des traditions théologiques islamiques, 632-2026"></iframe>
+    </div>
+    <script>
+      // Mesure la hauteur réelle de la carte AVANT de l'afficher (l'iframe
+      // est rendue hors-écran, en absolute, pendant ce temps), pour éviter
+      // tout saut visuel : on ne montre la carte qu'une fois sa taille
+      // finale connue. Filet de sécurité : si aucun message n'arrive sous
+      // 4s (fichier carte absent, bloqué, etc.), on affiche quand même
+      // l'iframe à une hauteur raisonnable plutôt que de la laisser
+      // invisible indéfiniment.
+      (function(){
+        var frame = document.getElementById('carteAsharismeFrame');
+        var placeholder = document.getElementById('cartePlaceholder');
+        var shown = false;
+        function reveal(height){
+          if (shown) return;
+          shown = true;
+          frame.style.height = height + 'px';
+          frame.classList.remove('cf-hidden');
+          placeholder.classList.add('cf-gone');
+        }
+        window.addEventListener('message', function(e){
+          if (e.data && e.data.type === 'carte-asharisme-height') {
+            reveal(e.data.height + 24);
+          }
+        });
+        setTimeout(function(){ reveal(1100); }, 4000);
+      })();
+    </script>
+
+    <p>Ce qu'elle donne à voir reste sans ambiguïté : un vert qui couvre, époque après époque, l'essentiel du monde sunnite. Ce vert a un nom que la plupart n'ont jamais appris.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Le choc du XVIIIe siècle, et ce que le pétrole a fait</h2>
+
+    <p>En 1703, dans le Najd, région centrale et aride de ce qui deviendra l'Arabie Saoudite, naît Muḥammad ibn ʿAbd al-Wahhāb. Théologien hanbalite, il développe une lecture de l'islam qu'il estime débarrassée des ajouts des siècles. Pour lui, le kalam ashʿarite, les pratiques soufies, le culte des tombes, les intercessions, tout cela est une déviation de l'islam originel. Il faut revenir directement au texte, sans les filtres que la tradition théologique a accumulés.</p>
+
+    <p>En 1744, il conclut un pacte avec Muḥammad ibn Saʿūd, chef tribal du Najd. L'accord est simple : ibn Saʿūd apporte la puissance militaire, ibn ʿAbd al-Wahhāb apporte la légitimité religieuse. Ce pacte, renouvelé et consolidé de génération en génération, a structuré l'État saoudien jusqu'à une période récente : la famille Al-Saʿūd gouverne, la tradition wahhabite, nom que ses partisans refusent, préférant salafi ou athari, définit la doctrine officielle de l'État.</p>
+
+    <p>Mais pendant deux siècles, cette tradition reste essentiellement locale. Le Najd est pauvre, isolé, peu influent. Elle existe, elle se défend, elle produit des savants. Elle ne transforme pas l'islam mondial.</p>
+
+    <p>Ce qui change tout, c'est le pétrole.</p>
+
+    <!-- VISUEL : frise + chiffre-choc, voir frise-section3.html (déjà validé) -->
+    <figure class="diagram">
+      <svg viewBox="0 -20 560 160" role="img" aria-label="Du Najd isolé à la diffusion mondiale, 1703-2005">
+        <line x1="30" y1="65" x2="530" y2="65" class="s-rule" stroke-width="1.5"/>
+
+        <circle cx="50" cy="65" r="5" fill="var(--accent)"/>
+        <text x="50" y="46" text-anchor="middle" class="d-ink" font-size="10.5" font-weight="bold">1703</text>
+        <text x="50" y="88" text-anchor="middle" class="d-soft" font-size="9">Naissance</text>
+        <text x="50" y="100" text-anchor="middle" class="d-soft" font-size="9">d'Ibn ʿAbd al-Wahhāb</text>
+
+        <circle cx="125" cy="65" r="4" fill="none" class="s-accent" stroke-width="1.5"/>
+        <text x="125" y="46" text-anchor="middle" class="d-soft" font-size="9.5">1744</text>
+        <text x="125" y="88" text-anchor="middle" class="d-soft" font-size="9">Pacte avec</text>
+        <text x="125" y="100" text-anchor="middle" class="d-soft" font-size="9">Ibn Saʿūd</text>
+
+        <path d="M50 32 Q260 16 380 32" fill="none" class="s-accent" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="215" y="14" text-anchor="middle" class="d-accent" font-size="9.5" font-style="italic">~230 ans · diffusion locale, sans influence</text>
+
+        <circle cx="380" cy="65" r="4" fill="none" class="s-accent" stroke-width="1.5"/>
+        <text x="380" y="46" text-anchor="middle" class="d-soft" font-size="9.5">1961</text>
+        <text x="380" y="88" text-anchor="middle" class="d-soft" font-size="9">Université</text>
+        <text x="380" y="100" text-anchor="middle" class="d-soft" font-size="9">de Médine</text>
+
+        <!-- Arc court de 1961 à 2005, volontairement contrasté avec l'arc long
+             ci-dessus (trait plein et épais plutôt que pointillé fin, montée
+             nette plutôt qu'à peine perceptible) : la même durée de montée
+             que l'arc précédent met 230 ans à atteindre, celui-ci ne met que
+             44 ans à la franchir — l'accélération doit se voir sans lire la
+             légende. -->
+        <path d="M380 32 Q447 -6 515 32" fill="none" class="s-accent" stroke-width="2.4"/>
+        <text x="447" y="-12" text-anchor="middle" class="d-accent" font-size="9.5" font-weight="bold">44 ans · diffusion mondiale massive</text>
+
+        <circle cx="455" cy="65" r="6" fill="var(--accent)" opacity="0.85"/>
+        <text x="455" y="46" text-anchor="middle" class="d-ink" font-size="11" font-weight="bold">1973</text>
+        <text x="455" y="88" text-anchor="middle" class="d-soft" font-size="9">Choc</text>
+        <text x="455" y="100" text-anchor="middle" class="d-soft" font-size="9">pétrolier</text>
+
+        <circle cx="515" cy="65" r="6" fill="var(--accent)"/>
+        <text x="515" y="46" text-anchor="middle" class="d-ink" font-size="10.5" font-weight="bold">2005</text>
+        <text x="515" y="88" text-anchor="middle" class="d-soft" font-size="9">Bilan du</text>
+        <text x="515" y="100" text-anchor="middle" class="d-soft" font-size="9">financement</text>
+      </svg>
+      <figcaption>Deux siècles de diffusion strictement locale, puis trente ans d'expansion mondiale après le choc pétrolier de 1973.</figcaption>
+    </figure>
+
+    <p class="pull">Deux siècles de silence ;<br>75 milliards de dollars en trente ans.</p>
+
+    <p>En 1973, le premier choc pétrolier quadruple le prix du baril en quelques mois. Les revenus saoudiens explosent. La famille Al-Saʿūd se trouve soudain à la tête de richesses sans précédent dans l'histoire de la péninsule arabique. Et avec ces richesses vient une décision : les utiliser pour diffuser sa lecture de l'islam à travers le monde entier.</p>
+
+    <p>Entre 1982 et 2005, le gouvernement saoudien aurait consacré cette somme à la diffusion de cette lecture de l'islam : au moins 1&nbsp;500 mosquées, 2&nbsp;000 écoles et 200 collèges islamiques, selon l'estimation la plus reprise. L'Université islamique de Médine, fondée en 1961 et massivement développée après 1973, a formé des dizaines de milliers d'étudiants étrangers dans la théologie athari, rentrés ensuite dans leurs pays comme imams, professeurs, prédicateurs. Mohammed bin Salman lui-même, lors d'une interview au <em>Washington Post</em> en 2018, a reconnu que ces investissements étaient en partie motivés par la Guerre froide : des alliés occidentaux avaient demandé à l'Arabie Saoudite d'utiliser ses ressources religieuses pour contrer l'influence soviétique dans les pays musulmans.</p>
+
+    <style>.reserve-note{font-size:.85rem;color:var(--ink-faint);font-style:italic;margin-top:-1rem;margin-bottom:2rem;}</style>
+    <p class="reserve-note">Le montant exact reste discuté : les estimations vont d'environ 1 à plus de 100 milliards de dollars selon les sources et ce qu'elles comptabilisent ; certains chercheurs (dont Peter Mandaville) appellent à la prudence face à des chiffres jugés peu vérifiables. L'ampleur de l'effort et le réseau construit, eux, sont mieux établis.</p>
+
+    <p>Ce n'est pas un complot. C'est une politique d'État, publique, assumée, documentée, menée par un pays qui croit sincèrement diffuser la vérité religieuse et qui a eu les moyens de le faire à une échelle sans précédent dans l'histoire de l'islam.</p>
+
+    <p>Le résultat est visible partout. Au Maroc, pays de tradition ashʿarite mālikite depuis des siècles, des mosquées construites avec des fonds saoudiens proposent une lecture différente. En Égypte, l'ashʿarisme d'Al-Azhar coexiste avec un courant salafi qui conteste ouvertement son autorité. En Indonésie, la plus grande population musulmane du monde, de tradition soufie et ashʿarite, voit progresser depuis les années 1980 des courants qui rejettent cette tradition comme une déviation. En France, en Belgique, au Canada, les premières ressources islamiques facilement accessibles en français ou en anglais sont souvent produites par ce courant, parce qu'il a investi massivement la production de contenu numérique dès les années 1990.</p>
+
+    <p>Ce que cela produit concrètement : une génération de musulmans, dans des pays où l'ashʿarisme était la norme depuis neuf siècles, a été progressivement amenée à percevoir sa propre tradition comme suspecte. Non pas par violence, mais par saturation du champ intellectuel disponible. Quand les livres gratuits, les sites bien référencés, les chaînes YouTube les mieux produites, les imams formés à l'étranger disent tous la même chose, cette chose finit par sembler évidente. Et ce qu'elle dit souvent, explicitement ou non, c'est que la tradition ashʿarite est une déviation hellénistique, une contamination philosophique, un écart par rapport à l'islam authentique.</p>
+
+    <p>C'est à ce moment que quelqu'un peut regarder sa grand-mère réciter ses litanies, son père visiter la tombe d'un saint, son pays célébrer le mawlid, et penser que ces pratiques sont une déviation évidente. Sans savoir que ce regard lui a été transmis par une école qui n'a pas neuf siècles de majorité derrière elle, mais deux siècles d'expansion, dont cinquante ans massivement financée — un fait qui ne dit rien de qui a raison sur le fond, mais qui éclaire pourquoi ce regard lui est apparu comme une évidence plutôt que comme un choix parmi d'autres.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Par où commence-t-on pour connaître Dieu ?</h2>
+
+    <p>Derrière le débat sur les tombes et le mawlid, derrière les querelles sur les pratiques et les innovations, il y a une question plus profonde. Une question que les deux camps posent depuis le Xe siècle et à laquelle ils répondent différemment. Ce n'est pas une question de détail. C'est la question fondatrice de toute théologie islamique.</p>
+
+    <p>Quand tu veux connaître Dieu, par où commences-tu ?</p>
+
+    <p>Trois éléments sont disponibles. La <em>fiṭra</em>, cette disposition innée que le Coran dit inscrite en tout être humain avant toute culture et toute éducation. La raison, cette faculté de raisonner, d'analyser, de distinguer le possible de l'impossible. Et le texte révélé, le Coran et ce qui a été transmis du Prophète. Les trois sont dans l'islam. Les trois sont mentionnés dans le Coran. La question n'est pas laquelle choisir. La question est comment les articuler, et laquelle sert de point de départ.</p>
+
+    <!-- VISUEL : schéma deux pôles, voir schema-section4.html (déjà validé) -->
+    <figure class="diagram">
+      <svg viewBox="0 0 480 260" role="img" aria-label="Deux méthodes, un même refus de l'anthropomorphisme">
+        <line x1="125" y1="88" x2="202" y2="160" class="s-rule" stroke-width="1.5"/>
+        <line x1="355" y1="88" x2="278" y2="160" class="s-rule" stroke-width="1.5"/>
+        <rect x="40" y="24" width="170" height="64" rx="14" class="d-accent" opacity="0.12"/>
+        <text x="125" y="52" text-anchor="middle" class="d-ink" font-size="17">Ashʿarisme</text>
+        <text x="125" y="73" text-anchor="middle" class="d-soft" font-size="12" font-style="italic">la raison d'abord</text>
+        <rect x="270" y="24" width="170" height="64" rx="14" class="d-accent" opacity="0.12"/>
+        <text x="355" y="52" text-anchor="middle" class="d-ink" font-size="17">Atharisme</text>
+        <text x="355" y="73" text-anchor="middle" class="d-soft" font-size="12" font-style="italic">la fiṭra et le texte</text>
+        <circle cx="240" cy="196" r="52" class="d-accent" opacity="0.18"/>
+        <text x="240" y="200" text-anchor="middle" class="d-accent" font-size="13">Pas de corps</text>
+        <text x="240" y="232" text-anchor="middle" class="d-soft" font-size="11" font-style="italic">le désaccord est sur la méthode</text>
+      </svg>
+      <figcaption>Deux méthodes pour protéger la transcendance de Dieu. Le désaccord porte sur la méthode, pas sur la conclusion.</figcaption>
+    </figure>
+
+    <p><strong>La réponse ashʿarite.</strong> Pour les ashʿarites, la raison vient en premier, non pas parce qu'elle est supérieure à Dieu, mais parce qu'elle est nécessaire pour lire le texte correctement. Avant de lire le Coran, il faut déjà savoir quelque chose : que Dieu ne peut pas être un corps, qu'Il n'occupe pas d'espace, qu'Il n'est pas limité par le temps. Pourquoi ? Parce que si on arrive au texte sans ces certitudes préalables, on risque de lire « la main de Dieu » et d'imaginer une main physique. On risque de lire « Dieu s'est installé sur le Trône » et d'imaginer un être qui s'assoit.</p>
+
+    <p>Ce point mérite d'être précisé, car on le présente parfois comme un pur emprunt à la philosophie grecque, sans racine dans le texte lui-même. Ce n'est pas tout à fait exact. Le principe que les ashʿarites cherchent à protéger, le <em>tanzīh</em>, l'absolue transcendance de Dieu, est énoncé dans le Coran lui-même :</p>
+
+    <p class="verse">لَيْسَ كَمِثْلِهِ شَيْءٌ<span class="ref">« Rien ne Lui ressemble » · Coran 42, 11</span></p>
+
+    <p>Les commentateurs classiques, y compris des ashʿarites, lisent ce verset comme le fondement même de la transcendance divine à l'égard de tout ce qui caractérise le créé, organes, membres, sens. La raison ashʿarite ne se substitue donc pas à la révélation ; elle se met, à ses yeux, au service d'un principe que la révélation énonce elle-même. Le désaccord avec les atharis ne porte pas sur ce point, les deux camps acceptent le verset 42:11, mais sur la conséquence à en tirer pour la lecture des autres versets.</p>
+
+    <p>La raison protège le texte de l'anthropomorphisme, de la tendance humaine à projeter sur Dieu les caractéristiques du créé. Ce n'est pas la raison contre la révélation. C'est la raison au service d'une lecture juste de la révélation.</p>
+
+    <p>Quand le texte dit quelque chose qui semble contredire ce que la raison établit avec certitude sur la nature divine, les ashʿarites ont deux outils. Le <em>taʾwīl</em> : interpréter le verset de façon non littérale, en cherchant un sens compatible avec la transcendance divine. Par exemple, « la main de Dieu » devient « la puissance de Dieu. » Et le <em>tafwīḍ</em> : affirmer le sens du verset tout en suspendant la question du comment.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 130" role="img" aria-label="Deux outils ashʿarites face à un verset délicat">
+        <rect x="150" y="14" width="160" height="34" rx="9" class="d-accent" opacity="0.16"/>
+        <text x="230" y="36" text-anchor="middle" class="d-accent" font-size="12">« la main de Dieu »</text>
+
+        <line x1="195" y1="48" x2="120" y2="80" class="s-rule" stroke-width="1.4"/>
+        <line x1="265" y1="48" x2="340" y2="80" class="s-rule" stroke-width="1.4"/>
+
+        <rect x="20" y="84" width="200" height="40" rx="9" class="d-accent" opacity="0.08"/>
+        <text x="120" y="102" text-anchor="middle" class="d-ink" font-size="12">taʾwīl</text>
+        <text x="120" y="117" text-anchor="middle" class="d-soft" font-size="9.5">« la puissance de Dieu »</text>
+
+        <rect x="240" y="84" width="200" height="40" rx="9" class="d-accent" opacity="0.08"/>
+        <text x="340" y="102" text-anchor="middle" class="d-ink" font-size="12">tafwīḍ</text>
+        <text x="340" y="117" text-anchor="middle" class="d-soft" font-size="9.5">sens affirmé, comment suspendu</text>
+      </svg>
+      <figcaption>Deux réponses ashʿarites possibles face à un même verset : interpréter le sens (taʾwīl), ou l'affirmer sans en chercher le comment (tafwīḍ).</figcaption>
+    </figure>
+
+    <p class="verse">ثُمَّ اسْتَوَىٰ عَلَى الْعَرْشِ<span class="ref">« puis Il S'est installé sur le Trône » · Coran 7, 54</span></p>
+
+    <p>Oui, mais nous ne savons pas comment, et nous ne prétendons pas le savoir.</p>
+
+    <p><strong>La réponse athari.</strong> Pour les atharis, et c'est une position intellectuellement sérieuse qu'on ne peut pas caricaturer, cet ordre est problématique. Qui nous dit que notre raison est fiable pour juger de la nature de Dieu ? La raison humaine est limitée, conditionnée, faillible. Elle a produit des systèmes philosophiques contradictoires depuis les Grecs. Pourquoi lui faire confiance pour établir ce que Dieu peut ou ne peut pas être, avant même d'avoir lu ce que Dieu dit de Lui-même ?</p>
+
+    <p>Leur réponse : on part du texte, et on affirme ce que le texte affirme, sans chercher à l'interpréter par des catégories extérieures à lui. « La main de Dieu » — on l'affirme. « Dieu s'est installé sur le Trône » — on l'affirme. Mais on ne demande pas comment, et on n'assimile pas cette main ou cet établissement à quoi que ce soit de créé. La formule classique est <em>bilā kayf</em> : sans comment. On affirme le sens, on suspend la modalité, on refuse l'anthropomorphisme sans pour autant recourir à l'interprétation figurée.</p>
+
+    <p>Ce que les atharis reprochent aux ashʿarites n'est donc pas d'interpréter par caprice. C'est d'importer des catégories philosophiques grecques, étrangères au texte, pour décider a priori de ce que Dieu peut ou ne peut pas être. Et ce faisant, de soumettre le texte à un filtre que le texte lui-même n'a pas demandé.</p>
+
+    <p><strong>Ce que les deux camps partagent.</strong> Il faut le dire clairement : les deux camps rejettent l'anthropomorphisme. Aucun ashʿarite sérieux ne pense que les atharis croient que Dieu a une main physique comme la nôtre. Aucun athari sérieux ne pense que les ashʿarites nient les attributs divins. Le désaccord porte sur la méthode, pas sur la conclusion. Les deux veulent protéger la transcendance de Dieu. Ils choisissent des chemins différents pour y arriver.</p>
+
+    <p>Et les deux chemins ont produit des géants. Al-Ghazālī, ashʿarite, est l'un des esprits les plus profonds de l'islam médiéval. Ibn Taymiyya, athari, est l'une des plumes les plus rigoureuses de la tradition hanbalite. Les deux méritent d'être lus, compris, et non réduits à une caricature.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Le cercle que personne n'évite</h2>
+
+    <p>Il y a un argument que les atharis adressent souvent aux ashʿarites, et qui semble décisif au premier abord. Les ashʿarites, disent-ils, partent d'un présupposé rationnel pour établir l'existence et la nature de Dieu. Mais comment justifient-ils ce présupposé ? Par la raison. Ils utilisent donc la raison pour valider la raison. C'est un cercle. Et un cercle ne prouve rien.</p>
+
+    <p>L'argument est juste. Mais il s'applique à tout le monde, sans exception.</p>
+
+    <p>Les atharis partent de la <em>fiṭra</em> et du texte transmis. Mais comment savent-ils que leur <em>fiṭra</em> n'est pas déformée par leur culture, leur éducation, leurs désirs ? La <em>fiṭra</em> d'un idolâtre lui dit aussi que ses idoles sont vraies. Et comment savent-ils que le texte qu'ils ont reçu est authentique ? Parce qu'une chaîne de transmission humaine le garantit. Mais pourquoi faire confiance à cette chaîne ? Parce que les critères de cette chaîne sont fiables. Et pourquoi ces critères sont-ils fiables ? Parce que les savants qui les ont établis étaient dignes de confiance. Et comment le sait-on ? Par d'autres critères. Le cercle est là aussi, simplement moins visible parce que le point de départ semble plus naturel, plus immédiat, moins philosophique.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 420 240" role="img" aria-label="Le cercle du critère : chaque justification renvoie à une autre, en boucle fermée">
+        <circle cx="210" cy="120" r="82" fill="none" class="s-rule" stroke-width="1.4" stroke-dasharray="2 4"/>
+
+        <circle cx="210" cy="38" r="34" class="d-accent" opacity="0.12"/>
+        <text x="210" y="34" text-anchor="middle" class="d-ink" font-size="9.5">Une croyance</text>
+        <text x="210" y="46" text-anchor="middle" class="d-soft" font-size="9">admise</text>
+
+        <circle cx="292" cy="120" r="34" class="d-accent" opacity="0.12"/>
+        <text x="292" y="116" text-anchor="middle" class="d-ink" font-size="9.5">Justifiée</text>
+        <text x="292" y="128" text-anchor="middle" class="d-soft" font-size="8.5">par un critère</text>
+
+        <circle cx="210" cy="202" r="34" class="d-accent" opacity="0.12"/>
+        <text x="210" y="198" text-anchor="middle" class="d-ink" font-size="8">Critère validé</text>
+        <text x="210" y="209" text-anchor="middle" class="d-soft" font-size="8">par un autre</text>
+
+        <circle cx="128" cy="120" r="34" class="d-accent" opacity="0.18"/>
+        <text x="128" y="116" text-anchor="middle" class="d-accent" font-size="9.5">On s'arrête</text>
+        <text x="128" y="128" text-anchor="middle" class="d-soft" font-size="8.5">quelque part</text>
+
+        <path d="M243.3 45.0 A 82 82 0 0 1 285.0 86.7" fill="none" class="s-accent" stroke-width="1.6"/>
+        <path d="M278.5 82.0 L285.0 86.7 L285.8 78.7" fill="none" class="s-accent" stroke-width="1.6"/>
+
+        <path d="M285.0 153.3 A 82 82 0 0 1 243.3 195.0" fill="none" class="s-accent" stroke-width="1.6"/>
+        <path d="M248.0 188.5 L243.3 195.0 L251.3 195.8" fill="none" class="s-accent" stroke-width="1.6"/>
+
+        <path d="M176.7 195.0 A 82 82 0 0 1 135.0 153.3" fill="none" class="s-accent" stroke-width="1.6"/>
+        <path d="M141.5 158.0 L135.0 153.3 L134.2 161.3" fill="none" class="s-accent" stroke-width="1.6"/>
+
+        <path d="M135.0 86.7 A 82 82 0 0 1 176.7 45.0" fill="none" class="s-accent" stroke-width="1.6"/>
+        <path d="M172.0 51.5 L176.7 45.0 L168.7 44.2" fill="none" class="s-accent" stroke-width="1.6"/>
+      </svg>
+      <figcaption>Chaque critère renvoie à un autre critère, en boucle fermée : à un moment, tout le monde s'arrête quelque part qui n'est plus justifié de l'extérieur.</figcaption>
+    </figure>
+
+    <p>Ce n'est pas une critique des atharis. C'est une observation sur la structure de toute connaissance humaine.</p>
+
+    <p><strong>Le problème du critère.</strong> Les philosophes appellent ça le problème du critère. Pour savoir si une connaissance est vraie, il faut un critère. Mais pour valider le critère lui-même, il faut un autre critère. Et pour valider celui-là, encore un autre. À un moment, on s'arrête quelque part. On fait confiance à quelque chose que ce système lui-même ne peut pas justifier de l'extérieur.</p>
+
+    <p>Descartes a essayé d'éviter ce problème en cherchant une vérité absolument indubitable. Il a trouvé le cogito : je pense, donc je suis. Mais même le cogito présuppose que la logique est fiable, que « penser » et « être » ont un sens stable. On ne part jamais de zéro absolu.</p>
+
+    <p>En science, le problème est identique. Pourquoi faire confiance à l'observation répétée comme méthode de connaissance ? Parce qu'elle a fonctionné jusqu'ici. Mais rien ne garantit qu'elle continuera à fonctionner demain. David Hume l'avait montré au XVIIIe siècle avec une clarté brutale : le problème de l'induction n'a jamais reçu de solution définitive. La science repose sur un acte de confiance que la science elle-même ne peut pas justifier.</p>
+
+    <p>Ce n'est pas une faiblesse de la science. C'est la condition de toute connaissance humaine.</p>
+
+    <p><strong>Ce que ça change.</strong> Comprendre cela ne mène pas au relativisme, à l'idée que toutes les positions se valent et qu'on peut croire n'importe quoi. Cela mène à quelque chose de plus utile : une lucidité sur son propre point de départ.</p>
+
+    <p>Ibn Taymiyya, la grande référence athari, avait conscience de ce problème. Sa réponse était subtile et mérite d'être entendue honnêtement. Il ne disait pas que la raison est inutile. Il disait que la raison saine et la révélation authentique ne se contredisent jamais. Quand elles semblent se contredire, c'est soit que la raison a mal fonctionné, soit que le texte a été mal transmis ou mal compris. C'est une position cohérente. Mais remarque ce qu'elle présuppose : qu'on peut identifier une raison saine et une révélation authentique. Comment ? Par la raison et par la tradition. Le cercle est élégamment formulé, mais il est là.</p>
+
+    <p>Les ashʿarites diraient la même chose de leur propre démarche, et les honnêtes d'entre eux l'admettent. Al-Ghazālī lui-même, dans le <em>Munqidh min al-ḍalāl</em>, son autobiographie spirituelle, décrit une crise profonde pendant laquelle il a remis en question la fiabilité de ses propres facultés cognitives. Sa sortie de crise n'est pas purement rationnelle. C'est une lumière que Dieu a jetée dans son cœur, dit-il. Le plus grand théologien rationnel de l'islam médiéval reconnaît que la raison seule ne suffit pas à fonder la certitude.</p>
+
+    <p><strong>Ce que cela dit sur le débat.</strong> La question n'est donc pas : qui part d'un présupposé et qui n'en part pas ? Tout le monde part d'un présupposé. La question est : quel présupposé choisit-on d'habiter, et avec quelle lucidité ?</p>
+
+    <p class="pull">Un ashʿarite choisit son point de départ ;<br>un athari aussi. Ni l'un ni l'autre ne le trouve nu.</p>
+
+    <p>Un ashʿarite qui comprend cela ne dira pas : ma méthode est la seule rationnellement défendable. Il dira : voici pourquoi j'ai choisi ce point de départ, voici ce qu'il permet de faire, voici ses limites.</p>
+
+    <p>Un athari qui comprend cela ne dira pas : je n'ai pas de présupposé, je suis juste le texte. Il dira : je fais confiance à la <em>fiṭra</em> et à la transmission, voici pourquoi, voici ce que ça implique.</p>
+
+    <p>Et quelqu'un qui a reçu une seule de ces positions comme si c'était l'évidence même, sans jamais avoir su qu'il existait une autre position également ancienne, également sérieuse, mérite de savoir qu'il habite un cercle parmi d'autres. Pas pour en sortir nécessairement. Mais pour le choisir, plutôt que de le subir.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>La conclusion</h2>
+
+    <p><strong>Ce que cet essai ne dit pas, et ce qu'il dit.</strong> Cet essai ne dit pas que les ashʿarites ont raison. Il ne dit pas que les atharis ont tort. Il ne dit pas que les pratiques disputées sont toutes défendables, ni qu'elles sont toutes condamnables. Il ne dit pas qu'il faut changer de camp, rejoindre une école, abandonner ce qu'on a reçu.</p>
+
+    <p>Il dit quelque chose de plus simple, et peut-être de plus difficile à entendre.</p>
+
+    <p>Il dit que l'islam a produit, pendant quatorze siècles, une conversation intellectuelle d'une richesse extraordinaire. Une conversation entre des esprits qui prenaient la même révélation au sérieux, lisaient les mêmes textes avec la même rigueur, et arrivaient à des conclusions différentes sur des questions fondamentales. Non par négligence, non par ignorance, non par corruption. Mais parce que les questions sont réellement difficiles, et que des esprits honnêtes peuvent les habiter différemment.</p>
+
+    <p>Cette conversation existe toujours. Al-Azhar la poursuit. Les grandes universités islamiques du Maroc, de Turquie, d'Indonésie la poursuivent. Des savants contemporains des deux traditions continuent de l'alimenter, avec une rigueur que les formats courts des réseaux sociaux ne permettent pas de voir.</p>
+
+    <p>Ce qui a changé depuis cinquante ans, c'est l'accès à cette conversation. Non pas qu'elle se soit tarie, mais qu'une voix particulière en est devenue infiniment plus audible que les autres. Pas parce qu'elle est plus juste. Parce qu'elle a eu les moyens de se diffuser à une échelle sans précédent.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 170" role="img" aria-label="Plusieurs voix anciennes, une seule devenue très audible">
+        <text x="20" y="30" class="d-soft" font-size="10">Ashʿarite / māturīdite</text>
+        <rect x="20" y="38" width="180" height="16" rx="4" class="d-accent" opacity="0.18"/>
+        <text x="20" y="68" class="d-soft" font-size="10">Soufie</text>
+        <rect x="20" y="76" width="140" height="16" rx="4" class="d-accent" opacity="0.18"/>
+        <text x="20" y="106" class="d-soft" font-size="10">Athari / salafi</text>
+        <rect x="20" y="114" width="380" height="16" rx="4" class="d-accent" opacity="0.55"/>
+        <text x="20" y="144" class="d-soft" font-size="10">Chiite</text>
+        <rect x="20" y="152" width="100" height="16" rx="4" class="d-accent" opacity="0.18"/>
+      </svg>
+      <figcaption>Quatre voix de la même ancienneté relative dans l'histoire de l'islam ; depuis cinquante ans, une seule occupe l'essentiel de l'espace audible — non par justesse, mais par moyens de diffusion.</figcaption>
+    </figure>
+
+    <p>Savoir ça ne résout rien. Ça ne dit pas quelle école a raison sur la nature des attributs divins. Ça ne règle pas le débat sur l'intercession ou le mawlid. Ça ne fournit pas une méthode clé en main pour lire le Coran.</p>
+
+    <p>Mais ça change une chose précise : le regard qu'on porte sur ce qu'on a reçu, et sur ce que d'autres ont reçu.</p>
+
+    <p>Quelqu'un qui sait que l'ashʿarisme a été la norme pendant neuf siècles n'écoute plus sa grand-mère de la même façon. Il n'écoute plus l'imam de la mosquée de son quartier natal de la même façon. Il ne regarde plus les pratiques de son pays d'origine de la même façon. Non pas pour les valider automatiquement, ni pour les croire vraies parce qu'anciennes, mais pour savoir que ce qu'il prenait pour une déviation isolée était la position la plus répandue de l'islam sunnite pendant la majeure partie de son histoire — un fait qui ne tranche rien sur le fond, mais qui change la question qu'on se pose avant de juger.</p>
+
+    <p>Et quelqu'un qui sait que le courant qui l'a formé est lui-même situé historiquement, financièrement, politiquement, peut continuer à le suivre avec conviction, mais avec une lucidité nouvelle. Il sait qu'il a choisi. Pas qu'il a simplement trouvé.</p>
+
+    <p>C'est peut-être ça, la différence entre une foi héritée et une foi habitée. Non pas qu'on abandonne ce qu'on a reçu. Mais qu'on le reçoit à nouveau, les yeux ouverts, en sachant que d'autres ont reçu autre chose avec la même sincérité, depuis la même source.</p>
+
+    <p class="verse">وَفَوْقَ كُلِّ ذِي عِلْمٍ عَلِيمٌ<span class="ref">« Et au-dessus de tout savant, il y en a un qui sait davantage » · Coran 12, 76</span></p>
+
+    <p style="text-align:center;font-family:var(--body);font-style:italic;font-size:1.18rem;color:var(--ink-soft);">Deux méthodes, deux histoires inégalement connues, une même quête de la transcendance. <span style="font-style:normal;">وَاللَّهُ أَعْلَم (Dieu seul sait)</span>.</p>
+
+    <p class="engage">Une objection, une idée, une lecture différente à proposer ? <a href="mailto:contact@majma.me">Écrivez à la revue</a>, chaque retour compte.</p>
+
+    <div class="divider"></div>
+
+    <div class="further">
+      <h3>Pour aller plus loin</h3>
+      <ul>
+        <li>Richard M. Frank, <em>Al-Ghazali and the Ash'arite School</em> (Duke University Press, 1994) : la référence sur la relation d'al-Ghazālī à l'école ashʿarite.</li>
+        <li>Jon Hoover, <em>Ibn Taymiyya</em>, coll. « Makers of the Muslim World » (Oneworld Academic, 2019) : introduction de référence à la pensée d'Ibn Taymiyya par un spécialiste du sujet.</li>
+        <li>Gilles Kepel, <em>Jihad : The Trail of Political Islam</em> (Harvard University Press, 2002), chapitre « Building Petro-Islam on the Ruins of Arab Nationalism » : sur le tournant de 1973 et la diffusion du salafisme financée par le pétrole.</li>
+        <li>Sur l'estimation des 75 milliards de dollars (1982-2005) : <em>International propagation of the Salafi movement and Wahhabism</em>, synthèse sourcée sur Wikipédia ; à noter que ce chiffre est discuté, certains chercheurs dont Peter Mandaville (ancien conseiller au Département d'État américain) appelant à la prudence face à des estimations jugées peu vérifiables.</li>
+        <li>Sur Al-Azhar et son histoire fatimide puis sunnite : Farhad Daftary, <em>A Short History of the Ismailis</em> (Edinburgh University Press, 1998) ; Carl F. Petry (dir.), <em>The Cambridge History of Egypt, vol. 1</em> (Cambridge University Press, 1998).</li>
+        <li>Sur le problème du critère et l'induction : David Hume, <em>Enquête sur l'entendement humain</em> (1748) ; René Descartes, <em>Discours de la méthode</em> (1637).</li>
+        <li>Les versets cités : Coran 7, 54 ; Coran 12, 76 ; Coran 42, 11.</li>
+        <li>À lire avec : <a href="averroes-la-raison.html">Averroès et le droit de la raison</a>, sur un autre chemin entre raison et révélation.</li>
+      </ul>
+    </div>
+
+    <p class="essay-footer-nav"><a class="backlink" href="averroes-la-raison.html">← Averroès et le droit de la raison</a><a class="essay-next" href="la-source-et-le-fleuve.html">Suite · <em>La source et le fleuve</em> →</a></p>
+  </div>
+</article>
+
+<!-- PIED DE PAGE : ne pas modifier (identique partout) -->
+<footer class="site-footer">
+  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
+  <nav class="foot-nav">
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
+    <a href="apropos.html">À propos</a>
+    <a href="methode.html">Méthode</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="figures.html">Figures</a>
+    <a href="carte.html">Carte</a>
+  </nav>
+  <p>Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
+  <p class="copy">© 2026 Majmaʿ · revue d'idées.</p>
+</footer>
+
+<script>
+  const bar=document.getElementById('progress');
+  const update=()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';};
+  document.addEventListener('scroll',update,{passive:true});update();
+</script>
+</body>
+</html>
