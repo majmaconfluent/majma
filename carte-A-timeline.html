@@ -208,11 +208,9 @@ h1{font-family:var(--display);font-size:1.45rem;font-weight:700;color:var(--ink)
 .tl-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--card);border:2px solid var(--rule);cursor:pointer;transition:all .25s;padding:0;}
 .tl-dot.passed{border-color:var(--accent);background:var(--accent);}
 .tl-dot.active{border-color:var(--accent);background:var(--accent);transform:translate(-50%,-50%) scale(1.45);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent);}
-.tl-years{position:relative;height:1.1rem;margin-top:.6rem;padding:0 2px;}
-.tl-year{position:absolute;top:0;transform:translateX(-50%);font-family:var(--display);font-size:.66rem;font-weight:600;color:var(--ink-faint);cursor:pointer;text-align:center;background:none;border:none;transition:color .2s;white-space:nowrap;}
+.tl-years{position:relative;height:1.1rem;margin:.6rem 10px 0;}
+.tl-year{position:absolute;top:0;transform:translateX(-50%);font-family:var(--display);font-size:.62rem;font-weight:600;color:var(--ink-faint);cursor:pointer;text-align:center;background:none;border:none;transition:color .2s;white-space:nowrap;}
 .tl-year.active{color:var(--accent);font-weight:700;}
-.tl-year:first-child{transform:translateX(0);text-align:left;}
-.tl-year:last-child{transform:translateX(-100%);text-align:right;}
 .tl-play{font-family:var(--display);font-size:.72rem;font-weight:700;padding:.42rem 1.2rem;border-radius:99px;border:none;background:var(--accent);color:#fff;cursor:pointer;margin:.6rem auto 0;display:block;position:relative;overflow:hidden;box-shadow:0 2px 10px -3px rgba(14,107,96,.35);}
 .tl-play.stopped{background:var(--gold);}
 
