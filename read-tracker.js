@@ -32,6 +32,17 @@
     if(!s._read[slug]){
       s._read[slug] = Date.now();
       saveState(s);
+      // Événement GA4 : signale qu'un essai a été lu (scroll à 85% du bloc
+      // .reading atteint). Ne se déclenche qu'une seule fois par visite grâce
+      // au guard !s._read[slug] ci-dessus. Marquer comme "Key event" dans
+      // GA4 : Administrateur → Événements → essay_read → Marquer comme
+      // événement clé.
+      if(typeof gtag === 'function'){
+        gtag('event', 'essay_read', {
+          essay_slug: slug,
+          essay_title: document.title.replace(/\s*·\s*Majmaʿ$/, '')
+        });
+      }
       emitChange(slug, true);
     }
   }
