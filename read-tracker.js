@@ -32,18 +32,21 @@
     if(!s._read[slug]){
       s._read[slug] = Date.now();
       saveState(s);
-      // Événement GA4 : signale qu'un essai a été lu (scroll à 85% du bloc
-      // .reading atteint). Ne se déclenche qu'une seule fois par visite grâce
-      // au guard !s._read[slug] ci-dessus. Marquer comme "Key event" dans
-      // GA4 : Administrateur → Événements → essay_read → Marquer comme
-      // événement clé.
-      if(typeof gtag === 'function'){
-        gtag('event', 'essay_read', {
-          essay_slug: slug,
-          essay_title: document.title.replace(/\s*·\s*Majmaʿ$/, '')
-        });
-      }
       emitChange(slug, true);
+    }
+    // Événement GA4 : délibérément hors du guard !s._read[slug] pour se
+    // déclencher à chaque session de lecture, y compris pour les visiteurs
+    // qui avaient déjà lu l'essai avant le déploiement de cette version.
+    // Protégé contre les répétitions intra-session par triggered = true
+    // dans le scroll handler (markRead n'est appelé qu'une seule fois par
+    // chargement de page).
+    // Pour activer : Administrateur GA4 → Événements → essay_read →
+    // Marquer comme événement clé.
+    if(typeof gtag === 'function'){
+      gtag('event', 'essay_read', {
+        essay_slug: slug,
+        essay_title: document.title.replace(/\s*·\s*Majmaʿ$/, '')
+      });
     }
   }
 
