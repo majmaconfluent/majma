@@ -116,7 +116,12 @@
   "Mansūkh":"L'abrogé : règle annulée par un texte postérieur (nāsikh). L'étendue de l'abrogation et ses critères sont parmi les questions les plus débattues de la méthodologie islamique.",
   "Al-ʿAwl":"Littéralement 'l'augmentation' : mécanisme juridique qui réduit proportionnellement les parts d'héritage quand leur somme dépasse l'unité. Les Compagnons ont divergé : Omar l'acceptait, Ibn Abbas proposait une autre répartition.",
   "Raziyyat al-Khamīs":"La 'Calamité du Jeudi' : épisode rapporté dans Sahih Bukhari (4168-4169) et Sahih Muslim (1637). Le Prophète agonisant demanda de quoi écrire un testament. Omar dit : 'le Livre de Dieu nous suffit.' Ibn Abbas dira : 'La plus grande calamité fut que cette dispute empêcha le Prophète d'écrire.'",
-  "Possession":"Chez Jung, l'état dans lequel une énergie psychique a pris le pouvoir sur le moi sans que celui-ci s'en aperçoive : il croit librement vouloir ce à quoi il est en réalité assujetti. Ce que les Anciens nommaient être possédé par un dieu."
+  "Possession":"Chez Jung, l'état dans lequel une énergie psychique a pris le pouvoir sur le moi sans que celui-ci s'en aperçoive : il croit librement vouloir ce à quoi il est en réalité assujetti. Ce que les Anciens nommaient être possédé par un dieu.",
+  "Naẓar":"L'examen raisonné : le fait de tourner et retourner une question par la raison plutôt que de recevoir une réponse toute faite. Sur ce geste, les théologiens musulmans ont bâti des siècles de débats sur Dieu, la justice et la liberté humaine.",
+  "Kalām":"Littéralement 'la parole' ou 'la discussion' : la théologie rationnelle de l'islam, l'art de défendre et d'examiner la foi par l'argument, née des tout premiers débats sur le statut du croyant fautif et sur le destin.",
+  "Miḥna":"'L'épreuve' : l'inquisition lancée en 833 par le calife al-Maʾmūn pour imposer la doctrine du Coran créé, qui coûta l'emprisonnement et la flagellation au théologien Ibn Ḥanbal. Renversée vers 848.",
+  "Dukkha":"Dans le bouddhisme, la souffrance inhérente à l'existence, constatée dans la première des quatre nobles vérités. La question qu'elle appelle n'est pas 'pourquoi la souffrance existe-t-elle', mais 'comment s'en libérer'.",
+  "Tawakkul":"L'abandon confiant en Dieu, une fois qu'on a fait sa part. Non une passivité : la tradition précise qu'on attache d'abord son chameau, puis on s'en remet à Dieu pour le reste. Un des piliers de la vie spirituelle en islam."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
@@ -186,16 +191,7 @@
     for(var i=0;i<nodes.length;i++) processTextNode(nodes[i], used);
   }
 
-  function init(){
-    var prose=document.querySelector(".prose");
-    if(!prose) return;
-    var used={};
-    var blocks=prose.querySelectorAll("p, li");
-    for(var i=0;i<blocks.length;i++){
-      // limiter aux blocs sans arabe dominant (eviter de toucher aux versets/inline arabes)
-      walk(blocks[i], used);
-    }
-
+  // Glossaire anglais (utilisé par les pages /en/)
   var GLOSS_EN = {
     "Inconscient":"The part of the psyche beyond conscious awareness — not absence of thought, but a vast submerged layer of drives, memories, and autonomous figures.",
     "Soi":"In Jung, the Self (capital S) is the center and totality of the psyche — conscious and unconscious together. Not a larger ego, but a different center entirely.",
@@ -221,6 +217,17 @@
     "Principe anthropique":"The observation that the universe appears fine-tuned to permit life.",
     "Rh\u00e9torique s\u00e9mitique":"The art of composition by symmetries and concentric structures, characteristic of the Bible and the Quran."
   };
+
+  function init(){
+    var prose=document.querySelector(".prose");
+    if(!prose) return;
+    var used={};
+    var blocks=prose.querySelectorAll("p, li");
+    for(var i=0;i<blocks.length;i++){
+      // limiter aux blocs sans arabe dominant (eviter de toucher aux versets/inline arabes)
+      walk(blocks[i], used);
+    }
+
 
     // tooltip
     var tip=document.createElement("div");

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le cercle que personne n'évite : Aristote, al-Ghazālī, Wittgenstein et le point de départ de tout savoir · Majmaʿ</title>
+<meta name="description" content="Tout savoir commence par un appui qu'on ne peut pas prouver d'abord. Aristote, al-Ghazālī, Wittgenstein, Plantinga, Arkoun : cinq voix, un même fond.">
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+<script src="gloss.js" defer></script>
+<script src="parcours.js" defer></script>
+<script src="read-tracker.js" defer></script>
+<style>:root{--accent:var(--philo);}</style>
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Majmaʿ">
+  <meta property="og:title" content="Le cercle que personne n'évite · Majmaʿ">
+  <meta property="og:description" content="Tout savoir commence par un appui qu'on ne peut pas prouver d'abord. Six voix, six siècles, un même fond.">
+  <meta property="og:image" content="https://majma.me/og.png">
+  <meta property="og:url" content="https://majma.me/le-cercle-que-personne-nevite.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://majma.me/og.png">
+  <meta name="essay-id" content="le-cercle-que-personne-nevite">
+<link rel="canonical" href="https://majma.me/le-cercle-que-personne-nevite.html">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-38RNGLZV63');
+</script>
+<style>
+@media(max-width:640px){
+  .site-nav a:not(.header-icon):not(.lang-switch){font-size:.82rem;}
+  .site-nav{gap:.55rem!important;}
+  .brand-logo{height:60px!important;}
+}
+/* Animation de tracé des illustrations au chargement */
+.draw-in path, .draw-in line.trace{
+  stroke-dasharray:600;
+  stroke-dashoffset:600;
+  animation:drawStroke 2.2s ease-out forwards;
+}
+@keyframes drawStroke{to{stroke-dashoffset:0;}}
+@media(prefers-reduced-motion:reduce){
+  .draw-in path, .draw-in line.trace{animation:none;stroke-dashoffset:0;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" onclick="__toggleMenu()">☰</button>
+  </div>
+</header>
+<div class="menu-back" id="menuBack" onclick="__toggleMenu()"></div>
+<nav class="menu-drawer" id="menuDrawer" aria-label="Menu principal">
+  <button class="menu-close" type="button" onclick="__toggleMenu()" aria-label="Fermer">×</button>
+  <div class="menu-head"><img src="logo.png" alt=""><span class="mh-name">Majmaʿ</span></div>
+  <div class="menu-list">
+    <a href="le-coran.html" style="--mc:#0e6b60"><span class="menu-ic"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--mc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--mc)" stroke-width="1.6"/></svg></span>Les textes</a>
+    <a href="lame.html" style="--mc:#a67c2e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><path d="M20 12 C15 16 15 24 20 28 C25 24 25 16 20 12 Z" fill="var(--mc)" opacity=".55"/></svg></span>L'âme</a>
+    <a href="le-sens.html" style="--mc:#2d8c6e"><span class="menu-ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="color-mix(in srgb,var(--mc) 15%,transparent)"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--mc)" stroke-width="1.4"/><path d="M7 20 Q20 12 33 20 Q20 28 7 20" fill="none" stroke="var(--mc)" stroke-width="1.4"/></svg></span>Le sens</a>
+    <div class="menu-sep"></div>
+    <a class="sec" href="apropos.html">À propos</a>
+    <a class="sec" href="carte.html">Carte des idées</a>
+    <a class="sec" href="index.html#rechercher">Rechercher</a>
+    <a class="sec" href="/en/">English</a>
+  </div>
+</nav>
+
+<article>
+  <header class="article-head">
+    <div class="band"><svg class="band-svg" viewBox="0 0 640 50" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><pattern id="pts" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.2" fill="var(--accent)" opacity="0.18"/></pattern></defs><rect width="640" height="50" fill="url(#pts)"/></svg></div>
+    <span class="kicker">Philosophie · Religion</span>
+    <h1>Le cercle que personne n'évite</h1>
+    <p class="sub">Tout savoir commence par un pas qu'on ne peut pas justifier avant de l'avoir fait. Six voix, six siècles, un même fond.</p>
+    <p class="byline">Essai · lecture ~12 min</p>
+    <div class="emblem-rule"><svg class="emblem" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"><line x1="50" y1="20" x2="50" y2="70"/><circle cx="50" cy="78" r="2.6" fill="var(--accent)" stroke="none"/></g><circle cx="50" cy="50" r="28" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.4"/></svg><span class="ln"></span></div>
+  </header>
+
+<div class="reading prose">
+  <div class="essay-chapeau"><a class="nav-prev" href="le-desenchantement.html">← Le désenchantement du monde</a><a class="nav-next" href="le-sens-malgre-tout.html"><em>Le sens malgré tout</em> →</a></div>
+
+  <p class="lead">Il suffit de tirer sur le fil. On croit quelque chose, et on demande pourquoi. Une raison se présente. On demande alors ce qui fonde cette raison, et une autre apparaît, plus profonde, qui semble la porter. On recommence. Chaque réponse en appelle une plus ancienne, chaque appui repose sur un appui, et l'on descend ainsi, de fondement en fondement, avec le sentiment rassurant de se rapprocher du sol.</p>
+
+  <p>Puis le sol manque.</p>
+
+  <p>Il vient toujours un moment où la question « et cela, qu'est-ce qui le fonde ? » ne reçoit plus de réponse d'un autre ordre. On atteint un point où il n'y a plus, au-dessous, de raison plus profonde à invoquer : seulement quelque chose qu'on tient pour vrai sans pouvoir le démontrer, parce que c'est déjà avec lui qu'on démontrerait tout le reste. La confiance dans nos sens. La fiabilité de la raison. L'idée que le monde continuera demain de se comporter comme hier. Ces certitudes ne sont pas au sommet de l'édifice, prouvées par tout ce qui les précède : elles sont tout en bas, et rien ne les précède. On ne les a pas conclues. On est parti d'elles.</p>
+
+  <p>C'est une expérience déroutante, et curieusement discrète. On peut vivre une vie entière sans jamais tirer le fil jusque-là. Mais quiconque l'a fait, ne serait-ce qu'une fois, a rencontré la même chose : au commencement de tout savoir, il y a un pas qu'on ne peut pas justifier avant de l'avoir fait. Non par paresse, non par manque de rigueur. Par structure. C'est ce pas, et non telle ou telle croyance particulière, qui est le vrai sujet de cet essai.</p>
+
+  <figure class="diagram draw-in">
+    <svg viewBox="0 0 480 280" role="img" aria-label="Un bâtiment dont les étages reposent sur des fondations non démontrées">
+      <rect x="140" y="30" width="200" height="44" class="d-accent trace" opacity="0.10"/>
+      <rect x="140" y="30" width="200" height="44" fill="none" class="s-rule" stroke-width="1"/>
+      <text x="240" y="57" text-anchor="middle" class="d-soft" font-size="11" font-style="italic">ce qu'on croit savoir</text>
+      <rect x="120" y="78" width="240" height="44" class="d-accent trace" opacity="0.10"/>
+      <rect x="120" y="78" width="240" height="44" fill="none" class="s-rule" stroke-width="1"/>
+      <text x="240" y="105" text-anchor="middle" class="d-soft" font-size="11" font-style="italic">ce qu'on en déduit</text>
+      <rect x="100" y="126" width="280" height="44" class="d-accent trace" opacity="0.10"/>
+      <rect x="100" y="126" width="280" height="44" fill="none" class="s-rule" stroke-width="1"/>
+      <text x="240" y="153" text-anchor="middle" class="d-soft" font-size="11" font-style="italic">ce qu'on en conclut encore</text>
+      <line x1="70" y1="170" x2="410" y2="170" class="s-accent" stroke-width="2.5"/>
+      <rect x="80" y="170" width="320" height="58" class="d-accent" opacity="0.22"/>
+      <rect x="80" y="170" width="320" height="58" fill="none" class="s-accent" stroke-width="1.4"/>
+      <text x="240" y="196" text-anchor="middle" class="d-accent" font-size="12.5" font-weight="bold">les fondations</text>
+      <text x="240" y="214" text-anchor="middle" class="d-accent" font-size="10.5" font-style="italic">un appui qu'on ne prouve pas</text>
+      <line x1="60" y1="228" x2="420" y2="228" class="s-rule" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <text x="240" y="246" text-anchor="middle" class="d-soft" font-size="9.5">le sol</text>
+    </svg>
+    <figcaption>Tout savoir ressemble à un bâtiment. Les étages supérieurs se déduisent les uns des autres. Mais les fondations, elles, ne se déduisent de rien : c'est sur elles qu'on bâtit, sans les avoir d'abord prouvées.</figcaption>
+  </figure>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Aristote, ou le premier à toucher le fond</h2>
+  <p>Le premier à avoir regardé ce vide en face, et à en faire un problème plutôt qu'un vertige, s'appelait Aristote. Dans les <em>Seconds Analytiques</em>, au quatrième siècle avant notre ère, il pose la question avec une netteté qui n'a pas vieilli. Toute connaissance démontrée, observe-t-il, s'appuie sur des prémisses. Mais ces prémisses, si l'on veut à leur tour les démontrer, réclament d'autres prémisses, et ainsi de suite. Trois issues, alors, et trois seulement. Ou bien la chaîne remonte à l'infini, et rien n'est jamais fondé. Ou bien elle se referme en cercle, et l'on prouve une chose par une autre qui la suppose. Ou bien elle s'arrête, quelque part, sur des principes qu'on ne démontre pas.</p>
+  <p>Aristote choisit la troisième issue, mais sans faire semblant qu'elle soit gratuite. Ces principes premiers, écrit-il, ne sont pas connus par démonstration : ils sont saisis par une faculté qu'il nomme <em>noûs</em>, l'intuition intellectuelle, cette capacité à voir qu'une chose est vraie sans avoir à la déduire d'une autre. Le fond, chez lui, n'est pas une preuve. C'est un acte de vision. La démonstration, ce prodige de rigueur, repose en dernier ressort sur quelque chose qui n'est pas de l'ordre de la démonstration.</p>
+  <p>On mesure rarement à quel point cette page a voyagé pour nous parvenir. En Occident latin, une grande partie d'Aristote fut longtemps perdue, et ce sont les commentaires d'un juge de Cordoue, Ibn Rushd, qu'un Moyen Âge reconnaissant surnomma simplement Averroès le Commentateur, qui la rendirent de nouveau lisible à l'Europe du treizième siècle. Le fait mérite d'être noté sans en tirer de gloire : les idées ne connaissent pas les frontières qu'on leur prête, et celui qui médite aujourd'hui sur le fondement de la raison le fait souvent avec des mots qui ont transité par plusieurs langues avant de lui parvenir.</p>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Al-Ghazālī, ou le doute poussé jusqu'au bout</h2>
+  <p>Un siècle avant qu'Averroès ne commente Aristote, à l'autre bout du monde musulman, un homme avait déjà fait l'expérience de ce vide, non plus comme un problème de logique, mais comme une épreuve vécue. Abū Ḥāmid al-Ghazālī était au sommet de sa carrière, enseignant le plus écouté de Bagdad, lorsque le sol se déroba. Il le raconte dans un récit d'une franchise saisissante, le <em>Munqidh min al-ḍalāl</em>, « le sauvetage hors de l'égarement », écrit vers 1095.</p>
+  <p>Sa question n'épargne rien. Comment savons-nous que nos sens ne nous trompent pas ? L'expérience du rêve, où tout paraît réel jusqu'au réveil, suffit à les ébranler. Comment savons-nous alors que la raison, qui corrige les sens, n'est pas elle-même corrigée par une instance plus haute que nous ne soupçonnons pas, comme la veille corrige le rêve ? Al-Ghazālī descend ainsi plus bas que l'objection qu'on entend d'ordinaire. Il ne doute pas seulement de tel texte ou de telle autorité : il doute de l'outil même qui sert à douter.</p>
+  <p>Et là, au plus creux, il ne trouve pas d'argument. Il en fait le constat lui-même, avec une honnêteté qui désarme : ce qui le rendit à la certitude ne vint pas d'une preuve construite, mais, écrit-il, d'« une lumière que Dieu jeta dans sa poitrine ». Non le terme d'un raisonnement, mais un appui retrouvé, en deçà du raisonnement. Sa réponse diffère de celle d'Aristote, et cette différence est précieuse. Là où le Grec nommait une faculté intellectuelle, le <em>noûs</em>, l'homme de Bagdad nomme une lumière reçue. Mais la structure est la même, et c'est elle qui compte : au terme du doute le plus rigoureux, on ne trouve pas une preuve dernière. On trouve un point où l'on recommence à faire confiance, et ce point, on ne l'a pas déduit.</p>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Averroès, ou l'accord des deux vérités</h2>
+  <p>Une génération après al-Ghazālī, et souvent pour lui répondre, un juge de Cordoue affronte le même problème par l'autre bout. Là où al-Ghazālī avait éprouvé la fragilité de la raison, Ibn Rushd, qu'on appellera Averroès, veut au contraire lui rendre ses droits, sans pour autant l'opposer à la révélation. Sa thèse, dans le <em>Faṣl al-maqāl</em>, le <em>Discours décisif</em>, tient en une formule limpide : la vérité ne contredit pas la vérité, elle s'accorde avec elle et témoigne en sa faveur. Si la raison bien conduite et la révélation bien comprise viennent toutes deux de Dieu, elles ne peuvent se contredire ; là où elles semblent le faire, c'est qu'on a mal raisonné, ou mal lu.</p>
+  <p>C'est une réponse au cercle, et elle est d'un genre nouveau. Aristote arrêtait la régression sur une intuition, al-Ghazālī sur une lumière. Averroès, lui, ne cherche pas tant à fonder l'un des deux points de départ qu'à affirmer leur harmonie de principe : deux voies, un seul auteur, donc pas de conflit possible au fond. Mais on remarquera ce que cette confiance suppose déjà. Pour poser que raison et révélation s'accordent, il faut avoir décidé d'avance que toutes deux sont fiables, et que leur source commune garantit leur entente. Ce postulat-là, magnifique, n'est pas lui-même démontré : il est le sol depuis lequel Averroès accueille aussi bien le syllogisme que le verset. Le cercle n'a pas disparu. Il s'est élargi jusqu'à contenir les deux mondes à la fois.</p>
+
+  <p>Jusqu'ici, chacun proposait un fondement : une intuition, une lumière, un accord de principe. Les trois voix qui suivent font un pas de côté. Elles ne proposent plus de fondement : elles décrivent ce qu'est, structurellement, un fondement, chez n'importe qui et pour n'importe quelle croyance.</p>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Wittgenstein, ou les gonds de la porte</h2>
+  <p>Neuf siècles après al-Ghazālī, dans les carnets qu'il remplit à la fin de sa vie et qu'on publiera après sa mort sous le titre <em>De la certitude</em>, Ludwig Wittgenstein retrouve le même mur, et lui donne l'une de ses images les plus justes. Il remarque que nos doutes eux-mêmes ont besoin d'un sol. Pour douter d'une chose, il faut en tenir mille autres pour acquises ; celui qui prétendrait douter de tout ne pourrait pas même formuler son doute, car les mots dont il se sert présupposent un monde stable où ils gardent leur sens.</p>
+  <p>Il existe donc, dit-il, des propositions d'un genre particulier, que nous ne vérifions jamais parce que c'est sur elles que reposent toutes nos vérifications. « Les questions que nous posons et nos doutes reposent sur le fait que certaines propositions sont soustraites au doute, comme des gonds sur lesquels ces questions et ces doutes tournent. » L'image est exacte. Une porte ne tourne que parce que ses gonds, eux, ne tournent pas. Ôtez les gonds au nom de la liberté du battant, et la porte ne s'ouvre plus : elle tombe. Ces propositions-charnières, Wittgenstein le souligne, ne sont ni vraies ni fausses au sens ordinaire, ni prouvées ni prouvables. Elles ne sont pas le sommet de notre savoir. Elles en sont le sol non interrogé, celui qui permet à tout le reste d'être interrogé.</p>
+
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Plantinga, ou le droit de commencer là</h2>
+  <p>Que faire, alors, de celui qui commence par Dieu ? La philosophie du vingtième siècle, longtemps, a traité la croyance religieuse comme le mauvais élève de la connaissance : celui à qui l'on réclame ses preuves, et qui, faute de les produire, devrait se taire. C'est cette asymétrie qu'un philosophe américain, Alvin Plantinga, est venu interroger, non pour dispenser la foi de toute rigueur, mais pour rappeler à quel prix on lui appliquait un critère que rien d'autre ne respectait.</p>
+  <p>Sa remarque est simple, et redoutable. Nous tenons pour parfaitement rationnelles une foule de croyances que nous ne fondons sur aucun argument : que le monde existait avant notre naissance, que les autres ont un esprit comme le nôtre, que nos souvenirs ne sont pas des illusions fabriquées à l'instant. Ces croyances, dit-il, sont « proprement basiques » : rationnelles non parce qu'on les a déduites, mais parce qu'elles surgissent naturellement, dans les conditions ordinaires de l'existence, sans passer par la preuve. Or si la confiance en nos sens a ce droit, pourquoi la foi ne l'aurait-elle pas ? On objectera, et Plantinga le sait, que n'importe quelle croyance pourrait alors se réclamer de ce statut, la plus farfelue comme la plus sobre. L'objection est réelle. Mais elle vaut dans les deux sens : elle ne frappe pas la foi sans frapper aussi l'édifice entier de nos certitudes ordinaires. On ne peut pas exiger de la croyance religieuse un fondement qu'on n'exige de rien d'autre, et appeler cela de la neutralité.</p>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Arkoun, ou l'impensé de chacun</h2>
+  <p>Il restait à dire que ce sol de départ n'est pas seulement une affaire de logique ou de théologie individuelle, mais qu'il travaille des cultures entières. C'est l'apport d'un penseur algérien, Mohammed Arkoun, qui consacra sa vie à examiner les fondements de la raison en islam, sans complaisance ni dénigrement. Chaque tradition, montre-t-il, chaque société, se constitue autour d'un noyau de choses qu'elle ne discute plus, qu'elle a placées hors du champ du questionnable. Il nomme cette zone l'« impensé », et ce qu'elle interdit d'atteindre, l'« impensable ».</p>
+  <p>Ce qui rend Arkoun précieux ici, c'est qu'il refuse d'en faire le procès des seules traditions religieuses. Le rationalisme des Lumières a son impensé, le nationalisme a le sien, la modernité scientifique aussi : chacun repose sur des évidences fondatrices qu'il n'examine pas, précisément parce qu'elles sont ce depuis quoi il examine tout le reste. Nul discours ne surplombe les autres depuis un lieu qui serait, lui, sans présupposés. Arkoun ne dit pas cela pour dissoudre toute vérité dans l'équivalence, mais pour appeler chacun à une lucidité que personne ne peut se dispenser d'exercer : reconnaître son propre sol, au lieu de le prendre pour l'évidence universelle depuis laquelle juger le sol des autres.</p>
+
+  <figure class="diagram draw-in">
+    <svg viewBox="0 0 480 265" role="img" aria-label="Six courants qui rejoignent un même bassin">
+      <path d="M35 32 Q55 122 210 174" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <path d="M130 27 Q150 120 220 172" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <path d="M215 24 Q220 112 232 168" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <path d="M295 24 Q290 112 248 168" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <path d="M375 27 Q355 120 260 172" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <path d="M445 32 Q425 122 270 174" fill="none" class="s-accent" stroke-width="2" stroke-linecap="round"/>
+      <text x="35" y="20" text-anchor="middle" class="d-soft" font-size="9">Aristote</text>
+      <text x="130" y="17" text-anchor="middle" class="d-soft" font-size="9">al-Ghazālī</text>
+      <text x="212" y="15" text-anchor="middle" class="d-soft" font-size="9">Averroès</text>
+      <text x="298" y="15" text-anchor="middle" class="d-soft" font-size="9">Wittgenstein</text>
+      <text x="375" y="17" text-anchor="middle" class="d-soft" font-size="9">Plantinga</text>
+      <text x="445" y="20" text-anchor="middle" class="d-soft" font-size="9">Arkoun</text>
+      <ellipse cx="240" cy="199" rx="72" ry="27" class="d-accent" opacity="0.15"/>
+      <ellipse cx="240" cy="199" rx="72" ry="27" fill="none" class="s-accent" stroke-width="1.5"/>
+      <text x="240" y="196" text-anchor="middle" class="d-accent" font-size="12.5" font-weight="bold">le confluent</text>
+      <text x="240" y="214" text-anchor="middle" class="d-soft" font-size="10" font-style="italic">un même fond</text>
+      <text x="240" y="252" text-anchor="middle" class="d-ar d-soft" font-size="16">مجمع</text>
+    </svg>
+    <figcaption>Six sources, un point de rencontre. Le nom même de cette revue, <em>majmaʿ</em>, dit ce confluent : là où des courants venus de loin se retrouvent.</figcaption>
+  </figure>
+
+  <h2><span class="sep"><span class="mark">❦</span></span>Ce que le cercle demande</h2>
+  <p>Six voix, plusieurs langues, près de vingt-quatre siècles d'écart entre la première et la dernière, et des hommes qui, pour la plupart, ne se lisaient pas les uns les autres. Un Grec de l'Antiquité, un théologien de Bagdad, un juge de Cordoue, un philosophe autrichien, un Américain, un Algérien. Tous ont tiré le même fil, et tous ont touché le même fond : au commencement du savoir, il n'y a pas une preuve, mais un appui qu'on adopte sans pouvoir le prouver d'abord.</p>
+  <p>Ce constat, on peut le recevoir de deux manières. Comme une défaite de la raison, une invitation au relativisme où, puisque tout le monde commence par un acte de confiance, tous les commencements se vaudraient. Mais ce serait mal lire. Que personne ne parte de rien ne signifie pas que tous les points de départ soient égaux. On peut interroger la cohérence d'un sol, sa fécondité, sa capacité à rendre le monde et l'existence intelligibles, son aptitude à reconnaître ses propres limites plutôt qu'à les masquer. Un point de départ se juge à ce qu'il permet de bâtir, et à l'honnêteté avec laquelle il s'avoue point de départ.</p>
+  <p>Alors la question change de forme. Elle cesse d'être une arme que l'on retourne contre la foi de l'autre, « prouve d'abord ton fondement », exigence à laquelle nul ne peut satisfaire, ni le croyant, ni le savant, ni le sceptique. Elle devient une question qu'on se pose d'abord à soi-même, et qui vaut pour tous également : sais-tu sur quoi tu te tiens ? Et le regardes-tu avec la même lucidité que tu réclames de ton voisin ?</p>
+
+  <div class="divider">◆</div>
+  <p style="text-align:center;font-family:var(--body);font-style:italic;font-size:1.18rem;color:var(--ink-soft);">Le cercle n'est pas la faille d'une croyance particulière. Il est la condition commune de quiconque cherche à connaître. Le reconnaître ne rapproche pas de la certitude, mais peut-être d'autre chose, de plus rare : l'humilité de ceux qui savent d'où ils parlent. <span style="font-style:normal;">وَاللَّهُ أَعْلَم</span>.</p>
+
+  <p class="engage">Une objection, une idée, une lecture différente à proposer ? <a href="mailto:contact@majma.me">Écrivez à la revue</a>, chaque retour compte.</p>
+
+  <div class="further">
+    <h3>Pour aller plus loin.</h3>
+    <ul>
+      <li>Aristote, <em>Seconds Analytiques</em>, livre I (la régression des prémisses et le <em>noûs</em>).</li>
+      <li>Al-Ghazālī, <em>Al-Munqidh min al-ḍalāl</em> (« Erreur et délivrance »), trad. Farid Jabre, ou l'édition de poche courante.</li>
+      <li>Ludwig Wittgenstein, <em>De la certitude</em> (posthume, 1969), trad. Gallimard.</li>
+      <li>Alvin Plantinga, <em>Warranted Christian Belief</em> (Oxford, 2000), sur la croyance « proprement basique ».</li>
+      <li>Mohammed Arkoun, <em>Pour une critique de la raison islamique</em> (Maisonneuve et Larose, 1984), sur l'impensé et l'impensable.</li>
+      <li>À lire avec : <a href="averroes-la-raison.html">Averroès et le droit de la raison</a>, <a href="lautre-histoire-de-lislam-sunnite.html">L'autre histoire de l'islam sunnite</a> et <a href="les-signes.html">Les signes</a>. Pour une entrée plus courte sur cette même question du point de départ : <a href="ce-qui-distingue-une-ecole.html">Ce qui distingue une école</a> et <a href="croire-et-vouloir-comprendre.html">Croire, et vouloir comprendre</a>.</li>
+    </ul>
+  </div>
+
+  <p class="essay-footer-nav"><a class="backlink" href="le-desenchantement.html">← Le désenchantement du monde</a><a class="essay-next" href="le-sens-malgre-tout.html">Suite · <em>Le sens malgré tout</em> →</a></p>
+</div>
+</article>
+
+<footer class="site-footer">
+  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
+  <nav class="foot-nav">
+    <a href="le-coran.html">Les textes</a>
+    <a href="lame.html">L'âme</a>
+    <a href="le-sens.html">Le sens</a>
+    <a href="methode.html">Méthode</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="apropos.html">À propos</a>
+  </nav>
+  <p class="foot-copy">Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
+  <p class="foot-copy">© 2026 Majmaʿ · revue d'idées.</p>
+</footer>
+
+<script>
+  var bar=document.getElementById("progress");
+  function upd(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
+  document.addEventListener("scroll",upd,{passive:true});upd();
+</script>
+</body>
+</html>
