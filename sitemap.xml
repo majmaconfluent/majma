@@ -59,6 +59,12 @@
   <url><loc>https://majma.me/le-moi-et-son-image.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/je-et-tu.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
   <url>
+    <loc>https://majma.me/lautre-histoire-de-lislam-sunnite.html</loc><lastmod>2026-07-04</lastmod><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/lautre-histoire-de-lislam-sunnite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/the-other-history-of-sunni-islam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/lautre-histoire-de-lislam-sunnite.html"/>
+  </url>
+  <url>
     <loc>https://majma.me/en/</loc>
     <lastmod>2026-06-29</lastmod>
     <priority>0.9</priority>
@@ -73,6 +79,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/le-confluent-des-deux-mers.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/where-two-seas-meet.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/le-confluent-des-deux-mers.html"/>
+  </url>
+  <url>
+    <loc>https://majma.me/en/the-other-history-of-sunni-islam.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/lautre-histoire-de-lislam-sunnite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/the-other-history-of-sunni-islam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/lautre-histoire-de-lislam-sunnite.html"/>
   </url>
   <url>
     <loc>https://majma.me/en/scroll-and-pause.html</loc>
