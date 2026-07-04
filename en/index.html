@@ -73,6 +73,10 @@
 .hero-cta{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
 .btn-prim-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:var(--accent);color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;position:relative;overflow:hidden;text-decoration:none}
 .btn-sec-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border:1px solid var(--rule);background:var(--card);color:var(--ink-soft);font-family:var(--display);font-size:.9rem;font-weight:600;text-decoration:none;border-radius:99px;cursor:pointer}
+.btn-decouvre{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:#a67c2e;color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;text-decoration:none;transition:background .15s,transform .12s;position:relative;overflow:hidden;}
+.btn-decouvre::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
+.btn-decouvre:hover{background:#8a6825;transform:translateY(-1px);}
+.btn-decouvre:hover,.btn-decouvre:active,.btn-decouvre:visited,.btn-decouvre:focus{color:#fff!important;opacity:1!important;}
 .btn-prim-x::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
 @keyframes shine{0%{left:-100%}50%,100%{left:200%}}
 
@@ -238,8 +242,8 @@ html,body{overflow-x:hidden;max-width:100%;}
     <h1 class="hero-title">Three traditions, one quest</h1>
     <p class="hero-sub">Where Islamic thought meets depth psychology and comparative philosophy. Reading keys to explore, so you can think for yourself.</p>
     <div class="hero-cta">
-      <a href="/en/where-two-seas-meet.html" class="btn-prim-x">Read the first essay →</a>
-      <a href="/" class="btn-sec-x">All 35 essays (French)</a>
+      <a href="/en/three-languages.html" class="btn-decouvre">✳ Start here: the reading key</a>
+      <a href="#where-to-start" class="btn-prim-x" id="findBtn">Read the essays ↓</a>
     </div>
   </div>
 </section>
@@ -275,7 +279,7 @@ html,body{overflow-x:hidden;max-width:100%;}
   </div>
 </div>
 
-<div class="idx-section">
+<div class="idx-section" id="where-to-start">
   <div class="idx-label">Essays in English</div>
   <p class="pc-intro">Majmaʿ is written in French. These essays have been translated into English.</p>
 
