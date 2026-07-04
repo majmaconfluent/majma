@@ -106,4 +106,20 @@
   </url>
   <url><loc>https://majma.me/la-source-et-le-fleuve.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://majma.me/le-sens-avant-le-comment.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+  <url>
+    <loc>https://majma.me/trois-langues.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/trois-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/three-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/trois-langues.html"/>
+  </url>
+  <url>
+    <loc>https://majma.me/en/three-languages.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://majma.me/trois-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://majma.me/en/three-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://majma.me/trois-langues.html"/>
+  </url>
 </urlset>
