@@ -121,11 +121,7 @@
   "Kalām":"Littéralement 'la parole' ou 'la discussion' : la théologie rationnelle de l'islam, l'art de défendre et d'examiner la foi par l'argument, née des tout premiers débats sur le statut du croyant fautif et sur le destin.",
   "Miḥna":"'L'épreuve' : l'inquisition lancée en 833 par le calife al-Maʾmūn pour imposer la doctrine du Coran créé, qui coûta l'emprisonnement et la flagellation au théologien Ibn Ḥanbal. Renversée vers 848.",
   "Dukkha":"Dans le bouddhisme, la souffrance inhérente à l'existence, constatée dans la première des quatre nobles vérités. La question qu'elle appelle n'est pas 'pourquoi la souffrance existe-t-elle', mais 'comment s'en libérer'.",
-  "Tawakkul":"L'abandon confiant en Dieu, une fois qu'on a fait sa part. Non une passivité : la tradition précise qu'on attache d'abord son chameau, puis on s'en remet à Dieu pour le reste. Un des piliers de la vie spirituelle en islam.",
-  "Isrāf":"De la racine s-r-f, dépasser une limite qu'on connaissait, gaspiller ce qui avait sa juste mesure. Pas l'excès comme démesure spectaculaire, mais le franchissement conscient d'un seuil. Le Coran en fait une catégorie de personnes, les musrifūn, non un simple défaut de manières (« Il n'aime pas les musrifūn », 7:31).",
-  "Taqwā":"De la racine w-q-y, se protéger, se prémunir : l'image d'une marche prudente, attentive à ne heurter ni offenser. Plus qu'une émotion pieuse, une vigilance du cœur qui veille sur l'intention. « Ni leur chair ni leur sang ne parviennent à Dieu, mais votre taqwā », dit le Coran du sacrifice (22:37).",
-  "Mubāhāt":"De la racine b-h-w, l'éclat, la splendeur qu'on donne à voir : non toute rivalité, mais celle qui se joue devant le regard des autres, la course à l'apparence dont on se vante.",
-  "Nusub":"De la racine n-ṣ-b, dresser, planter debout, ériger : les pierres que les Arabes préislamiques dressaient eux-mêmes pour les vénérer. Le Coran vise cet acte précis, non une idée générale d'idole, en interdisant de manger ce qui y est immolé (5:3)."
+  "Tawakkul":"L'abandon confiant en Dieu, une fois qu'on a fait sa part. Non une passivité : la tradition précise qu'on attache d'abord son chameau, puis on s'en remet à Dieu pour le reste. Un des piliers de la vie spirituelle en islam."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
