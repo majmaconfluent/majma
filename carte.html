@@ -161,11 +161,14 @@ var NODES = [
   {id:"le-moi-et-son-image", t:"Le moi et son image", g:"ame"},
   {id:"trois-portes-pour-la-meme-piece",t:"Trois portes pour la même pièce",g:"ame"},
   {id:"la-source-et-le-fleuve",    t:"La source et le fleuve",              g:"lire"},
-  {id:"le-sens-avant-le-comment",  t:"Le sens avant le comment",            g:"lire"}
+  {id:"le-sens-avant-le-comment",  t:"Le sens avant le comment",            g:"lire"},
+  {id:"le-sang-quon-ne-voit-plus", t:"Le sang qu'on ne voit plus",          g:"sens"}
 ];
 
 // cross=true : liens inter-thèmes, cachés par défaut
 var EDGES = [
+  {s:"le-sang-quon-ne-voit-plus", t:"le-probleme-du-mal", cross:false},
+  {s:"le-sang-quon-ne-voit-plus", t:"shahrour-le-livre-et-le-coran", cross:true},
   {s:"averroes-la-raison", t:"la-lecture-symbolique", cross:false},
   {s:"averroes-la-raison", t:"la-source-et-le-fleuve", cross:false},
   {s:"averroes-la-raison", t:"les-deux-livres", cross:true},
