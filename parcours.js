@@ -58,13 +58,15 @@
       steps: [
         { id:'a', href:'les-signes',                   title:'Les signes : lire le monde' },
         { id:'b', href:'le-desenchantement',           title:'Le désenchantement du monde' },
-        { id:'c', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
-        { id:'d', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
-        { id:'e', href:'je-et-tu',                      title:'Je et Tu' },
-        { id:'f', href:'la-finitude',                   title:'La finitude' },
-        { id:'g', href:'ce-qui-arrete',                 title:'Ce qui arrête' },
-        { id:'h', href:'l-univers-ajuste',              title:"L'univers ajusté" },
-        { id:'i', href:'le-moi-et-son-image',           title:'Le moi et son image' },
+        { id:'c', href:'le-sang-quon-ne-voit-plus',     title:"Le sang qu'on ne voit plus" },
+        { id:'d', href:'lignorance-quon-fabrique',      title:"L'ignorance qu'on fabrique" },
+        { id:'e', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
+        { id:'f', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
+        { id:'g', href:'je-et-tu',                      title:'Je et Tu' },
+        { id:'h', href:'la-finitude',                   title:'La finitude' },
+        { id:'i', href:'ce-qui-arrete',                 title:'Ce qui arrête' },
+        { id:'j', href:'l-univers-ajuste',              title:"L'univers ajusté" },
+        { id:'k', href:'le-moi-et-son-image',           title:'Le moi et son image' },
       ]
     }
   };

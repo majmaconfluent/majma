@@ -125,7 +125,9 @@
   "Isrāf":"De la racine s-r-f, dépasser une limite qu'on connaissait, gaspiller ce qui avait sa juste mesure. Pas l'excès comme démesure spectaculaire, mais le franchissement conscient d'un seuil. Le Coran en fait une catégorie de personnes, les musrifūn, non un simple défaut de manières (« Il n'aime pas les musrifūn », 7:31).",
   "Taqwā":"De la racine w-q-y, se protéger, se prémunir : l'image d'une marche prudente, attentive à ne heurter ni offenser. Plus qu'une émotion pieuse, une vigilance du cœur qui veille sur l'intention. « Ni leur chair ni leur sang ne parviennent à Dieu, mais votre taqwā », dit le Coran du sacrifice (22:37).",
   "Mubāhāt":"De la racine b-h-w, l'éclat, la splendeur qu'on donne à voir : non toute rivalité, mais celle qui se joue devant le regard des autres, la course à l'apparence dont on se vante.",
-  "Nusub":"De la racine n-ṣ-b, dresser, planter debout, ériger : les pierres que les Arabes préislamiques dressaient eux-mêmes pour les vénérer. Le Coran vise cet acte précis, non une idée générale d'idole, en interdisant de manger ce qui y est immolé (5:3)."
+  "Nusub":"De la racine n-ṣ-b, dresser, planter debout, ériger : les pierres que les Arabes préislamiques dressaient eux-mêmes pour les vénérer. Le Coran vise cet acte précis, non une idée générale d'idole, en interdisant de manger ce qui y est immolé (5:3).",
+  "Qāṣir":"De la racine q-ṣ-r, rester en deçà, ne pas atteindre. Le jāhil qāṣir est l'ignorant qui n'a pas pu savoir : l'accès lui manquait. Son ignorance ne lui appartient pas, et elle l'excuse.",
+  "Muqaṣṣir":"De la même racine q-ṣ-r que qāṣir, mais par la forme du taqṣīr, la négligence, le manquement. Le jāhil muqaṣṣir est l'ignorant qui avait tout pour apprendre et n'a pas cherché. Il reste en deçà non parce qu'il ne pouvait pas, mais parce qu'il n'a pas voulu. Son ignorance ne le couvre pas, parce qu'elle est son œuvre. Le couple de termes est surtout formalisé dans la tradition imamite ; le principe est commun aux écoles."
 };
 
   // Termes tries du plus long au plus court (deja fait a la generation),
