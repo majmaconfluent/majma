@@ -619,3 +619,20 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 .menu-sep{height:1px;background:var(--rule);margin:.6rem .7rem;}
 .menu-list a.sec{font-size:1rem;color:var(--ink-soft);}
 .menu-list a.sec:hover{color:var(--accent);}
+
+/* Fil de progression des portes d'initiation (religion/philosophie "Pour
+   commencer"). Affiche 1 . 2 . 3, cliquable, retient la lecture même si on
+   revient en arriere. Voir GROUPS dans parcours.js. */
+.grp-trail{display:flex;align-items:center;gap:.4rem;margin:.5rem 0 1rem}
+.grp-dot{
+  display:flex;align-items:center;justify-content:center;
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  font-family:var(--display);font-size:.78rem;font-weight:700;
+  border:1.5px solid var(--rule);color:var(--ink-faint);
+  text-decoration:none;transition:border-color .15s,color .15s,background .15s;
+  flex-shrink:0;
+}
+.grp-dot:hover{border-color:var(--accent);color:var(--accent)}
+.grp-dot.is-current{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.grp-dot.is-done{border-color:var(--accent);color:#fff;background:var(--accent)}
+.grp-line{width:14px;height:1px;background:var(--rule);flex-shrink:0}

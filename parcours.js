@@ -645,7 +645,25 @@
 
   /* Exposé pour l'accueil (index.html), qui affiche les séries */
   /* Exposé pour index.html : source unique, jamais redéclarée là-bas. */
+
+  /* PORTES D'INITIATION. Groupes de textes autonomes rangés par domaine, PAS
+     des chemins a sens oblige (contrairement a PATHS) : chaque texte se lit
+     seul. Sert uniquement a afficher un fil de reprise leger sur la page
+     ("1 . 2 . 3") et a retrouver ou l'on s'est arrete si on revient en
+     arriere. Ne pas migrer vers PATHS : la difference est volontaire. */
+  var GROUPS = {
+    religion: {
+      name: 'Religion · Pour commencer',
+      slugs: ['croire-et-vouloir-comprendre','ce-qui-distingue-une-religion','quand-la-foi-se-met-a-raisonner']
+    },
+    philosophie: {
+      name: 'Philosophie · Pour commencer',
+      slugs: ['ce-que-veut-dire-philosopher','ce-qui-distingue-une-ecole']
+    }
+  };
+
   window.MAJMA_PATHS = PATHS;
+  window.MAJMA_GROUPS = GROUPS;
   window.MAJMA_SERIES = SERIES;
   window.MAJMA_MAP = MAP;
 
