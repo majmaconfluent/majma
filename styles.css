@@ -128,6 +128,9 @@ a:hover{color:var(--accent);opacity:.78;}
 /* ---------------- PAGE D'ARTICLE ---------------- */
 .article-head{text-align:left;padding:3.2rem 1.7rem 1rem;max-width:var(--measure);margin:0 auto;}
 .article-head .kicker{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#b8923f;}
+@media (max-width:480px){
+  .article-head .kicker{font-size:.72rem;letter-spacing:.1em;display:block;line-height:1.5}
+}
 .article-head h1{font-family:var(--display);font-weight:800;font-size:2.7rem;line-height:1.0;letter-spacing:-.025em;margin:.5rem 0 .5rem;}
 .article-head .sub{font-family:var(--body);font-style:italic;font-size:1.35rem;color:var(--ink-soft);margin:0;}
 .article-head .byline{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:1.3rem;}
