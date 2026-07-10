@@ -122,6 +122,7 @@
       ]
     }
   };
+;
 
   /* Alias dérivés : ne jamais les saisir à la main, ils suivent PATHS. */
   var COLORS = {}; Object.keys(PATHS).forEach(function(k){ COLORS[k] = PATHS[k].color; });
