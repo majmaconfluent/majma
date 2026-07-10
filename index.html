@@ -70,6 +70,16 @@
 .hero-rule-r{background:linear-gradient(to left,transparent,var(--gold))}
 .hero-rule-txt{font-family:var(--display);font-size:1rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
 .hero-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.1;color:var(--ink);margin-bottom:.8rem}
+/* Les trois traditions portent la couleur de leur rubrique, infusee dans
+   l'encre : le code visuel du site s'apprend des le titre. */
+.ht-islam{color:color-mix(in srgb,#0e6b60 42%,var(--ink))}
+.ht-psy{color:color-mix(in srgb,#a67c2e 42%,var(--ink))}
+.ht-philo{color:color-mix(in srgb,#2d8c6e 42%,var(--ink))}
+/* En sombre l'encre est creme : on infuse des teintes claires, sinon les
+   verts fonces virent au beige terne. */
+:root[data-theme="dark"] .ht-islam{color:color-mix(in srgb,#4bb3a4 45%,var(--ink))}
+:root[data-theme="dark"] .ht-psy{color:color-mix(in srgb,#d6a851 45%,var(--ink))}
+:root[data-theme="dark"] .ht-philo{color:color-mix(in srgb,#5cc39d 45%,var(--ink))}
 .hero-sub{color:var(--ink-soft);font-size:1.02rem;line-height:1.75;max-width:450px;margin:0 auto 1.5rem;font-style:italic}
 .hero-cta{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
 .btn-prim-x{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:var(--accent);color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;position:relative;overflow:hidden;text-decoration:none}
@@ -175,8 +185,10 @@
 .brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1}
 .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s,background .15s;flex:0 0 auto}
 .hero-cta{display:flex;flex-direction:column;align-items:center;gap:.8rem;}
-.hero-secondary{display:inline-block;margin-top:.85rem;font-size:.82rem;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule);}
-.hero-secondary:hover{color:var(--ink);text-decoration-color:currentColor;}
+.hero-secondary{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);}
+.hero-secondary::after{content:'\2192';transition:transform .18s}
+.hero-secondary:hover{text-decoration-color:currentColor;}
+.hero-secondary:hover::after{transform:translateX(3px)}
 .firststeps{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.1rem}
 @media(max-width:720px){.firststeps{grid-template-columns:1fr}}
 .fs-card{display:flex;flex-direction:column;gap:.35rem;padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:10px;text-decoration:none;background:var(--card,transparent);transition:border-color .18s,transform .18s}
@@ -281,9 +293,9 @@
       <div class="hero-rule-txt">Essais</div>
       <div class="hero-rule-line hero-rule-r"></div>
     </div>
-    <h1 class="hero-title">Islam, psychologie des profondeurs, philosophie</h1>
+    <h1 class="hero-title"><span class="ht-islam">Islam</span>, <span class="ht-psy">psychologie des profondeurs</span>, <span class="ht-philo">philosophie</span></h1>
     <p class="hero-sub">Des clés de lecture, pour penser par soi-même.</p>
-    <a href="trois-langues.html" class="hero-secondary">Lire d'abord le texte d'introduction · 3 min</a>
+    <a href="trois-langues.html" class="hero-secondary">Lire le texte d'introduction · 3 min</a>
   </div>
 </section>
 
