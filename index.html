@@ -707,8 +707,32 @@ var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lectu
 })();
 
 var bar=document.getElementById("progress");
-function upd(){var hh=document.documentElement,m=hh.scrollHeight-hh.clientHeight;if(bar)bar.style.width=(m>0?(hh.scrollTop/m)*100:0)+"%";}
-document.addEventListener("scroll",upd,{passive:true});upd();
+var progRaf=null,progMax=0,progMaxAge=0;
+function measureMax(){
+  var hh=document.documentElement;
+  progMax=hh.scrollHeight-hh.clientHeight;
+  progMaxAge=Date.now();
+}
+function upd(){
+  progRaf=null;
+  var hh=document.documentElement;
+  // Le document bouge sous le scroll (details qui s'ouvrent, cartes qui
+  // se re-rendent) : ne remesurer scrollHeight qu'à intervalle, jamais à
+  // chaque frame, pour que la barre ne saute pas pendant un re-rendu.
+  if(Date.now()-progMaxAge>250)measureMax();
+  var top=hh.scrollTop;
+  if(top+hh.clientHeight>progMax)measureMax(); // on a dépassé l'ancienne mesure : rattraper tout de suite
+  if(bar)bar.style.width=(progMax>0?Math.max(0,Math.min(100,(top/progMax)*100)):0)+"%";
+}
+function onScroll(){if(progRaf===null)progRaf=requestAnimationFrame(upd);}
+measureMax();
+document.addEventListener("scroll",onScroll,{passive:true});
+window.addEventListener("resize",function(){measureMax();onScroll();});
+// Un <details> qui s'ouvre/ferme ou un re-rendu change la hauteur du
+// document sans déclencher de scroll : remesurer sur ces événements aussi.
+document.addEventListener("toggle",function(){measureMax();onScroll();},true);
+window.addEventListener("majma:read-changed",function(){measureMax();onScroll();});
+upd();
 
 // Constellation animée du hero (plein écran)
 (function(){
