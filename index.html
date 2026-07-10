@@ -90,8 +90,11 @@
 .ip-info{flex:1;min-width:0}
 .ip-name{display:block;font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink)}
 .ip-why{display:block;font-size:.82rem;color:var(--ink-soft);font-style:italic;line-height:1.4;margin-top:.1rem}
-.ip-right{flex-shrink:0;text-align:right;padding-left:.4rem}
-.ip-cnt{display:block;font-family:var(--display);font-size:.72rem;color:var(--ink-faint)}
+.ip-right{flex-shrink:0;text-align:right;padding-left:.4rem;max-width:38%}
+.ip-cnt{display:block;font-family:var(--display);font-size:.72rem;color:var(--ink-faint);white-space:normal;line-height:1.35}
+.ip-more{display:flex;align-items:center;justify-content:center;gap:.55rem;width:100%;font-family:var(--display);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:1px dashed var(--rule);border-radius:8px;padding:.55rem .8rem;margin:.9rem 0 .5rem;cursor:pointer}
+.ip-more .ip-more-arr{transition:transform .2s}
+.ip-more.open .ip-more-arr{transform:rotate(180deg)}
 .ip-arrow{font-size:.72rem;color:var(--rule);margin-top:.1rem;display:inline-block;transition:transform .22s,color .2s}
 .ip-item[open] .ip-arrow{transform:rotate(180deg);color:var(--c)}
 .ip-body{position:relative;padding:.8rem 1.1rem 1.1rem}
@@ -288,8 +291,34 @@
   </div>
 </section>
 
+<!-- PREMIERS PAS -->
+<div class="idx-section" id="commencer" style="padding-top:1.6rem">
+  <div class="idx-label">Premiers pas</div>
+  <p class="pc-intro">Trois textes courts, un par domaine. Aucun ne suppose de connaissance préalable, et chacun se lit seul.</p>
+  <div class="firststeps">
+    <a class="fs-card" href="croire-et-vouloir-comprendre.html">
+      <span class="fs-dom" style="--fc:#0e6b60">Théologie</span>
+      <span class="fs-t">Croire, et vouloir comprendre</span>
+      <span class="fs-h">La foi cherche l'intelligence, elle ne la fuit pas.</span>
+      <span class="fs-min">9 min</span>
+    </a>
+    <a class="fs-card" href="jung-en-dix-minutes.html">
+      <span class="fs-dom" style="--fc:#a67c2e">Psychologie</span>
+      <span class="fs-t">Ce qui agit sans qu'on le sache</span>
+      <span class="fs-h">Jung : l'inconscient, les archétypes, le Soi.</span>
+      <span class="fs-min">10 min</span>
+    </a>
+    <a class="fs-card" href="ce-que-veut-dire-philosopher.html">
+      <span class="fs-dom" style="--fc:#2d8c6e">Philosophie</span>
+      <span class="fs-t">Ce que veut dire philosopher</span>
+      <span class="fs-h">Poser une question qu'on ne peut pas refermer.</span>
+      <span class="fs-min">9 min</span>
+    </a>
+  </div>
+</div>
+
 <!-- TROIS PORTES THÉMATIQUES -->
-<div class="idx-section" style="padding-top:1.6rem">
+<div class="idx-section">
   <div class="idx-label">Explorer par thème</div>
   <p class="pc-intro">Trois portes d'entrée vers un même questionnement. Choisissez celle qui vous appelle, ou laissez-vous guider plus bas.</p>
   <div class="portes">
@@ -320,32 +349,9 @@
   </div>
 </div>
 
-<!-- PARCOURS -->
-<div class="idx-section" id="commencer">
-  <div class="idx-label">Premiers pas</div>
-  <p class="pc-intro">Trois textes courts, un par domaine. Aucun ne suppose de connaissance préalable, et chacun se lit seul.</p>
-  <div class="firststeps">
-    <a class="fs-card" href="croire-et-vouloir-comprendre.html">
-      <span class="fs-dom" style="--fc:#0e6b60">Théologie</span>
-      <span class="fs-t">Croire, et vouloir comprendre</span>
-      <span class="fs-h">La foi cherche l'intelligence, elle ne la fuit pas.</span>
-      <span class="fs-min">9 min</span>
-    </a>
-    <a class="fs-card" href="jung-en-dix-minutes.html">
-      <span class="fs-dom" style="--fc:#a67c2e">Psychologie</span>
-      <span class="fs-t">Ce qui agit sans qu'on le sache</span>
-      <span class="fs-h">Jung : l'inconscient, les archétypes, le Soi.</span>
-      <span class="fs-min">10 min</span>
-    </a>
-    <a class="fs-card" href="ce-que-veut-dire-philosopher.html">
-      <span class="fs-dom" style="--fc:#2d8c6e">Philosophie</span>
-      <span class="fs-t">Ce que veut dire philosopher</span>
-      <span class="fs-h">Poser une question qu'on ne peut pas refermer.</span>
-      <span class="fs-min">9 min</span>
-    </a>
-  </div>
-
-  <div class="idx-label" style="margin-top:2.4rem">Une série</div>
+<!-- SÉRIE ET CHEMINS -->
+<div class="idx-section" id="chemins">
+  <div class="idx-label">Une série</div>
   <p class="pc-intro">À lire dans l'ordre.</p>
   <div id="idx-series"></div>
 
@@ -469,6 +475,7 @@ function isStepDone(step){
   var s=gs();return !!(s._read&&s._read[step.href]);
 }
 
+var moreOpen={};
 function renderBody(pid){
   var p=PATHS[pid],c=GREENS[pid];
   var dn=p.steps.filter(function(s){return isStepDone(s);}).length,tot=p.steps.length;
@@ -490,8 +497,16 @@ function renderBody(pid){
   h+='<div class="ip-fleuron">❦ · ❦ · ❦</div>';
 
   h+='<div class="ip-steps">';
+  var FIRST=5,folded=p.steps.length>FIRST+1;
+  var restDone=folded&&(p.steps.slice(FIRST).some(function(s){return isStepDone(s);})||p.steps.slice(0,FIRST).every(function(s){return isStepDone(s);}));
+  var showRest=!folded||restDone||!!moreOpen[pid];
   p.steps.forEach(function(step,i){
     var done=isStepDone(step);
+    if(folded&&i===FIRST){
+      var nRest=p.steps.length-FIRST;
+      h+='<button class="ip-more'+(showRest?' open':'')+'" data-more="'+pid+'"><span>Pour aller plus loin sur ce chemin · '+nRest+' essais</span><span class="ip-more-arr">▾</span></button>';
+      h+='<div class="ip-rest"'+(showRest?'':' hidden')+'>';
+    }
     h+='<div class="ip-step'+(done?' done':'')+'">';
     h+='<div class="ip-node" style="background:'+(done?c:'var(--paper)')+';border-color:'+(done?c:c+'55')+';color:'+(done?'#fff':c)+'">'+(done?'✓':(i+1))+'</div>';
     h+='<div class="ip-step-body"><a class="ip-step-title" href="'+step.href+'.html" style="color:inherit;text-decoration:none;">'+step.t+'</a><div class="ip-step-meta">~'+step.min+' min</div>';
@@ -500,6 +515,7 @@ function renderBody(pid){
     h+='<button class="ip-pill" data-pid="'+pid+'" data-href="'+step.href+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
     h+='</div>';
   });
+  if(folded)h+='</div>';
   h+='</div>';
 
   if(allDone){
@@ -524,7 +540,11 @@ function updateCnt(det,pid){
   var st=PATHS[pid].steps;
   var dn=st.filter(function(x){return isStepDone(x);}).length;
   var cnt=det.querySelector('.ip-cnt');
-  if(cnt)cnt.innerHTML=(dn>0?'<span style="color:'+c+';font-weight:700">'+dn+' / '+st.length+'</span>':st.length+' essais')+' · '+totalMin(st);
+  if(cnt){
+    if(dn>0){cnt.innerHTML='<span style="color:'+c+';font-weight:700">'+dn+' / '+st.length+'</span> · '+totalMin(st);}
+    else if(st.length>6){cnt.innerHTML='Débuter · '+totalMin(st.slice(0,5));}
+    else{cnt.innerHTML=st.length+' essais · '+totalMin(st);}
+  }
 }
 
 function animateBeam(canvas){/* placeholder */}
@@ -586,6 +606,15 @@ function render(){
     });
 
     det.addEventListener('click',function(e){
+      var more=e.target.closest('[data-more]');
+      if(more){
+        e.preventDefault();
+        moreOpen[pid]=!moreOpen[pid];
+        var rest=body.querySelector('.ip-rest');
+        if(rest)rest.hidden=!moreOpen[pid];
+        more.classList.toggle('open',!!moreOpen[pid]);
+        return;
+      }
       var btn=e.target.closest('.ip-pill');
       var rst=e.target.closest('[data-reset]');
       var cls=e.target.closest('[data-close]');
@@ -611,7 +640,7 @@ function render(){
       }
       if(cls){
         e.preventDefault();
-        var sec=document.getElementById('commencer');
+        var sec=document.getElementById('chemins');
         var top=sec?sec.getBoundingClientRect().top+window.pageYOffset-70:0;
         window.scrollTo({top:top,behavior:'smooth'});
         setTimeout(function(){det.open=false;},400);
