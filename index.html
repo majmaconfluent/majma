@@ -35,7 +35,7 @@
 .em-ar{font-family:"Amiri",serif;font-size:.9rem;color:var(--accent);display:block;direction:rtl;margin-bottom:.15rem}
 .em-t{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink);display:block}
 .em-d{font-size:.78rem;color:var(--ink-soft);display:block;margin-top:.1rem}
-.p-foi{--c:#0e6b60}.p-ame{--c:#1a7a5a}.p-texte{--c:#2d8c6e}.p-monde{--c:#0a4d44}
+.p-foi{--c:#0e6b60}.p-ame{--c:#1a7a5a}.p-texte{--c:#2d8c6e}.p-monde{--c:#0a4d44}.p-signe{--c:#2d8c6e}
 /* Portes : couleurs de la carte des essais */
 .porte.p-texte{--c:#0e6b60}
 .porte.p-ame{--c:#a67c2e}
@@ -176,6 +176,27 @@
 .btn-decouvre::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
 .btn-decouvre:hover{background:#8a6825;transform:translateY(-1px);}
 .btn-decouvre:hover,.btn-decouvre:active,.btn-decouvre:visited,.btn-decouvre:focus{color:#fff!important;opacity:1!important;}
+.firststeps{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.1rem}
+@media(max-width:720px){.firststeps{grid-template-columns:1fr}}
+.fs-card{display:flex;flex-direction:column;gap:.35rem;padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:10px;text-decoration:none;background:var(--card,transparent);transition:border-color .18s,transform .18s}
+.fs-card:hover{border-color:var(--fc,var(--accent));transform:translateY(-2px)}
+.fs-dom{font-family:var(--display);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--fc)}
+.fs-t{font-family:var(--display);font-size:1.02rem;color:var(--ink);line-height:1.3}
+.fs-h{font-family:var(--body);font-size:.86rem;color:var(--ink-soft);line-height:1.45;flex:1}
+.fs-min{font-family:var(--body);font-size:.76rem;color:var(--ink-soft);opacity:.75}
+.serie-card{border:1px solid var(--rule);border-left:3px solid var(--sc);border-radius:10px;padding:1.1rem 1.2rem;margin-top:1.1rem}
+.serie-head{display:flex;align-items:baseline;gap:.75rem;justify-content:space-between}
+.serie-name{font-family:var(--display);font-size:1.08rem;color:var(--ink);line-height:1.25}
+.serie-count{font-family:var(--display);font-size:.72rem;letter-spacing:.08em;color:var(--sc);border:1px solid var(--sc);border-radius:99px;padding:.1rem .55rem;white-space:nowrap;flex:none}
+@media(max-width:520px){
+  .serie-head{flex-direction:column;align-items:flex-start;gap:.45rem}
+}
+.serie-steps{list-style:none;counter-reset:se;margin:.85rem 0 0;padding:0}
+.serie-step{counter-increment:se;display:flex;align-items:baseline;gap:.55rem;padding:.3rem 0;font-family:var(--body);font-size:.93rem}
+.serie-step::before{content:counter(se);font-family:var(--display);font-size:.72rem;color:var(--ink-soft);opacity:.55;min-width:1rem}
+.serie-step.is-read::before{content:"✓";color:var(--sc);opacity:1}
+.serie-step a{color:var(--ink-soft);text-decoration:none}
+.serie-step a:hover{color:var(--sc)}
 .menu-toggle:hover{border-color:var(--accent);color:var(--accent)}
 .site-nav{display:none!important}
 .search-panel{max-width:960px;margin:0 auto}
@@ -262,7 +283,7 @@
     <p class="hero-sub">Là où la pensée islamique rencontre la psychologie des profondeurs et la pensée comparée. Des clés de lecture à explorer, pour penser par soi-même.</p>
     <div class="hero-cta">
       <a href="trois-langues.html" class="btn-decouvre">✳ Nouveau ici ? Lisez d'abord ceci</a>
-      <a href="#commencer" class="btn-prim-x" id="findBtn">Explorer les quatre parcours ↓</a>
+      <a href="#commencer" class="btn-prim-x" id="findBtn">Par où commencer ↓</a>
     </div>
   </div>
 </section>
@@ -270,7 +291,7 @@
 <!-- TROIS PORTES THÉMATIQUES -->
 <div class="idx-section" style="padding-top:1.6rem">
   <div class="idx-label">Explorer par thème</div>
-  <p class="pc-intro">Trois portes d'entrée vers un même questionnement. Choisissez celle qui vous appelle, ou laissez-vous guider par un parcours plus bas.</p>
+  <p class="pc-intro">Trois portes d'entrée vers un même questionnement. Choisissez celle qui vous appelle, ou laissez-vous guider plus bas.</p>
   <div class="portes">
     <a class="porte p-texte" href="le-coran.html" style="--pc:var(--c)">
       <span class="porte-ill"><svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="3" fill="color-mix(in srgb,var(--pc) 15%,transparent)"/><line x1="14" y1="14" x2="26" y2="14" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="20" x2="26" y2="20" stroke="var(--pc)" stroke-width="1.6"/><line x1="14" y1="26" x2="22" y2="26" stroke="var(--pc)" stroke-width="1.6"/></svg></span>
@@ -301,8 +322,35 @@
 
 <!-- PARCOURS -->
 <div class="idx-section" id="commencer">
-  <div class="idx-label">Par où commencer ?</div>
-  <p class="pc-intro">Choisissez ce qui vous touche. Chaque chemin réunit 5 essais à lire dans l'ordre. Marquez votre progression, le site retient où vous en êtes.</p>
+  <div class="idx-label">Premiers pas</div>
+  <p class="pc-intro">Trois textes courts, un par domaine. Aucun ne suppose de connaissance préalable, et chacun se lit seul.</p>
+  <div class="firststeps">
+    <a class="fs-card" href="croire-et-vouloir-comprendre.html">
+      <span class="fs-dom" style="--fc:#0e6b60">Théologie</span>
+      <span class="fs-t">Croire, et vouloir comprendre</span>
+      <span class="fs-h">La foi cherche l'intelligence, elle ne la fuit pas.</span>
+      <span class="fs-min">9 min</span>
+    </a>
+    <a class="fs-card" href="jung-en-dix-minutes.html">
+      <span class="fs-dom" style="--fc:#a67c2e">Psychologie</span>
+      <span class="fs-t">Ce qui agit sans qu'on le sache</span>
+      <span class="fs-h">Jung : l'inconscient, les archétypes, le Soi.</span>
+      <span class="fs-min">10 min</span>
+    </a>
+    <a class="fs-card" href="ce-que-veut-dire-philosopher.html">
+      <span class="fs-dom" style="--fc:#2d8c6e">Philosophie</span>
+      <span class="fs-t">Ce que veut dire philosopher</span>
+      <span class="fs-h">Poser une question qu'on ne peut pas refermer.</span>
+      <span class="fs-min">9 min</span>
+    </a>
+  </div>
+
+  <div class="idx-label" style="margin-top:2.4rem">Une série</div>
+  <p class="pc-intro">À lire dans l'ordre.</p>
+  <div id="idx-series"></div>
+
+  <div class="idx-label" style="margin-top:2.4rem">Ou suivre un chemin</div>
+  <p class="pc-intro">Chaque chemin réunit des essais autour d'une même question. Marquez votre progression, le site retient où vous en êtes.</p>
   <div id="idx-paths"></div>
 </div>
 
@@ -352,7 +400,6 @@
 
 <script>
 var SK='majma_parcours_v2';
-var GREENS={foi:'#0e6b60',ame:'#a67c2e',texte:'#0e6b60',monde:'#2d8c6e'};
 var GOLD='#b8923f';
 
 var CITATIONS={
@@ -382,57 +429,22 @@ var CITATIONS={
   ],
 };
 
-var PATHS={
-  foi:{n:'1',name:'Penser sa foi',cls:'p-foi',
-    why:"Sources, raison, liberté : les grandes questions de la foi, posées honnêtement.",
-    steps:[
-      {id:'a',href:'quest-ce-qu-une-lecture',t:"Qu'est-ce qu'une lecture ?",min:10,h:"Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s'applique pas."},
-      {id:'b',href:'la-source-et-le-fleuve',t:'La source et le fleuve',min:16,h:"Coran et Sunnah : d'où viennent les règles que nous suivons ?"},
-      {id:'c',href:'averroes-la-raison',t:'Averroès et le droit de la raison',min:12,h:"Au XIIe siècle : la raison a-t-elle droit de cité dans l'islam ?"},
-      {id:'d',href:'lautre-histoire-de-lislam-sunnite',t:"L'autre histoire de l'islam sunnite",min:18,h:"Deux traditions théologiques également anciennes, très inégalement connues aujourd'hui."},
-      {id:'e',href:'le-libre-arbitre',t:'Le libre arbitre et le décret',min:18,h:"Ce que le Coran dit vraiment, avant que la théologie ne le durcisse."},
-      {id:'f',href:'le-probleme-du-mal',t:'Le problème du mal',min:14,h:"La question la plus difficile, posée sans raccourci."},
-      {id:'g',href:'le-coran-en-pratique',t:'Le Coran, concrètement',min:6,h:"Sourate, verset, révélation : ce qu'il faut savoir avant de lire."},
-      {id:'h',href:'les-deux-livres',t:'Les deux livres',min:7,h:"Science et foi ne parlent pas de la même chose. Comment les lire ensemble."},
-      {id:'i',href:'raison-et-revelation',t:'Raison et révélation',min:12,h:"Averroès, Maïmonide, Thomas d'Aquin : trois réponses à la même question."},
-    ]},
-  ame:{n:'2',name:'Je veux me connaître',cls:'p-ame',
-    why:"Un voyage intérieur, entre psychologie des profondeurs et traditions de l'âme.",
-    steps:[
-      {id:'a',href:'la-fitra',t:'La fiṭra et la dignité',min:10,h:"Ce qui est inscrit en nous avant toute culture."},
-      {id:'b',href:'jung-en-dix-minutes',t:"Ce qui agit sans qu'on le sache",min:10,h:"Jung : l'inconscient, les archétypes, le Soi."},
-      {id:'c',href:'ombre-et-nafs',t:"L'ombre et le nafs",min:12,h:"Ce que Jung et le Coran disent de la même réalité."},
-      {id:'d',href:'le-coeur',t:'Le cœur',min:9,h:"Le qalb, organe de la compréhension, pas seulement des émotions."},
-      {id:'e',href:'maitriser-le-desir',t:'Maîtriser le désir',min:12,h:"Hawā, taṇhā, concupiscence : une même lutte intérieure."},
-      {id:'f',href:'le-confluent-des-deux-mers',t:'Le confluent des deux mers',min:14,h:"Jung et Khidr au bord du fleuve. Le récit coranique de l'individuation."},
-      {id:'g',href:'les-reves',t:'Les rêves',min:10,h:"De Yūsuf à Freud et Jung : le rêve comme langue de l'âme."},
-      {id:'h',href:'les-destins-du-moi',t:'Les destins du moi',min:8,h:"Nafs, anattā, ego, Soi : quatre façons d'appeler la même question."},
-      {id:'i',href:'le-souffle',t:'Le souffle',min:11,h:"Al-rūḥ et la création d'Adam : le souffle comme lien entre Dieu et l'homme."},
-    ]},
-  texte:{n:'3',name:'Je veux lire le Coran autrement',cls:'p-texte',
-    why:"Les outils pour lire le Coran dans sa langue, sa rhétorique et sa structure propres.",
-    steps:[
-      {id:'a',href:'quest-ce-qu-une-lecture',t:"Qu'est-ce qu'une lecture ?",min:10,h:"Lire un texte sacré n'est pas lire un roman. Mais qu'est-ce que cela change ?"},
-      {id:'b',href:'le-premier-mot',t:'Le premier mot',min:9,h:"Iqraʾ, un ordre de lire, et ce que cela dit de la révélation."},
-      {id:'c',href:'la-rhetorique-semitique',t:'La rhétorique sémitique',min:12,h:"Symétries concentriques du Coran : une fois qu'on le sait, on ne lit plus pareil."},
-      {id:'d',href:'la-lecture-symbolique',t:'La lecture symbolique',min:12,h:"Ẓāhir et bāṭin : la lettre et le sens profond."},
-      {id:'e',href:'les-mots-et-le-monde',t:'Les mots et le monde',min:15,h:"Izutsu et la sémantique coranique : les mots structurent une vision du monde."},
-      {id:'f',href:'shahrour-le-livre-et-le-coran',t:'Shahrour : le Livre et le Coran',min:6,h:"Une méthode de lecture déroutante, et ce qu'elle déplace vraiment."},
-      {id:'g',href:'le-monde-imaginal',t:'Le monde entre deux',min:7,h:"Corbin et Jung ont nommé le même espace : entre matière et abstraction."},
-      {id:'h',href:'le-sens-avant-le-comment',t:'Le sens avant le comment',min:11,h:"Certaines vérités se donnent dans leur sens sans jamais livrer leur comment."},
-    ]},
-  monde:{n:'4',name:"Trouver du sens aujourd'hui",cls:'p-monde',
-    why:"Désenchantement, attention, finitude : des clés pour penser notre époque.",
-    steps:[
-      {id:'a',href:'le-desenchantement',t:'Le désenchantement du monde',min:12,h:"Weber et la perte du sacré dans la modernité."},
-      {id:'b',href:'le-scroll-et-la-pause',t:'Le scroll et la pause',min:10,h:"Le design persuasif, le hawā, et comment reprendre son attention."},
-      {id:'c',href:'le-sens-malgre-tout',t:'Le sens malgré tout',min:11,h:"Frankl dans les camps, Camus face à l'absurde."},
-      {id:'d',href:'je-et-tu',t:'Je et Tu',min:9,h:"Martin Buber et la relation vraie à l'ère des réseaux."},
-      {id:'e',href:'la-finitude',t:'La finitude',min:10,h:"Heidegger, l'islam et la mort comme horizon de la vie."},
-      {id:'f',href:'l-univers-ajuste',t:"L'univers ajusté",min:6,h:"Le réglage fin de l'univers : hasard ou dessein ? Ce que la physique permet de dire."},
-      {id:'g',href:'le-moi-et-son-image',t:'Le moi et son image',min:6,h:"Sur les réseaux, on gère une image. Le Coran et Jung ont nommé ce piège."},
-    ]}
-};
+/* Source unique : parcours.js (window.MAJMA_PATHS). Ne rien redéclarer ici.
+   Pour ajouter un parcours ou une série, éditer parcours.js uniquement.
+   parcours.js est chargé en `defer` : il s'exécute APRÈS ce script inline.
+   On ne peut donc pas lire MAJMA_PATHS ici, seulement au moment du rendu
+   (render / renderSeries), qui a lieu sur DOMContentLoaded. */
+var PATHS = {}, GREENS = {};
+/* Durée totale d'un ensemble d'étapes. Toujours calculée, jamais écrite. */
+function totalMin(steps){
+  var m=steps.reduce(function(a,s){return a+(s.min||0);},0);
+  return m>=60 ? Math.floor(m/60)+'h'+(m%60?String(m%60).padStart(2,'0'):'') : m+' min';
+}
+function loadPaths(){
+  PATHS = window.MAJMA_PATHS || {};
+  GREENS = {};
+  Object.keys(PATHS).forEach(function(k){ GREENS[k] = PATHS[k].color; });
+}
 
 function gs(){try{return JSON.parse(localStorage.getItem(SK)||'{}');}catch(e){return{};}}
 function ss(s){try{localStorage.setItem(SK,JSON.stringify(s));}catch(e){}}
@@ -485,7 +497,7 @@ function renderBody(pid){
     h+='<div class="ip-step-body"><a class="ip-step-title" href="'+step.href+'.html" style="color:inherit;text-decoration:none;">'+step.t+'</a><div class="ip-step-meta">~'+step.min+' min</div>';
     if(!done)h+='<div class="ip-step-hint">'+step.h+'</div>';
     h+='</div>';
-    h+='<button class="ip-pill" data-pid="'+pid+'" data-sid="'+step.id+'" data-href="'+step.href+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
+    h+='<button class="ip-pill" data-pid="'+pid+'" data-href="'+step.href+'" style="'+(done?'border-color:'+c+';color:'+c+';background:'+c+'12':'')+'">'+(done?'✓ Lu':'+ Marquer')+'</button>';
     h+='</div>';
   });
   h+='</div>';
@@ -509,12 +521,42 @@ function renderBody(pid){
 
 function updateCnt(det,pid){
   var c=GREENS[pid];
-  var dn=PATHS[pid].steps.filter(function(x){return isStepDone(x);}).length;
+  var st=PATHS[pid].steps;
+  var dn=st.filter(function(x){return isStepDone(x);}).length;
   var cnt=det.querySelector('.ip-cnt');
-  if(cnt)cnt.innerHTML=dn>0?'<span style="color:'+c+';font-weight:700">'+dn+' / '+PATHS[pid].steps.length+'</span>':PATHS[pid].steps.length+' essais';
+  if(cnt)cnt.innerHTML=(dn>0?'<span style="color:'+c+';font-weight:700">'+dn+' / '+st.length+'</span>':st.length+' essais')+' · '+totalMin(st);
 }
 
 function animateBeam(canvas){/* placeholder */}
+
+function isSlugRead(slug){
+  if(window.MajmaRead&&typeof window.MajmaRead.isRead==='function')return window.MajmaRead.isRead(slug);
+  var s=gs();return !!(s._read&&s._read[slug]);
+}
+
+function renderSeries(){
+  var el=document.getElementById('idx-series');
+  if(!el||!window.MAJMA_SERIES)return;
+  el.innerHTML='';
+  Object.keys(window.MAJMA_SERIES).forEach(function(sid){
+    var s=window.MAJMA_SERIES[sid];
+    var done=s.steps.filter(function(st){return isSlugRead(st.href);}).length;
+    var card=document.createElement('div');
+    card.className='serie-card';
+    card.style.setProperty('--sc',s.color);
+    var h='<div class="serie-head">';
+    h+='<span class="serie-name">'+s.name+'</span>';
+    h+='<span class="serie-count">'+done+' / '+s.steps.length+' · '+totalMin(s.steps)+'</span></div>';
+    h+='<ol class="serie-steps">';
+    s.steps.forEach(function(st){
+      h+='<li class="serie-step'+(isSlugRead(st.href)?' is-read':'')+'">';
+      h+='<a href="'+st.href+'.html">'+st.t+'</a></li>';
+    });
+    h+='</ol>';
+    card.innerHTML=h;
+    el.appendChild(card);
+  });
+}
 
 function render(){
   var el=document.getElementById('idx-paths');if(!el)return;
@@ -523,7 +565,7 @@ function render(){
     var p=PATHS[pid],c=GREENS[pid];
     var det=document.createElement('details');
     det.className='ip-item '+p.cls;det.id='path-'+pid;det.style.setProperty('--c',c);det.style.setProperty('--gold',GOLD);
-    det.innerHTML='<summary class="ip-summary"><span class="ip-num">'+p.n+'</span><span class="ip-info"><span class="ip-name">'+p.name+'</span><span class="ip-why">'+p.why+'</span></span><span class="ip-right"><span class="ip-cnt">'+p.steps.length+' essais</span><span class="ip-arrow">▼</span></span></summary>';
+    det.innerHTML='<summary class="ip-summary"><span class="ip-num">'+p.num+'</span><span class="ip-info"><span class="ip-name">'+p.name+'</span><span class="ip-why">'+p.why+'</span></span><span class="ip-right"><span class="ip-cnt">'+p.steps.length+' essais</span><span class="ip-arrow">▼</span></span></summary>';
     var body=document.createElement('div');body.className='ip-body';body.innerHTML=renderBody(pid);
     det.appendChild(body);el.appendChild(det);
     updateCnt(det,pid);
@@ -588,11 +630,12 @@ function animBeam(body){
   requestAnimationFrame(go);
 }
 
-document.addEventListener('DOMContentLoaded',render);
+document.addEventListener('DOMContentLoaded',function(){loadPaths();render();renderSeries();});
 // Re-render si l'état de lecture change (autre onglet, retour navigation)
 window.addEventListener('majma:read-changed',function(){
   var open=document.querySelector('.ip-item[open]');
   render();
+  renderSeries();
   if(open){var again=document.getElementById(open.id);if(again)again.open=true;}
 });
 // Ouvre la recherche si on arrive depuis une autre page via #rechercher
@@ -623,7 +666,7 @@ document.getElementById('findBtn').addEventListener('click',function(e){
 });
 
 // Recherche
-var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lecture ?","tag":"Religion · Philosophie"},{"href":"la-source-et-le-fleuve.html","title":"La source et le fleuve","tag":"Religion · Histoire"},{"href":"averroes-la-raison.html","title":"Averroès et le droit de la raison","tag":"Philosophie"},{"href":"lautre-histoire-de-lislam-sunnite.html","title":"L'autre histoire de l'islam sunnite","tag":"Religion · Histoire"},{"href":"le-libre-arbitre.html","title":"Le libre arbitre et le décret","tag":"Philosophie · Religion"},{"href":"le-probleme-du-mal.html","title":"Le problème du mal","tag":"Philosophie · Religion"},{"href":"la-fitra.html","title":"La fiṭra et la dignité","tag":"Religion"},{"href":"jung-en-dix-minutes.html","title":"Ce qui agit sans qu'on le sache","tag":"Psychologie"},{"href":"ombre-et-nafs.html","title":"L'ombre et le nafs","tag":"Psychologie · Religion"},{"href":"le-coeur.html","title":"Le cœur","tag":"Religion · Psychologie"},{"href":"maitriser-le-desir.html","title":"Maîtriser le désir","tag":"Religion · Philosophie"},{"href":"le-premier-mot.html","title":"Le premier mot","tag":"Religion"},{"href":"la-rhetorique-semitique.html","title":"La rhétorique sémitique","tag":"Religion · Langue"},{"href":"la-lecture-symbolique.html","title":"La lecture symbolique","tag":"Religion"},{"href":"les-mots-et-le-monde.html","title":"Les mots et le monde","tag":"Religion · Langue"},{"href":"le-desenchantement.html","title":"Le désenchantement du monde","tag":"Philosophie"},{"href":"le-scroll-et-la-pause.html","title":"Le scroll et la pause","tag":"Aujourd'hui"},{"href":"le-sens-malgre-tout.html","title":"Le sens malgré tout","tag":"Philosophie"},{"href":"je-et-tu.html","title":"Je et Tu","tag":"Philosophie"},{"href":"la-finitude.html","title":"La finitude","tag":"Philosophie · Religion"},{"href":"trois-langues.html","title":"Trois langues pour la même question","tag":"Essai zéro"},{"href":"ce-que-veut-dire-philosopher.html","title":"Ce que veut dire philosopher","tag":"Philosophie · Pour commencer"},{"href":"ce-qui-distingue-une-ecole.html","title":"Ce qui distingue une école","tag":"Philosophie · Pour commencer"},{"href":"croire-et-vouloir-comprendre.html","title":"Croire, et vouloir comprendre","tag":"Religion · Pour commencer"},{"href":"ce-qui-distingue-une-religion.html","title":"Ce qui distingue une religion","tag":"Religion · Pour commencer"},{"href":"quand-la-foi-se-met-a-raisonner.html","title":"Quand la foi se met à raisonner","tag":"Religion · Pour commencer"}];
+var DATA=[{"href":"quest-ce-qu-une-lecture.html","title":"Qu'est-ce qu'une lecture ?","tag":"Religion · Philosophie"},{"href":"la-source-et-le-fleuve.html","title":"La source et le fleuve","tag":"Religion · Histoire"},{"href":"averroes-la-raison.html","title":"Averroès et le droit de la raison","tag":"Philosophie"},{"href":"lautre-histoire-de-lislam-sunnite.html","title":"L'autre histoire de l'islam sunnite","tag":"Religion · Histoire"},{"href":"le-libre-arbitre.html","title":"Le libre arbitre et le décret","tag":"Philosophie · Religion"},{"href":"le-probleme-du-mal.html","title":"Le problème du mal","tag":"Philosophie · Religion"},{"href":"la-fitra.html","title":"La fiṭra et la dignité","tag":"Religion"},{"href":"jung-en-dix-minutes.html","title":"Ce qui agit sans qu'on le sache","tag":"Psychologie"},{"href":"ombre-et-nafs.html","title":"L'ombre et le nafs","tag":"Psychologie · Religion"},{"href":"le-coeur.html","title":"Le cœur","tag":"Religion · Psychologie"},{"href":"maitriser-le-desir.html","title":"Maîtriser le désir","tag":"Religion · Philosophie"},{"href":"le-premier-mot.html","title":"Le premier mot","tag":"Religion"},{"href":"la-rhetorique-semitique.html","title":"La rhétorique sémitique","tag":"Religion · Langue"},{"href":"la-lecture-symbolique.html","title":"La lecture symbolique","tag":"Religion"},{"href":"les-mots-et-le-monde.html","title":"Les mots et le monde","tag":"Religion · Langue"},{"href":"le-desenchantement.html","title":"Le désenchantement du monde","tag":"Philosophie"},{"href":"le-scroll-et-la-pause.html","title":"Le scroll et la pause","tag":"Aujourd'hui"},{"href":"le-sens-malgre-tout.html","title":"Le sens malgré tout","tag":"Philosophie"},{"href":"je-et-tu.html","title":"Je et Tu","tag":"Philosophie"},{"href":"la-finitude.html","title":"La finitude","tag":"Philosophie · Religion"},{"href":"trois-langues.html","title":"Trois langues pour la même question","tag":"Essai zéro"},{"href":"ce-que-veut-dire-philosopher.html","title":"Ce que veut dire philosopher","tag":"Philosophie · Pour commencer"},{"href":"ce-qui-distingue-une-ecole.html","title":"Ce qui distingue une école","tag":"Philosophie · Pour commencer"},{"href":"croire-et-vouloir-comprendre.html","title":"Croire, et vouloir comprendre","tag":"Religion · Pour commencer"},{"href":"ce-qui-distingue-une-religion.html","title":"Ce qui distingue une religion","tag":"Religion · Pour commencer"},{"href":"quand-la-foi-se-met-a-raisonner.html","title":"Quand la foi se met à raisonner","tag":"Religion · Pour commencer"},{"href":"les-signes.html","title":"Les signes : lire le monde","tag":"Religion · Philosophie"},{"href":"le-sang-quon-ne-voit-plus.html","title":"Le sang qu'on ne voit plus","tag":"Religion"},{"href":"lignorance-quon-fabrique.html","title":"L'ignorance qu'on fabrique","tag":"Philosophie"},{"href":"la-part-du-temoin.html","title":"La part du témoin","tag":"Religion"},{"href":"ce-qui-arrete.html","title":"Ce qui arrête","tag":"Philosophie · Religion"},{"href":"l-univers-ajuste.html","title":"L'univers ajusté","tag":"Philosophie · Religion"},{"href":"le-moi-et-son-image.html","title":"Le moi et son image","tag":"Aujourd'hui"},{"href":"trois-portes-pour-la-meme-piece.html","title":"Trois portes pour la même pièce","tag":"Psychologie"},{"href":"le-confluent-des-deux-mers.html","title":"Le Confluent des deux mers","tag":"Psychologie · Religion"},{"href":"les-reves.html","title":"Les rêves : de Yūsuf à Jung","tag":"Psychologie · Religion"},{"href":"les-destins-du-moi.html","title":"Les destins du moi","tag":"Psychologie · Religion"},{"href":"le-souffle.html","title":"Le souffle","tag":"Philosophie · Religion"},{"href":"le-coran-en-pratique.html","title":"Le Coran, concrètement","tag":"La revue"},{"href":"les-deux-livres.html","title":"Les deux livres","tag":"Philosophie · Religion"},{"href":"raison-et-revelation.html","title":"Raison et révélation","tag":"Philosophie · Religion"},{"href":"shahrour-le-livre-et-le-coran.html","title":"Shahrour : le Livre et le Coran","tag":"Religion"},{"href":"le-monde-imaginal.html","title":"Le monde entre deux","tag":"Philosophie · Religion"},{"href":"le-sens-avant-le-comment.html","title":"Le sens avant le comment","tag":"Philosophie · Théologie"},{"href":"le-cercle-que-personne-nevite.html","title":"Le cercle que personne n'évite","tag":"Philosophie · Religion"}];
 (function(){
   var inp=document.getElementById('srch'),res=document.getElementById('sr');
   if(!inp||!res)return;

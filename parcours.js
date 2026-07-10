@@ -1,85 +1,131 @@
-/* parcours.js — Majmaʿ · Logique des parcours de lecture
-   Tous les essais du site appartiennent à un parcours (aucun essai "orphelin").
-   Un essai lu compte dans tous les parcours où il apparaît (lecture partagée,
-   pas de suivi indépendant par parcours) : "quest-ce-qu-une-lecture" est le
-   seul cas où un essai appartient à deux parcours (foi + texte), choix
-   éditorial assumé car c'est l'essai de méthode fondateur, pertinent comme
-   porte d'entrée pour les deux chemins. */
+/* parcours.js — Majmaʿ · Parcours et séries de lecture
+   Deux objets distincts :
+   - un PARCOURS réunit des essais autour d'une question ; l'ordre est suggéré,
+     on peut y entrer et en sortir librement.
+   - une SÉRIE réunit des essais qui se suivent ; l'ordre est nécessaire, chaque
+     essai reprend là où le précédent s'arrête (badge « 2 / 3 » sur la page).
+   Un essai peut appartenir à une série, à un parcours, aux deux, ou à aucun
+   (les essais du triptyque du sacrifice ne sont que dans leur série).
+   Un essai lu compte partout où il apparaît (lecture partagée, pas de suivi
+   indépendant) : "quest-ce-qu-une-lecture" est le seul essai présent dans deux
+   parcours (foi + texte), choix éditorial assumé car c'est l'essai de méthode
+   fondateur, pertinent comme porte d'entrée pour les deux chemins. */
 (function() {
   'use strict';
 
   var SK = 'majma_parcours_v2';
 
+  /* ═══════════════════════════════════════════════════════════════════
+     SOURCE UNIQUE. Ne redéclarer ces données nulle part ailleurs.
+     index.html les lit via window.MAJMA_PATHS / window.MAJMA_SERIES.
+
+     Ajouter un PARCOURS  : une entrée dans PATHS (num, name, ar, color,
+                            why, endquote, steps[{href,t,min,h}]).
+     Ajouter une SÉRIE    : une entrée dans SERIES (name, color,
+                            steps[{href,t,min}]). Pas de résumé : les titres,
+                            lus dans l'ordre, disent le mouvement.
+     Les compteurs (« 2 / 3 », nombre d'essais, durée totale) sont TOUJOURS
+     calculés depuis steps. Ne jamais écrire un total à la main.
+     ═══════════════════════════════════════════════════════════════════ */
   var PATHS = {
     foi: {
-      name: 'Je questionne ma foi', ar: 'الإيمان', num: '1',
+      num: '1', name: 'Je questionne ma foi', ar: 'الإيمان',
+      color: '#0e6b60', cls: 'p-foi',
+      why: 'Sources, raison, liberté : les grandes questions de la foi, posées honnêtement.',
+      endquote: { ar:'وَقُل رَّبِّ زِدْنِي عِلْمًا', fr:'« Et dis : Seigneur, accrois mon savoir. »', ref:'Coran 20:114' },
       steps: [
-        { id:'a', href:'quest-ce-qu-une-lecture',           title:"Qu'est-ce qu'une lecture ?" },
-        { id:'b', href:'la-source-et-le-fleuve',             title:'La source et le fleuve' },
-        { id:'c', href:'averroes-la-raison',                 title:'Averroès et le droit de la raison' },
-        { id:'d', href:'lautre-histoire-de-lislam-sunnite',  title:"L'autre histoire de l'islam sunnite" },
-        { id:'e', href:'le-libre-arbitre',                   title:'Le libre arbitre et le décret' },
-        { id:'f', href:'le-probleme-du-mal',                 title:'Le problème du mal' },
-        { id:'g', href:'le-coran-en-pratique',               title:'Le Coran, concrètement' },
-        { id:'h', href:'les-deux-livres',                    title:'Les deux livres' },
-        { id:'i', href:'raison-et-revelation',               title:'Raison et révélation' },
+        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:10, h:'Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s\'applique pas.' },
+        { href:'la-source-et-le-fleuve', t:'La source et le fleuve', min:16, h:'Coran et Sunnah : d\'où viennent les règles que nous suivons ?' },
+        { href:'averroes-la-raison', t:'Averroès et le droit de la raison', min:12, h:'Au XIIe siècle : la raison a-t-elle droit de cité dans l\'islam ?' },
+        { href:'lautre-histoire-de-lislam-sunnite', t:'L\'autre histoire de l\'islam sunnite', min:18, h:'Deux traditions théologiques également anciennes, très inégalement connues aujourd\'hui.' },
+        { href:'le-libre-arbitre', t:'Le libre arbitre et le décret', min:18, h:'Ce que le Coran dit vraiment, avant que la théologie ne le durcisse.' },
+        { href:'le-probleme-du-mal', t:'Le problème du mal', min:14, h:'La question la plus difficile, posée sans raccourci.' },
+        { href:'le-coran-en-pratique', t:'Le Coran, concrètement', min:6, h:'Sourate, verset, révélation : ce qu\'il faut savoir avant de lire.' },
+        { href:'les-deux-livres', t:'Les deux livres', min:7, h:'Science et foi ne parlent pas de la même chose. Comment les lire ensemble.' },
+        { href:'raison-et-revelation', t:'Raison et révélation', min:12, h:'Averroès, Maïmonide, Thomas d\'Aquin : trois réponses à la même question.' },
       ]
     },
     ame: {
-      name: 'Je veux me connaître', ar: 'النفس', num: '2',
+      num: '2', name: 'Je veux me connaître', ar: 'النفس',
+      color: '#a67c2e', cls: 'p-ame',
+      why: 'Un voyage intérieur, entre psychologie des profondeurs et traditions de l\'âme.',
+      endquote: { ar:'مَن عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ', fr:'« Qui se connaît soi-même connaît son Seigneur. »', ref:'Tradition soufie' },
       steps: [
-        { id:'a', href:'la-fitra',                     title:'La fiṭra et la dignité' },
-        { id:'b', href:'jung-en-dix-minutes',           title:"Ce qui agit sans qu'on le sache" },
-        { id:'c', href:'trois-portes-pour-la-meme-piece', title:'Trois portes pour la même pièce' },
-        { id:'d', href:'ombre-et-nafs',                 title:'L\'ombre et le nafs' },
-        { id:'e', href:'le-coeur',                      title:'Le cœur' },
-        { id:'f', href:'maitriser-le-desir',            title:'Maîtriser le désir' },
-        { id:'g', href:'le-confluent-des-deux-mers',    title:'Le confluent des deux mers' },
-        { id:'h', href:'les-reves',                     title:'Les rêves' },
-        { id:'i', href:'les-destins-du-moi',            title:'Les destins du moi' },
-        { id:'j', href:'le-souffle',                    title:'Le souffle' },
+        { href:'la-fitra', t:'La fiṭra et la dignité', min:10, h:'Ce qui est inscrit en nous avant toute culture.' },
+        { href:'jung-en-dix-minutes', t:'Ce qui agit sans qu\'on le sache', min:10, h:'Jung : l\'inconscient, les archétypes, le Soi.' },
+        { href:'trois-portes-pour-la-meme-piece', t:'Trois portes pour la même pièce', min:12, h:'Devant une même hésitation, Freud, Jung et Adler n\'auraient pas regardé au même endroit.' },
+        { href:'ombre-et-nafs', t:'L\'ombre et le nafs', min:12, h:'Ce que Jung et le Coran disent de la même réalité.' },
+        { href:'le-coeur', t:'Le cœur', min:9, h:'Le qalb, organe de la compréhension, pas seulement des émotions.' },
+        { href:'maitriser-le-desir', t:'Maîtriser le désir', min:12, h:'Hawā, taṇhā, concupiscence : une même lutte intérieure.' },
+        { href:'le-confluent-des-deux-mers', t:'Le confluent des deux mers', min:14, h:'Jung et Khidr au bord du fleuve. Le récit coranique de l\'individuation.' },
+        { href:'les-reves', t:'Les rêves', min:10, h:'De Yūsuf à Freud et Jung : le rêve comme langue de l\'âme.' },
+        { href:'les-destins-du-moi', t:'Les destins du moi', min:8, h:'Nafs, anattā, ego, Soi : quatre façons d\'appeler la même question.' },
+        { href:'le-souffle', t:'Le souffle', min:11, h:'Al-rūḥ et la création d\'Adam : le souffle comme lien entre Dieu et l\'homme.' },
       ]
     },
     texte: {
-      name: 'Je lis le texte autrement', ar: 'القراءة', num: '3',
+      num: '3', name: 'Je lis le texte autrement', ar: 'القراءة',
+      color: '#0e6b60', cls: 'p-texte',
+      why: 'Les outils pour lire le Coran dans sa langue, sa rhétorique et sa structure propres.',
+      endquote: { ar:'أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ', fr:'« Ne méditent-ils donc pas le Coran ? »', ref:'Coran 4:82' },
       steps: [
-        { id:'a', href:'le-premier-mot',               title:'Le premier mot' },
-        { id:'b', href:'quest-ce-qu-une-lecture',       title:"Qu'est-ce qu'une lecture ?" },
-        { id:'c', href:'la-rhetorique-semitique',       title:'La rhétorique sémitique' },
-        { id:'d', href:'la-lecture-symbolique',         title:'La lecture symbolique' },
-        { id:'e', href:'les-mots-et-le-monde',          title:'Les mots et le monde' },
-        { id:'f', href:'shahrour-le-livre-et-le-coran', title:'Shahrour : le Livre et le Coran' },
-        { id:'g', href:'le-monde-imaginal',             title:'Le monde entre deux' },
-        { id:'h', href:'le-sens-avant-le-comment',      title:'Le sens avant le comment' },
+        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:10, h:'Lire un texte sacré n\'est pas lire un roman. Mais qu\'est-ce que cela change ?' },
+        { href:'le-premier-mot', t:'Le premier mot', min:9, h:'Iqraʾ, un ordre de lire, et ce que cela dit de la révélation.' },
+        { href:'la-rhetorique-semitique', t:'La rhétorique sémitique', min:12, h:'Symétries concentriques du Coran : une fois qu\'on le sait, on ne lit plus pareil.' },
+        { href:'la-lecture-symbolique', t:'La lecture symbolique', min:12, h:'Ẓāhir et bāṭin : la lettre et le sens profond.' },
+        { href:'les-mots-et-le-monde', t:'Les mots et le monde', min:15, h:'Izutsu et la sémantique coranique : les mots structurent une vision du monde.' },
+        { href:'shahrour-le-livre-et-le-coran', t:'Shahrour : le Livre et le Coran', min:6, h:'Une méthode de lecture déroutante, et ce qu\'elle déplace vraiment.' },
+        { href:'le-monde-imaginal', t:'Le monde entre deux', min:7, h:'Corbin et Jung ont nommé le même espace : entre matière et abstraction.' },
+        { href:'le-sens-avant-le-comment', t:'Le sens avant le comment', min:11, h:'Certaines vérités se donnent dans leur sens sans jamais livrer leur comment.' },
       ]
     },
     monde: {
-      name: 'Je vis dans ce monde', ar: 'العالم', num: '4',
+      num: '4', name: 'Je vis dans ce monde', ar: 'العالم',
+      color: '#2d8c6e', cls: 'p-monde',
+      why: 'L\'attention, l\'absurde, la relation, la mort : l\'existence à l\'ère des écrans.',
+      endquote: { ar:'فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ', fr:'« Où que vous vous tourniez, là est la Face de Dieu. »', ref:'Coran 2:115' },
       steps: [
-        { id:'a', href:'les-signes',                   title:'Les signes : lire le monde' },
-        { id:'b', href:'le-desenchantement',           title:'Le désenchantement du monde' },
-        { id:'c', href:'le-sang-quon-ne-voit-plus',     title:"Le sang qu'on ne voit plus" },
-        { id:'d', href:'lignorance-quon-fabrique',      title:"L'ignorance qu'on fabrique" },
-        { id:'e', href:'le-scroll-et-la-pause',         title:'Le scroll et la pause' },
-        { id:'f', href:'le-sens-malgre-tout',           title:'Le sens malgré tout' },
-        { id:'g', href:'je-et-tu',                      title:'Je et Tu' },
-        { id:'h', href:'la-finitude',                   title:'La finitude' },
-        { id:'i', href:'ce-qui-arrete',                 title:'Ce qui arrête' },
-        { id:'j', href:'l-univers-ajuste',              title:"L'univers ajusté" },
-        { id:'k', href:'le-moi-et-son-image',           title:'Le moi et son image' },
+        { href:'le-scroll-et-la-pause', t:'Le scroll et la pause', min:10, h:'Le design persuasif, le hawā, et comment reprendre son attention.' },
+        { href:'le-sens-malgre-tout', t:'Le sens malgré tout', min:11, h:'Frankl dans les camps, Camus face à l\'absurde.' },
+        { href:'je-et-tu', t:'Je et Tu', min:9, h:'Martin Buber et la relation vraie à l\'ère des réseaux.' },
+        { href:'la-finitude', t:'La finitude', min:10, h:'Heidegger, l\'islam et la mort comme horizon de la vie.' },
+        { href:'ce-qui-arrete', t:'Ce qui arrête', min:8, h:'Un paysage, une phrase, une mélodie : ce que dit de nous l\'expérience de ce qui arrête le regard.' },
+        { href:'le-moi-et-son-image', t:'Le moi et son image', min:6, h:'Sur les réseaux, on gère une image. Le Coran et Jung ont nommé ce piège.' },
+      ]
+    },
+    signe: {
+      num: '5', name: 'Le monde est-il lisible ?', ar: 'الآيات',
+      color: '#2d8c6e', cls: 'p-signe',
+      why: 'Le monde porte-t-il des signes, ou les y mettons-nous ? Trois textes sur l\'émerveillement et ses limites.',
+      endquote: { ar:'سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ', fr:'« Nous leur montrerons Nos signes dans les horizons et en eux-mêmes. »', ref:'Coran 41:53' },
+      steps: [
+        { href:'les-signes', t:'Les signes : lire le monde', min:12, h:'L\'émerveillement comme voie de connaissance, et ses limites honnêtes.' },
+        { href:'le-desenchantement', t:'Le désenchantement du monde', min:12, h:'Weber et la perte du sacré dans la modernité.' },
+        { href:'l-univers-ajuste', t:'L\'univers ajusté', min:6, h:'Le réglage fin de l\'univers : hasard ou dessein ? Ce que la physique permet de dire.' },
       ]
     }
   };
 
-  var COLORS = { foi:'#0e6b60', ame:'#a67c2e', texte:'#0e6b60', monde:'#2d8c6e' };
-
-  /* Citation affichée à la fin d'un parcours (au lieu d'un simple alhamdulillah) */
-  var ENDQUOTES = {
-    foi:   { ar:'وَقُل رَّبِّ زِدْنِي عِلْمًا', fr:'« Et dis : Seigneur, accrois mon savoir. »', ref:'Coran 20:114' },
-    ame:   { ar:'مَن عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ', fr:'« Qui se connaît soi-même connaît son Seigneur. »', ref:'Tradition soufie' },
-    texte: { ar:'أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ', fr:'« Ne méditent-ils donc pas le Coran ? »', ref:'Coran 4:82' },
-    monde: { ar:'فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ', fr:'« Où que vous vous tourniez, là est la Face de Dieu. »', ref:'Coran 2:115' }
+  /* Une SÉRIE : l'ordre est nécessaire. Chaque essai reprend une question
+     laissée ouverte par le précédent et ne tient pas seul. Un PARCOURS,
+     lui, réunit des essais autonomes autour d'une question ; son ordre
+     n'est que suggéré.
+     Une série ne porte PAS de résumé : ses titres, lus dans l'ordre, disent
+     le mouvement mieux qu'une glose. Ne pas réintroduire de champ `why` ici. */
+  var SERIES = {
+    sacrifice: {
+      name: 'Ce qu\'on cesse de regarder', color: '#0a4d44',
+      steps: [
+        { href:'le-sang-quon-ne-voit-plus', t:"Le sang qu'on ne voit plus", min:24 },
+        { href:'lignorance-quon-fabrique',  t:"L'ignorance qu'on fabrique", min:23 },
+        { href:'la-part-du-temoin',         t:'La part du témoin',          min:16 },
+      ]
+    }
   };
+
+  /* Alias dérivés : ne jamais les saisir à la main, ils suivent PATHS. */
+  var COLORS = {}; Object.keys(PATHS).forEach(function(k){ COLORS[k] = PATHS[k].color; });
+  var ENDQUOTES = {}; Object.keys(PATHS).forEach(function(k){ ENDQUOTES[k] = PATHS[k].endquote; });
 
   /* Suggestions hors-parcours affichées à la fin (pour aller plus loin) */
 
@@ -137,7 +183,7 @@
         if (!isStepRead(path.steps[i])) { nextStep = path.steps[i]; break; }
       }
 
-      html += '<div class="pb-block" data-pid="' + pid + '" data-sid="' + m.step.id + '">';
+      html += '<div class="pb-block" data-pid="' + pid + '" data-sid="' + m.step.href + '">';
       html += '<div class="pb-head">';
       html += '<span class="pb-ar" style="color:' + col + '">' + path.ar + '</span>';
       html += '<div class="pb-meta">';
@@ -152,10 +198,10 @@
       html += '<div class="pb-steps">';
       path.steps.forEach(function(s, si) {
         var sDone = isStepRead(s);
-        var sHere = (s.id === m.step.id);
+        var sHere = (s.href === m.step.href);
         var cls = 'pb-step' + (sDone ? ' is-done' : '') + (sHere ? ' is-here' : '');
         var style = sDone || sHere ? 'style="--sc:' + col + '"' : '';
-        var label = sHere ? 'Vous êtes ici : ' + s.title : s.title;
+        var label = sHere ? 'Vous êtes ici : ' + s.t : s.t;
         html += '<a class="' + cls + '" ' + style + ' href="' + s.href + '.html" title="' + label.replace(/"/g,'') + '" aria-label="' + label.replace(/"/g,'') + '">';
         html += '<span class="pb-step-dot">' + (sDone ? '✓' : (si + 1)) + '</span>';
         html += '</a>';
@@ -164,7 +210,7 @@
 
       /* Bouton marquer comme lu */
       html += '<div class="pb-actions">';
-      html += '<button class="pb-btn pb-btn-mark" data-pid="' + pid + '" data-sid="' + m.step.id + '" style="' + (isDone ? 'border-color:' + col + ';color:' + col + ';' : '') + '">';
+      html += '<button class="pb-btn pb-btn-mark" data-pid="' + pid + '" data-sid="' + m.step.href + '" style="' + (isDone ? 'border-color:' + col + ';color:' + col + ';' : '') + '">';
       html += isDone ? '✓ Marqué comme lu' : 'Marquer comme lu';
       html += '</button>';
       html += '<a class="pb-btn pb-btn-path" href="index.html#commencer" style="border-color:' + col + ';color:' + col + '">Voir les parcours →</a>';
@@ -174,7 +220,7 @@
       if (nextStep && isDone) {
         html += '<div class="pb-next">';
         html += '<span class="pb-next-label" style="color:' + col + '">Prochaine étape</span>';
-        html += '<a class="pb-next-link" href="' + nextStep.href + '.html">' + nextStep.title + ' →</a>';
+        html += '<a class="pb-next-link" href="' + nextStep.href + '.html">' + nextStep.t + ' →</a>';
         html += '</div>';
       } else if (!nextStep && isDone) {
         var q = ENDQUOTES[pid];
@@ -196,6 +242,18 @@
   function injectStyles() {
     var s = document.createElement('style');
     s.textContent = [
+      '.sb-wrap{margin:0 0 2rem;padding:1.1rem 1.2rem;border:1px solid var(--rule);border-left:3px solid var(--sc);border-radius:8px;}',
+      '.sb-head{display:flex;align-items:baseline;gap:.6rem;}',
+      '.sb-pos{font-family:var(--display);font-size:.72rem;letter-spacing:.1em;color:var(--sc);border:1px solid var(--sc);border-radius:99px;padding:.1rem .5rem;}',
+      '.sb-name{font-family:var(--display);font-size:1rem;color:var(--ink);}',
+      '.sb-steps{list-style:none;counter-reset:sb;margin:.8rem 0 0;padding:0;}',
+      '.sb-step{counter-increment:sb;display:flex;align-items:baseline;gap:.55rem;padding:.28rem 0;font-family:var(--body);font-size:.92rem;}',
+      '.sb-step::before{content:counter(sb);font-family:var(--display);font-size:.72rem;color:var(--ink-soft);opacity:.6;min-width:1rem;}',
+      '.sb-step.is-current::before{color:var(--sc);opacity:1;}',
+      '.sb-step.is-current .sb-t{color:var(--ink);font-weight:600;}',
+      '.sb-step.is-read::before{content:"✓";color:var(--sc);opacity:1;}',
+      '.sb-t{color:var(--ink-soft);text-decoration:none;}',
+      'a.sb-t:hover{color:var(--sc);}',
       '.pb-wrap{margin:2rem 0;border-top:1px solid var(--rule);padding-top:1.4rem;}',
       '.pb-title{font-family:var(--display);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:700;}',
       '.pb-block{padding:1rem 1.1rem;border:1px solid var(--rule);border-left:3px solid var(--accent);margin-bottom:.6rem;background:var(--paper-deep,#ece9e1);}',
@@ -230,19 +288,61 @@
     document.head.appendChild(s);
   }
 
+  /* Trouve la série qui contient cette page (ordre nécessaire) */
+  function findSerie(page) {
+    var keys = Object.keys(SERIES);
+    for (var i = 0; i < keys.length; i++) {
+      var s = SERIES[keys[i]];
+      for (var j = 0; j < s.steps.length; j++) {
+        if (s.steps[j].href === page) {
+          return { sid: keys[i], serie: s, idx: j };
+        }
+      }
+    }
+    return null;
+  }
+
+  function renderSerie(m) {
+    var s = m.serie, n = s.steps.length, pos = m.idx + 1;
+    var html = '<div class="sb-wrap" style="--sc:' + s.color + '">';
+    html += '<div class="sb-head"><span class="sb-pos">' + pos + ' / ' + n + '</span>';
+    html += '<span class="sb-name">' + s.name + '</span></div>';
+    html += '<ol class="sb-steps">';
+    s.steps.forEach(function(step, i) {
+      var cur = (i === m.idx);
+      var cls = 'sb-step' + (cur ? ' is-current' : '') + (isStepRead(step) ? ' is-read' : '');
+      html += '<li class="' + cls + '">';
+      html += cur
+        ? '<span class="sb-t">' + step.t + '</span>'
+        : '<a class="sb-t" href="' + step.href + '.html">' + step.t + '</a>';
+      html += '</li>';
+    });
+    html += '</ol></div>';
+    return html;
+  }
+
   function init() {
     var page = getCurrentPage();
     if (!page) return;
 
     var matches = findPaths(page);
-    if (matches.length === 0) return;
+    var serie = findSerie(page);
+    if (matches.length === 0 && !serie) return;
 
     injectStyles();
 
     /* Créer le conteneur */
     var wrap = document.createElement('div');
     wrap.className = 'pb-wrap';
-    wrap.innerHTML = '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
+    function paint() {
+      var h = '';
+      if (serie) h += renderSerie(serie);
+      if (matches.length) {
+        h += '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
+      }
+      wrap.innerHTML = h;
+    }
+    paint();
 
     /* Insérer avant le footer de l'essai */
     var footer = document.querySelector('.essay-footer-nav');
@@ -262,7 +362,7 @@
       /* Retrouver le slug de l'étape courante dans ce parcours */
       var path = PATHS[pid];
       var step = null;
-      for (var i = 0; i < path.steps.length; i++) { if (path.steps[i].id === sid) { step = path.steps[i]; break; } }
+      for (var i = 0; i < path.steps.length; i++) { if (path.steps[i].href === sid) { step = path.steps[i]; break; } }
       if (!step) return;
 
       var wasComplete = path.steps.every(function(s){ return isStepRead(s); });
@@ -278,7 +378,7 @@
 
       var nowComplete = path.steps.every(function(s){ return isStepRead(s); });
       /* Réinjecter */
-      wrap.innerHTML = '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
+      paint();
       /* Confettis si le parcours vient d'être complété */
       if (nowComplete && !wasComplete) {
         fireConfetti(COLORS[pid] || '#0e6b60');
@@ -294,7 +394,7 @@
         return m.path.steps.some(function(s) { return s.href === changed; });
       });
       if (relevant) {
-        wrap.innerHTML = '<div class="pb-title">Dans votre parcours de lecture</div>' + renderBanner(matches);
+        paint();
       }
     });
   }
@@ -350,6 +450,11 @@
     }
     requestAnimationFrame(go);
   }
+
+  /* Exposé pour l'accueil (index.html), qui affiche les séries */
+  /* Exposé pour index.html : source unique, jamais redéclarée là-bas. */
+  window.MAJMA_PATHS = PATHS;
+  window.MAJMA_SERIES = SERIES;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
