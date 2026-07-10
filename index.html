@@ -175,10 +175,8 @@
 .brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1}
 .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s,background .15s;flex:0 0 auto}
 .hero-cta{display:flex;flex-direction:column;align-items:center;gap:.8rem;}
-.btn-decouvre{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;background:#a67c2e;color:#fff;font-family:var(--display);font-size:.9rem;font-weight:700;border:none;cursor:pointer;border-radius:99px;text-decoration:none;transition:background .15s,transform .12s;position:relative;overflow:hidden;}
-.btn-decouvre::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
-.btn-decouvre:hover{background:#8a6825;transform:translateY(-1px);}
-.btn-decouvre:hover,.btn-decouvre:active,.btn-decouvre:visited,.btn-decouvre:focus{color:#fff!important;opacity:1!important;}
+.hero-secondary{display:inline-block;margin-top:.85rem;font-size:.82rem;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule);}
+.hero-secondary:hover{color:var(--ink);text-decoration-color:currentColor;}
 .firststeps{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.1rem}
 @media(max-width:720px){.firststeps{grid-template-columns:1fr}}
 .fs-card{display:flex;flex-direction:column;gap:.35rem;padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:10px;text-decoration:none;background:var(--card,transparent);transition:border-color .18s,transform .18s}
@@ -285,9 +283,9 @@
     <h1 class="hero-title">Trois traditions, une seule quête</h1>
     <p class="hero-sub">Là où la pensée islamique rencontre la psychologie des profondeurs et la pensée comparée. Des clés de lecture à explorer, pour penser par soi-même.</p>
     <div class="hero-cta">
-      <a href="trois-langues.html" class="btn-decouvre">✳ Nouveau ici ? Lisez d'abord ceci</a>
       <a href="#commencer" class="btn-prim-x" id="findBtn">Par où commencer ↓</a>
     </div>
+    <a href="trois-langues.html" class="hero-secondary">Nouveau ici ? Un texte de seuil, en 3 minutes</a>
   </div>
 </section>
 
@@ -504,7 +502,7 @@ function renderBody(pid){
     var done=isStepDone(step);
     if(folded&&i===FIRST){
       var nRest=p.steps.length-FIRST;
-      h+='<button class="ip-more'+(showRest?' open':'')+'" data-more="'+pid+'"><span>Pour aller plus loin sur ce chemin · '+nRest+' essais</span><span class="ip-more-arr">▾</span></button>';
+      h+='<button class="ip-more'+(showRest?' open':'')+'" data-more="'+pid+'"><span>La suite du parcours · '+nRest+' essais</span><span class="ip-more-arr">▾</span></button>';
       h+='<div class="ip-rest"'+(showRest?'':' hidden')+'>';
     }
     h+='<div class="ip-step'+(done?' done':'')+'">';
