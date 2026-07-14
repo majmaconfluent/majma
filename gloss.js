@@ -43,7 +43,6 @@
   "Qaḍāʾ":"L’accomplissement : l’acte d’agir à l’intérieur de l’ordre (qadar). De la même racine, le qāḍī, le juge, qui yaqḍī : il tranche selon des lois établies, sans les inventer.",
   "Bāṭin":"Le caché et l’apparent : les deux régimes d’un texte, sa lettre immédiate et son sens profond.",
   "Ẓāhir":"Le caché et l’apparent : les deux régimes d’un texte, sa lettre immédiate et son sens profond.",
-  "Ombre":"Chez Jung : le Soi est le centre total de la psyché ; l'ombre, la part de nous que nous refusons de voir.",
   "Hawā":"Le penchant, le caprice, le désir qui tire vers le bas. Le Coran avertit contre celui qui « prend son hawā pour dieu » (45:23) : c’est lui qui aveugle et finit par sceller le cœur.",
   "Ummī":"Traditionnellement « illettré », d’où l’idée d’un miracle. Mais dans le Coran les ummiyyūn s’opposent aux gens du Livre, juifs et chrétiens (3:20 ; 62:2) ; Shahrour y lit « qui n’appartient pas à la communauté du Livre », un gentil, proche de l’hébreu goy.",
   "Kasb":"L’« acquisition » : le compromis d’al-Ashʿarī où Dieu crée l’acte et l’homme se l’approprie.",
@@ -52,7 +51,6 @@
   "Qalb":"Le cœur : dans le Coran, non le siège de la seule émotion, mais l’organe de la compréhension, de la foi et de la décision. Il peut être sain (salīm), malade, durci ou scellé. C’est là que le savoir devient conviction.",
   "Āya":"Le signe. Le même mot désigne un verset du Coran et toute chose du monde : la nature se lit comme un texte.",
   "Rūḥ":"L’esprit. Dans la lecture symbolique (Shahrour), non une substance mais l’ordre divin (al-amr) et le saut vers la pensée abstraite : « l’esprit relève de l’amr de mon Seigneur » (17:85).",
-  "Soi":"Chez Jung : le Soi est le centre total de la psyché ; l'ombre, la part de nous que nous refusons de voir.",
   "Apatheia":"Chez les stoïciens, l'absence de passions-troubles : non l'insensibilité, mais la liberté à l'égard de ce qui nous agite sans raison.",
   "Sublimation":"Chez Freud, le déplacement de l'énergie pulsionnelle vers un but non sexuel et socialement valorisé : art, pensée, action.",
   "Archétype":"Chez Jung, un motif universel qui structure l'inconscient collectif : le héros, l'ombre, le vieux sage, la mère, et d'autres figures que l'on retrouve dans tous les mythes et tous les rêves.",
@@ -130,12 +128,27 @@
   "Muqaṣṣir":"De la même racine q-ṣ-r que qāṣir, mais par la forme du taqṣīr, la négligence, le manquement. Le jāhil muqaṣṣir est l'ignorant qui avait tout pour apprendre et n'a pas cherché. Il reste en deçà non parce qu'il ne pouvait pas, mais parce qu'il n'a pas voulu. Son ignorance ne le couvre pas, parce qu'elle est son œuvre. Le couple de termes est surtout formalisé dans la tradition imamite ; le principe est commun aux écoles.",
   "utilitarisme":"Doctrine morale selon laquelle un acte se juge uniquement à ses conséquences, et plus précisément à la quantité de souffrance qu'il produit ou évite. Ni l'intention de celui qui agit, ni sa présence, ni la nature du geste n'entrent en ligne de compte : seul importe ce que la victime éprouve. Peter Singer en est le représentant contemporain le plus connu en matière animale.",
   "aveuglement volontaire":"Doctrine du droit pénal américain (willful blindness) : celui qui tient un fait pour hautement probable et prend des mesures délibérées pour éviter de le vérifier est traité comme s'il savait. L'instruction donnée aux jurés porte le nom d'instruction de l'autruche.",
-  "banalité du mal":"Expression forgée par Hannah Arendt au procès d'Eichmann en 1961. Le mal à grande échelle n'exige pas des monstres : il lui suffit d'hommes ordinaires qui accomplissent leur tâche sans regarder ce que leur tâche produit."
+  "banalité du mal":"Expression forgée par Hannah Arendt au procès d'Eichmann en 1961. Le mal à grande échelle n'exige pas des monstres : il lui suffit d'hommes ordinaires qui accomplissent leur tâche sans regarder ce que leur tâche produit.",
+  "Ḥadd":"La limite, la borne : au pluriel ḥudūd. Chez Shahrour, la frontière (plancher ou plafond) que la Loi trace, laissant à la raison humaine l'espace entre les deux.",
+  "Qaṭaʿa":"Couper, trancher. Verbe du verset sur le vol (5:38). Shahrour s'appuie sur ses emplois non physiques en arabe (couper la route, couper les moyens) pour lire l'amputation comme un plafond, non un point fixe.",
+  "Ḥasan":"Dans la science du hadith, le degré d'authentification juste en dessous de ṣaḥīḥ (authentique) : une chaîne de transmission solide mais avec un maillon légèrement moins rigoureux.",
+  "ʿAfw":"Ce qui est laissé, ni prescrit ni interdit par le texte : catégorie classique du droit islamique, l'espace du silence volontaire de la Loi.",
+  "Muʿāmalāt":"Les affaires du monde : transactions, contrats, relations sociales. Catégorie du droit islamique où le principe premier est la permission (ibāḥa), par opposition au culte (ʿibādāt).",
+  "Maqāṣid":"Les finalités de la Loi islamique (préserver la religion, la vie, la raison, la descendance, les biens) : la règle particulière s'y comprend à la lumière de sa visée, non isolément. Théorisées par al-Shāṭibī.",
+  "Farāʾiḍ":"Les parts, les portions obligatoires : au singulier farīḍa. Désigne en particulier les parts d'héritage fixées par le Coran (4:11-12).",
+  "Muḥkam":"Le verset 'univoque', clair et net dans son sens, par opposition au mutashābih, le verset équivoque dont le sens résiste à une lecture définitive (3:7).",
+  "Masākīn":"Les nécessiteux : au singulier miskīn. Catégorie distincte des fuqarāʾ (les pauvres), les deux étant nommés côte à côte parmi les ayants droit de l'aumône (9:60) ; les écoles divergent sur lequel des deux est le plus démuni.",
+  "Fuqarāʾ":"Les pauvres : au singulier faqīr. Catégorie distincte des masākīn (les nécessiteux), nommée à côté d'elle parmi les ayants droit de l'aumône (9:60).",
+  "Al-Rasūl":"Le Messager : titre employé par le Coran chaque fois qu'il commande l'obéissance, désignant le porteur du Message plutôt que l'homme. Distingué d'al-nabī, le Prophète.",
+  "Al-Nabī":"Le Prophète : titre employé par le Coran quand il s'adresse à l'homme Muhammad dans sa vie et ses choix, jusqu'à le corriger (66:1). Distingué d'al-rasūl, le Messager.",
+  "Shūrā":"La consultation : principe coranique (42:38, 3:159) qui oblige à consulter sans fixer aucune forme, ni le nombre des consultés, ni le mode de désignation, ni la procédure de décision.",
 };
 
-  // Termes tries du plus long au plus court (deja fait a la generation),
-  // pour eviter qu'un terme court ne matche a l'interieur d'un plus long.
-  var terms = Object.keys(GLOSS);
+  // Termes tries du plus long au plus court, pour qu'un terme court (ex. Ḥadd)
+  // ne soit jamais essaye avant un terme plus long qui le contient (ex. Ḥudūd,
+  // ḥudūd Allāh). Le tri est fait ici, activement : ne pas compter sur l'ordre
+  // d'insertion dans GLOSS, qui n'est pas garanti a chaque edition du fichier.
+  var terms = Object.keys(GLOSS).sort(function(a,b){ return b.length - a.length; });
 
   // Echappe les caracteres speciaux regex
   function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
@@ -147,7 +160,21 @@
 
   // Termes dont la casse est significative : "Soi" (Jung) ne doit pas matcher
   // "soi" en minuscule (sens ordinaire, tres frequent en francais).
-  var CASE_SENSITIVE = {"Soi": true};
+  var CASE_SENSITIVE = {};
+
+  // Dictionnaire local optionnel : certaines pages definissent
+  // window.MAJMA_GLOSS_LOCAL = {...} avant de charger gloss.js, pour des mots
+  // ordinaires qui n'ont un sens technique que sur CETTE page (ex. "Ombre",
+  // "Soi" au sens jungien). Ne pollue jamais les autres pages du site.
+  if(window.MAJMA_GLOSS_LOCAL){
+    for(var lk in window.MAJMA_GLOSS_LOCAL){ GLOSS[lk] = window.MAJMA_GLOSS_LOCAL[lk]; }
+  }
+  if(window.MAJMA_GLOSS_LOCAL_CASE_SENSITIVE){
+    for(var lc in window.MAJMA_GLOSS_LOCAL_CASE_SENSITIVE){ CASE_SENSITIVE[lc] = true; }
+  }
+  // Reconstruire terms maintenant que GLOSS peut avoir ete etendu localement,
+  // en conservant le meme tri par longueur decroissante.
+  terms = Object.keys(GLOSS).sort(function(a,b){ return b.length - a.length; });
 
   function processTextNode(node, used){
     var text = node.nodeValue;
@@ -203,11 +230,9 @@
   // Glossaire anglais (utilisé par les pages /en/)
   var GLOSS_EN = {
     "Inconscient":"The part of the psyche beyond conscious awareness — not absence of thought, but a vast submerged layer of drives, memories, and autonomous figures.",
-    "Soi":"In Jung, the Self (capital S) is the center and totality of the psyche — conscious and unconscious together. Not a larger ego, but a different center entirely.",
     "Moi":"The ego: the everyday conscious \"I\" that decides and plans. Useful, but prone to mistaking itself for the whole person.",
     "Individuation":"Jung's term for the lifelong process by which the ego gradually reconciles with the Self — becoming more whole rather than more perfect.",
     "Arch\u00e9type":"Universal patterns or figures that recur across cultures — the wise man, the hero, the shadow, the guide. Molds each culture fills differently.",
-    "Ombre":"The shadow: everything the conscious ego refuses to acknowledge in itself — projected onto others or acted out unconsciously.",
     "Nafs":"In the Quran, the nafs is the self or soul — not a fixed entity but a site of struggle, from the \"commanding nafs\" (toward wrong) to the \"reassured nafs.\"",
     "\u1e92\u0101hir":"The apparent, literal surface of a text. Opposed to b\u0101\u1e6din.",
     "B\u0101\u1e6din":"The hidden inner meaning of a text. The dimension the ta\u02bfw\u012bl seeks to uncover.",
