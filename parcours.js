@@ -34,14 +34,14 @@
       why: 'Sources, raison, liberté : les grandes questions de la foi, posées honnêtement.',
       endquote: { ar:'وَقُل رَّبِّ زِدْنِي عِلْمًا', fr:'« Et dis : Seigneur, accrois mon savoir. »', ref:'Coran 20:114' },
       steps: [
-        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:10, h:'Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s\'applique pas.' },
-        { href:'la-source-et-le-fleuve', t:'La source et le fleuve', min:16, h:'Coran et Sunnah : d\'où viennent les règles que nous suivons ?' },
-        { href:'averroes-la-raison', t:'Averroès et le droit de la raison', min:12, h:'Au XIIe siècle : la raison a-t-elle droit de cité dans l\'islam ?' },
-        { href:'lautre-histoire-de-lislam-sunnite', t:'L\'autre histoire de l\'islam sunnite', min:18, h:'Deux traditions théologiques également anciennes, très inégalement connues aujourd\'hui.' },
-        { href:'le-libre-arbitre', t:'Le libre arbitre et le décret', min:18, h:'Ce que le Coran dit vraiment, avant que la théologie ne le durcisse.' },
-        { href:'le-probleme-du-mal', t:'Le problème du mal', min:14, h:'La question la plus difficile, posée sans raccourci.' },
-        { href:'le-coran-en-pratique', t:'Le Coran, concrètement', min:6, h:'Sourate, verset, révélation : ce qu\'il faut savoir avant de lire.' },
-        { href:'les-deux-livres', t:'Les deux livres', min:7, h:'Science et foi ne parlent pas de la même chose. Comment les lire ensemble.' },
+        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:5, h:'Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s\'applique pas.' },
+        { href:'la-source-et-le-fleuve', t:'La source et le fleuve', min:17, h:'Coran et Sunnah : d\'où viennent les règles que nous suivons ?' },
+        { href:'averroes-la-raison', t:'Averroès et le droit de la raison', min:7, h:'Au XIIe siècle : la raison a-t-elle droit de cité dans l\'islam ?' },
+        { href:'lautre-histoire-de-lislam-sunnite', t:'L\'autre histoire de l\'islam sunnite', min:26, h:'Deux traditions théologiques également anciennes, très inégalement connues aujourd\'hui.' },
+        { href:'le-libre-arbitre', t:'Le libre arbitre et le décret', min:14, h:'Ce que le Coran dit vraiment, avant que la théologie ne le durcisse.' },
+        { href:'le-probleme-du-mal', t:'Le problème du mal', min:10, h:'La question la plus difficile, posée sans raccourci.' },
+        { href:'le-coran-en-pratique', t:'Le Coran, concrètement', min:4, h:'Sourate, verset, révélation : ce qu\'il faut savoir avant de lire.' },
+        { href:'les-deux-livres', t:'Les deux livres', min:6, h:'Science et foi ne parlent pas de la même chose. Comment les lire ensemble.' },
         { href:'raison-et-revelation', t:'Raison et révélation', min:12, h:'Averroès, Maïmonide, Thomas d\'Aquin : trois réponses à la même question.' },
       ]
     },
@@ -51,16 +51,16 @@
       why: 'Un voyage intérieur, entre psychologie des profondeurs et traditions de l\'âme.',
       endquote: { ar:'مَن عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ', fr:'« Qui se connaît soi-même connaît son Seigneur. »', ref:'Tradition soufie' },
       steps: [
-        { href:'la-fitra', t:'La fiṭra et la dignité', min:10, h:'Ce qui est inscrit en nous avant toute culture.' },
-        { href:'jung-en-dix-minutes', t:'Ce qui agit sans qu\'on le sache', min:10, h:'Jung : l\'inconscient, les archétypes, le Soi.' },
-        { href:'trois-portes-pour-la-meme-piece', t:'Trois portes pour la même pièce', min:12, h:'Devant une même hésitation, Freud, Jung et Adler n\'auraient pas regardé au même endroit.' },
-        { href:'ombre-et-nafs', t:'L\'ombre et le nafs', min:12, h:'Ce que Jung et le Coran disent de la même réalité.' },
-        { href:'le-coeur', t:'Le cœur', min:9, h:'Le qalb, organe de la compréhension, pas seulement des émotions.' },
-        { href:'maitriser-le-desir', t:'Maîtriser le désir', min:12, h:'Hawā, taṇhā, concupiscence : une même lutte intérieure.' },
-        { href:'le-confluent-des-deux-mers', t:'Le confluent des deux mers', min:14, h:'Jung et Khidr au bord du fleuve. Le récit coranique de l\'individuation.' },
-        { href:'les-reves', t:'Les rêves', min:10, h:'De Yūsuf à Freud et Jung : le rêve comme langue de l\'âme.' },
+        { href:'la-fitra', t:'La fiṭra et la dignité', min:5, h:'Ce qui est inscrit en nous avant toute culture.' },
+        { href:'jung-en-dix-minutes', t:'Ce qui agit sans qu\'on le sache', min:8, h:'Jung : l\'inconscient, les archétypes, le Soi.' },
+        { href:'trois-portes-pour-la-meme-piece', t:'Trois portes pour la même pièce', min:6, h:'Devant une même hésitation, Freud, Jung et Adler n\'auraient pas regardé au même endroit.' },
+        { href:'ombre-et-nafs', t:'L\'ombre et le nafs', min:9, h:'Ce que Jung et le Coran disent de la même réalité.' },
+        { href:'le-coeur', t:'Le cœur', min:5, h:'Le qalb, organe de la compréhension, pas seulement des émotions.' },
+        { href:'maitriser-le-desir', t:'Maîtriser le désir', min:13, h:'Hawā, taṇhā, concupiscence : une même lutte intérieure.' },
+        { href:'le-confluent-des-deux-mers', t:'Le confluent des deux mers', min:9, h:'Jung et Khidr au bord du fleuve. Le récit coranique de l\'individuation.' },
+        { href:'les-reves', t:'Les rêves', min:9, h:'De Yūsuf à Freud et Jung : le rêve comme langue de l\'âme.' },
         { href:'les-destins-du-moi', t:'Les destins du moi', min:8, h:'Nafs, anattā, ego, Soi : quatre façons d\'appeler la même question.' },
-        { href:'le-souffle', t:'Le souffle', min:11, h:'Al-rūḥ et la création d\'Adam : le souffle comme lien entre Dieu et l\'homme.' },
+        { href:'le-souffle', t:'Le souffle', min:10, h:'Al-rūḥ et la création d\'Adam : le souffle comme lien entre Dieu et l\'homme.' },
       ]
     },
     texte: {
@@ -69,15 +69,15 @@
       why: 'Les outils pour lire le Coran dans sa langue, sa rhétorique et sa structure propres.',
       endquote: { ar:'أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ', fr:'« Ne méditent-ils donc pas le Coran ? »', ref:'Coran 4:82' },
       steps: [
-        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:10, h:'Lire un texte sacré n\'est pas lire un roman. Mais qu\'est-ce que cela change ?' },
-        { href:'le-premier-mot', t:'Le premier mot', min:9, h:'Iqraʾ, un ordre de lire, et ce que cela dit de la révélation.' },
-        { href:'la-rhetorique-semitique', t:'La rhétorique sémitique', min:12, h:'Symétries concentriques du Coran : une fois qu\'on le sait, on ne lit plus pareil.' },
-        { href:'la-lecture-symbolique', t:'La lecture symbolique', min:12, h:'Ẓāhir et bāṭin : la lettre et le sens profond.' },
-        { href:'les-mots-et-le-monde', t:'Les mots et le monde', min:15, h:'Izutsu et la sémantique coranique : les mots structurent une vision du monde.' },
+        { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:5, h:'Lire un texte sacré n\'est pas lire un roman. Mais qu\'est-ce que cela change ?' },
+        { href:'le-premier-mot', t:'Le premier mot', min:11, h:'Iqraʾ, un ordre de lire, et ce que cela dit de la révélation.' },
+        { href:'la-rhetorique-semitique', t:'La rhétorique sémitique', min:4, h:'Symétries concentriques du Coran : une fois qu\'on le sait, on ne lit plus pareil.' },
+        { href:'la-lecture-symbolique', t:'La lecture symbolique', min:7, h:'Ẓāhir et bāṭin : la lettre et le sens profond.' },
+        { href:'les-mots-et-le-monde', t:'Les mots et le monde', min:5, h:'Izutsu et la sémantique coranique : les mots structurent une vision du monde.' },
         { href:'shahrour-le-livre-et-le-coran', t:'Shahrour : le Livre et le Coran', min:6, h:'Une méthode de lecture déroutante, et ce qu\'elle déplace vraiment.' },
-        { href:'la-loi-de-limites', t:'La loi de limites', min:13, h:'Recettes ou cadres ? Ce que change de lire les ḥudūd comme des bornes.' },
-        { href:'le-monde-imaginal', t:'Le monde entre deux', min:7, h:'Corbin et Jung ont nommé le même espace : entre matière et abstraction.' },
-        { href:'le-sens-avant-le-comment', t:'Le sens avant le comment', min:11, h:'Certaines vérités se donnent dans leur sens sans jamais livrer leur comment.' },
+        { href:'la-loi-de-limites', t:'La loi de limites', min:19, h:'Recettes ou cadres ? Ce que change de lire les ḥudūd comme des bornes.' },
+        { href:'le-monde-imaginal', t:'Le monde entre deux', min:6, h:'Corbin et Jung ont nommé le même espace : entre matière et abstraction.' },
+        { href:'le-sens-avant-le-comment', t:'Le sens avant le comment', min:10, h:'Certaines vérités se donnent dans leur sens sans jamais livrer leur comment.' },
       ]
     },
     monde: {
@@ -86,12 +86,12 @@
       why: 'L\'attention, l\'absurde, la relation, la mort : l\'existence à l\'ère des écrans.',
       endquote: { ar:'فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ', fr:'« Où que vous vous tourniez, là est la Face de Dieu. »', ref:'Coran 2:115' },
       steps: [
-        { href:'le-scroll-et-la-pause', t:'Le scroll et la pause', min:10, h:'Le design persuasif, le hawā, et comment reprendre son attention.' },
-        { href:'le-sens-malgre-tout', t:'Le sens malgré tout', min:11, h:'Frankl dans les camps, Camus face à l\'absurde.' },
-        { href:'je-et-tu', t:'Je et Tu', min:9, h:'Martin Buber et la relation vraie à l\'ère des réseaux.' },
-        { href:'la-finitude', t:'La finitude', min:10, h:'Heidegger, l\'islam et la mort comme horizon de la vie.' },
-        { href:'ce-qui-arrete', t:'Ce qui arrête', min:8, h:'Un paysage, une phrase, une mélodie : ce que dit de nous l\'expérience de ce qui arrête le regard.' },
-        { href:'le-moi-et-son-image', t:'Le moi et son image', min:6, h:'Sur les réseaux, on gère une image. Le Coran et Jung ont nommé ce piège.' },
+        { href:'le-scroll-et-la-pause', t:'Le scroll et la pause', min:6, h:'Le design persuasif, le hawā, et comment reprendre son attention.' },
+        { href:'le-sens-malgre-tout', t:'Le sens malgré tout', min:4, h:'Frankl dans les camps, Camus face à l\'absurde.' },
+        { href:'je-et-tu', t:'Je et Tu', min:5, h:'Martin Buber et la relation vraie à l\'ère des réseaux.' },
+        { href:'la-finitude', t:'La finitude', min:6, h:'Heidegger, l\'islam et la mort comme horizon de la vie.' },
+        { href:'ce-qui-arrete', t:'Ce qui arrête', min:5, h:'Un paysage, une phrase, une mélodie : ce que dit de nous l\'expérience de ce qui arrête le regard.' },
+        { href:'le-moi-et-son-image', t:'Le moi et son image', min:3, h:'Sur les réseaux, on gère une image. Le Coran et Jung ont nommé ce piège.' },
       ]
     },
     signe: {
@@ -100,9 +100,9 @@
       why: 'Le monde porte-t-il des signes, ou les y mettons-nous ? Trois textes sur l\'émerveillement et ses limites.',
       endquote: { ar:'سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ', fr:'« Nous leur montrerons Nos signes dans les horizons et en eux-mêmes. »', ref:'Coran 41:53' },
       steps: [
-        { href:'les-signes', t:'Les signes : lire le monde', min:12, h:'L\'émerveillement comme voie de connaissance, et ses limites honnêtes.' },
-        { href:'le-desenchantement', t:'Le désenchantement du monde', min:12, h:'Weber et la perte du sacré dans la modernité.' },
-        { href:'l-univers-ajuste', t:'L\'univers ajusté', min:6, h:'Le réglage fin de l\'univers : hasard ou dessein ? Ce que la physique permet de dire.' },
+        { href:'les-signes', t:'Les signes : lire le monde', min:6, h:'L\'émerveillement comme voie de connaissance, et ses limites honnêtes.' },
+        { href:'le-desenchantement', t:'Le désenchantement du monde', min:4, h:'Weber et la perte du sacré dans la modernité.' },
+        { href:'l-univers-ajuste', t:'L\'univers ajusté', min:5, h:'Le réglage fin de l\'univers : hasard ou dessein ? Ce que la physique permet de dire.' },
       ]
     }
   };
@@ -118,8 +118,8 @@
       name: 'Ce qu\'on cesse de regarder', color: '#0a4d44',
       steps: [
         { href:'le-sang-quon-ne-voit-plus', t:"Le sang qu'on ne voit plus", min:24 },
-        { href:'lignorance-quon-fabrique',  t:"L'ignorance qu'on fabrique", min:23 },
-        { href:'la-part-du-temoin',         t:'La part du témoin',          min:16 },
+        { href:'lignorance-quon-fabrique',  t:"L'ignorance qu'on fabrique", min:20 },
+        { href:'la-part-du-temoin',         t:'La part du témoin',          min:15 },
       ]
     }
   };
