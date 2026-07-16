@@ -24,6 +24,7 @@
     porte:     '<rect x="13" y="10" width="14" height="20" rx="1" fill="none" stroke="var(--c)" stroke-width="1.4"/><circle cx="23" cy="20" r="1.4" fill="var(--c)"/>',
     horloge:   '<circle cx="20" cy="20" r="11" fill="none" stroke="var(--c)" stroke-width="1.4"/><path d="M20 14 V20 L24 23" fill="none" stroke="var(--c)" stroke-width="1.4"/>',
     monde:     '<circle cx="20" cy="20" r="11" fill="none" stroke="var(--c)" stroke-width="1.4"/><ellipse cx="20" cy="20" rx="4.5" ry="11" fill="none" stroke="var(--c)" stroke-width="1.2"/><line x1="9" y1="20" x2="31" y2="20" stroke="var(--c)" stroke-width="1.2"/>',
+    fleuron:   '<path d="M20 11 C16 15 14 18 14 21 C14 24 16.5 26 20 29 C23.5 26 26 24 26 21 C26 18 24 15 20 11Z" fill="none" stroke="var(--c)" stroke-width="1.4"/><line x1="20" y1="21" x2="20" y2="29" stroke="var(--c)" stroke-width="1.4"/>',
     feu:       '<path d="M20 9 C24 15 26 18 26 23 A6 6 0 0 1 14 23 C14 19 17 17 17 13 C19 15 20 17 20 9Z" fill="none" stroke="var(--c)" stroke-width="1.4"/>',
     deux:      '<circle cx="15" cy="20" r="7" fill="none" stroke="var(--c)" stroke-width="1.4"/><circle cx="25" cy="20" r="7" fill="none" stroke="var(--c)" stroke-width="1.4"/>'
   };
@@ -64,12 +65,27 @@
     'le-sens-malgre-tout':'etoile',
     'l-univers-ajuste':'monde',
     'les-mots-et-le-monde':'monde',
-    'le-scroll-et-la-pause':'horloge'
+    'le-scroll-et-la-pause':'horloge',
+    'ce-que-veut-dire-philosopher':'spirale',
+    'ce-qui-distingue-une-ecole':'chemin',
+    'ce-qui-distingue-une-religion':'deux',
+    'croire-et-vouloir-comprendre':'balance',
+    'la-loi-de-limites':'porte',
+    'la-part-du-temoin':'ame',
+    'lautre-histoire-de-lislam-sunnite':'deux',
+    'le-cercle-que-personne-nevite':'cercles',
+    'le-sang-quon-ne-voit-plus':'feu',
+    'le-siecle-sans-encre':'plume',
+    'lignorance-quon-fabrique':'miroir',
+    'quand-la-foi-se-met-a-raisonner':'etoile'
   };
 
   function iconFor(slug){
-    var key = MAP[slug] || 'lecture';
-    return LIB[key] || LIB.lecture;
+    /* Le defaut est volontairement neutre : le fleuron de la revue. Un essai
+       absent de MAP ne doit pas heriter d'un symbole fort par accident.
+       C'est ce que faisait l'ancien defaut ('lecture', un oeil). */
+    var key = MAP[slug] || 'fleuron';
+    return LIB[key] || LIB.fleuron;
   }
 
   // SVG complet prêt à insérer
