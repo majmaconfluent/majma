@@ -1,5 +1,12 @@
 (function(){
   var GLOSS = {
+  'Hadith': "Un rapport sur ce que le Prophète a dit, fait ou tacitement approuvé. Chaque hadith se compose de deux parties : la chaîne de ceux qui l'ont transmis (isnād) et le texte lui-même (matn). Le mot ne désigne pas un livre mais une unité : un recueil en contient des milliers.",
+  'Sunna': "L'ensemble de ce que le Prophète a dit, fait et approuvé, tel que le hadith le rapporte. Deuxième source du droit islamique après le Coran. À distinguer du hadith, qui en est le véhicule : la sunna est le contenu, le hadith le rapport qui le transmet.",
+  'Isnād': "La chaîne des transmetteurs placée en tête de chaque hadith : untel m'a rapporté, d'après untel, d'après untel, que le Prophète a dit. Selon Ibn Sīrīn, on ne l'exigeait pas avant la première guerre civile ; après elle, on demanda : nommez-nous vos hommes.",
+  'Fitna': "Épreuve, sédition, guerre civile. La première fitna (656-661) oppose les partisans de ʿAlī à ceux de Muʿāwiya après l'assassinat du calife ʿUthmān. Elle met fin au califat des Rāshidūn, ouvre la dynastie omeyyade, et laisse une communauté où chaque camp invoque le même Prophète.",
+  'Tadwīn': "La mise par écrit : le moment où le hadith, transmis de bouche à oreille pendant plusieurs générations, passe au registre. La tradition en attribue l'ordre tantôt au calife ʿUmar II, tantôt au calife Hishām, et le savant al-Zuhrī dit y avoir été contraint.",
+  'Samāʿ': "L'audition : mode de transmission le plus estimé du savoir. Le maître récite, l'élève écoute puis restitue, le maître corrige, et délivre au bout l'autorisation de transmettre à son tour. Ce qu'il garantit n'est pas l'exactitude de la lettre mais la responsabilité d'une chaîne d'hommes vivants.",
+  'Wijāda': "Littéralement une trouvaille : un texte qu'on a trouvé écrit, sans l'avoir reçu d'une bouche. Le mode de transmission le plus faible, parce qu'un manuscrit ne répond pas quand on l'interroge. Le mot dit le soupçon que l'écrit inspirait aux savants du hadith.",
   "Principe anthropique":"Constat que l’univers paraît ajusté pour permettre la vie. Version faible : nous ne pouvons observer qu’un monde compatible avec notre existence.",
   "Rhétorique sémitique":"L’art de composer par symétries, propre à la Bible et au Coran ; et l’analyse de cette composition (Meynet, Cuypers).",
   "Désenchantement":"Le retrait du sacré et du mystère du monde sous l’effet de la rationalisation moderne (Max Weber).",

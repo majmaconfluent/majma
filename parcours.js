@@ -36,6 +36,7 @@
       steps: [
         { href:'quest-ce-qu-une-lecture', t:'Qu\'est-ce qu\'une lecture ?', min:5, h:'Avant tout, comprendre ce que lire veut dire. Un texte sacré vit, il ne s\'applique pas.' },
         { href:'la-source-et-le-fleuve', t:'La source et le fleuve', min:17, h:'Coran et Sunnah : d\'où viennent les règles que nous suivons ?' },
+        { href:'le-siecle-sans-encre', t:'Le siècle sans encre', min:14, h:'Un reçu de moutons, un parchemin, un palimpseste : ce que le premier siècle a écrit, et ce qu\'il a confié aux hommes.' },
         { href:'averroes-la-raison', t:'Averroès et le droit de la raison', min:7, h:'Au XIIe siècle : la raison a-t-elle droit de cité dans l\'islam ?' },
         { href:'lautre-histoire-de-lislam-sunnite', t:'L\'autre histoire de l\'islam sunnite', min:26, h:'Deux traditions théologiques également anciennes, très inégalement connues aujourd\'hui.' },
         { href:'le-libre-arbitre', t:'Le libre arbitre et le décret', min:14, h:'Ce que le Coran dit vraiment, avant que la théologie ne le durcisse.' },
