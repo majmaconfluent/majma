@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'âme · Majmaʿ</title>
-<meta name="description" content="Essais sur l'âme : Jung et l'islam, le nafs, l'ombre, les rêves, le désir, l'inconscient.">
-<style>/* =========================================================
+<title>L'archétype et l'animal totem : ce que les tests font de Jung · Majmaʿ</title>
+<meta name="description" content="Les tests d'« archétype animal » empruntent un mot à Jung et le retournent : ce qui relie devient signe de rareté, ce qui surgit devient identité fixe.">
+<style>
+/* =========================================================
    MAJMAʿ · feuille de style partagée
    Direction « Grille savante » : blanc, grotesque + serif,
    une seule couleur d'accent. Changez --accent pour tout reteinter.
@@ -69,13 +70,18 @@ body{
   text-rendering:optimizeLegibility;
 }
 img{max-width:100%;display:block;}
-a{color:var(--accent);text-decoration:none;}
-a:hover{text-decoration:underline;text-underline-offset:3px;}
+a{color:var(--accent);text-decoration:none;transition:color .15s,opacity .15s;}
+a:hover{color:var(--accent);opacity:.78;}
 
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .12s linear;}
 
 /* ---------------- EN-TÊTE / NAVIGATION ---------------- */
-.site-header{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;background:color-mix(in srgb,var(--paper) 78%,transparent);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);transition:border-color .25s,box-shadow .25s;}
+.site-header{
+  position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;
+  background:color-mix(in srgb,var(--paper) 78%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
 .site-header.scrolled{border-bottom-color:var(--rule);box-shadow:0 8px 30px -22px rgba(20,15,10,.6);}
 .site-header .bar{
   max-width:var(--measure-wide);margin:0 auto;padding:1.1rem 1.6rem;
@@ -130,6 +136,9 @@ a:hover{text-decoration:underline;text-underline-offset:3px;}
 /* ---------------- PAGE D'ARTICLE ---------------- */
 .article-head{text-align:left;padding:3.2rem 1.7rem 1rem;max-width:var(--measure);margin:0 auto;}
 .article-head .kicker{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#b8923f;}
+@media (max-width:480px){
+  .article-head .kicker{font-size:.72rem;letter-spacing:.1em;display:block;line-height:1.5}
+}
 .article-head h1{font-family:var(--display);font-weight:800;font-size:2.7rem;line-height:1.0;letter-spacing:-.025em;margin:.5rem 0 .5rem;}
 .article-head .sub{font-family:var(--body);font-style:italic;font-size:1.35rem;color:var(--ink-soft);margin:0;}
 .article-head .byline{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:1.3rem;}
@@ -260,7 +269,6 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
 
 /* === polish · identité de confluence + respiration === */
 .manifeste{max-width:600px;margin:14px auto 0;font-family:var(--display);font-size:1.12rem;line-height:1.55;color:var(--ink-soft);}
-
 .site-header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:12px;background:center/170px 12px no-repeat url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20170%2012%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23b8b1a3%27%20stroke-width%3D%271%27%3E%3Cpath%20d%3D%27M2%203%20C%2045%203%2060%209%2085%209%27%2F%3E%3Cpath%20d%3D%27M168%203%20C%20125%203%20110%209%2085%209%27%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2785%27%20cy%3D%279%27%20r%3D%271.6%27%20fill%3D%27%23b8b1a3%27%2F%3E%3C%2Fsvg%3E");opacity:.5;pointer-events:none;}
 @media(min-width:760px){
   .manifeste{font-size:1.2rem;}
@@ -272,15 +280,21 @@ figure.diagram figcaption{font-family:var(--body);font-style:italic;font-size:1.
 .hero-mark{display:block;width:148px;height:auto;margin:0 0 1.3rem;}
 @media(max-width:640px){.hero-mark{width:120px;}}
 
-.brand-logo{height:92px;width:auto;display:block;}
-@media(max-width:640px){.brand-logo{height:84px;}}
+.brand-logo{height:68px;width:auto;display:block;}
+@media(max-width:640px){.brand-logo{height:58px;}}
+@media(max-width:380px){.brand-logo{height:52px;}}
 
 .foot-logo{height:76px;width:auto;display:block;margin:0 auto .7rem;}
 
-/*center-header*/
-.site-header .bar{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:space-between !important;}
-.site-header .brand{align-self:center;}
-.site-header .site-nav{justify-content:center !important;}
+/*hamburger-header*/
+.site-header .bar{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:space-between !important;gap:1rem;padding:.7rem 1.3rem;max-width:960px;margin:0 auto;}
+.site-header .brand{align-self:center;display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+.brand-logo{height:54px !important;width:auto !important;}
+.brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1;}
+.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s;flex:0 0 auto;}
+.menu-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.site-header .site-nav{display:none !important;}
+@media(max-width:480px){.brand-logo{height:48px !important;}.brand-name{font-size:1.3rem;}}
 
 
 .engage{text-align:center;font-size:.92rem;color:var(--ink-faint);margin:1.1rem 0 0;}
@@ -457,6 +471,7 @@ body{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w
 .feat-title{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0;line-height:1.2;}
 .feat-desc{font-family:var(--body);font-size:.98rem;color:var(--ink-soft);margin:0;line-height:1.5;flex:1;}
 .feat-cta{font-family:var(--display);font-size:.88rem;color:var(--accent);font-weight:600;margin-top:.4rem;}
+.feat-read{font-family:var(--display);font-size:.84rem;color:var(--accent);font-weight:600;margin-top:.3rem;}
 
 /* Chapters accordion */
 .ch-panel{
@@ -481,18 +496,16 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 
 /* Essay rows inside chapters */
 .erow{
-  display:flex;justify-content:space-between;align-items:flex-start;
+  display:flex;justify-content:space-between;align-items:baseline;
   gap:1rem;padding:.85rem .8rem;border-radius:5px;
   text-decoration:none;color:var(--ink);
   border-bottom:1px solid var(--rule);
   transition:background .12s;
 }
-.erow-body{display:flex;flex-direction:column;gap:.18rem;min-width:0;}
-.erow-hint{font-family:var(--body);font-size:.84rem;line-height:1.4;color:var(--ink-soft);}
 .erow:last-child{border-bottom:none;}
 .erow:hover{background:var(--paper-deep);text-decoration:none;}
 .erow-title{font-family:var(--body);font-size:1rem;}
-.erow-meta{font-family:var(--display);font-size:.8rem;color:var(--ink-faint);white-space:nowrap;flex:0 0 auto;padding-top:.15rem;}
+.erow-meta{font-family:var(--display);font-size:.8rem;color:var(--ink-faint);white-space:nowrap;flex:0 0 auto;}
 
 
 
@@ -589,15 +602,18 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 }
 
 /* Header icons (search + theme) */
-/* === Header hamburger + menu (injecté) === */
-.site-header .bar{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:1rem;padding:.7rem 1.3rem!important;max-width:960px;margin:0 auto;}
-.site-header .brand{align-self:center!important;display:flex;align-items:center;gap:.6rem;text-decoration:none;}
-.brand-logo{height:54px!important;width:auto!important;}
-.brand-name{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;line-height:1;}
-.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border:1px solid var(--rule);border-radius:8px;background:var(--card);cursor:pointer;font-size:1.25rem;color:var(--ink-soft);transition:border-color .15s,color .15s;flex:0 0 auto;}
-.menu-toggle:hover{border-color:var(--accent);color:var(--accent);}
-.site-header .site-nav{display:none!important;}
-.menu-drawer{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--paper);box-shadow:-14px 0 50px -24px rgba(20,15,10,.55);transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s linear .32s;z-index:300;overflow-y:auto;padding:0;display:block;}
+/* === Recherche dépliable (loupe) — toutes pages === */
+.search-panel{max-height:0;overflow:hidden;opacity:0;padding:0 1.6rem;transition:max-height .28s ease,opacity .2s ease,padding .28s ease;border-top:1px solid transparent;}
+.search-panel.open{max-height:70vh;opacity:1;padding:.9rem 1.6rem;border-top-color:var(--rule);}
+.search-wrap{position:relative;max-width:36rem;margin:0 auto;}
+
+/* === Lien de nav actif === */
+.site-nav a.is-active{color:var(--accent);position:relative;font-weight:600;}
+.site-nav a.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent);border-radius:2px;}
+.site-nav a.header-icon.is-active::after{display:none;}
+
+/* === Menu hamburger sobre à icônes (toutes pages) === */
+.menu-drawer{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--paper);box-shadow:-14px 0 50px -24px rgba(20,15,10,.55);transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s linear .32s;z-index:300;overflow-y:auto;padding:0!important;display:block!important;}
 .menu-drawer.open{transform:translateX(0);visibility:visible;transition:transform .32s cubic-bezier(.4,0,.2,1),visibility 0s;}
 .menu-close{position:absolute;top:1.1rem;right:1.4rem;font-size:1.7rem;line-height:1;background:none;border:none;cursor:pointer;color:var(--ink-soft);z-index:2;padding:0;}
 .menu-back{position:fixed;inset:0;background:rgba(20,15,10,.4);opacity:0;pointer-events:none;transition:opacity .28s;z-index:250;}
@@ -606,7 +622,7 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 .menu-head img{height:42px;width:auto;}
 .menu-head .mh-name{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--ink);}
 .menu-list{padding:.8rem 1rem 1.5rem;display:flex;flex-direction:column;gap:.1rem;}
-.menu-list a{display:flex;align-items:center;gap:.85rem;font-family:var(--display);font-size:1.12rem;color:var(--ink);padding:.7rem .7rem;border-radius:9px;text-decoration:none;transition:background .15s,color .15s;}
+.menu-list a{display:flex;align-items:center;gap:.85rem;font-family:var(--display);font-size:1.12rem;color:var(--ink);padding:.7rem .7rem;border-radius:9px;text-decoration:none;border-bottom:none!important;opacity:1!important;transform:none!important;transition:background .15s,color .15s;}
 .menu-list a:hover{background:color-mix(in srgb,var(--mc,var(--accent)) 10%,transparent);color:var(--mc,var(--accent));}
 .menu-list a.is-active{color:var(--mc,var(--accent));font-weight:700;}
 .menu-ic{width:1.9rem;height:1.9rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
@@ -614,58 +630,135 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
 .menu-sep{height:1px;background:var(--rule);margin:.6rem .7rem;}
 .menu-list a.sec{font-size:1rem;color:var(--ink-soft);}
 .menu-list a.sec:hover{color:var(--accent);}
-@media(max-width:480px){.brand-logo{height:48px!important;}.brand-name{font-size:1.3rem;}}
 
-</style>
-<script src="theme.js"></script>
-<script src="gloss.js" defer></script>
-<link rel="icon" type="image/png" href="favicon-32.png">
-<link rel="apple-touch-icon" href="favicon-180.png">
-<meta property="og:title" content="L'âme · Majmaʿ">
-<meta property="og:description" content="Essais sur l'âme : Jung et l'islam, le nafs, l'ombre, les rêves, le désir, l'inconscient.">
-<meta property="og:image" content="https://majma.me/og.png">
-<meta property="og:url" content="https://majma.me/lame.html">
-<link rel="canonical" href="https://majma.me/lame.html">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38RNGLZV63');</script>
-<style>
-.search-wrap{max-width:24rem!important;}
-
-</style>
-<style>
-.sec-hero{padding:2rem 1.6rem 1.8rem;border-bottom:1px solid var(--rule);max-width:var(--measure-wide);margin:0 auto;}
-.sec-hero .kicker{font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:.6rem;}
-.sec-hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1.05;color:var(--ink);margin-bottom:.65rem;}
-.sec-hero .lede{font-family:var(--body);font-style:italic;font-size:1.1rem;color:var(--ink-soft);line-height:1.7;max-width:38rem;}
-</style>
-<style>
-/* Cacher les numéros de chapitres sur les pages de section */
-.ch-num { display: none !important; }
-.ch-head { padding-left: .8rem !important; }
-.ch-title { font-size: 1.2rem !important; }
-
-/* Harmoniser les tailles de texte globalement */
-.ch-why { font-size: .95rem !important; }
-.ch-count { font-size: .82rem !important; }
-.erow-title { font-size: 1.05rem !important; }
-.erow-meta { font-size: .82rem !important; }
-
-/* Section hero équilibrée */
-.sec-hero h1 { font-size: clamp(1.8rem, 5vw, 2.4rem) !important; }
-.sec-hero .lede { font-size: 1rem !important; line-height: 1.65 !important; }
-
-/* Nav harmonisée */
-@media(max-width:680px){
-  .site-nav { font-size: .82rem !important; gap: .5rem !important; }
-  .brand-logo { height: 58px !important; }
+/* Fil de progression des portes d'initiation (religion/philosophie "Pour
+   commencer"). Affiche 1 . 2 . 3, cliquable, retient la lecture même si on
+   revient en arriere. Voir GROUPS dans parcours.js. */
+.grp-trail{display:flex;align-items:center;gap:.4rem;margin:.5rem 0 1rem}
+.grp-dot{
+  display:flex;align-items:center;justify-content:center;
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  font-family:var(--display);font-size:.78rem;font-weight:700;
+  border:1.5px solid var(--rule);color:var(--ink-faint);
+  text-decoration:none;transition:border-color .15s,color .15s,background .15s;
+  flex-shrink:0;
 }
+.grp-dot:hover{border-color:var(--accent);color:var(--accent)}
+.grp-dot.is-current{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.grp-dot.is-done{border-color:var(--accent);color:#fff;background:var(--accent)}
+.grp-line{width:14px;height:1px;background:var(--rule);flex-shrink:0}
 
-/* Lignes d'essais : icône thématique à gauche, plus de numéro */
-.erow { position: relative; }
+</style>
+<script>
+(function(){
+  // Menu hamburger
+  // CORRECTIF : overflow:hidden sur body seul ne bloque pas toujours le
+  // scroll tactile sur mobile (Chrome Android notamment), ce qui permettait
+  // à la page de fond de continuer à défiler pendant que le menu transitionnait,
+  // donnant l'impression que le panneau restait figé en plein glissement.
+  // On bloque maintenant html ET body, plus le touchmove en arrière-plan.
+  function blockBackgroundTouch(e){
+    var d=document.getElementById('menuDrawer');
+    if(d && d.contains(e.target)) return; // laisser le scroll interne du menu fonctionner
+    e.preventDefault();
+  }
+  window.__toggleMenu=function(){
+    var d=document.getElementById('menuDrawer'),b=document.getElementById('menuBack');
+    if(!d)return;
+    var open=d.classList.toggle('open');
+    if(b)b.classList.toggle('open',open);
+    if(open){
+      document.documentElement.style.overflow='hidden';
+      document.body.style.overflow='hidden';
+      document.addEventListener('touchmove',blockBackgroundTouch,{passive:false});
+    } else {
+      document.documentElement.style.overflow='';
+      document.body.style.overflow='';
+      document.removeEventListener('touchmove',blockBackgroundTouch);
+    }
+  };
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){var d=document.getElementById('menuDrawer');if(d&&d.classList.contains('open'))window.__toggleMenu();}
+  });
+
+  // Header sticky : ombre au scroll
+  document.addEventListener('DOMContentLoaded',function(){
+    var h=document.querySelector('.site-header');
+    if(!h)return;
+    function on(){h.classList.toggle('scrolled',window.scrollY>8);}
+    on();window.addEventListener('scroll',on,{passive:true});
+  });
+
+  // Indicateur de page active dans la nav
+  (function(){
+    var path=location.pathname.split('/').pop()||'index.html';
+    var map={'le-coran.html':'le-coran.html','lame.html':'lame.html','le-sens.html':'le-sens.html','apropos.html':'apropos.html'};
+    // rubriques d'essais : surligner la rubrique parente si connue
+    document.addEventListener('DOMContentLoaded',function(){
+      var links=document.querySelectorAll('.site-nav a[href], .menu-drawer a[href]');
+      links.forEach(function(a){
+        var href=(a.getAttribute('href')||'').split('/').pop();
+        if(href && href===path){a.classList.add('is-active');}
+      });
+    });
+  })();
+
+  // Recherche : la loupe déroule le panneau
+  window.__toggleSearch=function(){
+    var p=document.getElementById('searchPanel');
+    if(!p) return;
+    var open=p.classList.toggle('open');
+    if(open){
+      var i=document.getElementById('srch');
+      if(i) setTimeout(function(){i.focus();},60);
+    }
+  };
+  // Fermer la recherche avec Échap
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      var p=document.getElementById('searchPanel');
+      if(p) p.classList.remove('open');
+    }
+  });
+})();
+
+</script>
+<script>window.MAJMA_GLOSS_LOCAL={"Ombre":"Chez Jung : la part de nous-même que nous refusons de voir, refoulée hors de la conscience mais jamais dissoute.","Soi":"Chez Jung : le centre total de la psyché, conscient et inconscient réunis, plus vaste que le moi (l'ego)."};window.MAJMA_GLOSS_LOCAL_CASE_SENSITIVE={"Soi":true};</script>
+<!-- <script src="gloss.js" defer></script> (retiré en version autonome) -->
+<!-- <script src="parcours.js" defer></script> (retiré en version autonome) -->
+<!-- <script src="read-tracker.js" defer></script> (retiré en version autonome) -->
+<style>:root{--accent:var(--psycho);}</style>
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Majmaʿ">
+  <meta property="og:title" content="L'archétype et l'animal totem · Majmaʿ">
+  <meta property="og:description" content="Les tests d'« archétype animal » empruntent un mot à Jung et le tournent à l'envers. Ce que l'archétype disait vraiment, et ce que notre époque cherche quand elle croit en parler.">
+  <meta property="og:image" content="https://majma.me/og.png">
+  <meta property="og:url" content="https://majma.me/l-archetype-et-l-animal.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://majma.me/og.png">
+  <meta name="essay-id" content="l-archetype-et-l-animal">
+<link rel="canonical" href="https://majma.me/l-archetype-et-l-animal.html">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38RNGLZV63"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-38RNGLZV63');
+</script>
+<style>
+@media(max-width:640px){
+  .site-nav a:not(.header-icon):not(.lang-switch){font-size:.82rem;}
+  .site-nav{gap:.55rem!important;}
+  .brand-logo{height:60px!important;}
+}
 </style>
 </head>
 <body>
 <div id="progress"></div>
+
 <header class="site-header">
   <div class="bar">
     <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="Majmaʿ"><span class="brand-name">Majmaʿ</span></a>
@@ -687,172 +780,116 @@ details[open] .ch-head{border-bottom:1px solid var(--rule);}
     <a class="sec" href="/en/">English</a>
   </div>
 </nav>
-<!-- Bande géométrique -->
-<div class="band" style="height:44px">
-  <svg class="band-svg" viewBox="0 0 640 44" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
-    <defs><pattern id="petal" width="30" height="30" patternUnits="userSpaceOnUse">
-      <g fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.20">
-        <circle cx="0" cy="15" r="15"/><circle cx="30" cy="15" r="15"/>
-        <circle cx="15" cy="0" r="15"/><circle cx="15" cy="30" r="15"/>
-        <circle cx="15" cy="15" r="15"/>
-      </g></pattern></defs>
-    <rect width="640" height="44" fill="url(#petal)"/>
-  </svg>
-</div>
-<div class="sec-hero">
-  <span class="kicker">Psychologie · Spiritualité</span>
-  <h1>L'âme</h1>
-  <p class="lede">Le voyage intérieur entre psychologie jungienne et tradition islamique. L'ombre, le nafs, les rêves, le désir.</p>
-</div>
-<div class="idx-section">
-  <div class="idx-label">Les essais</div>
-  <details class="ch-panel" open id="ch3">
-    <summary class="ch-head">
-      <span class="ch-num">3</span>
-      <span class="ch-info">
-        <span class="ch-title">Le voyage intérieur</span>
-        <span class="ch-why">L'âme, l'ombre et le nafs : la psychologie de Jung face à la spiritualité islamique.</span>
-      </span>
-      <span class="ch-count">9 essais</span>
-    </summary>
-    <div class="ch-body">
-        <a class="erow" href="jung-en-dix-minutes.html">
-          <span class="erow-title">Ce qui agit sans qu’on le sache</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="l-archetype-et-l-animal.html">
-          <span class="erow-title">L’archétype et l’animal totem</span>
-          <span class="erow-meta">~10 min</span>
-        </a>
-        <a class="erow" href="ombre-et-nafs.html">
-          <span class="erow-title">L’ombre et le nafs</span>
-          <span class="erow-meta">~9 min</span>
-        </a>
-        <a class="erow" href="trois-portes-pour-la-meme-piece.html">
-          <span class="erow-title">Trois portes pour la même pièce</span>
-          <span class="erow-meta">~6 min</span>
-        </a>
-        <a class="erow" href="les-reves.html">
-          <span class="erow-title">Les rêves</span>
-          <span class="erow-meta">~9 min</span>
-        </a>
-        <a class="erow" href="le-souffle.html">
-          <span class="erow-title">Le souffle</span>
-          <span class="erow-meta">~10 min</span>
-        </a>
-        <a class="erow" href="le-confluent-des-deux-mers.html">
-          <span class="erow-title">Le Confluent des deux mers</span>
-          <span class="erow-meta">~9 min</span>
-        </a>
-        <a class="erow" href="les-destins-du-moi.html">
-          <span class="erow-title">Les destins du moi</span>
-          <span class="erow-meta">~8 min</span>
-        </a>
-        <a class="erow" href="maitriser-le-desir.html">
-          <span class="erow-title">Maîtriser le désir</span>
-          <span class="erow-meta">~13 min</span>
-        </a>
+
+<article>
+  <header class="article-head">
+    <div class="band"><svg class="band-svg" viewBox="0 0 640 50" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><pattern id="petal" width="30" height="30" patternUnits="userSpaceOnUse"><g fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.20"><circle cx="0" cy="15" r="15"/><circle cx="30" cy="15" r="15"/><circle cx="15" cy="0" r="15"/><circle cx="15" cy="30" r="15"/><circle cx="15" cy="15" r="15"/></g></pattern></defs><rect width="640" height="50" fill="url(#petal)"/></svg></div>
+<span class="kicker">Psychologie · Culture</span>
+    <h1>L'archétype et l'animal totem</h1>
+    <p class="sub">De la figure qui vous distingue à celle qui vous dérange</p>
+    <p class="byline">Essai · lecture ~10 min</p>
+    <div class="emblem-rule"><svg class="emblem" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="28" fill="none" stroke="var(--accent)" stroke-width="2.2" opacity="0.5"/><path d="M50 22 A28 28 0 0 1 50 78 Z" fill="var(--accent)" fill-opacity="0.6"/></svg><span class="ln"></span></div>
+  </header>
+
+<div class="reading prose">
+    <div class="essay-chapeau"><a class="nav-prev" href="jung-en-dix-minutes.html">← Jung en dix minutes</a><a class="nav-next" href="ombre-et-nafs.html"><em>L'ombre et le nafs</em> →</a></div>
+    <p class="lead">Le test circule depuis quelques mois, sous une forme ou une autre. On répond à une poignée de questions, et il vous rend un verdict : votre archétype animal. Le loup, le cerf, le corbeau, la panthère. Et presque toujours, glissée sous le résultat, une petite phrase qui fait tout le charme de la chose : votre profil serait rare, partagé par un très faible pourcentage de gens. Vous seriez, en somme, une exception.</p>
+
+    <p>Il faut prendre ce test au sérieux. Non pour ce qu'il prétend mesurer, mais pour ce qu'il laisse voir de nous. Car il emprunte un mot à Jung, <em>archétype</em>, et le tourne exactement à l'envers. Rien, dans ce que Jung a nommé ainsi, ne peut être rare ; un archétype rare, c'est presque une contradiction dans les termes. Comprendre pourquoi, c'est comprendre du même coup ce qu'est un archétype et ce que notre époque cherche quand elle croit en parler. Gardez cette petite phrase sur la rareté : c'est par elle que tout se dénouera.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Le mot et sa mémoire</h2>
+    <p>Commençons par le mot lui-même, car il porte sa vérité dans sa forme. <em>Archétype</em> vient de deux mots grecs : <em>arkhè</em>, l'origine, le principe premier, et <em>tupos</em>, l'empreinte, la marque laissée par un coup. Un archétype, littéralement, c'est une empreinte originelle. Non pas une image que l'on regarde, mais le moule qui l'imprime ; non pas le récit, mais ce qui fait qu'on raconte partout les mêmes.</p>
+
+    <p>C'est exactement ainsi que l'entendait Carl Gustav Jung (1875-1961). L'archétype, pour lui, n'est ni une image ni un personnage : c'est une forme, une disposition héritée, une manière de fonctionner commune à toute l'humanité. Il y insistait avec une netteté qu'on oublie souvent. Le terme, disait-il, ne désigne pas une idée héritée, mais un mode de fonctionnement hérité, à la façon dont le poussin sait sortir de l'œuf et l'oiseau bâtir son nid sans que personne le leur apprenne. L'archétype est du côté de l'instinct, non du souvenir.</p>
+
+    <p>Ces formes, Jung les situait dans ce qu'il appelait l'<strong>inconscient collectif</strong> : une couche de la psyché qui ne se développe pas individuellement mais que l'on hérite, identique en tous. Il existe, écrivait-il, un second système psychique, de nature collective, universelle et impersonnelle, identique chez tous les individus. Non pas des contenus tout faits, non pas des mythes préfabriqués sous le crâne, mais des dispositions à produire, partout et de tout temps, des images et des récits qui se ressemblent. Voilà pourquoi les mêmes figures reviennent d'une mythologie à l'autre, sans s'être jamais rencontrées : la mère, l'enfant, le vieux sage, le rusé, le héros. Non qu'elles aient voyagé, mais parce que la structure qui les engendre est la même sous toutes les latitudes.</p>
+
+    <p>Jung aimait comparer l'archétype à la structure du cristal. Chaque flocon de neige est unique, aucun ne répète tout à fait un autre ; et pourtant tous obéissent à la même géométrie à six branches, invisible tant que l'eau n'a pas gelé. L'archétype est cette géométrie : non l'image, mais la loi qui la forme. On ne le voit jamais lui-même, seulement ses manifestations, toujours singulières. Retenez ceci : ce qui est archétypal en nous, c'est ce que nous avons de plus commun, la part exactement identique à celle de tous les autres.</p>
+
+    <p>Trois figures nous serviront bientôt ; autant les distinguer maintenant, car les confondre reviendrait à reproduire le flou qu'on veut défaire. La <strong>persona</strong> est le masque social, le mot vient du masque de l'acteur antique : l'image qu'on présente et que les autres, comme soi-même, prennent pour ce qu'on est. L'<strong>ombre</strong> est ce que le moi refuse de reconnaître en lui, l'instinct refoulé, la part jugée basse ou inavouable, qui remonte, disait Jung, jusqu'à nos ancêtres animaux. Le <strong>Soi</strong>, enfin, désigne la totalité de la psyché, le conscient et l'inconscient réunis, ce centre plus vaste vers lequel tend le lent travail d'une vie. La persona regarde vers le dehors, l'ombre vers le refoulé, le Soi vers l'unité. Ces trois-là sont eux-mêmes des archétypes.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Trois renversements</h2>
+    <p>Le test ne se contente pas de simplifier l'archétype. Il en retourne, un à un, les traits essentiels ; et il vaut la peine de suivre ce retournement de près, car chaque fois quelque chose de précis se perd dans le passage.</p>
+
+    <p>Le <strong>premier renversement</strong> change l'universel en distinction. L'archétype est collectif par définition, il est ce qui nous relie, la part de nous identique à toutes les autres. Le test en fait un signe particulier. Il vous annonce que votre animal est peu répandu, que vous appartenez à une minorité choisie, que votre profil sort de l'ordinaire. Il prend donc ce qu'il y a de plus partagé dans la psyché et vous le revend comme ce que vous auriez de plus singulier. De l'universel, il tire un compliment. C'est le renversement le plus visible, et déjà le plus révélateur : ce qui devait nous inscrire dans l'humanité commune sert à nous en distinguer.</p>
+
+    <p>Le <strong>deuxième</strong> fige en identité ce qui n'était que surgissement. Chez Jung, l'animal n'est pas ce que vous êtes, mais ce qui survient. Il apparaît en rêve, en vision, en fantasme ; et ce qu'il figure, c'est précisément l'instinct, la part non domestiquée que le moi conscient ne tient pas en main. L'animal du rêve est un événement, une intrusion, parfois une inquiétude ; il vient de plus loin que nous et ne se laisse pas ranger. Le test, lui, en fait un trait de caractère stable, un accessoire de personnalité : vous êtes un renard, comme on dirait votre pointure. Il immobilise ce qui, dans l'expérience vécue, était mouvement et venue. La manière dont ces figures montent en rêve, l'essai <a href="les-reves.html">Les rêves</a> la travaille pour elle-même ; retenons seulement ici que le rêve, chez Jung, ne confirme pas l'image qu'on a de soi : il la dérange.</p>
+
+    <p>Le <strong>troisième</strong> est le plus fin. Ce que le test décrit, en vérité, n'est pas un archétype : c'est une persona. Un masque avantageux, « audacieux et visionnaire », « intelligent et stratège », l'image aimable qu'on aime donner de soi. Or l'archétype animal, dans l'œuvre de Jung, tient plutôt de l'ombre : de l'instinct refoulé, de ce que le moi ne veut pas voir. Le test prend la porte la plus flatteuse là où Jung invitait à descendre vers l'inconfort. Gardons-nous pourtant du contresens inverse : l'ombre n'est pas le « côté obscur », le méchant tapi au fond. Jung y voyait aussi des instincts sains, des réactions justes, des forces créatrices, tout un vivant qu'on avait refoulé faute de savoir qu'en faire. Mais le test ne descend pas jusque-là. Il vend de la persona sous l'étiquette de l'archétype, et manque ainsi des deux côtés à la fois, l'inavouable et le vivant. Ce que la tradition du nafs fait de cette ombre, l'essai <a href="ombre-et-nafs.html">L'ombre et le nafs</a> le reprend de son côté.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 480 300" role="img" aria-label="Une même figure, deux usages opposés">
+        <circle cx="240" cy="48" r="40" class="d-accent" opacity="0.18"/>
+        <text x="240" y="44" text-anchor="middle" class="d-accent" font-size="15">L'archétype</text>
+        <text x="240" y="64" text-anchor="middle" class="d-soft" font-size="11" font-style="italic">une forme commune</text>
+        <line x1="212" y1="78" x2="120" y2="150" class="s-rule" stroke-width="1.5"/>
+        <line x1="268" y1="78" x2="360" y2="150" class="s-rule" stroke-width="1.5"/>
+        <rect x="30" y="150" width="180" height="88" rx="14" class="d-accent" opacity="0.12"/>
+        <text x="120" y="176" text-anchor="middle" class="d-ink" font-size="16">Le test</text>
+        <text x="120" y="198" text-anchor="middle" class="d-soft" font-size="11.5" font-style="italic">un verdict qui referme</text>
+        <text x="120" y="218" text-anchor="middle" class="d-soft" font-size="11.5">rare · fixe · flatteur</text>
+        <rect x="270" y="150" width="180" height="88" rx="14" class="d-accent" opacity="0.12"/>
+        <text x="360" y="176" text-anchor="middle" class="d-ink" font-size="16">Jung</text>
+        <text x="360" y="198" text-anchor="middle" class="d-soft" font-size="11.5" font-style="italic">une question qui ouvre</text>
+        <text x="360" y="218" text-anchor="middle" class="d-soft" font-size="11.5">commun · surgissant · exigeant</text>
+      </svg>
+      <figcaption>Une même figure, deux usages opposés. Le test en fait une réponse sur soi ; Jung, une question à traverser.</figcaption>
+    </figure>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>La part de Jung</h2>
+    <p>On aimerait s'en tenir là : d'un côté Jung, de l'autre les marchands de tests qui l'auraient trahi. Ce serait trop commode, et ce serait faux. Car la récupération n'est pas tombée du ciel : elle prend appui sur Jung lui-même.</p>
+
+    <p>En 1921, il publie <em>Types psychologiques</em>. Il y entreprend de classer les manières d'être : l'introverti et l'extraverti, puis quatre fonctions, la pensée, le sentiment, la sensation, l'intuition. C'est de ce livre que descend, une génération plus tard, le test de personnalité le plus répandu du monde. Entre les années 1940 et 1960, Katharine Briggs et sa fille Isabel Myers en tirent le MBTI, ces seize types en quatre lettres qu'on s'échange aujourd'hui comme des cartes à collectionner. La filiation est directe, il faut le reconnaître : le goût de classer était bien chez Jung, on ne peut pas le laver de ses héritiers.</p>
+
+    <p>Et pourtant la trahison est là aussi, précise et vérifiable. Jung tenait ces fonctions pour des tendances continues, des inclinations graduelles, et non pour des cases où l'on tomberait une fois pour toutes. Couper l'axe en son milieu afin d'obtenir seize types nets, ce geste est de Briggs et Myers, non de lui. Surtout, il s'opposait ouvertement à ce qu'on fasse de la typologie une étiquette d'identité fixe, et plus encore à ce qu'on l'emploie pour trier ou sélectionner les gens. Ce que le test moderne réussit le mieux, vous ranger dans une case et vous dire <em>voilà qui vous êtes</em>, est très exactement ce que Jung récusait. La caricature se réclame de lui tout en le contredisant.</p>
+
+    <p>Un mot d'honnêteté s'impose ici. Tout ce qui précède reste la pensée de Jung, non un acquis de la psychologie d'aujourd'hui. L'inconscient collectif est, de son propre aveu, le concept qui lui a valu le plus de malentendus ; la recherche contemporaine demeure réservée sur les archétypes comme sur l'hérédité supposée de ces formes. Quant aux tests de type, les études mesurent leur fragilité, une part notable des gens changeant de résultat en quelques semaines. Nous parlons donc d'une vision de l'âme, féconde et profonde, et non d'un savoir démontré. C'est beaucoup ; ce n'est pas la même chose, et l'essai n'a aucun intérêt à confondre les deux.</p>
+
+    <h2><span class="sep"><span class="mark">❦</span></span>Ce que le test cherche sans le savoir</h2>
+    <p>Reste une question, plus intéressante que la correction elle-même : pourquoi ce test fonctionne-t-il ? Pourquoi l'animal nous parle-t-il encore ?</p>
+
+    <p>Parce qu'il répond à un besoin réel, et que Jung, le premier, prenait ce besoin au sérieux : se comprendre, se donner de soi une image qu'on puisse tenir, poser sur sa propre vie un mot qui apaise. Il y a dans ces objets une trace de l'original. Si la figure animale touche encore, c'est qu'elle garde un peu de la force que le commerce exploite sans la comprendre ; elle fonctionne comme un mot déformé qui garderait, malgré l'usure, l'écho de sa racine.</p>
+
+    <p>Mais c'est dans sa promesse que se découvre enfin toute la distance. Le test promet de vous dire qui vous êtes. Il vous rend une réponse, un animal, une case, un pourcentage, et l'affaire est close, on peut la partager. Or l'archétype, tel que Jung l'entendait, ne fait précisément pas cela : il ne donne pas de réponse sur soi, il ouvre une question. L'animal totem referme, le voilà, c'est vous. L'animal du rêve inquiète : il revient sans qu'on l'appelle, il ne ressemble pas à l'image qu'on se faisait de soi, il demande à être compris bien plus qu'à être exhibé.</p>
+
+    <p>Toute la différence tient là, entre se divertir de soi et se connaître. Le premier flatte et rassure, le second dérange et travaille. L'âme, chez Jung, n'a pas de rareté à faire valoir, car elle n'est pas un signe distinctif : elle est le fond commun où chacun descend seul. Ce que le test vend comme une exception, l'archétype le rend comme une tâche. Et une tâche, à la différence d'un verdict, ne se referme jamais tout à fait.</p>
+
+    <p class="engage">Une objection, une idée, une lecture différente à proposer ? <a href="mailto:contact@majma.me">Écrivez à la revue</a>, chaque retour compte.</p>
+
+    <div class="further">
+      <h3>Pour aller plus loin</h3>
+      <ul>
+        <li>C. G. Jung, <em>Les Types psychologiques</em> (Georg, 1921 ; trad. fr. Y. Le Lay), à la source de la typologie.</li>
+        <li>C. G. Jung, <em>Les Racines de la conscience</em> et <em>Aïon</em>, sur les archétypes et l'inconscient collectif.</li>
+        <li>C. G. Jung (dir.), <em>L'Homme et ses symboles</em> (Robert Laffont, 1964), l'exposé le plus accessible, écrit pour un large public.</li>
+        <li>Sur la fragilité des tests de type : J. M. Pittenger, « Cautionary comments regarding the Myers-Briggs Type Indicator », <em>Consulting Psychology Journal</em>, 2005.</li>
+        <li>Dans la revue : <a href="jung-en-dix-minutes.html">Jung en dix minutes</a>, <a href="ombre-et-nafs.html">L'ombre et le nafs</a> et <a href="les-reves.html">Les rêves</a>.</li>
+      </ul>
     </div>
-  </details>
-</div>
+    <p class="essay-footer-nav"><a class="backlink" href="index.html">← Accueil</a><a class="essay-next" href="ombre-et-nafs.html">Suite · <em>L'ombre et le nafs</em> →</a></p>
+  </div>
+</article>
+
 <footer class="site-footer">
-  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:72px;width:auto"></a>
+  <a class="foot-brand" href="index.html"><img class="foot-logo" src="logo.png" alt="Majmaʿ" style="height:76px;width:auto"></a>
   <nav class="foot-nav">
-    <a href="index.html">Accueil</a>
     <a href="le-coran.html">Les textes</a>
     <a href="lame.html">L'âme</a>
     <a href="le-sens.html">Le sens</a>
-    <a href="glossaire.html">Glossaire</a>
-    <a href="carte.html">Carte</a>
     <a href="apropos.html">À propos</a>
+    <a href="methode.html">Méthode</a>
+    <a href="glossaire.html">Glossaire</a>
+    <a href="figures.html">Figures</a>
+    <a href="carte.html">Carte</a>
   </nav>
-  <p class="foot-copy">© 2026 Majmaʿ · revue de philosophie islamique, psychologie jungienne et pensée comparée.</p>
+  <p>Écrire à la revue : <a href="mailto:contact@majma.me">contact@majma.me</a></p>
+  <p class="copy">© 2026 Majmaʿ · revue d'idées.</p>
 </footer>
-<script>
-var DATA=[];
-(function(){
-  var inp=document.getElementById('srch');
-  var res=document.getElementById('sr');
-  if(!inp||!res)return;
-  inp.addEventListener('input',function(){
-    var q=inp.value.trim().toLowerCase();
-    if(!q){res.innerHTML='';return;}
-    var hits=DATA.filter(function(d){
-      return d.title.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)||d.tag.toLowerCase().includes(q);
-    }).slice(0,8);
-    res.innerHTML=hits.map(function(d){
-      return '<a class="sr-item" href="'+d.href+'"><span class="sr-title">'+d.title+'</span><span class="sr-tag">'+d.tag+'</span></a>';
-    }).join('');
-  });
-})();
-var bar=document.getElementById("progress");
-function upd(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;if(bar)bar.style.width=(m>0?(h.scrollTop/m)*100:0)+"%";}
-document.addEventListener("scroll",upd,{passive:true});
-function makeExclusive(sel){
-  document.querySelectorAll(sel).forEach(function(d){
-    d.addEventListener('toggle',function(){
-      if(d.open) document.querySelectorAll(sel).forEach(function(o){if(o!==d)o.open=false;});
-    });
-  });
-}
-
-</script>
 
 <script>
-// Blur Fade pour les essais
-(function(){
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.style.opacity='1';
-        e.target.style.filter='blur(0)';
-        e.target.style.transform='translateY(0)';
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:.05});
-  document.querySelectorAll('.erow').forEach(function(el,i){
-    el.style.opacity='0';
-    el.style.filter='blur(4px)';
-    el.style.transform='translateY(8px)';
-    el.style.transition='opacity .5s ease '+(i%6*.05)+'s, filter .5s ease '+(i%6*.05)+'s, transform .5s ease '+(i%6*.05)+'s';
-    obs.observe(el);
-  });
-})();
-</script>
-<script src="icons.js"></script>
-<script src="read-tracker.js"></script>
-<script src="rubrique-progress.js"></script>
-
-<script src="parcours.js"></script>
-<script>
-/* Les hints sont declares une seule fois, dans parcours.js. On les affiche ici
-   sous chaque titre pour qu'un essai n'ait pas a etre ouvert pour etre choisi. */
-(function(){
-  if(!window.MAJMA_PATHS)return;
-  var hint={};
-  function collect(o){Object.keys(o).forEach(function(k){
-    (o[k].steps||[]).forEach(function(s){if(s.h)hint[s.href]=s.h;});
-  });}
-  collect(window.MAJMA_PATHS);
-  if(window.MAJMA_SERIES)collect(window.MAJMA_SERIES);
-
-  document.querySelectorAll('a.erow').forEach(function(a){
-    var slug=(a.getAttribute('href')||'').replace(/\.html$/,'');
-    var h=hint[slug];
-    if(!h)return;
-    var t=a.querySelector('.erow-title');
-    if(!t||a.querySelector('.erow-hint'))return;
-    var body=document.createElement('span');
-    body.className='erow-body';
-    t.parentNode.insertBefore(body,t);
-    body.appendChild(t);
-    var p=document.createElement('span');
-    p.className='erow-hint';
-    p.textContent=h;
-    body.appendChild(p);
-  });
-})();
+  const bar=document.getElementById('progress');
+  const update=()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';};
+  document.addEventListener('scroll',update,{passive:true});update();
 </script>
 </body>
 </html>

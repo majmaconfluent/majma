@@ -54,6 +54,7 @@
       steps: [
         { href:'la-fitra', t:'La fiṭra et la dignité', min:5, h:'Ce qui est inscrit en nous avant toute culture.' },
         { href:'jung-en-dix-minutes', t:'Ce qui agit sans qu\'on le sache', min:8, h:'Jung : l\'inconscient, les archétypes, le Soi.' },
+        { href:'l-archetype-et-l-animal', t:'L\'archétype et l\'animal totem', min:10, h:'Ce que les tests d\'archétype animal font dire à Jung, et ce qu\'il disait vraiment.' },
         { href:'trois-portes-pour-la-meme-piece', t:'Trois portes pour la même pièce', min:6, h:'Devant une même hésitation, Freud, Jung et Adler n\'auraient pas regardé au même endroit.' },
         { href:'ombre-et-nafs', t:'L\'ombre et le nafs', min:9, h:'Ce que Jung et le Coran disent de la même réalité.' },
         { href:'le-coeur', t:'Le cœur', min:5, h:'Le qalb, organe de la compréhension, pas seulement des émotions.' },
@@ -162,6 +163,7 @@
   {id:"ce-qui-arrete",             t:"Ce qui arrête",                       g:"sens"},
   {id:"je-et-tu",                  t:"Je et Tu",                            g:"ame"},
   {id:"jung-en-dix-minutes",       t:"Ce qui agit sans qu'on le sache",     g:"ame"},
+  {id:"l-archetype-et-l-animal",   t:"L'archétype et l'animal totem",       g:"ame"},
   {id:"le-moi-et-son-image", t:"Le moi et son image", g:"ame"},
   {id:"trois-portes-pour-la-meme-piece",t:"Trois portes pour la même pièce",g:"ame"},
   {id:"la-source-et-le-fleuve",    t:"La source et le fleuve",              g:"lire"},
